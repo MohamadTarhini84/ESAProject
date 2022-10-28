@@ -246,6 +246,53 @@ form .txt_field{
 
 
 
+
+/* ------PATIENT SIGN UP STYLE------ */
+
+
+
+
+#patient-signup{
+    background-color: #eee;
+    width:300px;
+    height:450px;
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: center;
+    border-radius: 10px;
+    margin:10px auto;
+    box-shadow: 0px 0px 30px -10px black;
+    position:relative;
+}
+
+#patient-signup h1{
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+#patient-form{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top:10px;
+}
+
+#patient-form>div{
+    display:flex;
+    flex-direction: column;
+}
+
+#patient-signup input[type="submit"]{
+    position:absolute;
+    bottom:25px;
+    right:20px;
+}
+
+
+
+
 /* ------MEDIA QUERIES------ */
 
 
@@ -421,4 +468,12 @@ form .txt_field{
         width: 120px;
     }
     
+    #patient-signup{
+        width:200px;
+        height:550px;
+    }
+    #patient-signup input[type="submit"]{
+        bottom:5px;
+        right:5px;
+    }
 }
