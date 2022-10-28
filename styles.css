@@ -16,7 +16,7 @@ body{
     background-image: url("Resources/Images/body-background.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 200vh;
+    height: 100vh;
     align-items: center;
     flex-direction: column;
 }
@@ -233,6 +233,9 @@ form .txt_field{
     width:200px;
     height:25px;
     margin:5px 0px;
+    border:1px solid gray;
+    border-radius: 2px;
+    box-shadow: 2px 4px 5px -2px black;
 }
 
 #doctor-signup input[type="submit"]{
@@ -240,6 +243,7 @@ form .txt_field{
     bottom:25px;
     right:65px;
 }
+
 
 
 /* ------MEDIA QUERIES------ */
@@ -253,6 +257,9 @@ form .txt_field{
         justify-content: center;
     }
 
+    body{
+        height:max(150vh, 1000px);
+    }
     
     #logo-link{
         display:flex;
@@ -402,8 +409,9 @@ form .txt_field{
         font-size: 10px;
     }
     #doctor-signup input[type="submit"]{
-        bottom:5px;
-        right:5px;
+        bottom:8px;
+        right:8px;
+        margin:0;
     }
     #double{
         flex-direction: column;
