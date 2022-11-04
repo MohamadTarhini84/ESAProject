@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="styles.css"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,120 +10,36 @@
 <body>
     <header>
         <div id="signin-logo">
-            <a><img src="/Resources/Images/logo.png" width="20%" height="30%"></a>
+            <a><img src="./Resources/Images/logo.png"></a>
         </div>
     </header>
 
-    <div class="center">
-        <h1>Are you a patient or a doctor?</h1>
-        <div id="prompt">
-            <div id="patient"><img src="/Resources/Images/patient.jpg"></div>
-            <div id="doctor"><img src="/Resources/Images/doctor.jpg"></div>
-        </div>
+    <div class="center-choose">
+            <h1>Are you a patient or a doctor?</h1>
+            <div id="prompt">
+                <div id="patient"><img src="./Resources/Images/patient.jpg"></div>
+                <div id="doctor"><img src="./Resources/Images/doctor.jpg"></div>
+                <div id="prompt-buttons">
+                    <input type="button" value="Patient" class="submit">
+                    <input type="button" value="Doctor" class="submit">
+                </div>
+            </div>
       </div>
 
-    <footer>
-        <div id="footer-container">
+    <div id="footer">
           <div id="left">
-            <a><img src="/Resources/Images/logo.png" id="img"></a>
+            <a id="logo-link"><img src="./Resources/Images/logo.png" id="img"></a>
             <div id="quick-links">
-                <a href="#"><img src="/Resources/Images/facebook-logo.png" width="30px" height="30px"></a>
-                <a href="#"><img src="/Resources/Images/instagram-logo.png" width="30px" height="30px"></a>
-                <a href="#"><img src="/Resources/Images/linkedin-logo.png" width="30px" height="30px"></a>
-                <a href="#"><img src="/Resources/Images/twitter-logo.png" width="35px" height="35px"></a> 
+                <a href="#"><img src="./Resources/Images/facebook-logo.png" width="30px" height="30px"></a>
+                <a href="#"><img src="./Resources/Images/instagram-logo.png" width="30px" height="30px"></a>
+                <a href="#"><img src="./Resources/Images/linkedin-logo.png" width="30px" height="30px"></a>
+                <a href="#"><img src="./Resources/Images/twitter-logo.png" width="35px" height="35px"></a> 
             </div>
           </div>
-            <div id="right">
-                <p>Contact us at: <a>moudi55.mt@gmail.com</a></p>
-            </div>
+          <div id="right">
+              <p>Contact us at: <a>moudi55.mt@gmail.com</a></p>
+          </div>
         </div>
-    </footer>
     
 </body>
-<style>
-    *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-body{
-    display:block;
-    margin: 0;
-    padding: 0;
-    background-image: url("Resources/Images/body-background.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    justify-content: center;
-}
-
-#signin-logo{
-    margin-left: 44.5%;
-}
-
-.center{
-    background-color: #eee;
-    width:50%;
-    height:60%;
-    justify-content: center;
-    text-align: center;
-    border-radius: 10px;
-    margin:10px auto;
-    box-shadow: 0px 0px 30px -10px black;
-}
-
-.center h1{
-    text-align: center;
-    padding: 20px 0;
-    border-bottom: 1px solid silver;
-}
-
-#prompt{
-    display:flex;
-    justify-content: space-evenly;
-    margin-top:40px;
-}
-#prompt>div{
-    height:210px;
-    box-shadow: 0px 0px 30px -5px black;
-}
-
-#footer-container{
-    width:100%;
-    position:absolute;
-    bottom:0;
-    display:flex;
-    justify-content: space-between;
-}
-
-#img{
-    width:40%;
-}
-
-#quick-links>a{
-    margin-left:10px;
-}
-
-#right{
-    display:flex;
-    align-items: flex-end;
-}
-
-@media (max-width: 767px) {
-    #signin-logo{
-        margin-left:38%;
-        width:400px;
-    }
-
-    .center{
-        width:220px;
-        height:280px;
-    }
-    .center>h1{
-        font-size: 15px;
-    }
-}
-</style>
 </html>
