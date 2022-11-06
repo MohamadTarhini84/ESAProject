@@ -36,6 +36,7 @@
         }
         #lower{
             width:100%;
+            height:auto;
             background-color: rgba(0,0,255, 1);
             border-radius: 10px;
             display:flex;
@@ -65,15 +66,12 @@
 
 
         @media (max-width:638px){
-            #search-container{
-                height:250px;
-            }
             form{
                 flex-direction: column;
                 height: 80%;
             }
             #upper{
-                height:10%;
+                height:15%;
                 width:100%;
                 background-color: transparent;
                 display:flex;
@@ -109,7 +107,7 @@
     <div id="search-container">
         <div id="upper">
             <div id="head-1" class="heading btn btn-primary" onclick="clickFind()">Find a doctor</div>
-            <div id="head-2" class="heading btn btn-primary opacity-50" onclick="clickName()">Search by name</div>
+            <div id="head-2" class="heading btn btn-light" onclick="clickName()">Search by name</div>
         </div>
         <div id="lower" class="bg-primary">
             <div id="option-1" style="display:flex">
@@ -134,13 +132,13 @@
         document.getElementById("option-1").setAttribute("style","display:flex");
         document.getElementById("head-1").setAttribute("class","heading btn btn-primary");
         document.getElementById("option-2").setAttribute("style","display:none");
-        document.getElementById("head-2").setAttribute("class","heading btn btn-primary opacity-50");
+        document.getElementById("head-2").setAttribute("class","heading btn btn-light");
     }
     function clickName(){
         document.getElementById("option-2").setAttribute("style","display:flex");
         document.getElementById("head-2").setAttribute("class","heading btn btn-primary");
         document.getElementById("option-1").setAttribute("style","display:none");
-        document.getElementById("head-1").setAttribute("class","heading btn btn-primary opacity-50");
+        document.getElementById("head-1").setAttribute("class","heading btn btn-light");
     }
 </script>
 </html>

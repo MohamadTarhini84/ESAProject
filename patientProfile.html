@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profiles.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div id="profile-info">
+        <div id="profile-picture">
+            <img src="./Resources/Images/logo.png" id="logo">
+        </div>
+        <div id="info" class="bg-primary">
+            <h5>Doctor's name</h5>
+            <p style="font-size:14px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto blanditiis fugit eaque 
+                consequatur eligendi, vero hic perferendis recusandae autem repudiandae placeat, 
+                consequuntur aliquam debitis, perspiciatis ratione voluptate quas praesentium nisi!</p>
+        </div>
+    </div>
+    <div id="container">
+        <div id="app-rev" style="margin:40px">
+            <div class="upper">
+                <label id="app" class="heading selected" onclick="clickApp()">My Appointments</label>
+                <label id="rev" class="heading" onclick="clickRev()">Posted Reviews</label>
+                <label id="edit" class="heading" onclick="clickEdit()">Edit Profile</label>
+            </div>
+            <div class="lower bg-light">
+                <div id="option-1">
+                    <div id="appointments">
+                        <div class="appointment">
+                            <div class="app-element">
+                                Appointment with: Dr bababa
+                            </div>
+                            <div class="app-element">
+                                Appointment Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus quaerat fuga asperiores. Fuga 
+                                vero, odio laborum, consectetur recusandae eveniet sed rerum laudantium in possimus error quae, voluptatem dolores eaque doloribus?
+                            </div>
+                            <div class="app-element">
+                                Date and Time : adadaddadad
+                            </div>
+                            <div>
+                                EDIT DELETE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="option-2" style="display:none">
+                    <button class="btn btn-primary" style="margin:20px;">Show More</button>
+                </div>
+                <div id="option-3" style="display:none">
+                    aa
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    
+    function clickApp(){
+        document.getElementById("option-1").setAttribute("style","display:flex");
+        document.getElementById("app").setAttribute("class","heading selected");
+        document.getElementById("option-2").setAttribute("style","display:none");
+        document.getElementById("rev").setAttribute("class","heading");
+        document.getElementById("option-3").setAttribute("style","display:none");
+        document.getElementById("edit").setAttribute("class","heading");
+    }
+    function clickRev(){
+        document.getElementById("option-1").setAttribute("style","display:none");
+        document.getElementById("app").setAttribute("class","heading");
+        document.getElementById("option-2").setAttribute("style","display:flex");
+        document.getElementById("rev").setAttribute("class","heading selected");
+        document.getElementById("option-3").setAttribute("style","display:none");
+        document.getElementById("edit").setAttribute("class","heading");
+    }
+    function clickEdit(){
+        document.getElementById("option-1").setAttribute("style","display:none");
+        document.getElementById("app").setAttribute("class","heading");
+        document.getElementById("option-2").setAttribute("style","display:none");
+        document.getElementById("rev").setAttribute("class","heading");
+        document.getElementById("option-3").setAttribute("style","display:flex");
+        document.getElementById("edit").setAttribute("class","heading selected");
+    }
+</script>
+</html>
