@@ -30,7 +30,7 @@
                 <label id="edit" class="heading" onclick="clickEdit()">Edit Profile</label>
             </div>
             <div class="lower bg-light">
-                <div id="option-1">
+                <div id="patient-option-1">
                     <div id="appointments">
                         <div class="appointment">
                             <div class="app-element">
@@ -49,11 +49,71 @@
                         </div>
                     </div>
                 </div>
-                <div id="option-2" style="display:none">
-                    <button class="btn btn-primary" style="margin:20px;">Show More</button>
+                <div id="patient-option-2" style="display:none">
+                    <div class="review">
+                        <div class="review-container">
+                            <div class="quotes">
+                                "
+                            </div>
+                            <div class="review-bg">
+                                <div class="review-pic"></div>
+                                <div class="review-element" id="review-1st">
+                                    Review of: Dr bababa
+                                </div>
+                                <div class="review-element">
+                                    Star rating
+                                </div>
+                                <div class="review-element">
+                                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
+                                   accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
+                                   Possimus laudantium dignissimos ipsum quos at tempora recusandae! Repudiandae, rerum corrupti?
+                                </div>
+                                EDIT DELETE
+                            </div>
+                            <div class="quotes">
+                                "
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="margin:20px; width:20%">Show More</button>
                 </div>
-                <div id="option-3" style="display:none">
-                    aa
+                <div id="patient-option-3" style="display:none">
+                    <div class="edit-container">
+                            <form id="form-edit">
+                                <label>Change Name:</label>
+                                <div class="form-element">
+                                    <input type="text" class="form-control">
+                                    <button class="btn btn-primary">Change</button>
+                                </div>
+                                <label>Change Email:</label>
+                                <div class="form-element">
+                                    <input type="email" class="form-control">
+                                    <button class="btn btn-primary">Change</button>
+                                </div>
+                                <label>Change Password:</label>
+                                <div class="form-element">
+                                    <input type="password" class="form-control">
+                                    <button class="btn btn-primary">Change</button>
+                                </div>
+                                <label>Change Phone Number:</label>
+                                <div class="form-element">
+                                    <input type="number" class="form-control">
+                                    <button class="btn btn-primary">Change</button>
+                                </div>
+                                <label>Change Profile Description:</label>
+                                <div class="form-element">
+                                    <input type="text" class="form-control">
+                                    <button class="btn btn-primary">Change</button>
+                                </div>
+                            </form>
+                        <div class="edit-profile">
+                            <label style="font-size:15px;text-decoration:underline">Change Profile Picture:</label>
+                            <div class="edit-profile-pic">
+
+                            </div>
+                            <input type="file">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,27 +122,27 @@
 <script>
     
     function clickApp(){
-        document.getElementById("option-1").setAttribute("style","display:flex");
+        document.getElementById("patient-option-1").setAttribute("style","display:flex");
         document.getElementById("app").setAttribute("class","heading selected");
-        document.getElementById("option-2").setAttribute("style","display:none");
+        document.getElementById("patient-option-2").setAttribute("style","display:none");
         document.getElementById("rev").setAttribute("class","heading");
-        document.getElementById("option-3").setAttribute("style","display:none");
+        document.getElementById("patient-option-3").setAttribute("style","display:none");
         document.getElementById("edit").setAttribute("class","heading");
     }
     function clickRev(){
-        document.getElementById("option-1").setAttribute("style","display:none");
+        document.getElementById("patient-option-1").setAttribute("style","display:none");
         document.getElementById("app").setAttribute("class","heading");
-        document.getElementById("option-2").setAttribute("style","display:flex");
+        document.getElementById("patient-option-2").setAttribute("style","display:flex");
         document.getElementById("rev").setAttribute("class","heading selected");
-        document.getElementById("option-3").setAttribute("style","display:none");
+        document.getElementById("patient-option-3").setAttribute("style","display:none");
         document.getElementById("edit").setAttribute("class","heading");
     }
     function clickEdit(){
-        document.getElementById("option-1").setAttribute("style","display:none");
+        document.getElementById("patient-option-1").setAttribute("style","display:none");
         document.getElementById("app").setAttribute("class","heading");
-        document.getElementById("option-2").setAttribute("style","display:none");
+        document.getElementById("patient-option-2").setAttribute("style","display:none");
         document.getElementById("rev").setAttribute("class","heading");
-        document.getElementById("option-3").setAttribute("style","display:flex");
+        document.getElementById("patient-option-3").setAttribute("style","display:flex");
         document.getElementById("edit").setAttribute("class","heading selected");
     }
 </script>
