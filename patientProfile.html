@@ -23,89 +23,100 @@
         </div>
     </div>
     <div id="container">
-        <div id="app-rev" style="margin:40px">
+        <div id="appointments" style="margin:40px">
             <div class="upper">
-                <label id="app" class="heading selected" onclick="clickApp()">My Appointments</label>
-                <label id="rev" class="heading" onclick="clickRev()">Posted Reviews</label>
-                <label id="edit" class="heading" onclick="clickEdit()">Edit Profile</label>
+                <label class="app">My Appointments</label>
             </div>
-            <div class="lower bg-light">
-                <div id="patient-option-1">
-                    <div id="appointments">
-                        <div class="appointment">
-                            <div class="app-element">
-                                Appointment with: Dr bababa
+            <div class="lower-patient">
+                <div class="appointment">
+                    <div class="app-element">
+                        Appointment with: Dr bababax
+                    </div>
+                    <div class="app-element">
+                        Appointment Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus quaerat fuga asperiores. Fuga 
+                        vero, odio laborum, consectetur recusandae eveniet sed rerum laudantium in possimus error quae, voluptatem dolores eaque doloribus?
+                    </div>
+                    <div class="app-element">
+                        Date and Time : adadaddadad
+                    </div>
+                    <div>
+                        EDIT DELETE
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <hr style="width:100%;">
+        <div id="app-rev" style="margin:40px;width:100%">
+            <div class="upper">
+                <label class="app">Posted Reviews</label>
+            </div>
+            <div class="lower-patient">
+                <div class="review">
+                    <div class="review-container">
+                        <div class="quotes">
+                            <img src="./Resources/Images/quotes.png">
+                        </div>
+                        <div class="review-bg">
+                            <div class="review-pic"></div>
+                            <div class="review-element" id="review-1st">
+                                Review of: Dr bababa
                             </div>
-                            <div class="app-element">
-                                Appointment Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus quaerat fuga asperiores. Fuga 
-                                vero, odio laborum, consectetur recusandae eveniet sed rerum laudantium in possimus error quae, voluptatem dolores eaque doloribus?
+                            <div class="review-element">
+                                Star rating
                             </div>
-                            <div class="app-element">
-                                Date and Time : adadaddadad
+                            <div class="review-element" style="height:200px;overflow-y:auto;">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
+                                accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
+                                Possimus laudantium dignissimos ipsum quos at tempora recusandae! 
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
+                                accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
+                                Possimus laudantium dignissimos ipsum quos at tempora recusandae! 
+                                Repudiandae, rerum corrupti?Repudiandae, rerum corrupti?
                             </div>
-                            <div>
-                                EDIT DELETE
-                            </div>
+                            EDIT DELETE
+                        </div>
+                        <div class="quotes">
+                            <img src="./Resources/Images/quotes.png">
                         </div>
                     </div>
                 </div>
-                <div id="patient-option-2" style="display:none">
-                    <div class="review">
-                        <div class="review-container">
-                            <div class="quotes">
-                                "
-                            </div>
-                            <div class="review-bg">
-                                <div class="review-pic"></div>
-                                <div class="review-element" id="review-1st">
-                                    Review of: Dr bababa
-                                </div>
-                                <div class="review-element">
-                                    Star rating
-                                </div>
-                                <div class="review-element">
-                                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
-                                   accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
-                                   Possimus laudantium dignissimos ipsum quos at tempora recusandae! Repudiandae, rerum corrupti?
-                                </div>
-                                EDIT DELETE
-                            </div>
-                            <div class="quotes">
-                                "
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" style="margin:20px; width:20%">Show More</button>
-                </div>
-                <div id="patient-option-3" style="display:none">
+                <button class="btn" style="margin:20px; width:30%;background-color: #16a085;color:#f7f7f7">Show More</button>
+            </div>
+        </div>
+        <hr style="width:100%;">
+        <div id="edit-profile" style="margin:40px;width:100%">
+            <div class="upper">
+                <label class="app">Edit Profile</label>
+            </div>
+            <div class="lower-patient">
                     <div class="edit-container">
-                            <form id="form-edit">
-                                <label>Change Name:</label>
-                                <div class="form-element">
-                                    <input type="text" class="form-control">
-                                    <button class="btn btn-primary">Change</button>
-                                </div>
-                                <label>Change Email:</label>
-                                <div class="form-element">
-                                    <input type="email" class="form-control">
-                                    <button class="btn btn-primary">Change</button>
-                                </div>
-                                <label>Change Password:</label>
-                                <div class="form-element">
-                                    <input type="password" class="form-control">
-                                    <button class="btn btn-primary">Change</button>
-                                </div>
-                                <label>Change Phone Number:</label>
-                                <div class="form-element">
-                                    <input type="number" class="form-control">
-                                    <button class="btn btn-primary">Change</button>
-                                </div>
-                                <label>Change Profile Description:</label>
-                                <div class="form-element">
-                                    <input type="text" class="form-control">
-                                    <button class="btn btn-primary">Change</button>
-                                </div>
-                            </form>
+                        <form id="form-edit">
+                            <label>Change Name:</label>
+                            <div class="form-element">
+                                <input type="text" class="form-control">
+                                <button class="btn">Change</button>
+                            </div>
+                            <label>Change Email:</label>
+                            <div class="form-element">
+                                <input type="email" class="form-control">
+                                <button class="btn">Change</button>
+                            </div>
+                            <label>Change Password:</label>
+                            <div class="form-element">
+                                <input type="password" class="form-control">
+                                <button class="btn">Change</button>
+                            </div>
+                            <label>Change Phone Number:</label>
+                            <div class="form-element">
+                                <input type="number" class="form-control">
+                                <button class="btn">Change</button>
+                            </div>
+                            <label>Change Profile Description:</label>
+                            <div class="form-element">
+                                <input type="text" class="form-control">
+                                <button class="btn">Change</button>
+                            </div>
+                        </form>
                         <div class="edit-profile">
                             <label style="font-size:15px;text-decoration:underline">Change Profile Picture:</label>
                             <div class="edit-profile-pic">
@@ -114,36 +125,13 @@
                             <input type="file">
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
+
+
+
 </body>
 <script>
-    
-    function clickApp(){
-        document.getElementById("patient-option-1").setAttribute("style","display:flex");
-        document.getElementById("app").setAttribute("class","heading selected");
-        document.getElementById("patient-option-2").setAttribute("style","display:none");
-        document.getElementById("rev").setAttribute("class","heading");
-        document.getElementById("patient-option-3").setAttribute("style","display:none");
-        document.getElementById("edit").setAttribute("class","heading");
-    }
-    function clickRev(){
-        document.getElementById("patient-option-1").setAttribute("style","display:none");
-        document.getElementById("app").setAttribute("class","heading");
-        document.getElementById("patient-option-2").setAttribute("style","display:flex");
-        document.getElementById("rev").setAttribute("class","heading selected");
-        document.getElementById("patient-option-3").setAttribute("style","display:none");
-        document.getElementById("edit").setAttribute("class","heading");
-    }
-    function clickEdit(){
-        document.getElementById("patient-option-1").setAttribute("style","display:none");
-        document.getElementById("app").setAttribute("class","heading");
-        document.getElementById("patient-option-2").setAttribute("style","display:none");
-        document.getElementById("rev").setAttribute("class","heading");
-        document.getElementById("patient-option-3").setAttribute("style","display:flex");
-        document.getElementById("edit").setAttribute("class","heading selected");
-    }
 </script>
 </html>

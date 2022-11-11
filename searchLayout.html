@@ -106,7 +106,7 @@
 <body>
     <div id="search-container">
         <div id="upper">
-            <div id="head-1" class="heading btn btn-primary" onclick="clickFind()">Find a doctor</div>
+            <div id="head-1" class="heading btn " onclick="clickFind()">Find a doctor</div>
             <div id="head-2" class="heading btn btn-light" onclick="clickName()">Search by name</div>
         </div>
         <div id="lower" class="bg-primary">
@@ -130,13 +130,13 @@
 <script>
     function clickFind(){
         document.getElementById("option-1").setAttribute("style","display:flex");
-        document.getElementById("head-1").setAttribute("class","heading btn btn-primary");
+        document.getElementById("head-1").setAttribute("class","heading btn ");
         document.getElementById("option-2").setAttribute("style","display:none");
         document.getElementById("head-2").setAttribute("class","heading btn btn-light");
     }
     function clickName(){
         document.getElementById("option-2").setAttribute("style","display:flex");
-        document.getElementById("head-2").setAttribute("class","heading btn btn-primary");
+        document.getElementById("head-2").setAttribute("class","heading btn ");
         document.getElementById("option-1").setAttribute("style","display:none");
         document.getElementById("head-1").setAttribute("class","heading btn btn-light");
     }

@@ -51,6 +51,12 @@ body{
     width:70%;
     height:auto;
     margin-top:30px;
+    background-color: #f7f7f7;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
 }
 
 
@@ -63,7 +69,6 @@ body{
     background-color: transparent;
     display:flex;
     justify-content: space-evenly;
-    padding-left: 20px;
 }
 .heading{
     height:100%;
@@ -96,6 +101,18 @@ body{
     border-radius: 10px;
     display:flex;
     justify-content: center;
+    border:1px solid silver;
+    box-shadow: 5px 5px 20px -5px black;
+}
+.lower-patient{
+    /* aspect-ratio: 3/2; */
+    width:70%;
+    height:auto;
+    border-radius: 10px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
     border:1px solid silver;
     box-shadow: 5px 5px 20px -5px black;
 }
@@ -161,20 +178,20 @@ label{
     display:flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding:20px;
     font-size:14px;
+    border-radius: 10px;
 }
 .appointment{
-    width:40%;
+    width:250px;
     height:300px;
-    background-color: #0275d8;
+    background-color: #16a085;
     display:flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;
     color:#f7f7f7;
-    margin:10px 0 10px 0;
+    margin:20px;
     box-shadow: 5px 5px 20px -5px black;
 }
 .app-element{
@@ -182,6 +199,15 @@ label{
     text-align: center;
     padding:10px;
     border-bottom: 1px solid silver;
+}
+.app{
+    width:200px;
+    text-align: center;
+    background-color: #16a085;
+    padding:5px 20px;
+    font-size: 20px;
+    color:#f7f7f7;
+    border-radius: 10px 10px 0 0;
 }
 
 
@@ -213,7 +239,7 @@ label{
 }
 .review-bg{
     width:100%;
-    background-color: #0275d8;
+    background-color: #16a085;
     display:flex;
     flex-direction: column;
     border-radius: 10px;
@@ -224,8 +250,8 @@ label{
 }
 .review-pic{
     aspect-ratio: 1/1;
-    width:30%;
-    background-color: #0275d8;
+    width:25%;
+    background-color: #16a085;
     border:3px solid #f7f7f7;
     border-radius: 100px;
     position:absolute;
@@ -260,6 +286,7 @@ label{
 .edit-container{
     width:100%;
     display:flex;
+    padding:10px;
     justify-content: space-between;
 }
 #form-edit{
