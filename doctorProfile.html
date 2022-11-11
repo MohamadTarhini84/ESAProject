@@ -31,31 +31,60 @@
             <div class="lower bg-light">
                 <div id="option-1">
                     <form id="form-app">
-                        <label>Available hours:</label>
+                        <span>Available hours:</span>
                         <div id="datetime" class="form-element">
-                            <input type="datetime-local" placeholder="Select Date (Optional)">
-                            <input type="datetime-local" placeholder="Select Date (Optional)">
+                            <input type="datetime-local" class="form-control" placeholder="Select Date (Optional)">
+                            <input type="datetime-local" class="form-control" placeholder="Select Date (Optional)">
                         </div>
                         <div class="form-element" style="flex-direction:column">
-                            <label style="margin-bottom:20px">Appointment description:</label>
-                            <textarea class="fields"></textarea>
+                            <span style="margin-bottom:20px">Appointment description:</span>
+                            <textarea class="fields form-control"></textarea>
                         </div>
                         <div id="texts" class="form-element" style="text-align:center">
-                            <div style="display:flex;flex-direction:column">
-                                <h4>Phone number:</h4>
-                                <h5>1234567890-</h5>
-                                <button type="button" id="call">Call</button>
+                            <div style="background-color: #f7f7f7;border-radius: 5px;padding:5px;">
+                                <span>Room number:</span> <br>
+                                <span>adadasdasdasd</span>
                             </div>
-                            <div>
-                                <h4>Room number:</h4>
-                                <h5>adadasdasdasd</h5>
+                            <div style="background-color: #f7f7f7;border-radius: 5px;padding:5px;">
+                                <span>Phone number:</span> <br>
+                                <span>1234567890-</span>
                             </div>
+                            <button type="button" id="call">Call</button>
                         </div>
-                        <button type="button" class="btn btn-primary text-light" style="width:180px;height:35px; align-self: center;">Make Appointment</button>
+                        <button type="button" class="btn btn-primary text-light" style="width:180px;height:35px; align-self: center; position:absolute; bottom:-15px">Make Appointment</button>
                     </form>
                 </div>
                 <div id="option-2" style="display:none">
-                    <button class="btn btn-primary" style="margin:20px;">Show More</button>
+                    <!-- <button class="btn btn-primary" style="margin:20px;">Show More</button> -->
+                    <div class="review">
+                        <div class="review-container">
+                            <div class="quotes">
+                                <img src="./Resources/Images/quotes.png">
+                            </div>
+                            <div class="review-bg">
+                                <div class="review-pic"></div>
+                                <div class="review-element" id="review-1st">
+                                    Review of: Dr bababa
+                                </div>
+                                <div class="review-element">
+                                    Star rating
+                                </div>
+                                <div class="review-element" style="height:200px;overflow-y:auto;">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
+                                    accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
+                                    Possimus laudantium dignissimos ipsum quos at tempora recusandae! 
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
+                                    accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
+                                    Possimus laudantium dignissimos ipsum quos at tempora recusandae! 
+                                    Repudiandae, rerum corrupti?Repudiandae, rerum corrupti?
+                                </div>
+                                EDIT DELETE
+                            </div>
+                            <div class="quotes">
+                                <img src="./Resources/Images/quotes.png">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,7 +93,7 @@
                 <label class="heading disabled">Leave Review</label>
             </div>
             <div class="lower bg-light">
-                <form>
+                <form id="review-form">
                     <div style="display:flex; justify-content: space-between;" class="form-element">
                         <h5 style="margin:0;">Would you like your review to be anonymous?</h5><input type="checkbox">
                     </div>
@@ -80,7 +109,7 @@
             </div>
         </div>
     </div>
-    
+    <img id="bg-logo" src="/Resources/Images/logo.png">
 </body><script>
     function clickBook(){
         document.getElementById("option-1").setAttribute("style","display:flex");
