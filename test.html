@@ -5,14 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./js/fullcalendar-5.11.3/lib/main.css">
+    <script src="./js/fullcalendar-5.11.3/lib/main.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div style="width:500px;height:500px">
         <canvas id="myChart"></canvas>
     </div>
+    <div id="calendar" style="width:500px;height:500px"></div>
 </body>
 <script>
+  document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+
     const labels = [
       'January',
       'February',

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newStyle.css">
+    <link rel="stylesheet" href="./js/fullcalendar-5.11.3/lib/main.css">
+    <script src="./js/fullcalendar-5.11.3/lib/main.js"></script>
+    <script src="https://kit.fontawesome.com/4c2b37abf9.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>        
+        document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth'
+                });
+                calendar.render();
+            });
+    </script>
+</head>
+<body>
+    <nav id="nav-bar">
+
+    </nav>
+    <div id="profile-container">
+        <div id="profile-info">
+            <div class="info-element">
+                <img src="/Resources/Images/doctor.jpg">
+            </div>
+            <div class="devider">
+                <div>personal info</div>
+                <div class="devider-line"></div>
+            </div>
+            <div class="info-element">
+                phone number and such
+            </div>
+            <div class="devider">
+                <div>work info</div>
+                <div class="devider-line"></div>
+            </div>
+            <div class="info-element">
+                room location and such
+            </div>
+        </div>
+        <div id="profile-details">
+            <div id="top-half">
+                <div id="first-row">
+                    <div id="name-specialty">
+                        <div id="doctor-name">
+                            <h1>batata 7arra</h1>
+                        </div>
+                        <div id="doctor-specialty">
+                            archeologist
+                        </div>
+                    </div>
+                    <button id="leave-review">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        Leave Review
+                    </button>
+                </div>
+                <div id="average-rating">
+                    <div>
+                        Rating:
+                    </div>
+                    <div id="rating">
+                        8.6 *****
+                    </div>
+                </div>
+                <div id="app-button">
+                    <input type="button" value="MAKE APPOINTMENT">
+                </div>
+            </div>
+            <div id="botton-half">
+                <div id="upper-section">
+                    <div class="upper-button">
+                        <input type="button" value="hours">
+                    </div>
+                    <div class="upper-button">
+                        <input type="button" value="reviews received">
+                    </div>
+                </div>
+                <div id="lower-section">
+                    <div id="option-1">
+                        <div id="calendar" style="width:100%"></div>
+                    </div>
+                    <div id="option-2" style="display:none">
+                        REVIEWS HERE
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
