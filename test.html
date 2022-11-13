@@ -63,12 +63,68 @@
     </div>
 </div> -->
 
+<!-- <div id="app-popup">
+    <div id="app-popup-upper">
+        <h3>Appointment Information</h3>
+        <p>X</p>
+    </div>
+    <div id="app-popup-lower">
+        <div id="app-popup-left">
+                <div class="left-input">
+                    <p>Choose day:</p>
+                    <input type="date">
+                </div> 
+                <div class=left-input>
+                    <p>Choose Time:</p>
+                    <input type="time">
+                </div>
+                <p>Appointment Description:</p>
+                <textarea placeholder="Description"></textarea>
+                <div id="left-buttons">
+                    <button class="app-desc" onclick="toggleApp()">Cancel</button>
+                    <button class="app-desc" onclick="toggleApp()">Make Appointment</button>
+                </div>
+        </div>
+        <div id="app-popup-right">
+            <div id="right-image">
+                <img src="/Resources/Images/doctor.jpg">
+            </div>
+            <div>
+                <div class="app-name">
+                    Dr. Batata ma2loube
+                </div>
+                <div class="app-info">
+                    archeologist
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
 
-
+<div id="edit-profile-popup">
+    <div id="edit-popup-left">
+        <div class="left-image">
+            <img src="/Resources/Images/doctor.jpg">
+        </div>
+        <div>
+            <div class="app-name">
+                Dr. Batata ma2loube
+            </div>
+            <div class="app-info">
+                archeologist
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 <style>
-
+.left-image img{
+    aspect-ratio: 1/1;
+    width: 100px;
+    border-radius: 500px;
+    border: 1px solid var(--green);
+}
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', function() {

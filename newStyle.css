@@ -43,22 +43,22 @@ body{
     /* border-right: 1px solid silver; */
     display:flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     padding:30px;
 }
 
 .info-element>img{
     aspect-ratio: 1/1;
+    margin:auto;
     margin-bottom:20px;
     text-align: left;
-    align-self: center;
-    width:100%;
+    width:80%;
     border-radius: 5px;
     border:2px solid var(--green);
 }
 
 .info-element{
+    width:100%;
     display:flex;
     justify-content: space-between;
     font-size: 12px;
@@ -281,16 +281,22 @@ body{
 
 .review-pic{
     aspect-ratio: 1/1;
-    width:25%;
-    background-color:var(--green);
-    border:3px solid var(--white);
-    border-radius: 100px;
+    width:100px;
     position:absolute;
     justify-self: center;
     align-self: center;
     top:-40px;
+    border-radius: 500px;
+}
+.review-pic img{
+    aspect-ratio: 1/1;
+    width: 100%;
+    border-radius: 500px;
+    border: 2px solid var(--green);
+    overflow: hidden;
     box-shadow: 5px 5px 20px -5px black;
 }
+
 
 #review-1st{
     margin-top: 20%;
@@ -314,6 +320,7 @@ body{
     border: none;
     background-color: transparent;
     color: var(--white);
+    flex:1 1 auto;
 }
 .review-button:hover,.app-button:hover{
     font-size: 16px;
@@ -392,8 +399,7 @@ body{
     border: none;
     background-color: transparent;
     color: var(--green);
-    margin-top: 5px;;
-    flex:1 1 auto;
+    margin-top: 5px;
 }
 .app-button:hover{
     font-size: 16px;
@@ -410,6 +416,7 @@ body{
     padding: 5px;
     border: none;
     border-radius: 5px;
+    font-size: 12px;
 }
 .app-desc:hover{
     cursor: pointer;
@@ -486,6 +493,7 @@ body{
     width:100%;
     height:100px;
     border:1px dashed black;
+    resize: none;
 }
 
 #rp-logo>img{
@@ -518,4 +526,105 @@ body{
 #rp-buttons{
     display: flex;
     justify-content: right;
+}
+
+.app-popup{
+    width:700px;
+    height: 400px;
+    display:flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid black;
+    position: fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 5px 30px rgba(0 0 0 0.3);
+    background: var(--white);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.app-popup.active{
+    top:50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;   
+}
+
+#app-popup-upper{
+    height:50px;
+    display:flex;
+    justify-content: space-between;
+    border-bottom: 1px solid silver;
+    padding:0 20px;
+    background-color: #16a085;
+    color: #f7f7f7;
+    align-items: center;
+}
+
+.fa-xmark:hover{
+    scale: 1.5;
+    color: red;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+#app-popup-lower{
+    height: 100%;
+    display:flex;
+}
+
+#app-popup-left{
+    border-right: 1px solid silver;
+    padding:20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+} 
+
+#app-popup-left textarea{
+    width:450px;
+    height: 80px;
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid silver;
+    padding:10px;
+}
+
+#app-popup-right{
+    padding:20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.left-input{
+    width:80%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.left-input>input{
+    width:200px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid silver;
+}
+
+#left-buttons{
+    display:flex;
+    justify-content: right;
+    margin:10px 0;
+    font-size: 10px;
+}
+
+.right-image img{
+    aspect-ratio: 1/1;
+    width: 100px;
+    border-radius: 500px;
+    border: 1px solid var(--green);
 }

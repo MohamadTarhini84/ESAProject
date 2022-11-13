@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="./js/fullcalendar-5.11.3/lib/main.css">
     <script src="./js/fullcalendar-5.11.3/lib/main.js"></script>
     <script src="https://kit.fontawesome.com/4c2b37abf9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <title>Document</title>
     <script>        
         document.addEventListener('DOMContentLoaded', function() {
@@ -22,9 +25,35 @@
 </head>
 <body>
 <div id="page">
-    <nav id="nav-bar">
+<nav class="navbar">
 
-    </nav>
+    <!-- navbar -->
+    <div class="boss">
+    
+        <nav class="navbar">
+            <div class="logo">MedCenter</div>
+            <a href="#" class="toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+        <div class="menu">
+            <ul>
+                <li><a href="">Home</a>  </li>
+                <li><a href="">Services</a>  </li>
+                <li><a href="">Book</a>  </li>
+                <li><a href="">Blog</a>  </li>
+                <li><a href="">Doctors</a>  </li>
+                <li><a href="">About</a>  </li>
+                <li><a href="">Contact</a>  </li>
+           
+            </ul>
+        </div>
+        <div class="navbutton">
+            <button class="login-butt">login</button>
+        </div>
+    </div> 
+</nav>
     <div id="profile-container">
         <div id="profile-info">
             <div class="info-element">
@@ -67,10 +96,16 @@
                     <div>
                         Room:
                     </div>
+                    <div>
+                        Licence card ID:
+                    </div>
                 </div>
                 <div class="info-element-div">
-                    <div id="room">
+                    <div>
                         131331s
+                    </div>
+                    <div>
+                        6255523
                     </div>
                 </div>
             </div>
@@ -104,7 +139,7 @@
                         <i class="fa-regular fa-star"></i>
                     </div>
                 </div>
-                <button id="app-button">
+                <button id="app-button" onclick="toggleApp()">
                     <i class="fa-solid fa-book-medical"></i>
                     Book Appointment
                 </button>
@@ -131,9 +166,11 @@
                                     <img src="./Resources/Images/quotes.png">
                                 </div>
                                 <div class="review-bg">
-                                    <div class="review-pic"></div>
+                                    <div class="review-pic">
+                                        <img src="./Resources/Images/patient.jpg">
+                                    </div>
                                     <div class="review-element" id="review-1st">
-                                        Review of: Dr bababa
+                                        Review by: Mr batata
                                     </div>
                                     <div class="review-element">
                                         <i class="fa-solid fa-star"></i>
@@ -156,7 +193,7 @@
                                             <i class="fa-solid fa-pen"></i>
                                             Edit
                                         </button>
-                                        <button class="review-button">
+                                        <button class="review-button" style="border-left:1px solid silver">
                                             <i class="fa-solid fa-trash"></i>
                                             Delete
                                         </button>
@@ -173,69 +210,106 @@
         </div>
     </div>
 </div>
-    <div class="review-popup">
-        <div id="rp-logo">
-           <img src="./Resources/Images/logo.png">
+<div class="app-popup">
+    <div id="app-popup-upper">
+        <h3>Appointment Information</h3>
+        <i onclick="toggleApp()" class="fa-solid fa-xmark"></i>
+    </div>
+    <div id="app-popup-lower">
+        <div id="app-popup-left">
+                <div class="left-input">
+                    <p>Choose day:</p>
+                    <input type="date">
+                </div> 
+                <div class=left-input>
+                    <p>Choose Time:</p>
+                    <input type="time">
+                </div>
+                <p>Appointment Description:</p>
+                <textarea placeholder="Description"></textarea>
+                <div id="left-buttons">
+                    <button class="app-desc" onclick="toggleApp()">Cancel</button>
+                    <button class="app-desc" onclick="toggleApp()" style="margin-right:0">Make Appointment</button>
+                </div>
         </div>
-        <div id="rp-text">
-           <h1>How was your experience?</h1>
-           <p>
-               Hello batata, <br>
-               We are constantly striving to improve and we'd love to hear your thoughts on service in general,
-               and our doctors in particular.
-           </p>
-        </div>
-        <div id="rp-ratings">
-           <div class="rp-rating">
-               <input type="radio" name="rating" required>
-               <div class="rp-stars">
-                    <i class="fa-solid fa-star"></i>
+        <div id="app-popup-right">
+            <div id="right-image">
+                <img src="/Resources/Images/doctor.jpg">
+            </div>
+            <div>
+                <div class="app-name">
+                    Dr. Batata ma2loube
+                </div>
+                <div class="app-info">
+                    archeologist
                 </div>
             </div>
-            <div class="rp-rating">
-                <input type="radio" name="rating" required>
-                <div class="rp-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
+        </div>
+    </div>
+</div>
+<div class="review-popup">
+    <div id="rp-logo">
+        <img src="./Resources/Images/logo.png">
+    </div>
+    <div id="rp-text">
+        <h1>How was your experience?</h1>
+        <p>
+            Hello batata, <br>
+            We are constantly striving to improve and we'd love to hear your thoughts on service in general,
+            and our doctors in particular.
+        </p>
+    </div>
+    <div id="rp-ratings">
+        <div class="rp-rating">
+            <input type="radio" name="rating" required>
+            <div class="rp-stars">
+                <i class="fa-solid fa-star"></i>
             </div>
-            <div class="rp-rating">
-                <input type="radio" name="rating" required>
-                <div class="rp-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-            </div>
-            <div class="rp-rating">
-                <input type="radio" name="rating" required>
-                <div class="rp-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="rp-rating">
+            <input type="radio" name="rating" required>
+            <div class="rp-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
                 </div>
+        </div>
+        <div class="rp-rating">
+            <input type="radio" name="rating" required>
+            <div class="rp-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+        </div>
+        <div class="rp-rating">
+            <input type="radio" name="rating" required>
+            <div class="rp-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
             </div>
-            <div class="rp-rating">
-                <input type="radio" name="rating" required>
-                <div class="rp-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-               </div>
+        </div>
+        <div class="rp-rating">
+            <input type="radio" name="rating" required>
+            <div class="rp-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
             </div>
         </div>
-        <div id="rp-comment">
-            <p>Write a comment summarizing your experience at our center:</p>
-            <textarea></textarea>
-        </div>
-        <div id="rp-buttons">
-            <button class="app-desc" onclick="toggleRev()">Cancel</button>
-            <button class="app-desc" onclick="toggleRev()">Submit Review</button>
-        </div>
-   </div>
+    </div>
+    <div id="rp-comment">
+        <p>Write a comment summarizing your experience at our center:</p>
+        <textarea></textarea>
+    </div>
+    <div id="rp-buttons">
+        <button class="app-desc" onclick="toggleRev()">Cancel</button>
+        <button class="app-desc" onclick="toggleRev()">Submit Review</button>
+    </div>
+</div>
 </body>
 <script>
     let blur=document.getElementById('page');
@@ -257,6 +331,12 @@
         blur.classList.toggle('active');
         let revPopup=document.getElementsByClassName("review-popup");
         revPopup[0].classList.toggle('active');
+    }
+
+    function toggleApp(){
+        blur.classList.toggle('active');
+        let appPopup=document.getElementsByClassName("app-popup");
+        appPopup[0].classList.toggle('active');
     }
 </script>
 </html>
