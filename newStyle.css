@@ -4,13 +4,20 @@
 }
 
 *{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin:0;
     padding:0;
 }
 
 body{
     background-color: var(--white);
+}
+
+#page.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+    transition: 0.1s;
 }
 
 #nav-bar{
@@ -33,7 +40,7 @@ body{
     width: 100px;
     flex-grow: 1;
     border-top: 1px solid silver;
-    border-right: 1px solid silver;
+    /* border-right: 1px solid silver; */
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -41,17 +48,24 @@ body{
     padding:30px;
 }
 
-#profile-details{
-    width: 200px;
-    height: 100vh;
-    flex-grow: 4;
-    border-top: 1px solid silver;
-    border-left: 1px solid silver;
-    padding:30px;
+.info-element>img{
+    aspect-ratio: 1/1;
+    margin-bottom:20px;
+    text-align: left;
+    align-self: center;
+    width:100%;
+    border-radius: 5px;
+    border:2px solid var(--green);
 }
 
-.info-element>img{
-    margin:20px
+.info-element{
+    display:flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+.info-element-div>div{
+    margin:10px;
+    left:0;
 }
 
 .devider{
@@ -79,6 +93,16 @@ body{
 
 
 
+
+#profile-details{
+    width: 200px;
+    height: 100vh;
+    flex-grow: 4;
+    border-top: 1px solid silver;
+    /* border-left: 1px solid silver; */
+    padding:30px;
+}
+
 #top-half{
     width:100%;
     height:200px;
@@ -92,8 +116,14 @@ body{
     width:150px;
     height:30px;
     color:white;
+    border-radius: 6px;
     background-color: var(--green);
     border:none;
+    margin-top: 5px;
+}
+#leave-review:hover{
+    opacity: 80%;
+    cursor:pointer;
 }
 
 #first-row{
@@ -101,12 +131,80 @@ body{
     justify-content: space-between;
 }
 
-#app-button{
+#app-button,#bio-edit{
     align-self: center;
+    width:200px;
+    height:40px;
+    border-radius: 10px;
+    color:white;
+    background-color: var(--green);
+    border:none;
+}
+#app-button:hover,#bio-edit:hover{
+    opacity: 80%;
+    cursor:pointer;
+}
+
+#doctor-name,#patient-name{
+    font-size: 30px;
+    text-transform: capitalize;
+}
+
+#doctor-specialty{
+    color:var(--green);
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+#patient-bio{
+    width:80%;
+    height:150px;
+    border-left:1px solid silver;
+    border-right:1px solid silver;
+    padding:10px 40px;
+    margin-top: 10px;
+    position: relative;
+    overflow-y: auto;
+}
+
+#bio-edit{
+    width:180px;
+    height:50px;
+    position: sticky;
+    bottom:0;
+    margin:10px;
+}
+
+#rating-text{
+    font-size: 10px;
+    color:silver;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+#rating{
+    margin:10px 0;
+    display:flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+#rating>.fa-solid,#rating>.fa-regular{
+    color:var(--green)
+}
+#rating>.empty{
+    color:black;
+}
+.checked{
+    color:var(--green);
 }
 
 
+
 /* ----RIGHT SIDE---- */
+
+
 
 #bottom-half{
     width:100%;
@@ -119,6 +217,305 @@ body{
     border-bottom: 1px solid silver;
 }
 
+.upper-button{
+    width:160px;
+    height:50px;
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+    color:silver;
+}
+.upper-button:hover{
+    border-bottom:5px solid var(--green);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.clicked{
+    border-bottom:5px solid var(--green);
+    color:black;
+    transition: 0.5s;
+}
+
+
 #lower-section{
     padding:20px;
+}
+
+
+
+/* ----REVIEW---- */
+
+
+
+#option-2{
+    justify-content: center;
+}
+
+.review-container{
+    width:500px;
+    height:auto;
+    display:flex;
+    justify-content: space-evenly;
+    padding:20px;
+    align-items: center;
+    color:var(--white);
+    justify-self: center;
+}
+
+.review-element{
+    text-align: center;
+    padding:10px;
+}
+
+.review-bg{
+    width:100%;
+    background-color: var(--green);
+    display:flex;
+    flex-direction: column;
+    border-radius: 10px;
+    text-align: center;
+    position:relative;
+    margin-top:5%;
+    box-shadow: 5px 5px 20px -5px black;
+}
+
+.review-pic{
+    aspect-ratio: 1/1;
+    width:25%;
+    background-color:var(--green);
+    border:3px solid var(--white);
+    border-radius: 100px;
+    position:absolute;
+    justify-self: center;
+    align-self: center;
+    top:-40px;
+    box-shadow: 5px 5px 20px -5px black;
+}
+
+#review-1st{
+    margin-top: 20%;
+}
+
+.quotes>img{
+    aspect-ratio: 3/2;
+    width:80px;
+}
+
+.review-edit-delete,.app-edit-delete{
+    height:40px;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.review-button,.app-button{
+    width:100px;
+    height:20px;
+    border: none;
+    background-color: transparent;
+    color: var(--white);
+}
+.review-button:hover,.app-button:hover{
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+
+/* ----APPOINTMENTS---- */
+
+
+
+#appointments{
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-size:14px;
+    border-radius: 10px;
+    border:2px solid var(--green);
+    background-color: rgba(22, 160, 133,0.4);
+}
+
+.appointment{
+    width:300px;
+    height:200px;
+    background-color: var(--white);
+    display:flex;
+    flex-direction: column;
+    padding:10px;
+    justify-content: space-evenly;
+    margin:20px;
+    border-radius: 10px;
+}
+  
+.app-top{
+    border-bottom: 1px solid silver;
+    padding-bottom:5px;
+    flex-grow: 1;
+}
+  
+.app-mid{
+    flex-grow: 20;
+}
+
+.app-name{
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.app-info{
+    color:var(--green);
+    text-transform: capitalize;
+    margin-bottom: 12px;
+}
+  
+.name-desc{
+    display:flex;
+    justify-content: space-between;
+    padding-top:10px;
+}
+
+.app-triple{
+    margin-top: 30px;
+    display:flex;
+    justify-content: space-between;
+    border-bottom: 1px solid silver;
+}
+
+.app-button{
+    width:100px;
+    height:20px;
+    border: none;
+    background-color: transparent;
+    color: var(--green);
+    margin-top: 5px;;
+    flex:1 1 auto;
+}
+.app-button:hover{
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.app-desc{
+    height:30px;
+    width:120px;
+    margin:10px;
+    background-color: var(--green);
+    color: var(--white);
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+.app-desc:hover{
+    cursor: pointer;
+    background-color: rgba(22, 160, 133,0.4);
+}
+
+.app-call{
+    aspect-ratio: 1/1;
+    height:40px;
+    border-radius: 500px;
+    border:2px solid #16a085;
+    background-color: transparent;
+    color:var(--green);
+    margin-right: 10PX;
+}
+.app-call>i:hover{
+    cursor: pointer;
+    scale: 1.6;
+    rotate: -15deg;
+    transition: 0.2s;
+}
+
+.desc-popup{
+    border: 1px solid black;
+    position: fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:600px;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 30px rgba(0 0 0 0.3);
+    background: var(--white);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.desc-popup.active{
+    top:50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;   
+}
+
+
+.review-popup{
+    width:400px;
+    height:500px;
+    position: fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border:1px solid black;
+    border-radius: 5px;
+    padding:20px;
+    box-shadow: 0 5px 30px rgba(0 0 0 0.3);
+    background: var(--white);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.review-popup.active{
+    top:50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;   
+}
+
+.review-popup textarea{
+    width:100%;
+    height:100px;
+    border:1px dashed black;
+}
+
+#rp-logo>img{
+    aspect-ratio: 1/1;
+    width:100px;
+}
+#rp-logo{
+    align-self: center;
+}
+
+#rp-ratings{
+    display:flex;
+    justify-content: space-evenly;
+    margin:20px 0;
+}
+
+.rp-rating{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rp-stars{
+    display:flex;
+    color:var(--green);
+    margin-top:8px;
+}
+
+#rp-buttons{
+    display: flex;
+    justify-content: right;
 }

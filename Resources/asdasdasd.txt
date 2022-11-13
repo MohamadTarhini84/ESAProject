@@ -26,7 +26,6 @@ Doctor
    .availableHours
    .takenHours
    .room
-   .feesRequired
 
 Appointment
    .appID
