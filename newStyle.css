@@ -534,7 +534,7 @@ body{
     display:flex;
     flex-direction: column;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid silver;
     position: fixed;
     top:40%;
     left:50%;
