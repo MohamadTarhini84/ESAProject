@@ -105,7 +105,7 @@ body{
 
 #top-half{
     width:100%;
-    height:200px;
+    height:220px;
     display:flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -134,7 +134,7 @@ body{
 #app-button,#bio-edit{
     align-self: center;
     width:200px;
-    height:40px;
+    height: 50px;
     border-radius: 10px;
     color:white;
     background-color: var(--green);
@@ -143,6 +143,7 @@ body{
 #app-button:hover,#bio-edit:hover{
     opacity: 80%;
     cursor:pointer;
+    transition: 0.2s;
 }
 
 #doctor-name,#patient-name{
@@ -158,9 +159,10 @@ body{
 
 #patient-bio{
     width:80%;
-    height:150px;
+    height:130px;
     border-left:1px solid silver;
     border-right:1px solid silver;
+    border-bottom: 1px solid silver;
     padding:10px 40px;
     margin-top: 10px;
     position: relative;
@@ -246,6 +248,10 @@ body{
 /* ----REVIEW---- */
 
 
+
+#option-1{
+    position: relative;
+}
 
 #option-2{
     justify-content: center;
@@ -344,6 +350,12 @@ body{
     border-radius: 10px;
     border:2px solid var(--green);
     background-color: rgba(22, 160, 133,0.4);
+    padding:20px;
+}
+
+#make-new-app{
+    position:absolute;
+    right:0;
 }
 
 .appointment{
@@ -421,6 +433,7 @@ body{
 .app-desc:hover{
     cursor: pointer;
     background-color: rgba(22, 160, 133,0.4);
+    transition: 0.2s;
 }
 
 .app-call{

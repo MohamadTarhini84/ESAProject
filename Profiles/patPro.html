@@ -59,6 +59,7 @@
                     </div>
                 </div>
             </div>
+            <button id="profile-edit-button" class="app-desc">Edit Profile Info</button>
         </div>
         <div id="profile-details">
             <div id="top-half">
@@ -95,59 +96,113 @@
                     </button>
                 </div>
                 <div id="lower-section">
-                    <div id="option-1">                 
-                        <div id="appointments"><div class="appointment">
-                            <div class="app-top">
-                              <i class="fa-regular fa-clock"></i>
-                              Tue, 30 Sept at 4:00 PM
-                            </div>
-                            <div class="app-mid">
-                                <div class="name-desc">
-                                    <div>
-                                        <div class="app-name">
-                                            batata meshweye
-                                        </div>
-                                        <div class="app-info">
-                                            archeologist
-                                        </div>
-                                    </div>
-                                    <button class="app-desc" onclick="toggleDesc()">
-                                        show description
-                                    </button>
+                    <div id="option-1">
+                        <button id="make-new-app" class="app-desc">Add appointment</button>              
+                        <div id="appointments">
+                            <div class="appointment">
+                                <div class="app-top">
+                                <i class="fa-regular fa-clock"></i>
+                                Tue, 30 Sept at 4:00 PM
                                 </div>
-                                <div class="app-triple">
-                                    <div class="app-room">
-                                        <div class="app-name">
-                                            Room
+                                <div class="app-mid">
+                                    <div class="name-desc">
+                                        <div>
+                                            <div class="app-name">
+                                                batata meshweye
+                                            </div>
+                                            <div class="app-info">
+                                                archeologist
+                                            </div>
                                         </div>
-                                        <div class="app-info" style="font-size:10px">
-                                            adadadadsdadadadadad
-                                        </div>
+                                        <button class="app-desc" onclick="toggleDesc()">
+                                            show description
+                                        </button>
                                     </div>
-                                    <div class="app-status">
-                                        <div class="app-name">
-                                            Status
+                                    <div class="app-triple">
+                                        <div class="app-room">
+                                            <div class="app-name">
+                                                Room
+                                            </div>
+                                            <div class="app-info" style="font-size:10px">
+                                                adadadadsdadadadadad
+                                            </div>
                                         </div>
-                                        <div class="app-info">
-                                            Confirmed
+                                        <div class="app-status">
+                                            <div class="app-name">
+                                                Status
+                                            </div>
+                                            <div class="app-info">
+                                                Confirmed
+                                            </div>
                                         </div>
+                                        <button class="app-call">
+                                            <i class="fa-solid fa-phone"></i>
+                                        </button>
                                     </div>
-                                    <button class="app-call">
-                                        <i class="fa-solid fa-phone"></i>
-                                    </button>
+                                </div>
+                                <div class="app-edit-delete">
+                                <button class="app-button" onclick="toggleApp()">
+                                    <i class="fa-solid fa-pen"></i>
+                                    Edit
+                                </button>
+                                <button class="app-button" style="border-left:1px solid silver">
+                                    <i class="fa-solid fa-trash"></i>
+                                    Delete
+                                </button>
                                 </div>
                             </div>
-                            <div class="app-edit-delete">
-                              <button class="app-button">
-                                  <i class="fa-solid fa-pen"></i>
-                                  Edit
-                              </button>
-                              <button class="app-button" style="border-left:1px solid silver">
-                                  <i class="fa-solid fa-trash"></i>
-                                  Delete
-                              </button>
+                            <div class="appointment">
+                                <div class="app-top">
+                                <i class="fa-regular fa-clock"></i>
+                                Tue, 30 Sept at 4:00 PM
+                                </div>
+                                <div class="app-mid">
+                                    <div class="name-desc">
+                                        <div>
+                                            <div class="app-name">
+                                                batata meshweye
+                                            </div>
+                                            <div class="app-info">
+                                                archeologist
+                                            </div>
+                                        </div>
+                                        <button class="app-desc" onclick="toggleDesc()">
+                                            show description
+                                        </button>
+                                    </div>
+                                    <div class="app-triple">
+                                        <div class="app-room">
+                                            <div class="app-name">
+                                                Room
+                                            </div>
+                                            <div class="app-info" style="font-size:10px">
+                                                adadadadsdadadadadad
+                                            </div>
+                                        </div>
+                                        <div class="app-status">
+                                            <div class="app-name">
+                                                Status
+                                            </div>
+                                            <div class="app-info">
+                                                Confirmed
+                                            </div>
+                                        </div>
+                                        <button class="app-call">
+                                            <i class="fa-solid fa-phone"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="app-edit-delete">
+                                <button class="app-button" onclick="toggleApp()">
+                                    <i class="fa-solid fa-pen"></i>
+                                    Edit
+                                </button>
+                                <button class="app-button" style="border-left:1px solid silver">
+                                    <i class="fa-solid fa-trash"></i>
+                                    Delete
+                                </button>
+                                </div>
                             </div>
-                          </div>
                         </div>
                     </div>
                     <div id="option-2" style="display:none">
@@ -208,6 +263,43 @@
             hic provident rem. Odio perferendis consectetur maxime officiis delectus!<br><br>
             <button class="app-desc" onclick="toggleDesc()" style="align-self:center">Close</button>
         </div>
+        <div class="app-popup">
+            <div id="app-popup-upper">
+                <h3>Appointment Information</h3>
+                <i onclick="toggleApp()" class="fa-solid fa-xmark"></i>
+            </div>
+            <div id="app-popup-lower">
+                <div id="app-popup-left">
+                        <div class="left-input">
+                            <p>Choose day:</p>
+                            <input type="date">
+                        </div> 
+                        <div class=left-input>
+                            <p>Choose Time:</p>
+                            <input type="time">
+                        </div>
+                        <p>Appointment Description:</p>
+                        <textarea placeholder="Description"></textarea>
+                        <div id="left-buttons">
+                            <button class="app-desc" onclick="toggleApp()">Cancel</button>
+                            <button class="app-desc" onclick="toggleApp()" style="margin-right:0">Make Appointment</button>
+                        </div>
+                </div>
+                <div id="app-popup-right">
+                    <div class="right-image">
+                        <img src="/Resources/Images/doctor.jpg">
+                    </div>
+                    <div>
+                        <div class="app-name">
+                            Dr. Batata ma2loube
+                        </div>
+                        <div class="app-info">
+                            archeologist
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 <script>
@@ -231,6 +323,12 @@
         blur.classList.toggle('active');
         let descPopup=document.getElementsByClassName("desc-popup");
         descPopup[0].classList.toggle('active');
+    }
+
+    function toggleApp(){
+        blur.classList.toggle('active');
+        let appPopup=document.getElementsByClassName("app-popup");
+        appPopup[0].classList.toggle('active');
     }
 </script>
 </html>

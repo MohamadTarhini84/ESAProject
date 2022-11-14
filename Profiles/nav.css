@@ -32,15 +32,17 @@ body{
 }
 
 .logo{
-    font-size: 30px;
+    /* font-size: 30px;
     align-items: center;
     text-align: center;
-    /* margin: 15px; */
+    margin: 15px;
     font-weight: bold;
     margin-left: 80px;
     margin-top: 5px;
-    color: #16a085;
-
+    color: #16a085; */
+    aspect-ratio: 2/1;
+    width: 90px;
+    margin-left:90px;
 }
 
 .menu ul{
