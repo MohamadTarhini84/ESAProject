@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=0.8">
+    <title>Admin Dashboard</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <!-- Header -->
+      <header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="header-left">
+          <span class="material-icons-outlined">search</span>
+        </div>
+        <div class="header-right">
+          <span class="material-icons-outlined">notifications</span>
+          <span class="material-icons-outlined">email</span>
+          <span class="material-icons-outlined">account_circle</span>
+        </div>
+      </header>
+      <!-- End Header -->
+
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <span class="material-icons-outlined"><img src="images/logo.png" alt="logo" style="background-color:#21232d ;"></span> MedCenter
+          </div>
+          <span class="material-icons-outlined closeIc" onclick="closeSidebar()">close</span>
+        </div>
+
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined">dashboard</span> Dashboard
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined">admin_panel_settings</span>  Admin
+          </li>          
+          <li class="sidebar-list-item">
+            <span class="fa fa-user-md " style="font-size: 20px;"></span> &nbsp; Doctors
+          </li>
+          <li class="sidebar-list-item"> 
+            <span class="material-symbols-outlined">personal_injury</span> Patients
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-symbols-outlined">book_online</span> Appointments
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-symbols-outlined ">medication</span> Pharmacy
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined">shopping_cart</span> Sales Orders
+          </li>
+          
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined">settings</span> Settings
+          </li>
+        </ul>
+      </aside>
+      <!-- End Sidebar -->
+
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-title">
+          <h2 class="font-weight-bold">DASHBOARD</h2>
+        </div>
+
+        <div class="main-cards">
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">PATIENTS</p>
+              <span class="material-symbols-outlined text-blue">personal_injury</span>
+            </div>
+            <span class="text-primary font-weight-bold">558</span>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">PRODUCTS</p>
+              <span class="material-symbols-outlined text-blue">medication</span>
+            </div>
+            <span class="text-primary font-weight-blue">83</span>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">DOCTORS</p>
+              <span class="fa fa-user-md text-blue"></span>
+            </div>
+            <span class="text-primary font-weight-bold">79</span>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">APPOINTMENT</p>
+              <span class="material-symbols-outlined text-blue">book_online</span>
+            </div>
+            <span class="text-primary font-weight-bold">56</span>
+          </div>
+
+        </div>
+
+        <div class="charts">
+
+          <div class="charts-card">
+            <p class="chart-title">Patients visits per gender</p>
+            <div id="bar-chart"></div>
+          </div>
+
+          <div class="charts-card">
+            <p class="chart-title">Patients per Department</p>
+            <div id="area-chart"></div>
+          </div>
+
+        </div>
+<!-- -------------------------------details div----------------------------------------->
+        <div class="details">
+
+            <div class="charts-card">
+              <p class="chart-title"> Appointments</p>
+              <div class="card-inner">
+                <span class="material-symbols-outlined text-blue marg">book_online</span>
+                
+                <span style="font-size: 20px; " class="margR">150 Patients</span>                                             
+            </div>
+            <hr>  
+             <!--Appointments List-->
+          <div class="list">          
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th >Depar</th>
+                  <th >Date</th>
+                  <th>Time</th>                  
+                  <th>View Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01</td>
+                  <td>Sam David</td>
+                  <td>Design</td>
+                  <td>03-24-22</td>
+                  <td>8:00AM</td>
+                  
+                  <td><button>View</button></td>
+                </tr>
+                <tr class="active">
+                  <td>02</td>
+                  <td>Balbina Kherr</td>
+                  <td>Coding</td>
+                  <td>03-24-22</td>
+                  <td>9:00AM</td>
+                  
+                  <td><button>View</button></td>
+                </tr>
+                <tr>
+                  <td>03</td>
+                  <td>Badan John</td>
+                  <td>testing</td>
+                  <td >03-24-22</td>
+                  <td>8:00AM</td>
+                  
+                  <td><button>View</button></td>
+                </tr>
+                <tr>
+                  <td>04</td>
+                  <td>Sara David</td>
+                  <td>Design</td>
+                  <td >03-24-22</td>
+                  <td>8:00AM</td>
+                  
+                  <td><button>View</button></td>
+                </tr>
+                <tr >
+                  <td>05</td>
+                  <td>Salina</td>
+                  <td>Coding</td>
+                  <td>03-24-22</td>
+                  <td>9:00AM</td>
+                  
+                  <td><button>View</button></td>
+                </tr>
+                <tr >
+                  <td>06</td>
+                  <td>Tara Smith</td>
+                  <td>Testing</td>
+                  <td >03-24-22</td>
+                  <td>9:00AM</td>
+                  
+                  <td><button>View</button></td>
+                </tr> 
+                <tr >
+                  <td>07</td>
+                  <td>Tara Smith</td>
+                  <td>Testing</td>
+                  <td >03-24-22</td>
+                  <td>9:00AM</td>
+                  
+                  <td><button>View</button></td>
+                </tr> 
+                <tr >
+                  <td>08</td>
+                  <td>Tara Smith</td>
+                  <td>Testing</td>
+                  <td >03-24-22</td>
+                  <td>9:00AM</td>
+                  
+                  <td><button>View</button></td>
+                </tr> 
+              </tbody>
+            </table>
+          </div>
+     
+
+      </div>
+        <!-- Recent Orders-->
+          <div class="charts-card">
+            <p class="chart-title"> Recent Orders</p>
+            <div>
+                <div class="card-inner">
+                    <span class="material-symbols-outlined text-blue marg">medication</span>
+                    <span style="font-size: 20px; " class="margR">100 Orders</span>                                             
+                </div>
+                <hr> 
+                <div class="list">          
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Med Name</th>
+                        <th>OrderDate</th>
+                        <th>Paymennt Method</th>
+                                               
+                        <th>Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>01</td>
+                        <td>Mask 103</td>
+                        <td>03-24-22</td>
+                        <td>Cash</td>
+                                                
+                        <td><button>View</button></td>
+                      </tr>
+                      <tr>
+                        <td>02</td>
+                        <td>Mask 103</td>
+                        <td>03-24-22</td>
+                        <td>Cash</td>
+                        <!-- <td>Delivered</td>  -->                      
+                        <td><button>View</button></td>
+                      </tr>
+                      <tr>
+                        <td>03</td>
+                        <td>Mask 103</td>
+                        <td>03-24-22</td>
+                        <td>Card</td>
+                       <!-- <td>Delivered</td>  -->                      
+                        <td><button>View</button></td>
+                      </tr>
+                      <tr>
+                        <td>04</td>
+                        <td>Mask 103</td>
+                        <td>03-24-22</td>
+                        <td>Cash</td>
+                        <!-- <td>Delivered</td>  -->                        
+                        <td><button>View</button></td>
+                      </tr>
+                      <tr >
+                        <td>05</td>
+                        <td>Mask 103</td>
+                        <td>03-24-22</td>
+                        <td>Card</td>
+                        <!-- <td>Delivered</td>  -->                        
+                        <td><button>View</button></td>
+                      </tr>
+                      <tr >
+                        <td>06</td>
+                        <td>Mask 103</td>
+                        <td>03-24-22</td>
+                        <td>Cash</td>
+                        <!-- <td>Delivered</td>  -->                        
+                        <td><button>View</button></td>
+                      </tr> 
+                      <tr >
+                        <td>07</td>
+                        <td>Mask 103</td>
+                        <td>03-24-22</td>
+                        <td>Cash</td>
+                        <!-- <td>Delivered</td>  -->                        
+                        <td><button>View</button></td>
+                      </tr> 
+                      <tr >
+                        <td>08</td>
+                        <td>Mask 103</td>
+                        <td>03-24-22</td>
+                        <td>Cash</td>
+                        <!-- <td>Delivered</td>  -->                        
+                        <td><button>View</button></td>
+                      </tr> 
+                    </tbody>
+                  </table>
+                </div>
+                
+        </div>
+        </div>
+
+      <!--Patients Reviews-->
+        <div class="charts-card">  
+          <p class="chart-title">Patients Reviews</p>
+                    
+            <div class="card-inner">
+                <span class="material-symbols-outlined text-blue marg" >personal_injury</span>
+                <div>
+                  <select name="neol" id="newold" class="det-select margR" >
+                    <option value="new">New</option>
+                    <option value="old">Old</option>
+                  </select>
+                </div>                     
+          </div>            
+            <hr>
+          <div class="Rev-inner"> 
+            <div class="customer">            
+                <div class="listRev">
+                  <div> <img src="img/avatar.svg" alt="" ></div>
+                  <div class="dr-details">
+                    <h4>Dr Doctor Doctor <br>
+                      <small>Pediatric</small><br>
+                      <small>(45) Excellent</small></h4>            
+                  </div>
+                </div>  
+                <div class="contact">
+                  <span >150 Patients</span>                  
+                </div>            
+          </div>
+          <div class="customer">            
+            <div class="listRev">
+              <div> <img src="img/avatar.svg" alt="" ></div>
+              <div class="dr-details">
+                <h4>Dr Doctor Doctor <br>
+                <small>Pediatric</small><br>
+                <small>(45) Excellent</small>
+              </h4>                  
+              </div>
+            </div>  
+            <div class="contact">
+              <span >150 Patients</span>                  
+            </div>            
+          </div>
+          <div class="customer">            
+            <div class="listRev">
+              <div> <img src="img/avatar.svg" alt="" ></div>
+              <div class="dr-details">
+                <h4>Dr Doctor Doctor<br>
+                  <small>Pediatric</small><br>
+                  <small>(45) Excellent</small></h4>                    
+              </div>
+            </div>  
+            <div class="contact">
+              <span >150 Patients</span>                  
+            </div>            
+          </div>
+          <div class="customer">            
+            <div class="listRev">
+              <div> <img src="img/avatar.svg" alt="" ></div>
+              <div class="dr-details">
+                <h4>Dr Doctor Doctor<br>
+                  <small>Pediatric</small><br>
+                  <small>(45) Excellent</small></h4>                    
+              </div>
+            </div>  
+            <div class="contact">
+              <span >150 Patients</span>                  
+            </div>            
+          </div>
+          <div class="customer">            
+            <div class="listRev">
+              <div> <img src="img/avatar.svg" alt="" ></div>
+              <div class="dr-details">
+                <h4>Dr Doctor Doctor<br>
+                  <small>Pediatric</small><br>
+                  <small>(45) Excellent</small></h4>                    
+              </div>
+            </div>  
+            <div class="contact">
+              <span >150 Patients</span>                  
+            </div>            
+          </div>
+          <div class="customer">            
+            <div class="listRev">
+              <div> <img src="img/avatar.svg" alt="" ></div>
+              <div class="dr-details">
+                <h4>Dr Doctor Doctor<br>
+                  <small>Pediatric</small><br>
+                  <small>(45) Excellent</small></h4>                    
+              </div>
+            </div>  
+            <div class="contact">
+              <span >150 Patients</span>                  
+            </div>            
+          </div>
+
+        
+        </div>
+
+      </div></div>
+
+      </main>
+      <!-- End Main -->
+
+    <!-- Scripts -->
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.0/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+    <script src="javascript/scripts.js"></script>
+  </body>
+</html>
