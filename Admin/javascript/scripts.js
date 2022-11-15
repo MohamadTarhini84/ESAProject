@@ -24,7 +24,6 @@ inputs.forEach(input => {
 
 
 
-
 // SIDEBAR TOGGLE
 
 var sidebarOpen = false;
