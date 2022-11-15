@@ -1,3 +1,8 @@
+Admin
+   .adminID
+   .name
+   .password
+
 Person
    .firstName
    .lastName
