@@ -22,6 +22,15 @@
 </head>
 <body>
     <div class="grid-container">
+
+
+      <div class="popup" id="popup">
+        <h2>Appointmet by Mr Patient Pat</h2>
+        <p>Appointment Details</p>
+        <button class="btn" onclick="closePopUp()">Okay</button>
+        <button class="btn" onclick="closePopUp()">Delete</button>
+
+      </div>
       <!-- Header -->
       <header class="header">
         <div class="menu-icon" onclick="openSidebar()">
@@ -78,6 +87,7 @@
       <!-- End Sidebar -->
 
       <!-- Main -->
+      
       <main class="main-container">
         <div class="main-title">
           <h2 class="font-weight-bold">Appointments
@@ -85,13 +95,14 @@
               <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Appointments</small></p>
         </h2>
         </div>
-
+         
 <!-- -------------------------------Appointments Div----------------------------------------->
 
           <div class="charts-card">
               
              <!--Appointments List-->
-          <div class="list" style="height: 700px;">          
+          <div class="list" style="height: 700px;">     
+                
             <table class="table">
               <thead>
                 <tr>
@@ -123,7 +134,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr>
                 <tr>
                   <td class="name-img">
@@ -361,8 +372,9 @@
                 </tr>
               </tbody>
             </table>
+            
           </div>
-     
+          
 
       
         
@@ -376,5 +388,16 @@
     
     <!-- Custom JS -->
     <script src="javascript/scripts.js"></script>
+    <script>
+      let popup=document.getElementById("popup");
+      function openPopUp(){
+        popup.classList.add("open-popup");
+
+      }
+      function closePopUp(){
+        popup.classList.remove("open-popup");
+
+      }
+    </script>
   </body>
 </html>

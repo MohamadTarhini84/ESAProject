@@ -303,6 +303,41 @@ body {/* margin & padding 0 to fill entire screen without extra space */
 .list::-webkit-scrollbar-thumb:hover {
   background-color: #367952;
 }
+/* popup*/
+.popup{
+  width:400px;
+  background-color:  #367952;
+  border-radius: 6px;
+  position: absolute;
+  top:0;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  color: #333;
+  visibility: hidden;
+  transition: 0.4s,top 0.4s;
+}
+
+.open-popup{
+  visibility: visible;
+  top:50%;
+  transform: translate(-50%,-50%) scale(1);
+
+}
+
+.popup button{
+  background-color: white;
+  color:   #367952;
+  
+}
+.popup button:hover{
+  background:  #367952;
+  color: #fff !important; 
+  transition: 0.5rem;
+}
+
+/*table*/
 .table{
   border-collapse: collapse;
   margin: 25px 0;
@@ -334,7 +369,7 @@ table thead tr{
 .table tbody tr:last-of-type{
   border-bottom: 2px solid #4AD489;
 }
-.table button{
+ button{
   padding: 6px 20px;
   border-radius: 10px;
   cursor: pointer;

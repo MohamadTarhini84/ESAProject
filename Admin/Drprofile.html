@@ -18,8 +18,30 @@
     
     <!-- font awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="css/search.css">
 
+    <link rel="stylesheet" href="css/newStyle.css">
+
+    <link rel="stylesheet" href="javascript/fullcalendar-5.11.3/lib/main.css">
+    
+    <script src="javascript/fullcalendar-5.11.3/lib/main.js"></script>
+    <script src="https://kit.fontawesome.com/4c2b37abf9.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <script>        
+      document.addEventListener('DOMContentLoaded', function() {
+              var calendarEl = document.getElementById('calendar');
+              var calendar = new FullCalendar.Calendar(calendarEl, {
+              initialView: 'timeGridWeek',
+              editable: 'true'
+              });
+              calendar.render();
+          });
+  </script>
 </head>
 <body>
     <div class="grid-container">
@@ -80,87 +102,177 @@
 
       <!-- Main -->
       <main class="main-container">
-        <div class="main-title">
-          <h2 class="font-weight-bold">Dr Sam David
-           
-        </h2>
-        </div>
-
+        
 <!-- ------------------------------------------------------------------------>
-        <div class="charts-card">
-              <div class="navb" style="background-color: #367952;">
-                <div class="customer">            
-                    <div class="listRev">
-                      <div> <img src="img/avatar.svg" alt="" ></div>
-                      <div class="dr-details">
-                        <h4 style="color: #fff;" >Dr Sam David <br>
-                          <small style="color: #fff;">Gynecologist</small></h4>            
-                      </div>
-                    </div>                                  
+<div id="profile-container">
+  <div id="profile-info">
+      <div class="info-element">
+          <img src="./Resources/Images/doctor.jpg">
+      </div>
+      <div class="devider">
+          <div>personal info</div>
+          <div class="devider-line"></div>
+      </div>
+      <div class="info-element">
+          <div class="info-element-div">
+              <div>
+                  Birthday:
               </div>
-        </div>
-             <!--Profile info-->
-        <div class="drProf" style="height: 700px;">          
-            <div id="tarhini-search-container">
-                <div id="tarhini-upper">
-                    <div id="tarhini-head-1" class="tarhini-heading tarhini-button tarhini-selected" onclick="clickFind()">Overview</div>
-                    <div id="tarhini-head-2" class="tarhini-heading tarhini-button" onclick="clickName()">Experience</div>
-                </div>
-                <div id="tarhini-lower" class="bg-primary">
-                    <div id="option-1" style="display:flex">
-                        <div class="tarhini-form">
+              <div>
+                  Gender:
+              </div>
+              <div>
+                  Phone Number:
+              </div>
+          </div>
+          <div class="info-element-div">
+              <div id="bday">
+                  131331
+              </div>
+              <div id="gender">
+                  male
+              </div>
+              <div id="phone">
+                  12313123987
+              </div>
+          </div>
+      </div>
+      <div class="devider">
+          <div style="font-size:18px;">work info </div>
+          <div class="devider-line"><br><br></div>
+      </div>
+      <div class="info-element">
+          <div class="info-element-div">
+              <div>
+                  Room:
+              </div>
+              <div>
+                  Licence card ID:
+              </div>
+          </div>
+          <div class="info-element-div">
+              <div>
+                  131331s
+              </div>
+              <div>
+                  6255523
+              </div>
+          </div>
+      </div>
+      
+  </div>
+  <div id="profile-details">
+      <div id="top-half">
+          <div id="first-row">
+              <div id="name-specialty">
+                  <div id="doctor-name">
+                      Dr. John Doe
+                  </div>
+                  <div id="doctor-specialty">
+                      Cardiologist
+                  </div>
+              </div>
+          </div>
+          <div>
+              <div id="rating-text">
+                  Average Rating:
+              </div>
+              <div id="rating">
+                  <div id="rating-number">3</div>
+                  <i class="fa-solid fa-star" style="margin-left:10px"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+              </div>
+          </div>
+          
+      </div>
+      <div id="botton-half">
+          <div id="upper-section">
+              <button class="upper-button clicked" id="day-button" onclick="clickDay()" style="width: 250px;">
+                  <i class="fa-regular fa-clock"></i>
+                  Hours Available
+              </button>
+              <button class="upper-button" id="rev-button" onclick="clickRev()" style="width: 250px;">
+                  <i class="fa-solid fa-book"></i>
+                  Reviews Received
+              </button>
+          </div>
+          <div id="lower-section">
+              <div id="option-1">
+                  <div id="calendar" style="width:100%"></div>
+              </div>
+              <div id="option-2" style="display:none">
+                  <div class="review">
+                      <div class="review-container">
+                          <div class="quotes">
+                              <img src="./Resources/Images/quotes.png">
+                          </div>
+                          <div class="review-bg">
+                              <div class="review-pic">
+                                  <img src="./Resources/Images/patient.jpg">
+                              </div>
+                              <div class="review-element" id="review-1st">
+                                  Review by: Mr batata
+                              </div>
+                              <div class="review-element">
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-regular fa-star"></i>
+                                  <i class="fa-regular fa-star"></i>
+                              </div>
+                              <div class="review-element" style="height:200px;overflow-y:auto;">
+                                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
+                                  accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
+                                  Possimus laudantium dignissimos ipsum quos at tempora recusandae! 
+                                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
+                                  accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
+                                  Possimus laudantium dignissimos ipsum quos at tempora recusandae! 
+                                  Repudiandae, rerum corrupti?Repudiandae, rerum corrupti?
+                              </div>
+                              <div class="review-edit-delete">
+                                  <button class="review-button">
+                                      <i class="fa-solid fa-pen"></i>
+                                      Edit
+                                  </button>
+                                  <button class="review-button" style="border-left:1px solid silver">
+                                      <i class="fa-solid fa-trash"></i>
+                                      Delete
+                                  </button>
+                              </div>
+                          </div>
+                          <div class="quotes">
+                              <img src="./Resources/Images/quotes.png">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 
-                            <p>A gynecologist is a surgeon who specializes in the female reproductive system, which includes the cervix, fallopian tubes, ovaries, uterus, vagina and vulva. Menstrual problems, contraception, sexuality, 
-                                menopause and infertility issues are diagnosed and treated by a gynecologist; 
-                                most gynecologists also provide prenatal care, and some provide primary care.
-                            </p><br>
-                            <div class="spec">
-                                <h3 style="margin-left:60px ;color:white;"> Specialties</h3>                               
-                                 <ul>
-                                    <li> Women's health services</li>
-                                    <li>Pregnancy care </li> 
-                                    <li> Surgical procedures </li>
-                                    <li>  Specialty care</li>
-                               </ul> 
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div id="option-2" style="display:none">
-                       
-                        <div class="tarhini-form">
-                            <p style="color: white; margin-left: 30px; margin-right: 20px;"> Experience:
-                            The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. Lorem Ipsum is composed in a pseudo-Latin language which more or less corresponds to 'proper' Latin. It contains a series of real Latin words. This ancient dummy text is also incomprehensible, but it imitates the rhythm of most European languages in Latin script. The advantage of its Latin origin and the relative meaninglessness of Lorum Ipsum is that the text does not attract attention to itself or distract the viewer's attention from the layout.
-                            </p>
-                            <h3>Specialties</h3>
-                        </div>
-                    
-                    </div>
-                </div>                              
-            </div>            
-        </div>
-        
-      </main>
-      <!-- End Main -->
-    
-    <!-- Custom JS -->
-    <script>
-        function clickFind(){
-            document.getElementById("option-1").setAttribute("style","display:flex");
-            document.getElementById("tarhini-head-1").setAttribute("class","tarhini-heading tarhini-button tarhini-selected");
-            document.getElementById("option-2").setAttribute("style","display:none");
-            document.getElementById("tarhini-head-2").setAttribute("class","tarhini-heading tarhini-button");
-        }
-        function clickName(){
-            document.getElementById("option-2").setAttribute("style","display:flex");
-            document.getElementById("tarhini-head-2").setAttribute("class","tarhini-heading tarhini-button tarhini-selected");
-            document.getElementById("option-1").setAttribute("style","display:none");
-            document.getElementById("tarhini-head-1").setAttribute("class","tarhini-heading tarhini-button");
-        }
+</div>
 
-        
-    </script>
-    <script src="javascript/scripts.js"></script>
-    <script src="javascript/Validate.js"></script>
+<script>
+   function clickDay(){
+        document.getElementById("option-1").setAttribute("style","display:flex");
+        document.getElementById("day-button").setAttribute("class","upper-button clicked");
+        document.getElementById("option-2").setAttribute("style","display:none");
+        document.getElementById("rev-button").setAttribute("class","upper-button");
+    }
+    function clickRev(){
+        document.getElementById("option-2").setAttribute("style","display:flex");
+        document.getElementById("day-button").setAttribute("class","upper-button");
+        document.getElementById("option-1").setAttribute("style","display:none");
+        document.getElementById("rev-button").setAttribute("class","upper-button clicked");
+    }
+</script>
+
 </body>
+
+
+
 </html>
