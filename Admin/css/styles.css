@@ -343,7 +343,7 @@ table thead tr{
 }
 .table button:hover{
   background: #4AD489;
-  color: #fff;
+  color: #fff !important; 
   transition: 0.5rem;
 }
 
