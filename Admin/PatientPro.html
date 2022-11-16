@@ -59,32 +59,36 @@
         </div>
 
         <ul class="sidebar-list">
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined">dashboard</span> Dashboard
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined">admin_panel_settings</span>  Admin
-          </li>          
-          <li class="sidebar-list-item">
-            <span class="fa fa-user-md " style="font-size: 20px;"></span> &nbsp; Doctors
-          </li>
-          <li class="sidebar-list-item"> 
-            <span class="material-symbols-outlined">personal_injury</span> Patients
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-symbols-outlined">book_online</span> Appointments
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-symbols-outlined ">medication</span> Pharmacy
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined">shopping_cart</span> Sales Orders
-          </li>
-          
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined">settings</span> Settings
-          </li>
-        </ul>
+            <li class="sidebar-list-item" >
+              <span class="material-icons-outlined" id="dash">dashboard</span> Dashboard
+            </li>
+            <li class="sidebar-list-item" >
+              <span class="material-icons-outlined" id="admins">admin_panel_settings</span>  Admins
+            </li>          
+            <li class="sidebar-list-item" >
+              <span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors
+            </li>
+            <!--<li class="sidebar-list-item" id="Patients"> 
+              <span class="material-symbols-outlined">personal_injury</span> Patients
+            </li>-->
+            <li class="sidebar-list-item">
+              <span class="material-symbols-outlined" id="appo">book_online</span> Appointments
+            </li>
+  
+            <!--<li class="sidebar-list-item">
+              <span class="material-symbols-outlined " id="phar">medication</span> Pharmacy
+            </li>
+            <li class="sidebar-list-item">
+              <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
+            </li>-->
+            
+            <li class="sidebar-list-item">
+              <span class="material-icons-outlined" id="reg">settings</span> Register New
+            </li>
+            <li class="sidebar-list-item">
+              <span class="material-icons-outlined" id="upd">settings</span> Update Profile
+            </li>
+          </ul>
       </aside>
       <!-- End Sidebar -->
 
@@ -335,5 +339,26 @@
         document.getElementById("rev-button").setAttribute("class","upper-button clicked");
     }
         </script>
+        <script>
+            document.getElementById("dash").addEventListener('click',function(){
+              window.location.href="index.html";
+            });
+            document.getElementById("admins").addEventListener('click',function(){
+              window.location.href="Admins.html";
+            });
+            document.getElementById("doctors").addEventListener('click',function(){
+              window.location.href="Doctors.html";
+            });
+            document.getElementById("appo").addEventListener('click',function(){
+              window.location.href="appointments.html";
+            });
+            document.getElementById("reg").addEventListener('click',function(){
+              window.location.href="Register.html";
+            });
+            document.getElementById("upd").addEventListener('click',function(){
+              window.location.href="Profile.html";
+            });
+            
+          </script>
         </body>
         </html>

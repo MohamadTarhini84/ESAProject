@@ -50,30 +50,34 @@
         </div>
 
         <ul class="sidebar-list">
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined" id="dash">dashboard</span> 
+          <li class="sidebar-list-item" >
+            <span class="material-icons-outlined" id="dash">dashboard</span> Dashboard
           </li>
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined" id="">admin_panel_settings</span>  Admin
+          <li class="sidebar-list-item" >
+            <span class="material-icons-outlined" id="admins">admin_panel_settings</span>  Admins
           </li>          
-          <li class="sidebar-list-item">
-            <span class="fa fa-user-md " style="font-size: 20px;"></span> &nbsp; Doctors
+          <li class="sidebar-list-item" >
+            <span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors
           </li>
-          <li class="sidebar-list-item"> 
+          <!--<li class="sidebar-list-item" id="Patients"> 
             <span class="material-symbols-outlined">personal_injury</span> Patients
+          </li>-->
+          <li class="sidebar-list-item">
+            <span class="material-symbols-outlined" id="appo">book_online</span> Appointments
+          </li>
+
+          <!--<li class="sidebar-list-item">
+            <span class="material-symbols-outlined " id="phar">medication</span> Pharmacy
           </li>
           <li class="sidebar-list-item">
-            <span class="material-symbols-outlined">book_online</span> Appointments
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-symbols-outlined ">medication</span> Pharmacy
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined">shopping_cart</span> Sales Orders
-          </li>
+            <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
+          </li>-->
           
           <li class="sidebar-list-item">
-            <span class="material-icons-outlined">settings</span> Settings
+            <span class="material-icons-outlined" id="reg">settings</span> Register New
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined" id="upd">settings</span> Update Profile
           </li>
         </ul>
       </aside>
@@ -104,14 +108,14 @@
         <button id="search">Search</button>
       </div>
       <div id="buttons">
-        <button class="button-value" onclick="filterProduct('all')">All</button>
-        <button class="button-value" onclick="filterProduct('Topwear')">
+        <button class="button-value" >All</button>
+        <button class="button-value" >
           Approved
         </button>
-        <button class="button-value" onclick="filterProduct('Bottomwear')">
+        <button class="button-value" >
           Pending
         </button>
-        <button class="button-value" onclick="filterProduct('Jacket')">
+        <button class="button-value" >
           Declined
         </button>
       </div>
@@ -144,8 +148,8 @@
                     <td>Pediatric</td>
                     <td>1452-ABC Street,NY</td>
                     <td>03-24-22</td>
-                    <td class="Appr">Approved</td>                                   
-                    <td><button id="prof-btn" >PopUp</button></td>
+                    <td class="Appr" id="status">Approved</td>                                   
+                    <td><button id="prof-btn" onclick="goto">PopUp</button></td>
                 </tr>
                 <tr id="trtab">
                     <td class="name-img">
@@ -160,7 +164,7 @@
                                         
                     <td>03-24-22</td>
                     <td class="Pend">Pending</td>                                   
-                    <td><button>PopUp</button></td>
+                    <td><button onclick="goto">PopUp</button></td>
                   </tr>
                   <tr>
                     <td class="name-img">
@@ -175,7 +179,7 @@
                                        
                     <td>03-24-22</td>
                     <td class="Appr">Approved</td>                                   
-                    <td><button>PopUp</button></td>
+                    <td><button onclick="goto">PopUp</button></td>
                   </tr>
                   <tr>
                     <td class="name-img">
@@ -190,7 +194,7 @@
                                      
                     <td>03-24-22</td>
                     <td class="Appr">Approved</td>                                   
-                    <td><button>PopUp</button></td>
+                    <td><button onclick="goto">PopUp</button></td>
                   </tr>
                   <tr>
                     <td class="name-img">
@@ -205,7 +209,7 @@
                                         
                     <td>03-24-22</td>
                     <td class="decl">Declined</td>                                   
-                    <td><button>PopUp</button></td>
+                    <td><button onclick="goto">PopUp</button></td>
                   </tr>
                   <tr>
                     <td class="name-img">
@@ -220,7 +224,7 @@
                                        
                     <td>03-24-22</td>
                     <td class="decl">Declined</td>                                   
-                    <td><button>PopUp</button></td>
+                    <td><button onclick="goto">PopUp</button></td>
                   </tr>
                   <tr>
                     <td class="name-img">
@@ -235,7 +239,7 @@
                     <td>1452-ABC Street,NY</td>                    
                     <td>03-24-22</td>
                     <td class="Appr">Approved</td>                                   
-                    <td><button>PopUp</button></td>
+                    <td><button onclick="goto">PopUp</button></td>
                   </tr>
                   <tr>
                     <td class="name-img">
@@ -250,7 +254,7 @@
                                        
                     <td>03-24-22</td>
                     <td class="decl">Declined</td>                                   
-                    <td><button>PopUp</button></td>
+                    <td><button onclick="goto">PopUp</button></td>
                   </tr>
                   <tr>
                     <td class="name-img">
@@ -265,7 +269,7 @@
                                        
                     <td>03-24-22</td>
                     <td class="decl">Declined</td>                                   
-                    <td><button>PopUp</button></td>
+                    <td><button onclick="goto">PopUp</button></td>
                   </tr>
               </tbody>
             </table>
@@ -282,6 +286,43 @@
     
     <!-- Custom JS -->
     <script src="javascript/scripts.js"></script>
-    <script src="javascript/Validate.js"></script>
+    <script>
+      function goto(){
+        window.location.href="Drprofile.html";
+      }
+    
+    const btn=document.getElementById("status");
+      if(btn.innerHTML=="Approved"){
+        document.getElementById("prof-btn").addEventListener('click',openProfile);
+        function openProfile(){
+          window.location.href="Drprofile.html";
+      }
+    } 
+      else{
+        alert("Not Approved");
+        
+      }
+    </script>
+    <script>
+      document.getElementById("dash").addEventListener('click',function(){
+        window.location.href="index.html";
+      });
+      document.getElementById("admins").addEventListener('click',function(){
+        window.location.href="Admins.html";
+      });
+      document.getElementById("doctors").addEventListener('click',function(){
+        window.location.href="Doctors.html";
+      });
+      document.getElementById("appo").addEventListener('click',function(){
+        window.location.href="appointments.html";
+      });
+      document.getElementById("reg").addEventListener('click',function(){
+        window.location.href="Register.html";
+      });
+      document.getElementById("upd").addEventListener('click',function(){
+        window.location.href="Profile.html";
+      });
+      
+    </script>
 </body>
 </html>
