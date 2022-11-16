@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/4c2b37abf9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="prompt-container"> 
+        <img id="logo-signin" src="./Resources/Images/wheelchair.png">
+        <div class="card"> 
+            <div class="card-upper">
+                <p>Signup as a patient or a doctor?</p>
+            </div>
+            <div class="card-lower">
+                        <div>  
+                            <div class="folded-corner service_tab_1">
+                                <div class="text">
+                                    <i class="fa-sharp fa-solid fa-5x fa-bed"></i>
+                                    <div class="item-title"> 
+                                        Patient
+                                    </div><!-- /.item-title -->
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="folded-corner service_tab_1">
+                                <div class="text">
+                                    <i class="fa-solid fa-user-doctor fa-5x"></i>
+                                        <div class="item-title">
+                                            Doctor
+                                        </div><!-- /.item-title -->
+                                </div>
+                            </div>
+                       
+                    </div>
+                </div>
+        </div>
+        <div id="profile-footer">
+            <div style="margin:5px;color:var(#f7f7f7)">
+            <i class="fa-regular fa-copyright"></i> MedCenter 2022. All rights reserved.
+            </div>
+            <div id="profile-footer-links">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+   @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');
+   
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+}
+
+#logo-signin{
+    width:500px;
+    height:500px;
+    position:absolute;
+    left:0;
+    overflow:unset;
+}
+
+#profile-footer{
+    width:100%;
+    height:80px;
+    background-color: var(#f7f7f7);
+    position:fixed;
+    bottom:0;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#profile-footer-links a{
+    margin-left:10px;
+    color:var(--white);
+}
+#profile-footer-links a>i:hover{
+    scale:1.5;
+    color:#f7f7f7;
+    transition: 0.2s;
+}
+
+.prompt-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background-image: linear-gradient(to right top,#16a085,#0df2a6)
+}
+
+.prompt-container .card{
+    height:420px;
+    width:600px;
+    background-color:#f7f7f7;
+    position:relative;
+    border-radius: 10px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.1);
+    margin-left:30%;
+    display:flex;
+    flex-direction: column;
+    border:none
+}
+
+.card-upper{
+    height:70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #16a085;
+    border-bottom: 1px solid silver;
+    border-radius: 10px 10px 0 0;
+    color:#f7f7f7;
+    font-size: 30px;
+}
+
+.card-lower{
+    width:100%;
+    height:100%;
+    border-radius: 0 10px 10px 0;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.item-title {
+  color: #f7f7f7;
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.folded-corner:hover .text{
+	visibility: visible;
+	color: #000000;
+}
+
+/*
+  nav link items
+*/
+.folded-corner{
+    width:200px;
+  margin:40px 20px 20px 20px;
+  padding: 30px;
+  position: relative;
+  font-size: 100%;
+  text-decoration: none;
+  color: #999; 
+  background: transparent;
+  transition: all ease .5s;
+  border: 1px solid silver;
+  border-radius: 5px;
+}
+.folded-corner:hover{
+	background-color: #f7f7f7;
+    cursor: pointer;
+}
+
+/*
+  paper fold corner
+*/
+
+.folded-corner:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-style: solid;
+  border-width: 0 0px 0px 0;
+  border-color: #ddd #000;
+  transition: all ease .3s;
+}
+
+/*
+  on li hover make paper fold larger
+*/
+/* .folded-corner:hover:before {
+    background-color: #D00003;
+    border-width: 0 50px 50px 0;
+    border-color: #16a085 #f7f7f7;
+  
+} */
+
+.service_tab_1{
+	background-color: #16a085;
+}
+.service_tab_1:hover .fa-icon-image,.service_tab_1:hover .fa-user-doctor, .service_tab_1:hover .fa-bed{
+    color: #000;
+    transform:  scale(1.5);
+}
+
+.fa-user-doctor{
+    color:#f7f7f7;
+    transition: all .65s linear 0s;
+    text-align: center;
+    transition: all 1s cubic-bezier(.99,.82,.11,1.41);
+}
+
+.fa-bed{
+    color:#f7f7f7;
+    transition: all .65s linear 0s;
+    text-align: center;
+    transition: all 1s cubic-bezier(.99,.82,.11,1.41);
+}
+
+.fa-icon-image{ 
+	color: #f7f7f7; 
+	display: inline-block; 
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    font-size-adjust: none;
+    font-stretch: normal;
+    /* -moz-font-feature-settings: normal;
+    -moz-font-language-override: normal; */
+    text-rendering: auto;
+    transition: all .65s linear 0s;
+    text-align: center;
+    transition: all 1s cubic-bezier(.99,.82,.11,1.41);
+}
+
+
+ 
+
+@media (max-width:750px){
+    .card{width:90% !important;max-width: 350px;}
+
+    img{display: none;}
+
+    .card-upper{font-size: 14px; text-align: center;padding:5px}
+
+    .card-lower{flex-direction: column;}
+
+    .fa-5x{scale:0.4}
+    
+    .folded-corner{width:60%;margin:auto;height:100px;padding:0}
+
+    #profile-footer :nth-child(1){text-align: center;}
+    
+
+    .item-title {
+        color: #f7f7f7;
+        font-size: 12px;
+        margin-top: 0;
+    }
+
+    
+    .card{margin:0 !important;}
+}
+</style>
+<script>
+</script>
+</html>

@@ -12,6 +12,13 @@
 body{
     background-color: var(--white);
     height:auto;
+    max-height: 1vh;
+}
+
+.logo{
+    color: #16a085;
+    font-size: 30px;
+    font-weight: 700;
 }
 
 input:focus, textarea:focus{

@@ -28,7 +28,7 @@
     
             <nav class="navbar">
                 <div>
-                    <img class="logo" src="./Resources/Images/logo.png">
+                    <p class="logo">MedCenter</p>
                 </div>
                 <a href="#" class="toggle">
                     <span class="bar"></span>
@@ -171,7 +171,7 @@
                                     <i class="fa-solid fa-pen"></i>
                                     Edit
                                 </button>
-                                <button class="app-button" style="border-left:1px solid silver">
+                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid silver">
                                     <i class="fa-solid fa-trash"></i>
                                     Delete
                                 </button>
@@ -223,7 +223,7 @@
                                     <i class="fa-solid fa-pen"></i>
                                     Edit
                                 </button>
-                                <button class="app-button" style="border-left:1px solid silver">
+                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid silver">
                                     <i class="fa-solid fa-trash"></i>
                                     Delete
                                 </button>
@@ -324,7 +324,7 @@
                 </div>
                 <div id="app-popup-right">
                     <div class="right-image">
-                        <img src="//Resources/Images/doctor.jpg">
+                        <img src="./Resources/Images/doctor.jpg">
                     </div>
                     <div>
                         <div class="app-name">
@@ -341,7 +341,76 @@
 </body>
 <script>
     let blur=document.getElementById("page");
+    let appAdd=document.getElementById("make-new-app");
+    let appointments=document.getElementById("appointments");
+    var delButtons=document.querySelectorAll('delete-one-app');
 
+    appAdd.addEventListener("click",addApp);
+    function addApp(){
+        appointments.innerHTML+= `
+            <div class="appointment">
+                                <div class="app-top">
+                                <i class="fa-regular fa-clock"></i>
+                                Tue, 30 Sept at 4:00 PM
+                                </div>
+                                <div class="app-mid">
+                                    <div class="name-desc">
+                                        <div>
+                                            <div class="app-name">
+                                                batata meshweye
+                                            </div>
+                                            <div class="app-info">
+                                                archeologist
+                                            </div>
+                                        </div>
+                                        <button class="app-desc" onclick="toggleDesc()">
+                                            show description
+                                        </button>
+                                    </div>
+                                    <div class="app-triple">
+                                        <div class="app-room">
+                                            <div class="app-name">
+                                                Room
+                                            </div>
+                                            <div class="app-info" style="font-size:10px">
+                                                adadadadsdadadadadad
+                                            </div>
+                                        </div>
+                                        <div class="app-status">
+                                            <div class="app-name">
+                                                Status
+                                            </div>
+                                            <div class="app-info">
+                                                Confirmed
+                                            </div>
+                                        </div>
+                                        <button class="app-call">
+                                            <i class="fa-solid fa-phone"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="app-edit-delete">
+                                <button class="app-button" onclick="toggleApp()">
+                                    <i class="fa-solid fa-pen"></i>
+                                    Edit
+                                </button>
+                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid silver">
+                                    <i class="fa-solid fa-trash"></i>
+                                    Delete
+                                </button>
+                                </div>
+                            </div>
+            `;
+        delButtons=document.querySelectorAll('.delete-one-app');
+    }
+
+    function deleteApp(){
+        delButtons.forEach(function (e){
+            e.addEventListener('click',function (event){
+                event.target.closest('.appointment').remove();
+            })
+        })
+    }
 
     function clickDay(){
         document.getElementById("option-1").setAttribute("style","display:flex");
