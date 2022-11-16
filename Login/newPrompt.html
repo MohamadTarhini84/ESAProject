@@ -8,6 +8,7 @@
     <script src="https://kit.fontawesome.com/4c2b37abf9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/Login/styles.css">
 
     <title>Document</title>
 </head>
@@ -21,30 +22,30 @@
             <div class="card-lower">
                         <div>  
                             <div class="folded-corner service_tab_1">
-                                <div class="text">
+                                <a href="/Login/newSignUP.html"  class="text">
                                     <i class="fa-sharp fa-solid fa-5x fa-bed"></i>
                                     <div class="item-title"> 
                                         Patient
                                     </div><!-- /.item-title -->
-                                </div>
+                                </a>
                             </div>
                         </div>
                         <div>
                             <div class="folded-corner service_tab_1">
-                                <div class="text">
+                                <a href="/Login/newDrSignUP.html"  class="text">
                                     <i class="fa-solid fa-user-doctor fa-5x"></i>
                                         <div class="item-title">
                                             Doctor
                                         </div><!-- /.item-title -->
-                                </div>
+                                </a>
                             </div>
                        
                     </div>
                 </div>
         </div>
         <div id="profile-footer">
-            <div style="margin:5px;color:var(#f7f7f7)">
-            <i class="fa-regular fa-copyright"></i> MedCenter 2022. All rights reserved.
+            <div style="margin:5px;">
+                &copy; MedCenter 2022. All rights reserved.
             </div>
             <div id="profile-footer-links">
                 <a href="#"><i class="fa-brands fa-facebook"></i></a>
@@ -71,27 +72,6 @@
     position:absolute;
     left:0;
     overflow:unset;
-}
-
-#profile-footer{
-    width:100%;
-    height:80px;
-    background-color: var(#f7f7f7);
-    position:fixed;
-    bottom:0;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-#profile-footer-links a{
-    margin-left:10px;
-    color:var(--white);
-}
-#profile-footer-links a>i:hover{
-    scale:1.5;
-    color:#f7f7f7;
-    transition: 0.2s;
 }
 
 .prompt-container{
@@ -147,7 +127,9 @@
     justify-content: space-around;
     align-items: center;
 }
-
+.text:hover{
+    text-decoration: none;
+}
 
 .folded-corner:hover .text{
 	visibility: visible;

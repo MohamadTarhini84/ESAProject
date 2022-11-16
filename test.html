@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="./js/fullcalendar-5.11.3/lib/main.css">
     <script src="./js/fullcalendar-5.11.3/lib/main.js"></script>
+    <script src="https://kit.fontawesome.com/4c2b37abf9.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
@@ -101,7 +102,7 @@
     </div>
 </div> -->
 
-<div id="edit-profile-popup">
+<!-- <div id="edit-profile-popup">
     <div id="edit-popup-left">
         <div class="left-image">
             <img src="/Resources/Images/doctor.jpg">
@@ -115,10 +116,89 @@
             </div>
         </div>
     </div>
+</div> -->
+
+<div id="nav-bar">
+    <div id="nav-left">
+        MedCenter
+    </div>
+    <div id="nav-mid">
+        <div class="mid-element">Home</div>
+        <div class="mid-element">Services</div>
+        <div class="mid-element">Book</div>
+        <div class="mid-element">Blog</div>
+        <div class="mid-element">Doctors</div>
+        <div class="mid-element">About</div>
+        <div class="mid-element">Contact</div>
+    </div>
+    <div id="nav-right">
+        <i class="fa-solid fa-bell"></i>
+        <div id="name-picture">
+            <img src="./Resources/Images/doctor.jpg">Batata Me2leye
+        </div>
+    </div>
 </div>
 
 </body>
 <style>
+#nav-bar{
+    width:100%;
+    height:50px;
+    background-color: #16a085;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color:#f7f7f7
+}
+
+#nav-left{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+#nav-mid{
+    height:50px;
+    display:flex;
+}
+.mid-element{
+    margin:15px 10px 0 10px;
+}
+.mid-element:hover{
+    cursor: pointer;
+    border-bottom: 4px solid #f7f7f7;
+    transition: 0.3s;
+}
+
+#nav-right{
+    display:flex;
+    align-items: center;
+}
+#nav-right img{
+    width:30px;
+    margin:10px;
+    border-radius: 50px;
+}
+#nav-right img:hover{
+    cursor: pointer;
+}
+#name-picture{
+    height:20px;
+    display:flex;
+    align-items: center;
+    border-left:1px solid white;
+}
+#nav-right i{
+    margin-right:10px;
+}
+#nav-right i:hover{
+    scale: 1.3;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+
+
 .left-image img{
     aspect-ratio: 1/1;
     width: 100px;

@@ -24,7 +24,27 @@
 <body>
 <div id="page">
     <nav class="nav-bar">
-        <div class="boss">
+        <div id="nav-bar">
+            <div id="nav-left">
+                MedCenter
+            </div>
+            <div id="nav-mid">
+                <div class="mid-element">Home</div>
+                <div class="mid-element">Services</div>
+                <div class="mid-element">Book</div>
+                <div class="mid-element">Blog</div>
+                <div class="mid-element">Doctors</div>
+                <div class="mid-element">About</div>
+                <div class="mid-element">Contact</div>
+            </div>
+            <div id="nav-right">
+                <i class="fa-solid fa-bell"></i>
+                <div id="name-picture">
+                    <img src="./Resources/Images/patient.jpg">Batata Me2leye
+                </div>
+            </div>
+        </div>
+        <!-- <div class="boss">
     
             <nav class="navbar">
                 <div>
@@ -50,7 +70,7 @@
             <div class="navbutton">
                 <button class="login-butt">login</button>
             </div>
-        </div> 
+        </div>  -->
     </nav>
     <div id="profile-container">
         <div id="profile-info">
@@ -270,6 +290,9 @@
                                             Delete
                                         </button>
                                     </div>
+                                    <div class="review-likes">
+                                        <i class="fa-regular fa-heart"></i> 123
+                                    </div>
                                 </div>
                                 <div class="quotes">
                                     <img src="./Resources/Images/quotes.png">
@@ -436,5 +459,19 @@
         let appPopup=document.getElementsByClassName("app-popup");
         appPopup[0].classList.toggle('active');
     }
+
+    let likes=document.querySelectorAll('.review-likes');
+
+    likes.forEach(function (e){
+        e.addEventListener('click',function(){
+            if(e.firstElementChild.classList.contains('liked')){
+                e.firstElementChild.setAttribute('class','fa-regular fa-heart');
+                e.firstElementChild.setAttribute('style','color:white');
+            } else{
+                e.firstElementChild.setAttribute('class','fa-solid fa-heart liked');
+                e.firstElementChild.setAttribute('style','color:red');
+            }
+        })
+    })
 </script>
 </html>
