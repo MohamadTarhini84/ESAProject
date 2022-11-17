@@ -1,3 +1,10 @@
+:root{
+    --green:#16a085;
+    --white:#f7f7f7;
+    --dark:#000;
+    --light:silver;
+}
+
 *{
     margin: 0px;
     padding: 0px;
