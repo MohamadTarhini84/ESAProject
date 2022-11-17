@@ -47,7 +47,7 @@
       <aside id="sidebar">
         <div class="sidebar-title">
           <div class="sidebar-brand">
-            <span class="material-icons-outlined"><img src="images/logo.png" alt="logo" style="background-color:#21232d ;"></span> MedCenter
+            <span class="material-icons-outlined"><!--<img src="images/logo.png" alt="logo" style="background-color:#21232d ;">--></span> MedCenter
           </div>
           <span class="material-icons-outlined closeIc" onclick="closeSidebar()">close</span>
         </div>
@@ -62,9 +62,9 @@
           <li class="sidebar-list-item" >
             <span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors
           </li>
-          <!--<li class="sidebar-list-item" id="Patients"> 
-            <span class="material-symbols-outlined">personal_injury</span> Patients
-          </li>-->
+          <li class="sidebar-list-item" > 
+            <span class="material-symbols-outlined" id="Patients">personal_injury</span> Patients
+          </li>
           <li class="sidebar-list-item">
             <span class="material-symbols-outlined" id="appo">book_online</span> Appointments
           </li>
@@ -104,10 +104,10 @@
 
           <div class="card">
             <div class="card-inner">
-              <p class="text-primary">PRODUCTS</p>
+              <p class="text-primary">Admins</p>
               <span class="material-symbols-outlined text-blue">medication</span>
             </div>
-            <span class="text-primary font-weight-blue">83</span>
+            <span class="text-primary font-weight-blue">4</span>
           </div>
 
           <div class="card">
@@ -157,88 +157,88 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>ID</th>
                   
-                  <th>Patient</th>
+                  <th>Name</th>
+                  
+                  
+                  <th>Gender</th>                  
+                  <th>Department</th>
                   <th>Date</th>
-                  <th>Time</th>   
-                  <th>Status</th>               
-                  <th>View Details</th>
+                  <th>Time</th>
+                  <th>Doctor</th>
+                  
+                  
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>01</td>
+                  <!--<td class="name-img">
+                    <img src="img/avatar.svg" alt="" class="climg">
+                    
+                  </td>-->
+                  <td>Sam David</td>
                   
-                  <td>Patient pat</td>
+                  
+                  <td>Male</td>
+                  <td>Cardiology</td>
                   <td>03-24-22</td>
                   <td>8:00AM</td>
-                  <td>Confirmed</td>
-                  <td><button>View</button></td>
-                </tr>
-                <tr >
-                  <td>02</td>
+                  <td>Dr.Doctor Doctor</td>
+                                                     
                   
-                  <td>Patient pat</td>
-                  <td>03-24-22</td>
-                  <td>9:00AM</td>
-                  <td>Confirmed</td>
-                  <td><button>View</button></td>
                 </tr>
                 <tr>
-                  <td>03</td>
                   
-                  <td>Patient pat</td>
-                  <td >03-24-22</td>
+                  <td>Sam David</td>
+                  
+                  
+                  <td>Male</td>
+                  <td>Cardiology</td>
+                  <td>03-24-22</td>
                   <td>8:00AM</td>
-                  <td>Confirmed</td>
-                  <td><button>View</button></td>
+                  <td>Dr.Doctor Doctor</td>
+                                                    
+                 
                 </tr>
                 <tr>
-                  <td>04</td>
                   
-                  <td>Patient pat</td>
-                  <td >03-24-22</td>
-                  <td>8:00AM</td>
-                  <td>Confirmed</td>
-                  <td><button>View</button></td>
-                </tr>
-                <tr >
-                  <td>05</td>
+                  <td>Sam David</td>
                   
-                  <td>Patient pat</td>
+                  
+                  <td>Male</td>
+                  <td>Cardiology</td>
                   <td>03-24-22</td>
-                  <td>9:00AM</td>
-                  <td>Confirmed</td>
-                  <td><button>View</button></td>
+                  <td>8:00AM</td>
+                  <td>Dr.Doctor Doctor</td>
+                                                    
+                  
                 </tr>
-                <tr >
-                  <td>06</td>
+                <tr>
                   
-                  <td>Patient pat</td>
-                  <td >03-24-22</td>
-                  <td>9:00AM</td>
-                  <td>Confirmed</td>
-                  <td><button>View</button></td>
-                </tr> 
-                <tr >
-                  <td>07</td>
+                  <td>Sam David</td>
                   
-                  <td>Patient pat</td>
-                  <td >03-24-22</td>
-                  <td>9:00AM</td>
-                  <td>Confirmed</td>
-                  <td><button>View</button></td>
-                </tr> 
-                <tr >
-                  <td>08</td>
                   
-                  <td>Patient pat</td>
-                  <td >03-24-22</td>
-                  <td>9:00AM</td>
-                  <td>Confirmed</td>
-                  <td><button>View</button></td>
-                </tr> 
+                  <td>Male</td>
+                  <td>Cardiology</td>
+                  <td>03-24-22</td>
+                  <td>8:00AM</td>
+                  <td>Dr.Doctor Doctor</td>
+                                                   
+                  
+                </tr>
+                <tr>
+                  
+                  <td>Sam David</td>
+                  
+                 
+                  <td>Male</td>
+                  <td>Cardiology</td>
+                  <td>03-24-22</td>
+                  <td>8:00AM</td>
+                  <td>Dr.Doctor Doctor</td>
+                                                   
+                  
+                </tr>
               </tbody>
             </table>
           </div>
@@ -247,11 +247,11 @@
       </div>
         <!-- Recent Orders-->
           <div class="charts-card">
-            <p class="chart-title"> Recent Orders</p>
+            <p class="chart-title"> Recent Patients</p>
             <div>
                 <div class="card-inner">
                     <span class="material-symbols-outlined text-blue marg">medication</span>
-                    <span style="font-size: 20px; " class="margR">100 Orders</span>                                             
+                    <span style="font-size: 20px; " class="margR">500 patient</span>                                             
                 </div>
                 <hr> 
                 <div class="list">          
@@ -259,78 +259,109 @@
                     <thead>
                       <tr>
                         <th>ID</th>
-                        <th>Med Name</th>
-                        <th>OrderDate</th>
-                        <th>Paymennt Method</th>
-                                               
-                        <th>Details</th>
+                        <th>Name</th>
+                        
+                       
+                        <th>Gender</th>                  
+                        
+                        <th>Address</th>
+                        
+                        <th>Status</th>
+
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>01</td>
-                        <td>Mask 103</td>
-                        <td>03-24-22</td>
-                        <td>Cash</td>
-                                                
-                        <td><button>View</button></td>
+                          <td class="name-img">
+                              <img src="img/avatar.svg" alt="" class="climg">
+                              01
+                          </td>
+                          <td>Sam David</td>
+                          
+                          
+                          <td>Male</td>
+                          
+                          <td>1452-ABC Street,NY</td>
+                          
+                          <td class="Appr" id="status">Normal</td>                                   
+                          
                       </tr>
                       <tr>
-                        <td>02</td>
-                        <td>Mask 103</td>
-                        <td>03-24-22</td>
-                        <td>Cash</td>
-                        <!-- <td>Delivered</td>  -->                      
-                        <td><button>View</button></td>
+                          <td class="name-img">
+                              <img src="img/avatar.svg" alt="" class="climg">
+                              02
+                          </td>
+                          <td>Sam David</td>
+                         
+                          
+                          <td>Male</td>
+                          
+                          <td>1452-ABC Street,NY</td>
+                          
+                          <td class="ban" id="status">Banned</td>                                   
+                         
                       </tr>
                       <tr>
-                        <td>03</td>
-                        <td>Mask 103</td>
-                        <td>03-24-22</td>
-                        <td>Card</td>
-                       <!-- <td>Delivered</td>  -->                      
-                        <td><button>View</button></td>
+                          <td class="name-img">
+                              <img src="img/avatar.svg" alt="" class="climg">
+                              03
+                          </td>
+                          <td>Sam David</td>
+                          
+                          
+                          <td>Male</td>
+                          
+                          <td>1452-ABC Street,NY</td>
+                          
+                          <td class="Appr" id="status">Normal</td>                                   
+                         
                       </tr>
                       <tr>
-                        <td>04</td>
-                        <td>Mask 103</td>
-                        <td>03-24-22</td>
-                        <td>Cash</td>
-                        <!-- <td>Delivered</td>  -->                        
-                        <td><button>View</button></td>
+                          <td class="name-img">
+                              <img src="img/avatar.svg" alt="" class="climg">
+                              04
+                          </td>
+                          <td>Sam David</td>
+                          
+                          
+                          <td>Male</td>
+                          
+                          <td>1452-ABC Street,NY</td>
+                          
+                          <td class="ban" id="status">Banned</td>                                   
+                          
+                          </td>
                       </tr>
-                      <tr >
-                        <td>05</td>
-                        <td>Mask 103</td>
-                        <td>03-24-22</td>
-                        <td>Card</td>
-                        <!-- <td>Delivered</td>  -->                        
-                        <td><button>View</button></td>
+                      <tr>
+                          <td class="name-img">
+                              <img src="img/avatar.svg" alt="" class="climg">
+                              05
+                          </td>
+                          <td>Sam David</td>
+                          
+                          
+                          <td>Male</td>
+                          
+                          <td>1452-ABC Street,NY</td>
+                          
+                          <td class="Appr" id="status">Normal</td>                                   
+                          
                       </tr>
-                      <tr >
-                        <td>06</td>
-                        <td>Mask 103</td>
-                        <td>03-24-22</td>
-                        <td>Cash</td>
-                        <!-- <td>Delivered</td>  -->                        
-                        <td><button>View</button></td>
-                      </tr> 
-                      <tr >
-                        <td>07</td>
-                        <td>Mask 103</td>
-                        <td>03-24-22</td>
-                        <td>Cash</td>
-                        <!-- <td>Delivered</td>  -->                        
-                        <td><button>View</button></td>
-                      </tr> 
-                      <tr >
-                        <td>08</td>
-                        <td>Mask 103</td>
-                        <td>03-24-22</td>
-                        <td>Cash</td>
-                        <!-- <td>Delivered</td>  -->                        
-                        <td><button>View</button></td>
-                      </tr> 
+                      <tr>
+                          <td class="name-img">
+                              <img src="img/avatar.svg" alt="" class="climg">
+                              06
+                          </td>
+                          <td>Sam David</td>
+                          
+                          
+                          <td>Male</td>
+                          
+                          <td>1452-ABC Street,NY</td>
+                          
+                          <td class="Appr" id="status">Normal</td>                                   
+                          
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -465,7 +496,9 @@
       document.getElementById("upd").addEventListener('click',function(){
         window.location.href="Profile.html";
       });
-      
+      document.getElementById("Patients").addEventListener('click',function(){
+        window.location.href="Patients.html";
+      });
     </script>
   </body>
 </html>

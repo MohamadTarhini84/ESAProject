@@ -60,8 +60,8 @@ body {/* margin & padding 0 to fill entire screen without extra space */
   #sidebar {
     grid-area: sidebar;
     height: 100%;
-    background-color: #21232d;
-    color: #9799ab;
+    background-color: #1d3b26;
+    color: white;
     overflow-y: auto;/*to allow scrolling */
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
@@ -313,7 +313,7 @@ body {/* margin & padding 0 to fill entire screen without extra space */
   left: 50%;
   transform: translate(-50%,-50%) scale(0.1);
   text-align: center;
-  padding: 0 30px 30px;
+  padding: 10px 30px 30px;
   color: #333;
   visibility: hidden;
   transition: 0.4s,top 0.4s;
@@ -322,7 +322,7 @@ body {/* margin & padding 0 to fill entire screen without extra space */
 .open-popup{
   visibility: visible;
   top:50%;
-  transform: translate(-50%,-50%) scale(1);
+  transform: translate(-50%,-50%) scale(1.25);
 
 }
 
@@ -558,6 +558,9 @@ table thead tr{
     color:blue;
   }
 
+  .ban{
+    color:red;
+  }
   /* Doctor Profile */
   
   .list ul {

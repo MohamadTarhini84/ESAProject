@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=0.75">
-    <title>Validate Doctor</title>
+    <title>Patients</title>
      <!-- Custom CSS -->
      <link rel="stylesheet" href="css/styles.css">
      
@@ -26,11 +26,12 @@
     <div class="grid-container">
 
       <div class="popup" id="popup">
-        <h2 style="color: white;">Dr. Sam David</h2><br>
-        <p style="color: white;">Choose An Action</p><br>
-        <button class="btn" onclick="closePopUp()">Validate</button>
-        <button class="btn" onclick="closePopUp()">Delete</button>
-        <button class="btn" onclick="closePopUp()">Cancel</button>
+        <h2 style="color: white;">Patient Pat</h2>
+        <p style="color: white;">Choose An Action</p>
+        <button class="btn" onclick="closePopUp()">Okay</button>
+        <button class="btn" onclick="closePopUp()">Ban</button>
+        <button class="btn" onclick="closePopUp()">Cancel Ban</button>
+
       </div>
       <!-- Header -->
       <header class="header">
@@ -111,21 +112,19 @@
         <input
           type="search"
           id="search-input"
-          placeholder="Search doctor name here.."
+          placeholder="Search patient name here.."
         />
         <button id="search">Search</button>
       </div>
       <div id="buttons">
         <button class="button-value" >All</button>
         <button class="button-value" >
-          Approved
+          Normal
         </button>
         <button class="button-value" >
-          Pending
+          Banned
         </button>
-        <button class="button-value" >
-          Declined
-        </button>
+        
       </div>
       <br>
             <table class="table">
@@ -136,11 +135,12 @@
                   <th>Email</th>
                   <th>Age</th>
                   <th>Gender</th>                  
-                  <th>Department</th>
+                  
                   <th>Address</th>
-                  <th>Date</th>
+                  
                   <th>Status</th>
                   <th></th>
+                 
                 </tr>
               </thead>
               <tbody>
@@ -153,143 +153,105 @@
                     <td>Sam-David@email.com</td>
                     <td>23</td>
                     <td>Male</td>
-                    <td>Pediatric</td>
+                    
                     <td>1452-ABC Street,NY</td>
-                    <td>03-24-22</td>
-                    <td class="Appr" id="status">Approved</td>                                   
-                    <td><button onclick="goto()" >View Profile</button>
+                    
+                    <td class="Appr" id="status">Normal</td>                                   
+                    <td><button onclick="goto()">View Profile</button>
 
-                      <button onclick="openPopUp()" > Validate</button>
+                      <button onclick="openPopUp()"> Status</button>
                     </td>
                 </tr>
-                <tr id="trtab">
+                <tr>
                     <td class="name-img">
-                      <img src="img/avatar.svg" alt="" class="climg">
-                      02
-                    </td>
-                    <td>Sam David</td>
-                    <td>Sam-David@email.com</td>
-                    <td>23</td>
-                    <td>Male</td><td>Pediatric</td>
-                    <td>1452-ABC Street,NY</td>
-                                        
-                    <td>03-24-22</td>
-                    <td class="Pend">Pending</td>                                   
-                    <td><button onclick="goto">View Profile</button>
-                      <button onclick="popup"> Validate</button></td>
-                  </tr>
-                  <tr>
-                    <td class="name-img">
-                      <img src="img/avatar.svg" alt="" class="climg">
-                      03
-                    </td>
-                    <td>Sam David</td>
-                    <td>Sam-David@email.com</td>
-                    <td>23</td>
-                    <td>Male</td><td>Pediatric</td>
-                    <td>1452-ABC Street,NY</td>
-                                       
-                    <td>03-24-22</td>
-                    <td class="Appr">Approved</td>                                   
-                    <td><button onclick="goto">View Profile</button>
-                      <button onclick="popup"> Validate</button></td>
-                  </tr>
-                  <tr>
-                    <td class="name-img">
-                      <img src="img/avatar.svg" alt="" class="climg">
-                      04
-                    </td>
-                    <td>Sam David</td>
-                    <td>Sam-David@email.com</td>
-                    <td>23</td>
-                    <td>Male</td><td>Pediatric</td>
-                    <td>1452-ABC Street,NY</td>
-                                     
-                    <td>03-24-22</td>
-                    <td class="Appr">Approved</td>                                   
-                    <td><button onclick="goto">View Profile</button>
-                      <button onclick="popup"> Validate</button></td>
-                  </tr>
-                  <tr>
-                    <td class="name-img">
-                      <img src="img/avatar.svg" alt="" class="climg">
-                      05
-                    </td>
-                    <td>Sam David</td>
-                    <td>Sam-David@email.com</td>
-                    <td>23</td>
-                    <td>Male</td><td>Pediatric</td>
-                    <td>1452-ABC Street,NY</td>
-                                        
-                    <td>03-24-22</td>
-                    <td class="decl">Declined</td>                                   
-                    <td><button onclick="goto">View Profile</button>
-                    <button onclick="popup"> Validate</button></td>
-                  </tr>
-                  <tr>
-                    <td class="name-img">
-                      <img src="img/avatar.svg" alt="" class="climg">
-                      06
-                    </td>
-                    <td>Sam David</td>
-                    <td>Sam-David@email.com</td>
-                    <td>23</td>
-                    <td>Male</td><td>Pediatric</td> 
-                    <td>1452-ABC Street,NY</td>
-                                       
-                    <td>03-24-22</td>
-                    <td class="decl">Declined</td>                                   
-                    <td><button onclick="goto">View Profile</button>
-                      <button onclick="popup"> Validate</button></td>
-                  </tr>
-                  <tr>
-                    <td class="name-img">
-                      <img src="img/avatar.svg" alt="" class="climg">
-                      07
+                        <img src="img/avatar.svg" alt="" class="climg">
+                        02
                     </td>
                     <td>Sam David</td>
                     <td>Sam-David@email.com</td>
                     <td>23</td>
                     <td>Male</td>
-                    <td>Pediatric</td>
-                    <td>1452-ABC Street,NY</td>                    
-                    <td>03-24-22</td>
-                    <td class="Appr">Approved</td>                                   
-                    <td><button onclick="goto">View Profile</button>
-                      <button onclick="popup"> Validate</button></td>
-                  </tr>
-                  <tr>
+                    
+                    <td>1452-ABC Street,NY</td>
+                    
+                    <td class="ban" id="status">Banned</td>                                   
+                    <td><button onclick="goto()">View Profile</button>
+
+                      <button onclick="openPopUp()"> Status</button>
+                    </td>
+                </tr>
+                <tr>
                     <td class="name-img">
-                      <img src="img/avatar.svg" alt="" class="climg">
-                      08
+                        <img src="img/avatar.svg" alt="" class="climg">
+                        03
                     </td>
                     <td>Sam David</td>
                     <td>Sam-David@email.com</td>
                     <td>23</td>
-                    <td>Male</td><td>Pediatric</td> 
+                    <td>Male</td>
+                    
                     <td>1452-ABC Street,NY</td>
-                                       
-                    <td>03-24-22</td>
-                    <td class="decl">Declined</td>                                   
-                    <td><button onclick="goto">View Profile</button>
-                      <button onclick="popup"> Validate</button></td>
-                  </tr>
-                  <tr>
+                    
+                    <td class="Appr" id="status">Normal</td>                                   
+                    <td><button onclick="goto()">View Profile</button>
+
+                      <button onclick="openPopUp()"> Status</button>
+                    </td>
+                </tr>
+                <tr>
                     <td class="name-img">
-                      <img src="img/avatar.svg" alt="" class="climg">
-                      09
+                        <img src="img/avatar.svg" alt="" class="climg">
+                        04
                     </td>
                     <td>Sam David</td>
                     <td>Sam-David@email.com</td>
                     <td>23</td>
-                    <td>Male</td><td>Pediatric</td>
+                    <td>Male</td>
+                    
                     <td>1452-ABC Street,NY</td>
-                                       
-                    <td>03-24-22</td>
-                    <td class="decl">Declined</td>                                   
-                    <td><button onclick="goto">View Profile</button>
-                      <button onclick="popup"> Validate</button></td>
-                  </tr>
+                    
+                    <td class="ban" id="status">Banned</td>                                   
+                    <td><button onclick="goto()">View Profile</button>
+
+                      <button onclick="openPopUp()"> Status</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-img">
+                        <img src="img/avatar.svg" alt="" class="climg">
+                        05
+                    </td>
+                    <td>Sam David</td>
+                    <td>Sam-David@email.com</td>
+                    <td>23</td>
+                    <td>Male</td>
+                    
+                    <td>1452-ABC Street,NY</td>
+                    
+                    <td class="Appr" id="status">Normal</td>                                   
+                    <td><button onclick="goto()">View Profile</button>
+
+                      <button onclick="openPopUp()"> Status</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-img">
+                        <img src="img/avatar.svg" alt="" class="climg">
+                        06
+                    </td>
+                    <td>Sam David</td>
+                    <td>Sam-David@email.com</td>
+                    <td>23</td>
+                    <td>Male</td>
+                    
+                    <td>1452-ABC Street,NY</td>
+                    
+                    <td class="Appr" id="status">Normal</td>                                   
+                    <td><button onclick="goto()">View Profile</button>
+
+                      <button onclick="openPopUp()"> Status</button>
+                    </td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -307,12 +269,8 @@
     <script src="javascript/scripts.js"></script>
     <script>
       function goto(){
-        window.location.href="Drprofile.html";
+        window.location.href="PatientPro.html";
       }
-      
-      
-   
-
     </script>
 
       <script>
@@ -345,10 +303,10 @@
       document.getElementById("upd").addEventListener('click',function(){
         window.location.href="Profile.html";
       });
-      
       document.getElementById("Patients").addEventListener('click',function(){
         window.location.href="Patients.html";
       });
+      
     </script>
 </body>
 </html>

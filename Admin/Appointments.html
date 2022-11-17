@@ -25,11 +25,12 @@
 
 
       <div class="popup" id="popup">
-        <h2>Appointmet by Mr Patient Pat</h2>
-        <p>Appointment Details</p>
-        <button class="btn" onclick="closePopUp()">Okay</button>
+        
+        <h2 style="color: white;">Appointmet by Mr Patient Pat</h2>
+        <p style="color: white;">Appointment Details</p>
+        <button class="btn" onclick="closePopUp()">Approve</button>
+        <button class="btn" onclick="closePopUp()">Decline</button>
         <button class="btn" onclick="closePopUp()">Delete</button>
-
       </div>
       <!-- Header -->
       <header class="header">
@@ -51,7 +52,7 @@
       <aside id="sidebar">
         <div class="sidebar-title">
           <div class="sidebar-brand">
-            <span class="material-icons-outlined"><img src="images/logo.png" alt="logo" style="background-color:#21232d ;"></span> MedCenter
+            <span class="material-icons-outlined"><!--<img src="images/logo.png" alt="logo" style="background-color:#21232d ;">--></span> MedCenter
           </div>
           <span class="material-icons-outlined closeIc" onclick="closeSidebar()">close</span>
         </div>
@@ -66,9 +67,9 @@
           <li class="sidebar-list-item" >
             <span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors
           </li>
-          <!--<li class="sidebar-list-item" id="Patients"> 
-            <span class="material-symbols-outlined">personal_injury</span> Patients
-          </li>-->
+          <li class="sidebar-list-item"> 
+            <span class="material-symbols-outlined"  id="Patients">personal_injury</span> Patients
+          </li>
           <li class="sidebar-list-item">
             <span class="material-symbols-outlined" id="appo">book_online</span> Appointments
           </li>
@@ -154,7 +155,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()"> View</button></td>
                 </tr>
                 <tr>
                   <td class="name-img">
@@ -170,7 +171,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr>
                 <tr>
                   <td class="name-img">
@@ -186,7 +187,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr>
                 <tr>
                   <td class="name-img">
@@ -202,7 +203,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr>
                 <tr>
                   <td class="name-img">
@@ -218,7 +219,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr>
                 <tr>
                   <td class="name-img">
@@ -234,7 +235,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()"> View</button></td>
                 </tr><tr>
                   <td class="name-img">
                     <img src="img/avatar.svg" alt="" class="climg">
@@ -249,7 +250,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr><tr>
                   <td class="name-img">
                     <img src="img/avatar.svg" alt="" class="climg">
@@ -264,7 +265,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr><tr>
                   <td class="name-img">
                     <img src="img/avatar.svg" alt="" class="climg">
@@ -279,7 +280,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr><tr>
                   <td class="name-img">
                     <img src="img/avatar.svg" alt="" class="climg">
@@ -294,7 +295,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr><tr>
                   <td class="name-img">
                     <img src="img/avatar.svg" alt="" class="climg">
@@ -309,7 +310,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr><tr>
                   <td class="name-img">
                     <img src="img/avatar.svg" alt="" class="climg">
@@ -324,7 +325,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr>
                 <tr>
                   <td class="name-img">
@@ -340,7 +341,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr> 
                 <tr>
                   <td class="name-img">
@@ -356,7 +357,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr>
                 <tr>
                   <td class="name-img">
@@ -372,7 +373,7 @@
                   <td>8:00AM</td>
                   <td>Dr.Doctor Doctor</td>
                   <td>50$</td>                                   
-                  <td><button>View</button></td>
+                  <td><button onclick="openPopUp()">View</button></td>
                 </tr>
               </tbody>
             </table>
@@ -389,7 +390,7 @@
     <!-- Custom JS -->
     <script src="javascript/scripts.js"></script>
     <script>
-      let popup=document.getElementById("popup");
+      
       function openPopUp(){
         popup.classList.add("open-popup");
 
@@ -419,7 +420,9 @@
       document.getElementById("upd").addEventListener('click',function(){
         window.location.href="Profile.html";
       });
-      
+      document.getElementById("Patients").addEventListener('click',function(){
+        window.location.href="Patients.html";
+      });
     </script>
   </body>
 </html>
