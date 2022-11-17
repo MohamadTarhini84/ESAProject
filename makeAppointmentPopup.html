@@ -52,8 +52,8 @@
 */
 
 :root{
-    --green:#16a085;
-    --white:#f7f7f7;
+    --green:var(--green);
+    --white:var(--white);
 }
 
 #page.active{
@@ -69,7 +69,7 @@
     display:flex;
     flex-direction: column;
     border-radius: 5px;
-    border: 1px solid silver;
+    border: 1px solid var(--light);
     position: fixed;
     top:40%;
     left:50%;
@@ -91,10 +91,10 @@
     height:50px;
     display:flex;
     justify-content: space-between;
-    border-bottom: 1px solid silver;
+    border-bottom: 1px solid var(--light);
     padding:0 20px;
-    background-color: #16a085;
-    color: #f7f7f7;
+    background-color: var(--green);
+    color: var(--white);
     align-items: center;
 }
 
@@ -112,7 +112,7 @@
 
 #app-popup-left{
     height:310px;
-    border-right: 1px solid silver;
+    border-right: 1px solid var(--light);
     padding:20px;
     display:flex;
     flex-direction: column;
@@ -124,7 +124,7 @@
     height: 80px;
     resize: none;
     border-radius: 5px;
-    border: 1px solid silver;
+    border: 1px solid var(--light);
     padding:10px;
 }
 textarea:focus{
@@ -154,7 +154,7 @@ input:focus{
     width:200px;
     height: 20px;
     border-radius: 5px;
-    border: 1px solid silver;
+    border: 1px solid var(--light);
 }
 
 #left-buttons{

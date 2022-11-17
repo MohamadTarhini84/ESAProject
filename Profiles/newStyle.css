@@ -1,6 +1,18 @@
 :root{
     --green:#16a085;
     --white:#f7f7f7;
+    --dark:#000;
+    --light:silver;
+    --darkbutton:#000;
+    --lightbutton:silver;
+    --patientbg:rgba(22, 160, 133,0.4);
+    /* --white:#16a085;
+    --green:#f7f7f7;
+    --dark:#000;
+    --light:#fff;
+    --darkbutton:#fff;
+    --lightbutton:rgba(0,0,0,0.3);
+    --patientbg:rgba(255,255,255,0.2); */
 }
 
 *{
@@ -16,7 +28,7 @@ body{
 }
 
 .logo{
-    color: #16a085;
+    color: var(--green);
     font-size: 30px;
     font-weight: 700;
 }
@@ -73,8 +85,8 @@ input:focus, textarea:focus{
     width: 100px;
     flex-grow: 1;
     border-top:5px solid var(--green);
-    /* border-top: 1px solid silver; */
-    /* border-right: 1px solid silver; */
+    /* border-top: 1px solid var(--light); */
+    /* border-right: 1px solid var(--light); */
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -106,7 +118,7 @@ input:focus, textarea:focus{
     width: 100%;
     display:flex;
     font-size: 8px;
-    color:silver;
+    color:var(--light);
     justify-content: stretch;
     position: relative;
     margin:20px 0;
@@ -114,7 +126,7 @@ input:focus, textarea:focus{
 
 .devider-line{
     width: 70%;
-    border-bottom: 1px solid silver;
+    border-bottom: 1px solid var(--light);
     position: absolute;
     top:50%;
     right:0;
@@ -133,8 +145,8 @@ input:focus, textarea:focus{
     height: auto;
     flex-grow: 4;
     border-top:5px solid var(--green);
-    /* border-top: 1px solid silver; */
-    /* border-left: 1px solid silver; */
+    /* border-top: 1px solid var(--light); */
+    /* border-left: 1px solid var(--light); */
     padding:30px;
 }
 
@@ -150,7 +162,7 @@ input:focus, textarea:focus{
 #leave-review{
     width:150px;
     height:30px;
-    color:white;
+    color:var(--white);
     border-radius: 6px;
     background-color: var(--green);
     border:none;
@@ -171,7 +183,7 @@ input:focus, textarea:focus{
     width:200px;
     height: 50px;
     border-radius: 10px;
-    color:white;
+    color:var(--white);
     background-color: var(--green);
     border:none;
 }
@@ -195,9 +207,9 @@ input:focus, textarea:focus{
 #patient-bio{
     width:80%;
     height:130px;
-    border-left:1px solid silver;
-    border-right:1px solid silver;
-    border-bottom: 1px solid silver;
+    border-left:1px solid var(--light);
+    border-right:1px solid var(--light);
+    border-bottom: 1px solid var(--light);
     padding:10px 40px;
     margin-top: 10px;
     position: relative;
@@ -214,7 +226,7 @@ input:focus, textarea:focus{
 
 #rating-text{
     font-size: 10px;
-    color:silver;
+    color:var(--light);
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-top: 10px;
@@ -231,7 +243,7 @@ input:focus, textarea:focus{
     color:var(--green)
 }
 #rating>.empty{
-    color:black;
+    color:var(--dark);
 }
 .checked{
     color:var(--green);
@@ -251,7 +263,7 @@ input:focus, textarea:focus{
 #upper-section{
     display:flex;
     justify-content: flex-start;
-    border-bottom: 1px solid silver;
+    border-bottom: 1px solid var(--light);
 }
 
 .upper-button{
@@ -260,7 +272,7 @@ input:focus, textarea:focus{
     font-size: 16px;
     border: none;
     background-color: transparent;
-    color:silver;
+    color:var(--lightbutton);
     transition: 0.2s;
 }
 .upper-button:hover{
@@ -270,7 +282,7 @@ input:focus, textarea:focus{
 }
 .clicked{
     border-bottom:5px solid var(--green);
-    color:black;
+    color:var(--darkbutton);
     transition: 0.5s;
 }
 
@@ -320,7 +332,7 @@ input:focus, textarea:focus{
     text-align: center;
     position:relative;
     margin-top:5%;
-    box-shadow: 5px 5px 20px -5px black;
+    box-shadow: 5px 5px 20px -5px var(--dark);
 }
 
 .review-pic{
@@ -338,7 +350,7 @@ input:focus, textarea:focus{
     border-radius: 500px;
     border: 2px solid var(--green);
     overflow: hidden;
-    box-shadow: 5px 5px 20px -5px black;
+    box-shadow: 5px 5px 20px -5px var(--dark);
 }
 
 .review-likes{
@@ -397,7 +409,7 @@ input:focus, textarea:focus{
     font-size:14px;
     border-radius: 10px;
     border:2px solid var(--green);
-    background-color: rgba(22, 160, 133,0.4);
+    background-color: var(--patientbg);
     padding:20px;
 }
 
@@ -419,7 +431,7 @@ input:focus, textarea:focus{
 }
   
 .app-top{
-    border-bottom: 1px solid silver;
+    border-bottom: 1px solid var(--light);
     padding-bottom:5px;
     flex-grow: 1;
 }
@@ -450,7 +462,7 @@ input:focus, textarea:focus{
     margin-top: 30px;
     display:flex;
     justify-content: space-between;
-    border-bottom: 1px solid silver;
+    border-bottom: 1px solid var(--light);
 }
 
 .app-button{
@@ -488,7 +500,7 @@ input:focus, textarea:focus{
     aspect-ratio: 1/1;
     height:40px;
     border-radius: 500px;
-    border:2px solid #16a085;
+    border:2px solid var(--green);
     background-color: transparent;
     color:var(--green);
     margin-right: 10PX;
@@ -501,7 +513,7 @@ input:focus, textarea:focus{
 }
 
 .desc-popup{
-    border: 1px solid black;
+    border: 1px solid var(--dark);
     position: fixed;
     top:40%;
     left:50%;
@@ -531,7 +543,7 @@ input:focus, textarea:focus{
     top:40%;
     left:50%;
     transform: translate(-50%,-50%);
-    border:1px solid black;
+    border:1px solid var(--dark);
     border-radius: 5px;
     padding:20px;
     box-shadow: 0 5px 30px rgba(0 0 0 0.3);
@@ -553,7 +565,7 @@ input:focus, textarea:focus{
 .review-popup textarea{
     width:100%;
     height:100px;
-    border:1px dashed black;
+    border:1px dashed var(--dark);
     resize: none;
 }
 
@@ -595,7 +607,7 @@ input:focus, textarea:focus{
     display:flex;
     flex-direction: column;
     border-radius: 5px;
-    border: 1px solid silver;
+    border: 1px solid var(--light);
     position: fixed;
     top:40%;
     left:50%;
@@ -612,16 +624,23 @@ input:focus, textarea:focus{
     opacity: 1;
     transition: 0.5s;   
 }
+.edit-popup.active{
+    top:50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;   
+}
 
 #app-popup-upper{
     width: 100%;
     height:50px;
     display:flex;
     justify-content: space-between;
-    border-bottom: 1px solid silver;
+    border-bottom: 1px solid var(--light);
+    border-right: 1px solid var(--green);
     padding:0 20px;
-    background-color: #16a085;
-    color: #f7f7f7;
+    background-color: var(--green);
+    color: var(--white);
     align-items: center;
 }
 
@@ -638,7 +657,7 @@ input:focus, textarea:focus{
 }
 
 #app-popup-left{
-    border-right: 1px solid silver;
+    border-right: 1px solid var(--light);
     padding:20px;
     display:flex;
     flex-direction: column;
@@ -650,7 +669,7 @@ input:focus, textarea:focus{
     height: 80px;
     resize: none;
     border-radius: 5px;
-    border: 1px solid silver;
+    border: 1px solid var(--light);
     padding:10px;
 }
 
@@ -674,7 +693,7 @@ input:focus, textarea:focus{
     width:200px;
     height: 20px;
     border-radius: 5px;
-    border: 1px solid silver;
+    border: 1px solid var(--light);
 }
 
 #left-buttons{
@@ -689,4 +708,87 @@ input:focus, textarea:focus{
     width: 100px;
     border-radius: 500px;
     border: 1px solid var(--green);
+}
+
+.edit-popup{
+    width:700px;
+    height: 400px;
+    display:flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid var(--light);
+    position: fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 5px 30px rgba(0 0 0 0.3);
+    background: var(--white);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#edit-popup-right{
+    height:360px;
+    border-left: 1px solid var(--light);
+    padding:0 20px;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 10px;
+}
+
+#edit-popup-left{
+    width:250px;
+    padding:20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.edit-name{
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+.edit-info{
+    color:var(--green);
+    margin-bottom: 12px;
+    font-size: 12px;
+}
+
+.edit-left-input{
+    width:80%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+.edit-left-input>input{
+    width:200px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid var(--light);
+    padding: 5px;
+}
+.edit-left-input p{
+    margin:5px 0;
+}
+
+#left-buttons{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display:flex;
+    justify-content: right;
+    margin:10px 0;
+    font-size: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

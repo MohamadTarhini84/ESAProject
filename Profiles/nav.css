@@ -39,7 +39,7 @@ body{
     font-weight: bold;
     margin-left: 80px;
     margin-top: 5px;
-    color: #16a085; */
+    color: var(--green); */
     aspect-ratio: 2/1;
     width: 90px;
     margin-left:90px;
@@ -86,13 +86,13 @@ body{
 .toggle .bar{
     height: 3px;
     width: 100%;
-    background-color: black;
+    background-color: var(--dark);
     border-radius: 5px;
 }
 
 .login-butt{
     border: none;
-    background-image: radial-gradient(#93e4d4,#16a085);
+    background-image: radial-gradient(#93e4d4,var(--green));
     padding: 2px 25px;
     border-radius: 30px;
     color: #FFFFFF;
@@ -205,7 +205,7 @@ body{
 }
 
 .bt {
-    background-color: #16a085;
+    background-color: var(--green);
     color: #FFFFFF;
     align-items: center;
     height: 30px;
@@ -273,7 +273,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #16a085;
+    background-color: var(--green);
     /* height: 40px; */
     color: white;
     width: 200px;
@@ -282,7 +282,7 @@ body{
 }
 
 .creat7 {
-    background-color: #16a085;
+    background-color: var(--green);
     height: 35px;
     margin-top: 5px;
 }
@@ -308,7 +308,7 @@ body{
 
 
 .cret2 i:hover {
-    color: #16a085;
+    color: var(--green);
     transform: scale(1.1);
 
 }
@@ -332,7 +332,7 @@ body{
     padding: 5px;
     cursor: pointer;
     transition: .4s;
-    color: #16a085;
+    color: var(--green);
     transition: .4s;
 }
 
@@ -367,13 +367,13 @@ body{
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-        background-color: #16a085;
+        background-color: var(--green);
         
     }
 
     .login-butt{
         background-image: radial-gradient(white, white);
-        color: #16a085;
+        color: var(--green);
     }
 
 .logo{
@@ -413,11 +413,11 @@ body{
 #nav-bar{
     width:100%;
     height:50px;
-    background-color: #f7f7f7;
+    background-color: var(--white);
     display:flex;
     justify-content: space-evenly;
     align-items: center;
-    color:#16a085;
+    color:var(--green);
 }
 
 #nav-left{
@@ -435,7 +435,7 @@ body{
 }
 .mid-element:hover{
     cursor: pointer;
-    border-bottom: 3px solid #16a085;
+    border-bottom: 3px solid var(--green);
     transition: 0.3s;
 }
 
@@ -447,7 +447,7 @@ body{
     width:30px;
     margin:10px;
     border-radius: 50px;
-    border: 1px solid #16a085;
+    border: 1px solid var(--green);
 }
 #nav-right img:hover{
     cursor: pointer;
@@ -456,7 +456,7 @@ body{
     height:20px;
     display:flex;
     align-items: center;
-    border-left:1px solid #16a085;
+    border-left:1px solid var(--green);
     font-size: 12px;
 }
 #nav-right i{

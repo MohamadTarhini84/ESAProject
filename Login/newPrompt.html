@@ -79,13 +79,13 @@
     justify-content:center;
     align-items:center;
     min-height:100vh;
-    background-image: linear-gradient(to right top,#16a085,#0df2a6)
+    background-image: linear-gradient(to right top,var(--green),#0df2a6)
 }
 
 .prompt-container .card{
     height:420px;
     width:600px;
-    background-color:#f7f7f7;
+    background-color:var(--white);
     position:relative;
     border-radius: 10px;
     box-shadow:0 15px 30px rgba(0,0,0,0.1);
@@ -100,10 +100,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #16a085;
-    border-bottom: 1px solid silver;
+    background-color: var(--green);
+    border-bottom: 1px solid var(--light);
     border-radius: 10px 10px 0 0;
-    color:#f7f7f7;
+    color:var(--white);
     font-size: 30px;
 }
 
@@ -116,7 +116,7 @@
 }
 
 .item-title {
-  color: #f7f7f7;
+  color: var(--white);
   font-size: 30px;
   margin-top: 10px;
 }
@@ -149,11 +149,11 @@
   color: #999; 
   background: transparent;
   transition: all ease .5s;
-  border: 1px solid silver;
+  border: 1px solid var(--light);
   border-radius: 5px;
 }
 .folded-corner:hover{
-	background-color: #f7f7f7;
+	background-color: var(--white);
     cursor: pointer;
 }
 
@@ -178,12 +178,12 @@
 /* .folded-corner:hover:before {
     background-color: #D00003;
     border-width: 0 50px 50px 0;
-    border-color: #16a085 #f7f7f7;
+    border-color: var(--green) var(--white);
   
 } */
 
 .service_tab_1{
-	background-color: #16a085;
+	background-color: var(--green);
 }
 .service_tab_1:hover .fa-icon-image,.service_tab_1:hover .fa-user-doctor, .service_tab_1:hover .fa-bed{
     color: #000;
@@ -191,21 +191,21 @@
 }
 
 .fa-user-doctor{
-    color:#f7f7f7;
+    color:var(--white);
     transition: all .65s linear 0s;
     text-align: center;
     transition: all 1s cubic-bezier(.99,.82,.11,1.41);
 }
 
 .fa-bed{
-    color:#f7f7f7;
+    color:var(--white);
     transition: all .65s linear 0s;
     text-align: center;
     transition: all 1s cubic-bezier(.99,.82,.11,1.41);
 }
 
 .fa-icon-image{ 
-	color: #f7f7f7; 
+	color: var(--white); 
 	display: inline-block; 
     font-style: normal;
     font-variant: normal;
@@ -241,7 +241,7 @@
     
 
     .item-title {
-        color: #f7f7f7;
+        color: var(--white);
         font-size: 12px;
         margin-top: 0;
     }

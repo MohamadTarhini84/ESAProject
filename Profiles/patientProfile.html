@@ -105,7 +105,7 @@
                     </div>
                 </div>
             </div>
-            <button id="profile-edit-button" class="app-desc">Edit Profile Info</button>
+            <button id="profile-edit-button" class="app-desc" onclick="toggleEdit()">Edit Profile Info</button>
         </div>
         <div id="profile-details">
             <div id="top-half">
@@ -191,7 +191,7 @@
                                     <i class="fa-solid fa-pen"></i>
                                     Edit
                                 </button>
-                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid silver">
+                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid var(--light)">
                                     <i class="fa-solid fa-trash"></i>
                                     Delete
                                 </button>
@@ -243,7 +243,7 @@
                                     <i class="fa-solid fa-pen"></i>
                                     Edit
                                 </button>
-                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid silver">
+                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid var(--light)">
                                     <i class="fa-solid fa-trash"></i>
                                     Delete
                                 </button>
@@ -285,7 +285,7 @@
                                             <i class="fa-solid fa-pen"></i>
                                             Edit
                                         </button>
-                                        <button class="review-button" style="border-left:1px solid silver">
+                                        <button class="review-button" style="border-left:1px solid var(--light)">
                                             <i class="fa-solid fa-trash"></i>
                                             Delete
                                         </button>
@@ -330,11 +330,11 @@
             </div>
             <div id="app-popup-lower">
                 <div id="app-popup-left">
-                        <div class="left-input">
+                        <div class="edit-left-input">
                             <p>Choose day:</p>
                             <input type="date">
                         </div> 
-                        <div class=left-input>
+                        <div class="edit-left-input">
                             <p>Choose Time:</p>
                             <input type="time">
                         </div>
@@ -357,6 +357,57 @@
                             archeologist
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="edit-popup">
+            <div id="app-popup-upper">
+                <h3>Edit Profile</h3>
+                <i onclick="toggleEdit()" class="fa-solid fa-xmark"></i>
+            </div>
+            <div id="app-popup-lower">
+                <div id="edit-popup-left">
+                    <div class="right-image">
+                        <img src="./Resources/Images/patient.jpg">
+                    </div>
+                    <div>
+                        <div class="edit-name">
+                            Batata maslou2a
+                        </div>
+                        <div class="edit-info">
+                            bobobob@gmail.com
+                        </div>
+                    </div>
+                </div>
+                <div id="edit-popup-right">
+                        <div class="edit-left-input">
+                            <p>First Name:</p>
+                            <input type="text">
+                        </div> 
+                        <div class="edit-left-input">
+                            <p>Last Name:</p>
+                            <input type="text">
+                        </div>
+                        <div class="edit-left-input">
+                            <p>Email:</p>
+                            <input type="email">
+                        </div> 
+                        <div class="edit-left-input">
+                            <p>Phone Number:</p>
+                            <input type="number">
+                        </div> 
+                        <div class="edit-left-input">
+                            <p>Password:</p>
+                            <input type="password">
+                        </div>
+                        <div class="edit-left-input">
+                            <p>Confirm Password:</p>
+                            <input type="password">
+                        </div>
+                        <div id="left-buttons">
+                            <button class="app-desc" onclick="toggleEdit()" style="margin-right:0">Save Settings</button>
+                            <button class="app-desc" onclick="toggleEdit()">Cancel</button>
+                        </div>
                 </div>
             </div>
         </div>
@@ -417,7 +468,7 @@
                                     <i class="fa-solid fa-pen"></i>
                                     Edit
                                 </button>
-                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid silver">
+                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid var(--light)">
                                     <i class="fa-solid fa-trash"></i>
                                     Delete
                                 </button>
@@ -458,6 +509,12 @@
         blur.classList.toggle('active');
         let appPopup=document.getElementsByClassName("app-popup");
         appPopup[0].classList.toggle('active');
+    }
+
+    function toggleEdit(){
+        blur.classList.toggle('active');
+        let editPopup=document.getElementsByClassName("edit-popup");
+        editPopup[0].classList.toggle('active');
     }
 
     let likes=document.querySelectorAll('.review-likes');
