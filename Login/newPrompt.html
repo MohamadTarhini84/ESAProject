@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../Login/styles.css">
+    <link rel="stylesheet" href="../Login/promptStyle.css">
 
     <title>Document</title>
 </head>
@@ -26,7 +27,7 @@
                                     <i class="fa-sharp fa-solid fa-5x fa-bed"></i>
                                     <div class="item-title"> 
                                         Patient
-                                    </div><!-- /.item-title -->
+                                    </div>
                                 </a>
                             </div>
                         </div>
@@ -36,7 +37,7 @@
                                     <i class="fa-solid fa-user-doctor fa-5x"></i>
                                         <div class="item-title">
                                             Doctor
-                                        </div><!-- /.item-title -->
+                                        </div>
                                 </a>
                             </div>
                        
@@ -56,200 +57,4 @@
         </div>
     </div>
 </body>
-<style>
-   @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');
-   
-*{
-    padding:0;
-    margin:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
-}
-
-#logo-signin{
-    width:500px;
-    height:500px;
-    position:absolute;
-    left:0;
-    overflow:unset;
-}
-
-.prompt-container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    background-image: linear-gradient(to right top,var(--green),#0df2a6)
-}
-
-.prompt-container .card{
-    height:420px;
-    width:600px;
-    background-color:var(--white);
-    position:relative;
-    border-radius: 10px;
-    box-shadow:0 15px 30px rgba(0,0,0,0.1);
-    margin-left:30%;
-    display:flex;
-    flex-direction: column;
-    border:none
-}
-
-.card-upper{
-    height:70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--green);
-    border-bottom: 1px solid var(--light);
-    border-radius: 10px 10px 0 0;
-    color:var(--white);
-    font-size: 30px;
-}
-
-.card-lower{
-    width:100%;
-    height:100%;
-    border-radius: 0 10px 10px 0;
-    display:flex;
-    justify-content: space-evenly;
-}
-
-.item-title {
-  color: var(--white);
-  font-size: 30px;
-  margin-top: 10px;
-}
-
-.text{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-.text:hover{
-    text-decoration: none;
-}
-
-.folded-corner:hover .text{
-	visibility: visible;
-	color: #000000;
-}
-
-/*
-  nav link items
-*/
-.folded-corner{
-    width:200px;
-  margin:40px 20px 20px 20px;
-  padding: 30px;
-  position: relative;
-  font-size: 100%;
-  text-decoration: none;
-  color: #999; 
-  background: transparent;
-  transition: all ease .5s;
-  border: 1px solid var(--light);
-  border-radius: 5px;
-}
-.folded-corner:hover{
-	background-color: var(--white);
-    cursor: pointer;
-}
-
-/*
-  paper fold corner
-*/
-
-.folded-corner:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-style: solid;
-  border-width: 0 0px 0px 0;
-  border-color: #ddd #000;
-  transition: all ease .3s;
-}
-
-/*
-  on li hover make paper fold larger
-*/
-/* .folded-corner:hover:before {
-    background-color: #D00003;
-    border-width: 0 50px 50px 0;
-    border-color: var(--green) var(--white);
-  
-} */
-
-.service_tab_1{
-	background-color: var(--green);
-}
-.service_tab_1:hover .fa-icon-image,.service_tab_1:hover .fa-user-doctor, .service_tab_1:hover .fa-bed{
-    color: #000;
-    transform:  scale(1.5);
-}
-
-.fa-user-doctor{
-    color:var(--white);
-    transition: all .65s linear 0s;
-    text-align: center;
-    transition: all 1s cubic-bezier(.99,.82,.11,1.41);
-}
-
-.fa-bed{
-    color:var(--white);
-    transition: all .65s linear 0s;
-    text-align: center;
-    transition: all 1s cubic-bezier(.99,.82,.11,1.41);
-}
-
-.fa-icon-image{ 
-	color: var(--white); 
-	display: inline-block; 
-    font-style: normal;
-    font-variant: normal;
-    font-weight: normal;
-    line-height: 1;
-    font-size-adjust: none;
-    font-stretch: normal;
-    /* -moz-font-feature-settings: normal;
-    -moz-font-language-override: normal; */
-    text-rendering: auto;
-    transition: all .65s linear 0s;
-    text-align: center;
-    transition: all 1s cubic-bezier(.99,.82,.11,1.41);
-}
-
-
- 
-
-@media (max-width:750px){
-    .card{width:90% !important;max-width: 350px;}
-
-    img{display: none;}
-
-    .card-upper{font-size: 14px; text-align: center;padding:5px}
-
-    .card-lower{flex-direction: column;}
-
-    .fa-5x{scale:0.4}
-    
-    .folded-corner{width:60%;margin:auto;height:100px;padding:0}
-
-    #profile-footer :nth-child(1){text-align: center;}
-    
-
-    .item-title {
-        color: var(--white);
-        font-size: 12px;
-        margin-top: 0;
-    }
-
-    
-    .card{margin:0 !important;}
-}
-</style>
-<script>
-</script>
 </html>

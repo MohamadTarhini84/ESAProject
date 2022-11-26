@@ -11,5 +11,3 @@ eye[0].addEventListener('click',function (e){
         passInput.setAttribute('type','password');
     }
 });
-
-console.log("a");
