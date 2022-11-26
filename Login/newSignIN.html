@@ -30,9 +30,9 @@
                             <i class="fa fa-user"></i> 
                         </div> 
                         <div class="input_text"> 
-                            <input class="signin_pass" type="password" name="password" placeholder="Password"> 
+                            <input class="signin_pass" id="passInput" type="password" name="password" placeholder="Password"> 
                             <i class="fa fa-lock"></i> 
-                            <i id="show-hide" class="fa fa-eye-slash"></i> 
+                            <i class="fa fa-eye-slash signup_eye"></i> 
                         </div> 
                         <div class="login_btn"> 
                             <button class="login_button" id="signup_button">LOG IN</button> 
@@ -72,33 +72,6 @@
 </body>
 <style>
 
-.container .card{
-    height:420px;
-    width:800px;
-    background-color:var(--white);
-    position:relative;
-    border-radius: 10px;
-    box-shadow:0 15px 30px rgba(0,0,0,0.1);
-    margin-right:30%;
-}
-    
-.container .card .form{
-    width:100%;
-    height:100%;
-    display:flex;
-}
-
-.container .card .right-side{
-    width:50%;
-    background-color:var(--white);
-    height:100%;
-    padding:20px;
-    border-radius:10px;
-}
-
-.d-none{
-    display:none !important
-}
 
 .login{
     display:flex;
@@ -140,7 +113,7 @@ input[type="password"]{
 .fa-lock{
     position:absolute;
     top:15px;
-    left:10px;
+    left:7px;
     cursor:pointer;
     color:#70747C
 }
@@ -148,7 +121,7 @@ input[type="password"]{
 .fa-user{
     position:absolute;
     top:14px;
-    left:9px;
+    left:7px;
     cursor:pointer;
     color:#70747C
 }
@@ -409,4 +382,5 @@ signin_eye_click.addEventListener('click',function(){
    }
 });
 </script>
+<script src="../Login/JavaScript/hidePassword.js"></script>
 </html>

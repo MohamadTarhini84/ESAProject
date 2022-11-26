@@ -3,28 +3,29 @@ Admin
    .name
    .password
 
-Person
+Patient
    .firstName
    .lastName
    .email
    .password
    .birthday
    .gender
-   .userID
+   .patientID
    .profilePicture
    .phoneNumber
-
-Patient
-   .patientID
-   .appointments
-   .reviews
    .likesOnReviews
    .medicalHistory
 
 Doctor
+   .firstName
+   .lastName
+   .email
+   .password
+   .birthday
+   .gender
+   .profilePicture
+   .phoneNumber
    .doctorID
-   .appID
-   .receivedReviews
    .speciality
    .licenceCardID
    .certificationNumber
@@ -40,11 +41,8 @@ Appointment
    .description
 
 review
+   .reviewID
    .patientID
    .doctorID
-   .reviewID1
-   .reviewID2
    .starRating
-   .comment
    .number of likes
-   .number of dislikes
