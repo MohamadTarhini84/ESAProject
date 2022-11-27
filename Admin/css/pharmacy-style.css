@@ -63,11 +63,7 @@
   .image-container {
     text-align: center;
   }
-  img {
-    max-width: 100%;
-    object-fit: contain;
-    height: 15em;
-  }
+  
   .container {
     padding-top: 1em;
     color: #110f29;

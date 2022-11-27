@@ -37,7 +37,63 @@ body {/* margin & padding 0 to fill entire screen without extra space */
     height: 100vh;/* 100% of the availavle  height of the visible area */
   }
   
+  .grid-container#blur.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+  }
+
+
+  .tbl-ord{
+    width: 100%;
+  }
   
+  .tbl-ord table tr th{
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+  }
+  
+.tbl-ord table tr td{
+    padding: 1%;
+  }
+
+
+  /* popup*/
+.popup{
+  width:400px;
+  background-color:  #367952;
+  border-radius: 6px;
+  position: absolute;
+  top:0;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0.1);
+  text-align: center;
+  padding: 10px 30px 30px;
+  color: #333;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s,top 0.4s;
+}
+
+.popup.active{
+  visibility: visible;
+  opacity: 1;
+  top:50%;
+  transform: translate(-50%,-50%) scale(1.25) !important;
+
+}
+
+.popup button{
+  background-color: white !important;
+  color:   #367952 !important;
+  
+}
+.popup button:hover{
+  background:  #367952 !important;
+  color: #fff !important; 
+  transition: 0.5rem;
+}
   /* ---------- HEADER ---------- */
   
   .header {
@@ -303,39 +359,7 @@ body {/* margin & padding 0 to fill entire screen without extra space */
 .list::-webkit-scrollbar-thumb:hover {
   background-color: #367952;
 }
-/* popup*/
-.popup{
-  width:400px;
-  background-color:  #367952;
-  border-radius: 6px;
-  position: absolute;
-  top:0;
-  left: 50%;
-  transform: translate(-50%,-50%) scale(0.1);
-  text-align: center;
-  padding: 10px 30px 30px;
-  color: #333;
-  visibility: hidden;
-  transition: 0.4s,top 0.4s;
-}
 
-.open-popup{
-  visibility: visible;
-  top:50%;
-  transform: translate(-50%,-50%) scale(1.25);
-
-}
-
-.popup button{
-  background-color: white;
-  color:   #367952;
-  
-}
-.popup button:hover{
-  background:  #367952;
-  color: #fff !important; 
-  transition: 0.5rem;
-}
 
 /*table*/
 .table{

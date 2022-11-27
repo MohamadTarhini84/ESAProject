@@ -1,0 +1,22 @@
+document.getElementById("dash").addEventListener('click',function(){
+    window.location.href="index.php";
+  });
+  document.getElementById("admins").addEventListener('click',function(){
+    window.location.href="Admins.php";
+  });
+  document.getElementById("doctors").addEventListener('click',function(){
+    window.location.href="Doctors.php";
+  });
+  document.getElementById("appo").addEventListener('click',function(){
+    window.location.href="appointments.php";
+  });
+  document.getElementById("reg").addEventListener('click',function(){
+    window.location.href="add-admin.php";
+  });
+  document.getElementById("upd").addEventListener('click',function(){
+    window.location.href="update-admin.php";
+  });
+  document.getElementById("Patients").addEventListener('click',function(){
+    window.location.href="Patients.php";
+  });
+  

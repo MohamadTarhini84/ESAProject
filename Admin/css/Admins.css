@@ -74,7 +74,7 @@
 	background-image: linear-gradient(to right,#1d3b26, #0e8069, #1d3b26);
 	background-size: 200%;
 	font-size: 1.2rem;
-	color: #fff;
+	color: #fff !important;
 	font-family: 'Poppins', sans-serif;
 	text-transform: uppercase;
 	margin: 1rem 0;

@@ -274,29 +274,7 @@
         document.getElementById("rev-button").setAttribute("class","upper-button clicked");
     }
 </script>
-<script>
-  document.getElementById("dash").addEventListener('click',function(){
-    window.location.href="index.html";
-  });
-  document.getElementById("admins").addEventListener('click',function(){
-    window.location.href="Admins.html";
-  });
-  document.getElementById("doctors").addEventListener('click',function(){
-    window.location.href="Doctors.html";
-  });
-  document.getElementById("appo").addEventListener('click',function(){
-    window.location.href="appointments.html";
-  });
-  document.getElementById("reg").addEventListener('click',function(){
-    window.location.href="Register.html";
-  });
-  document.getElementById("upd").addEventListener('click',function(){
-    window.location.href="Profile.html";
-  });
-  document.getElementById("Patients").addEventListener('click',function(){
-        window.location.href="Patients.html";
-      });
-</script>
+<script src="javascript/scripts1.js"></script>
 </body>
 
 
