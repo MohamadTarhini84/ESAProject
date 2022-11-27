@@ -1,5 +1,5 @@
 :root{
-    --pink:#e84393;
+    --pink:#16a085;
 }
 
 *{
@@ -29,11 +29,11 @@ section{
     color:#333;
     padding:1rem;
     margin:2rem 0;
-    background:rgba(255, 51, 153,.05);
+    background:#1bd8b3;
 }
 
 .heading span{
-    color:var(--pink);
+    color:var(#16a085);
 }
 
 .btn{
@@ -70,7 +70,7 @@ header .logo{
 }
 
 header .logo span{
-    color:var(--pink);
+    color:var(#16a085);
 }
 
 header .navbar a{
@@ -80,17 +80,18 @@ header .navbar a{
 }
 
 header .navbar a:hover{
-    color:var(--pink);
+    color:var(#16a085);
 }
 
 header .icons a{
     font-size: 2.5rem;
     color:#333;
     margin-left: 1.5rem;
+    margin-right: 2.5rem;
 }
 
 header .icons a:hover{
-    color:var(--pink);
+    color:var(#16a085);
 }
 
 header #toggler{
@@ -127,7 +128,7 @@ header .fa-bars{
 
 .home .content span{
     font-size: 3.5rem;
-    color:var(--pink);
+    color:var(#16a085);
     padding:1rem 0;
     line-height: 1.5;
 }
