@@ -13,38 +13,36 @@
     <div class="container"> 
         <img id="logo-signin" src="./Resources/Images/research.png">
         <div class="card"> 
-            <div class="form"> 
-                <div class="left-side"> 
-                    <span></span> 
-                    <span></span> 
-                    <span></span> 
-                    <span></span> 
-                </div> 
-                <div class="right-side"> 
-                    <div class="signup_form s_form d-none"> 
-                        <div class="login"> 
-                            <h2>Create Account</h2> 
-                        </div> 
-                        <div class="input_text"> 
-                            <input type="number" placeholder="Licence Card ID"> 
-                        </div> 
-                        <div class="input_text"> 
-                            <input type="number" placeholder="Board Certification Number">
-                        </div> 
-                        <div class="input_text"> 
-                            <input type="text" placeholder="Speciality"> 
-                        </div> 
-                        <div class="input_text"> 
-                            <input type="text" placeholder="Room"> 
-                        </div> 
-                        <div class="login_btn"> 
-                            <button id="signup_button">SIGN UP</button> 
-                        </div>
-                        <div class="create">
-                            <a href="../Login/newSignIN.html">Cancel</a>
-                        </div>
+            <div class="left-side"> 
+                <span></span> 
+                <span></span> 
+                <span></span> 
+                <span></span> 
+            </div> 
+            <div class="right-side"> 
+                <form method="post" action="formValidation.php"> 
+                    <div class="login"> 
+                        <h2>Create Account</h2> 
                     </div> 
-                </div> 
+                    <div class="input_text"> 
+                        <input type="number" placeholder="Licence Card ID"> 
+                    </div> 
+                    <div class="input_text"> 
+                        <input type="number" placeholder="Board Certification Number">
+                    </div> 
+                    <div class="input_text"> 
+                        <input type="text" placeholder="Speciality"> 
+                    </div> 
+                    <div class="input_text"> 
+                        <input type="text" placeholder="Room"> 
+                    </div> 
+                    <div class="login_btn"> 
+                        <button id="signup_button">SIGN UP</button> 
+                    </div>
+                    <div class="create">
+                        <a href="../Login/newSignIN.html">Cancel</a>
+                    </div>
+                </form> 
             </div> 
         </div>
         <div id="profile-footer">
