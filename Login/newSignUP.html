@@ -13,53 +13,51 @@
     <div class="container"> 
         <img id="logo-signin" src="./Resources/Images/Hello-rafiki.png">
         <div class="card"> 
-            <div class="form"> 
-                <div class="left-side"> 
-                    <span></span> 
-                    <span></span> 
-                    <span></span> 
-                    <span></span> 
-                </div> 
-                <div class="right-side"> 
-                    <div class="signup_form s_form d-none"> 
-                        <div class="login"> 
-                            <h2>Create Account</h2> 
-                        </div> 
-                        <div class="input_text"> 
-                            <input type="text" placeholder="Username"> 
-                            <i class="fa fa-user"></i> 
-                        </div> 
-                        <div class="input_text"> 
-                            <input type="email" placeholder="Email"> 
-                            <i class="fa fa-envelope"></i> 
-                        </div> 
-                        <div style="display:flex;">     
-                            <div class="input_text" style="margin-right:5px"> 
-                                <select> 
-                                    <option disabled selected>Gender</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
-                                <i class="fa fa-user"></i>
-                            </div> 
-                            <div class="input_text"> 
-                                <input type="text" placeholder="Birthday" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'"> 
-                                <i class="fa fa-solid fa-cake-candles"></i>
-                            </div> 
-                        </div>
-                        <div class="input_text"> 
-                            <input type="password" class="signup_pass" id="passInput" placeholder="Password"> 
-                            <i class="fa fa-lock"></i> 
-                            <i class="fa fa-eye-slash signup_eye"></i> 
-                        </div> 
-                        <div class="login_btn"> 
-                            <button id="signup_button">SIGN UP</button> 
-                        </div> 
-                        <div class="create"> 
-                            <p>Already have an account? <a href="../Login/newSignIN.html" class="login_acc">Sign in</a></p> 
-                        </div> 
+            <div class="left-side"> 
+                <span></span> 
+                <span></span> 
+                <span></span> 
+                <span></span> 
+            </div> 
+            <div class="right-side"> 
+                <form method="post" action="formValidation.php"> 
+                    <div class="login"> 
+                        <h2>Create Account</h2> 
                     </div> 
-                </div> 
+                    <div class="input_text"> 
+                        <input type="text" placeholder="Username"> 
+                        <i class="fa fa-user"></i> 
+                    </div> 
+                    <div class="input_text"> 
+                        <input type="email" placeholder="Email"> 
+                        <i class="fa fa-envelope"></i> 
+                    </div> 
+                    <div style="display:flex;">     
+                        <div class="input_text" style="margin-right:5px"> 
+                            <select> 
+                                <option disabled selected>Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                            <i class="fa fa-user"></i>
+                        </div> 
+                        <div class="input_text"> 
+                            <input type="text" placeholder="Birthday" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'"> 
+                            <i class="fa fa-solid fa-cake-candles"></i>
+                        </div> 
+                    </div>
+                    <div class="input_text"> 
+                        <input type="password" class="signup_pass" id="passInput" placeholder="Password"> 
+                        <i class="fa fa-lock"></i> 
+                        <i class="fa fa-eye-slash signup_eye"></i> 
+                    </div> 
+                    <div class="login_btn"> 
+                        <button id="signup_button">SIGN UP</button> 
+                    </div> 
+                    <div class="create"> 
+                        <p>Already have an account? <a href="../Login/newSignIN.html" class="login_acc">Sign in</a></p> 
+                    </div> 
+                </form> 
             </div> 
         </div>
         <div id="profile-footer">

@@ -13,39 +13,37 @@
     <div class="container"> 
         <img id="logo-signin" src="./Resources/Images/Hello-rafiki.png">
         <div class="card"> 
-            <div class="form"> 
-                <div class="left-side"> 
-                    <span></span> 
-                    <span></span> 
-                    <span></span> 
-                    <span></span> 
-                </div> 
-                <div class="right-side"> 
-                    <div class="signin_form s_form "> 
-                        <div class="login"> 
-                            <h2>User Login</h2> 
-                        </div> 
-                        <div class="input_text"> 
-                            <input type="text" placeholder="Username"> 
-                            <i class="fa fa-user"></i> 
-                        </div> 
-                        <div class="input_text"> 
-                            <input class="signin_pass" id="passInput" type="password" name="password" placeholder="Password"> 
-                            <i class="fa fa-lock"></i> 
-                            <i class="fa fa-eye-slash signup_eye"></i> 
-                        </div> 
-                        <div class="login_btn"> 
-                            <button class="login_button" id="signup_button">LOG IN</button> 
-                        </div> 
-                        <div class="forgot"> 
-                            <p>Forgot your <a href="#">username</a> or <a href="#">password</a>?</p> 
-                        </div> 
-                        <div class="create margin"> 
-                            <p>Don't have an account?</p>
-                            <a href="../Login/newPrompt.html" class="create_acc">Create Account</a> 
-                        </div> 
+            <div class="left-side"> 
+                <span></span> 
+                <span></span> 
+                <span></span> 
+                <span></span> 
+            </div> 
+            <div class="right-side"> 
+                <form method="post" action="formValidation.php"> 
+                    <div class="login"> 
+                        <h2>User Login</h2> 
                     </div> 
-                </div> 
+                    <div class="input_text"> 
+                        <input type="text" placeholder="Username"> 
+                        <i class="fa fa-user"></i> 
+                    </div> 
+                    <div class="input_text"> 
+                        <input class="signin_pass" id="passInput" type="password" name="password" placeholder="Password"> 
+                        <i class="fa fa-lock"></i> 
+                        <i class="fa fa-eye-slash signup_eye"></i> 
+                    </div> 
+                    <div class="login_btn"> 
+                        <button id="signup_button">LOG IN</button> 
+                    </div> 
+                    <div class="forgot"> 
+                        <p>Forgot your <a href="#">username</a> or <a href="#">password</a>?</p> 
+                    </div> 
+                    <div class="create margin"> 
+                        <p>Don't have an account?</p>
+                        <a href="../Login/newPrompt.html" class="create_acc">Create Account</a> 
+                    </div> 
+                </form> 
             </div> 
         </div>
         <div id="profile-footer">

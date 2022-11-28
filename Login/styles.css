@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');
-
 :root{
     --green:#16a085;
     --white:#f7f7f7;
@@ -60,11 +58,6 @@
     border-radius: 10px;
     box-shadow:0 15px 30px rgba(0,0,0,0.1);
     margin-right:30%;
-}
-
-.container .card .form{
-    width:100%;
-    height:100%;
     display:flex;
 }
 
@@ -167,13 +160,13 @@ input, select{
     position:absolute;
     top:10px;
     left:8px;
-    cursor:pointer;
     color:#70747C;
 }
 
 .fa-eye, .fa-eye-slash{
     left:auto;
     right:8px;
+    cursor: pointer;
 }
 
 .login_btn{
@@ -224,13 +217,13 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.signup_warn{
+/* .signup_warn{
     border:1px solid red !important
 }
 
 .signup_eye_wrn{
     border:1px solid blue !important
-}
+} */
 
 @media (max-width:750px){
     .container{align-items: center;}
