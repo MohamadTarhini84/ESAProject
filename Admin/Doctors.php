@@ -76,11 +76,11 @@
     </div>
 </div>
 <div class="popup" id="popup">
-    <h2>Appointmet by Mr Patient Pat</h2>
-    <p>Appointment Details</p>
-    <button onclick="toggle()" id="ok">Okay</button>
-    <button onclick="toggle()" id="ban">Ban</button>
-    <button onclick="toggle()" id="del">Delete</button>
+    <h2>Dr. Doc Doctor</h2>
+    <br>
+    <button onclick="toggle()" id="ok">Approve</button>
+    <button onclick="toggle()" id="ban">Decline</button>
+    <button onclick="toggle()" id="del">Cancel</button>
 </div>
       </main>
       <!-- End Main -->

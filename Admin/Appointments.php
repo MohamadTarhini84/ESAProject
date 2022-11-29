@@ -62,7 +62,11 @@
 </div>
 <div class="popup" id="popup">
     <h2>Appointmet by Mr Patient Pat</h2>
-    <p>Appointment Details</p>
+    <h3>Appointment Details</h3>
+    <br>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore voluptas quasi voluptate iure quo deserunt dicta, minus modi odit labore. 
+      Nesciunt voluptatibus, recusandae est dolorem quibusdam mollitia iure minima reiciendis.</p>
+      <br>
     <button onclick="toggle()">Okay</button>
     <button onclick="toggle()">Delete</button>
 

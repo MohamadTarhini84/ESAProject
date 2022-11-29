@@ -56,7 +56,7 @@
     <script src="javascript/scripts.js"></script>
     <script>
         document.getElementById("register").addEventListener('click',function(){
-        location.href="Register.html";
+        location.href="add-admin.php";
         });
         let i;
         for(i=0;i<document.getElementsByClassName("remove").length;i++){
@@ -66,7 +66,7 @@
         }
 
         document.getElementById("viewprof").addEventListener('click',function(){
-        location.href="Profile.html";
+        location.href="update-admin.php";
         });
 
     </script>

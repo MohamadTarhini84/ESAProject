@@ -9,7 +9,7 @@
                 <div class="container" style="margin: auto;">
                     <div class="login-content" >
                         <form action="Admins.html">
-                            <img src="img/avatar.svg">
+                            
                             <h2 class="title">Register</h2>
                             <div class="input-div one">
                                 <div class="i">
@@ -49,5 +49,6 @@
     </main>
     <script src="javascript/scripts.js"></script>
     <script src="javascript/scripts1.js"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </body>
 </html>

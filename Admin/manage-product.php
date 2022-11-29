@@ -5,16 +5,26 @@
 
       <main class="main-container">
         <div class="main-title">
-          <h2 class="font-weight-bold">Orders
+          <h2 class="font-weight-bold">Products
             <p style="color:#367952;">MedCenter
-              <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Orders</small></p>
+              <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Products</small></p>
         </h2>
         </div>
          <br><br>
-<!-- -------------------------------Appointments Div----------------------------------------->
+<!-- ------------------------------------------------------------------------>
 
           <div class="charts-card" style="width: 80%; margin:auto">
-              
+          <div id="search-container">
+            <input
+              type="search"
+              id="search-input"
+              placeholder="Search product's name here.."
+            />
+
+        <button id="search">Search</button>
+        
+      </div>
+      <button id="addBtn">Add product</button>
              <!--Appointments List-->
           <div class="list" style="height: 700px;">     
                 
@@ -58,7 +68,7 @@
     </div>
 </div>
 <div class="popup" id="popup">
-    <h2>Are You sure you want to delete this order</h2>
+    <h2>Are You sure you want to delete this product</h2>
     
     <button onclick="toggle()" id="del">Yes</button>
     <button onclick="toggle()">Cancel</button>
@@ -77,12 +87,12 @@
         </tr>
         <tr>
           <td style="text-align: left;">Product Name</td>
-          <td style="text-align: left;"><b>  Face Mask  </b> </td>
+          <td style="text-align: left;"> <input type="text"> </td>
         </tr>
 
         <tr>
           <td style="text-align: left;">Price</td>
-          <td style="text-align: left;"><b> $ 20 </b> </td>
+          <td style="text-align: left;"><b> $20 </b> </td>
         </tr>
 
         <tr>

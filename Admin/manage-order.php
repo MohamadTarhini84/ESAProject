@@ -1,5 +1,8 @@
 <?php  include('./partials/sidebar.php');?>
+<style> 
 
+
+</style>
       <!-- Main -->
       
 
@@ -38,12 +41,12 @@
                     
                     01
                   </td>
-                  <td>Sam David</td>
-                  <td>Sam-David@email.com</td>
+                  <td>Face Mask</td>                  
                   <td>20.00</td>
                   <td>2</td>
                   <td>40.00</td>
-                  <td>27-11-22</td>                                  
+                  <td>27-11-22</td> 
+                  <td>Delivered</td>                                 
                   <td>
                     <button id="updateorder" onclick="toggle2()" >Update Order</button>
                     <button onclick="toggle()" >Delete Order</button>
@@ -95,7 +98,7 @@
         <tr>
           <td style="text-align: left;">Status</td>
           <td style="text-align: left;">
-            <select class="" name="status" style="width: 70%;">
+            <select class="" name="status">
               <option value="Ordered">Ordered</option>
               <option  value="On Delivery">On Delivery</option>
               <option  value="Delivered">Delivered</option>
