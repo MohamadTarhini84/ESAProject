@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newStyle.css">
+    <link rel="stylesheet" href="./js/fullcalendar-5.11.3/lib/main.css">
+    <script src="./js/fullcalendar-5.11.3/lib/main.js"></script>
+    <script src="https://kit.fontawesome.com/4c2b37abf9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <title>Document</title>
+    <script>        
+        document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'timeGridWeek',
+                editable: 'true'
+                });
+                calendar.render();
+            });
+    </script>
+</head>
+<body>
+<div id="page">
+<nav class="nav-bar">
+    <div id="nav-bar">
+        <div id="nav-left">
+            MedCenter
+        </div>
+        <div id="nav-mid">
+            <div class="mid-element">Home</div>
+            <div class="mid-element">Services</div>
+            <div class="mid-element">Book</div>
+            <div class="mid-element">Blog</div>
+            <div class="mid-element">Doctors</div>
+            <div class="mid-element">About</div>
+            <div class="mid-element">Contact</div>
+        </div>
+        <div id="nav-right">
+            <i class="fa-solid fa-bell"></i>
+            <div id="name-picture">
+                <img src="./Resources/Images/doctor.jpg">Batata Me2leye
+            </div>
+        </div>
+    </div>
+    <!-- navbar -->
+    <!-- <div class="boss">
+    
+        <nav class="navbar">
+            <div>
+                <img class="logo" src="./Resources/Images/logo.png">
+            </div>
+            <a href="#" class="toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+        <div class="menu">
+            <ul>
+                <li><a href="">Home</a>  </li>
+                <li><a href="">Services</a>  </li>
+                <li><a href="">Book</a>  </li>
+                <li><a href="">Blog</a>  </li>
+                <li><a href="">Doctors</a>  </li>
+                <li><a href="">About</a>  </li>
+                <li><a href="">Contact</a>  </li>
+           
+            </ul>
+        </div>
+        <div class="navbutton">
+            <button class="login-butt">login</button>
+        </div>
+    </div>  -->
+</nav>
+    <div id="profile-container">
+        <div id="profile-info">
+            <div class="info-element">
+                <img src="./Resources/Images/doctor.jpg">
+            </div>
+            <div class="devider">
+                <div>personal info</div>
+                <div class="devider-line"></div>
+            </div>
+            <div class="info-element">
+                <div class="info-element-div">
+                    <div>
+                        Birthday:
+                    </div>
+                    <div>
+                        Gender:
+                    </div>
+                    <div>
+                        Phone Number:
+                    </div>
+                </div>
+                <div class="info-element-div">
+                    <div id="bday">
+                        131331
+                    </div>
+                    <div id="gender">
+                        mamasd
+                    </div>
+                    <div id="phone">
+                        12313123987
+                    </div>
+                </div>
+            </div>
+            <div class="devider">
+                <div>work info</div>
+                <div class="devider-line"></div>
+            </div>
+            <div class="info-element">
+                <div class="info-element-div">
+                    <div>
+                        Room:
+                    </div>
+                    <div>
+                        Licence card ID:
+                    </div>
+                </div>
+                <div class="info-element-div">
+                    <div>
+                        131331s
+                    </div>
+                    <div>
+                        6255523
+                    </div>
+                </div>
+            </div>
+            <button id="profile-edit-button" class="app-desc" onclick="toggleEdit()">Edit Profile Info</button>
+        </div>
+        <div id="profile-details">
+            <div id="top-half">
+                <div id="first-row">
+                    <div id="name-specialty">
+                        <div id="doctor-name">
+                            batata 7arra
+                        </div>
+                        <div id="doctor-specialty">
+                            archeologist
+                        </div>
+                    </div>
+                    <button id="leave-review" onclick="toggleRev()">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        Leave Review
+                    </button>
+                </div>
+                <div>
+                    <div id="rating-text">
+                        Average Rating:
+                    </div>
+                    <div id="rating">
+                        <div id="rating-number">3</div>
+                        <i class="fa-solid fa-star" style="margin-left:10px"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                </div>
+                <button id="app-button" onclick="toggleApp()">
+                    <i class="fa-solid fa-book-medical"></i>
+                    Book Appointment
+                </button>
+            </div>
+            <div id="botton-half">
+                <div id="upper-section">
+                    <button class="upper-button clicked" id="day-button" onclick="clickDay()">
+                        <i class="fa-regular fa-clock"></i>
+                        Hours Available
+                    </button>
+                    <button class="upper-button" id="rev-button" onclick="clickRev()">
+                        <i class="fa-solid fa-book"></i>
+                        Reviews Received
+                    </button>
+                </div>
+                <div id="lower-section">
+                    <div id="option-1">
+                        <div id="calendar" style="width:100%"></div>
+                    </div>
+                    <div id="option-2" style="display:none">
+                        <div class="review">
+                            <div class="review-container">
+                                <div class="quotes">
+                                    <img src="./Resources/Images/quotes.png">
+                                </div>
+                                <div class="review-bg">
+                                    <div class="review-pic">
+                                        <img src="./Resources/Images/patient.jpg">
+                                    </div>
+                                    <div class="review-element" id="review-1st">
+                                        Review by: Mr batata
+                                    </div>
+                                    <div class="review-element">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <div class="review-element" style="height:200px;overflow-y:auto;">
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
+                                        accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
+                                        Possimus laudantium dignissimos ipsum quos at tempora recusandae! 
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
+                                        accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
+                                        Possimus laudantium dignissimos ipsum quos at tempora recusandae! 
+                                        Repudiandae, rerum corrupti?Repudiandae, rerum corrupti?
+                                    </div>
+                                    <div class="review-likes">
+                                        <i class="fa-regular fa-heart"></i> 123
+                                    </div>
+                                </div>
+                                <div class="quotes">
+                                    <img src="./Resources/Images/quotes.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="profile-footer">
+        <div style="margin:5px;color:var(--white)">
+        <i class="fa-regular fa-copyright"></i> MedCenter 2022. All rights reserved.
+        </div>
+        <div id="profile-footer-links">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="app-popup">
+    <div id="app-popup-upper">
+        <h3>Appointment Information</h3>
+        <i onclick="toggleApp()" class="fa-solid fa-xmark"></i>
+    </div>
+    <div id="app-popup-lower">
+        <div id="app-popup-left">
+                <div class="left-input">
+                    <p>Choose day:</p>
+                    <input type="date">
+                </div> 
+                <div class=left-input>
+                    <p>Choose Time:</p>
+                    <input type="time">
+                </div>
+                <p>Appointment Description:</p>
+                <textarea placeholder="Description"></textarea>
+                <div id="left-buttons">
+                    <button class="app-desc" onclick="toggleApp()">Cancel</button>
+                    <button class="app-desc" onclick="toggleApp()" style="margin-right:0">Make Appointment</button>
+                </div>
+        </div>
+        <div id="app-popup-right">
+            <div class="right-image">
+                <img src="./Resources/Images/doctor.jpg">
+            </div>
+            <div>
+                <div class="app-name">
+                    Dr. Batata ma2loube
+                </div>
+                <div class="app-info">
+                    archeologist
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="review-popup">
+    <div id="rp-logo">
+        <img src="./Resources/Images/logo.png">
+    </div>
+    <div id="rp-text">
+        <h2>How was your experience?</h2>
+        <p>
+            Hello batata, <br>
+            We are constantly striving to improve and we'd love to hear your thoughts on service in general,
+            and our doctors in particular.
+        </p>
+    </div>
+    <div id="rp-ratings">
+        <div class="rp-rating">
+            <input type="radio" name="rating" required>
+            <div class="rp-stars">
+                <i class="fa-solid fa-star"></i>
+            </div>
+        </div>
+        <div class="rp-rating">
+            <input type="radio" name="rating" required>
+            <div class="rp-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+        </div>
+        <div class="rp-rating">
+            <input type="radio" name="rating" required>
+            <div class="rp-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+        </div>
+        <div class="rp-rating">
+            <input type="radio" name="rating" required>
+            <div class="rp-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+            </div>
+        </div>
+        <div class="rp-rating">
+            <input type="radio" name="rating" required>
+            <div class="rp-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+        </div>
+    </div>
+    <div id="rp-comment">
+        <p>Write a comment summarizing your experience at our center:</p>
+        <textarea></textarea>
+    </div>
+    <div id="rp-buttons">
+        <button class="app-desc" onclick="toggleRev()">Cancel</button>
+        <button class="app-desc" onclick="toggleRev()">Submit Review</button>
+    </div>
+</div>
+<div class="edit-popup">
+    <div id="app-popup-upper">
+        <h3>Edit Profile</h3>
+        <i onclick="toggleEdit()" class="fa-solid fa-xmark"></i>
+    </div>
+    <div id="app-popup-lower">
+        <div id="edit-popup-left">
+            <div class="right-image">
+                <img src="./Resources/Images/doctor.jpg">
+            </div>
+            <div>
+                <div class="edit-name">
+                    Batata 7arra
+                </div>
+                <div class="edit-info">
+                    bobobob@gmail.com
+                </div>
+            </div>
+        </div>
+        <div id="edit-popup-right">
+                <div class="edit-left-input">
+                    <p>First Name:</p>
+                    <input type="text">
+                </div> 
+                <div class="edit-left-input">
+                    <p>Last Name:</p>
+                    <input type="text">
+                </div>
+                <div class="edit-left-input">
+                    <p>Email:</p>
+                    <input type="email">
+                </div> 
+                <div class="edit-left-input">
+                    <p>Phone Number:</p>
+                    <input type="number">
+                </div> 
+                <div class="edit-left-input">
+                    <p>Password:</p>
+                    <input type="password">
+                </div>
+                <div class="edit-left-input">
+                    <p>Confirm Password:</p>
+                    <input type="password">
+                </div>
+                <div class="edit-left-input">
+                    <p>Licence Card ID:</p>
+                    <input type="number">
+                </div>
+                <div class="edit-left-input">
+                    <p>Room:</p>
+                    <input type="text">
+                </div>
+                <div id="left-buttons">
+                    <button class="app-desc" onclick="toggleEdit()" style="margin-right:0">Save Settings</button>
+                    <button class="app-desc" onclick="toggleEdit()">Cancel</button>
+                </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    let likes=document.querySelectorAll('.review-likes');
+    let blur=document.getElementById('page');
+
+    function clickDay(){
+        document.getElementById("option-1").setAttribute("style","display:flex");
+        document.getElementById("day-button").setAttribute("class","upper-button clicked");
+        document.getElementById("option-2").setAttribute("style","display:none");
+        document.getElementById("rev-button").setAttribute("class","upper-button");
+    }
+    function clickRev(){
+        document.getElementById("option-2").setAttribute("style","display:flex");
+        document.getElementById("day-button").setAttribute("class","upper-button");
+        document.getElementById("option-1").setAttribute("style","display:none");
+        document.getElementById("rev-button").setAttribute("class","upper-button clicked");
+    }
+
+    function toggleRev(){
+        blur.classList.toggle('active');
+        let revPopup=document.getElementsByClassName("review-popup");
+        revPopup[0].classList.toggle('active');
+    }
+
+    function toggleApp(){
+        blur.classList.toggle('active');
+        let appPopup=document.getElementsByClassName("app-popup");
+        appPopup[0].classList.toggle('active');
+    }
+
+    function toggleEdit(){
+        blur.classList.toggle('active');
+        let editPopup=document.getElementsByClassName("edit-popup");
+        editPopup[0].classList.toggle('active');
+    }
+
+    likes.forEach(function (e){
+        e.addEventListener('click',function(a){
+            if(e.firstElementChild.classList.contains('liked')){
+                e.firstElementChild.setAttribute('class','fa-regular fa-heart');
+                e.firstElementChild.setAttribute('style','color:white');
+            } else{
+                e.firstElementChild.setAttribute('class','fa-solid fa-heart liked');
+                e.firstElementChild.setAttribute('style','color:red');
+            }
+        })
+    })
+</script>
+</html>
