@@ -638,10 +638,15 @@ input:focus, textarea:focus{
     justify-content: space-between;
     border-bottom: 1px solid var(--light);
     border-right: 1px solid var(--green);
-    padding:0 20px;
     background-color: var(--green);
     color: var(--white);
     align-items: center;
+}
+#app-popup-upper>h3{
+    margin-left:20px;
+}
+#app-popup-upper>i{
+    margin-right:20px;
 }
 
 .fa-xmark:hover{
@@ -653,6 +658,7 @@ input:focus, textarea:focus{
 
 #app-popup-lower{
     height: 100%;
+    width:100%;
     display:flex;
 }
 
@@ -674,6 +680,7 @@ input:focus, textarea:focus{
 }
 
 #app-popup-right{
+    width:100%;
     padding:20px;
     display:flex;
     flex-direction: column;
