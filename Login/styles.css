@@ -136,11 +136,11 @@
     justify-content:center;
     text-align:center;
     width:100%;
-    margin-top:20px
+    margin-bottom: 25px;
 }
 
 .input_text{
-    margin-top:20px;
+    margin-top:10px;
     width:100%;
     position:relative
 }
@@ -195,7 +195,7 @@ input, select{
 }
 
 .create{
-    margin-top:40px;
+    margin-top:30px;
     text-align:center;
     text-decoration:none;
     font-size:13px;
