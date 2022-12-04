@@ -1,3 +1,16 @@
+<?php
+@include 'contact1.php';
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    $email =$_POST['email'];
+    $message=$_POST['message'];
+    $mailTo="sasiallouch1234@gmail.com";
+    $headers="From: ".$email;
+    $txt="You Have recivied an e-mail from".$name.".\n\n".$message;
+    mail($mailTo,$message,$txt,$headers);
+    header("Location:contact.php?mailsend");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
