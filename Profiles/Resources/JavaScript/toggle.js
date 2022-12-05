@@ -3,6 +3,6 @@ let blur=document.getElementById('page');
 
 function toggle(element){
     blur.classList.toggle('active');
-    let popup=document.getElementsByClassName(element);
-    popup[0].classList.toggle('active');
+    let popup=document.getElementById(element);
+    popup.classList.toggle('active');
 }

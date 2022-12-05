@@ -38,7 +38,7 @@
                 <div class="mid-element">Contact</div>
             </div>
             <div id="nav-right">
-                <i class="fa-solid fa-bell"></i>
+                <i class="fa-solid fa-bell" onclick="document.getElementById('notification-popup').classList.toggle('active')"></i>
                 <div id="name-picture">
                     <a href="#"><img src="./Resources/Images/patient.jpg"></a>
                     <a href="#">Batata Me2leye</a>
@@ -240,13 +240,13 @@
     </div>
 </div>
     <div id="popups">
-        <div class="desc-popup">
+        <div id="desc-popup">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur enim 
             culpa nobis debitis magni quae vel minima laboriosam error pariatur ipsa, 
             hic provident rem. Odio perferendis consectetur maxime officiis delectus!<br><br>
             <button class="app-desc" onclick="toggle('desc-popup')" style="align-self:center">Close</button>
         </div>
-        <div class="app-popup">
+        <div id="app-popup">
             <div id="app-popup-upper">
                 <h3>Appointment Information</h3>
                 <i onclick="toggle('app-popup')" class="fa-solid fa-xmark"></i>
@@ -283,7 +283,7 @@
                 </div>
             </div>
         </div>
-        <div class="edit-popup">
+        <div id="edit-popup">
             <div id="app-popup-upper">
                 <h3>Edit Profile</h3>
                 <i onclick="toggle('edit-popup')" class="fa-solid fa-xmark"></i>
@@ -334,12 +334,24 @@
                 </div>
             </div>
         </div>
+    </div><div id="notification-popup" style="z-index:1">
+        <div class="notification">
+            <div class="noti-top">
+                <i class="fa-regular fa-clock"></i>
+                Tue, 30 Sept at 4:00 PM
+            </div>
+            <div class="noti-bottom">
+                <p>Appointment confirmed by doctor</p>
+                <button class="app-desc">Ok</button>
+            </div>
+        </div>
+        <button class="app-desc" onclick="document.getElementById('notification-popup').classList.toggle('active')" style="align-self:center">Close</button>
     </div>
+    
 </body>
 <script src="../Profiles/Resources/JavaScript/toggle.js"></script>
 <script src="../Profiles/Resources/JavaScript/switch.js"></script>
 <script>
-    let blur=document.getElementById("page");
     let appAdd=document.getElementById("make-new-app");
     let appointments=document.getElementById("appointments");
     var delButtons=document.querySelectorAll('delete-one-app');

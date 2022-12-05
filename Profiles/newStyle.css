@@ -546,7 +546,7 @@ fieldset{
     transition: 0.2s;
 }
 
-.desc-popup{
+#desc-popup{
     border: 1px solid var(--dark);
     position: fixed;
     top:40%;
@@ -562,7 +562,7 @@ fieldset{
     opacity: 0;
     transition: 0.5s;
 }
-.desc-popup.active{
+#desc-popup.active{
     top:50%;
     visibility: visible;
     opacity: 1;
@@ -570,7 +570,7 @@ fieldset{
 }
 
 
-.review-popup{
+#review-popup{
     width:400px;
     height:500px;
     position: fixed;
@@ -589,14 +589,14 @@ fieldset{
     flex-direction: column;
     justify-content: space-evenly;
 }
-.review-popup.active{
+#review-popup.active{
     top:50%;
     visibility: visible;
     opacity: 1;
     transition: 0.5s;   
 }
 
-.review-popup textarea{
+#review-popup textarea{
     width:100%;
     height:100px;
     border:1px dashed var(--dark);
@@ -635,7 +635,7 @@ fieldset{
     justify-content: right;
 }
 
-.app-popup{
+#app-popup{
     width:700px;
     height: 400px;
     display:flex;
@@ -652,13 +652,13 @@ fieldset{
     opacity: 0;
     transition: 0.5s;
 }
-.app-popup.active{
+#app-popup.active{
     top:50%;
     visibility: visible;
     opacity: 1;
     transition: 0.5s;   
 }
-.edit-popup.active{
+#edit-popup.active{
     top:50%;
     visibility: visible;
     opacity: 1;
@@ -751,7 +751,7 @@ fieldset{
     border: 1px solid var(--green);
 }
 
-.edit-popup{
+#edit-popup{
     width:700px;
     height: 400px;
     display:flex;
@@ -835,15 +835,16 @@ input::-webkit-inner-spin-button {
 }
 
 #notification-popup{
-    border: 1px solid var(--dark);
+    border: 1px solid var(--light);
     position: fixed;
-    top:40%;
-    left:50%;
+    top:15%;
+    left:70%;
     transform: translate(-50%,-50%);
-    width:600px;
+    width:auto;
     padding:20px;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
     box-shadow: 0 5px 30px rgba(0 0 0 0.3);
     background: var(--white);
     visibility: hidden;
@@ -851,8 +852,30 @@ input::-webkit-inner-spin-button {
     transition: 0.5s;
 }
 #notification-popup.active{
-    top:50%;
+    top:25%;
     visibility: visible;
     opacity: 1;
     transition: 0.5s;   
+}
+.notification{
+    width:300px;
+    background-color: var(--white);
+    display:flex;
+    flex-direction: column;
+    padding:10px;
+    justify-content: space-evenly;
+    margin:20px;
+    border-radius: 10px;
+    border:1px solid var(--light);
+} 
+.noti-top{
+    border-bottom: 1px solid var(--light);
+    padding-bottom:5px;
+}
+.noti-bottom{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top:10px;
 }

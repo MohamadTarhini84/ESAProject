@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="./nav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -29,77 +30,18 @@
                 <div class="mid-element">About</div>
                 <div class="mid-element">Contact</div>
             </div>
-            <div id="nav-right">
-                <i class="fa-solid fa-bell" onclick="document.getElementById('notification-popup')[0].classList.toggle('active')"></i>
-                <div id="name-picture">
-                    <a href="#"><img src="./Resources/Images/doctor.jpg"></a>
-                    <a href="#">Batata Maslou2a</a>
-                </div>
-                <button id="nav-logout" onclick="location.href='#';">Logout</button>
-            </div>
+            <?php
+                require("Resources/php/nav-bar.php");
+                echo getNavBar();
+            ?>
         </div>
     </nav>
     <div id="profile-container">
         <div id="profile-info">
-            <div class="info-element">
-                <img src="./Resources/Images/doctor.jpg">
-            </div>
-            <div class="devider">
-                <div>personal info</div>
-                <div class="devider-line"></div>
-            </div>
-            <div class="info-element">
-                <div class="info-element-div">
-                    <div>
-                        Birthday:
-                    </div>
-                    <div>
-                        Gender:
-                    </div>
-                    <div>
-                        Phone Number:
-                    </div>
-                </div>
-                <div class="info-element-div">
-                    <div id="bday">
-                        131331
-                    </div>
-                    <div id="gender">
-                        mamasd
-                    </div>
-                    <div id="phone">
-                        12313123987
-                    </div>
-                </div>
-            </div>
-            <div class="devider">
-                <div>work info</div>
-                <div class="devider-line"></div>
-            </div>
-            <div class="info-element">
-                <div class="info-element-div">
-                    <div>
-                        Room:
-                    </div>
-                    <div>
-                        Licence card ID:
-                    </div>
-                    <div>
-                        Specialty:
-                    </div>
-                </div>
-                <div class="info-element-div">
-                    <div>
-                        131331s
-                    </div>
-                    <div>
-                        6255523
-                    </div>
-                    <div>
-                        Archeologist
-                    </div>
-                </div>
-            </div>
+            <?php
+                require("Resources/php/edit.php");
+                echo getDrInfo();
+            ?>
             <button id="profile-edit-button" class="app-desc" onclick="toggle('edit-popup')">Edit Profile Info</button>
         </div>
         <div id="profile-details">
@@ -118,55 +60,10 @@
                     <div id="option-1">
                         <button id="make-new-app" class="app-desc">Add appointment</button>              
                         <div id="appointments">
-                            <div class="appointment">
-                                <div class="app-top">
-                                <i class="fa-regular fa-clock"></i>
-                                Tue, 30 Sept at 4:00 PM
-                                </div>
-                                <div class="app-mid">
-                                    <div class="name-desc">
-                                        <div>
-                                            <div class="app-name">
-                                                batata me2leye
-                                            </div>
-                                            <div class="app-info">
-                                                +961 123 123
-                                            </div>
-                                        </div>
-                                        <button class="app-desc" onclick="toggle('desc-popup')">
-                                            show description
-                                        </button>
-                                    </div>
-                                    <div class="app-triple">
-                                        <div class="app-room">
-                                            <div class="app-name">
-                                                Room
-                                            </div>
-                                            <div class="app-info" style="font-size:10px">
-                                                adadadadsdadadadadad
-                                            </div>
-                                        </div>
-                                        <div class="app-status">
-                                            <div class="app-name">
-                                                Status
-                                            </div>
-                                            <div class="app-info">
-                                                Confirmed
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="app-edit-delete">
-                                <button class="app-button">
-                                    <i class="fa fa-duotone fa-check"></i>
-                                    Confirm
-                                </button>
-                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid var(--light)">
-                                    <i class="fa-solid fa-trash"></i>
-                                    Delete
-                                </button>
-                                </div>
-                            </div>
+                            <?php 
+                                require("Resources/php/app.php");
+                                echo getDrApp();
+                            ?>
                         </div>
                     </div>
                     <div id="option-2" style="display:none">
@@ -249,7 +146,7 @@
     </div>
 </div>
 
-<div class="edit-popup">
+<div id="edit-popup">
     <div id="app-popup-upper">
         <h3>Edit Profile</h3>
         <i onclick="toggle('edit-popup')" class="fa-solid fa-xmark"></i>
@@ -257,13 +154,13 @@
     <div id="app-popup-lower">
         <div id="edit-popup-left">
             <div class="right-image">
-                <img src="./Resources/Images/doctor.jpg">
+                <img id="ep-img" src="./Resources/Images/doctor.jpg">
             </div>
             <div>
-                <div class="edit-name">
+                <div id="ep-name" class="edit-name">
                     Batata 7arra
                 </div>
-                <div class="edit-info">
+                <div id="ep-mail" class="edit-info">
                     bobobob@gmail.com
                 </div>
             </div>
@@ -271,35 +168,35 @@
         <div id="edit-popup-right">
                 <div class="edit-left-input">
                     <p>First Name:</p>
-                    <input type="text">
+                    <input id="ep-fname" type="text">
                 </div> 
                 <div class="edit-left-input">
                     <p>Last Name:</p>
-                    <input type="text">
+                    <input id="ep-lname" type="text">
                 </div>
                 <div class="edit-left-input">
                     <p>Email:</p>
-                    <input type="email">
+                    <input id="ep-email" type="email">
                 </div> 
                 <div class="edit-left-input">
                     <p>Phone Number:</p>
-                    <input type="number">
+                    <input id="ep-number" type="number">
                 </div> 
                 <div class="edit-left-input">
                     <p>Password:</p>
-                    <input type="password">
+                    <input id="ep-password" type="password">
                 </div>
                 <div class="edit-left-input">
                     <p>Confirm Password:</p>
-                    <input type="password">
+                    <input id="ep-confirm" type="password">
                 </div>
                 <div class="edit-left-input">
                     <p>Licence Card ID:</p>
-                    <input type="number">
+                    <input id="ep-licence" type="number">
                 </div>
                 <div class="edit-left-input">
                     <p>Room:</p>
-                    <input type="text">
+                    <input id="ep-room" type="text">
                 </div>
                 <div id="left-buttons">
                     <button class="app-desc" onclick="toggle('edit-popup')" style="margin-right:0">Save Settings</button>
@@ -308,24 +205,71 @@
         </div>
     </div>
 </div>
-<div class="desc-popup">
+<div id="desc-popup" style="z-index:2">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur enim 
     culpa nobis debitis magni quae vel minima laboriosam error pariatur ipsa, 
     hic provident rem. Odio perferendis consectetur maxime officiis delectus!<br><br>
     <button class="app-desc" onclick="toggle('desc-popup')" style="align-self:center">Close</button>
 </div>
-<div id="notification-popup">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur enim 
-    culpa nobis debitis magni quae vel minima laboriosam error pariatur ipsa, 
-    hic provident rem. Odio perferendis consectetur maxime officiis delectus!<br><br>
-    <button class="app-desc" onclick="document.getElementById('notification-popup')[0].classList.toggle('active')" style="align-self:center">Close</button>
+<div id="notification-popup" style="z-index:1">
+    <div class="appointment" style="border:1px solid var(--light)">
+        <div class="app-top">
+        <i class="fa-regular fa-clock"></i>
+        Tue, 30 Sept at 4:00 PM
+        </div>
+        <div class="app-mid">
+            <div class="name-desc">
+                <div>
+                    <div class="app-name">
+                        batata me2leye
+                    </div>
+                    <div class="app-info">
+                        +961 123 123
+                    </div>
+                </div>
+                <button class="app-desc" onclick="toggle('desc-popup')">
+                    show description
+                </button>
+            </div>
+            <div class="app-triple">
+                <div class="app-room">
+                    <div class="app-name">
+                        Room
+                    </div>
+                    <div class="app-info" style="font-size:10px">
+                        adadadadsdadadadadad
+                    </div>
+                </div>
+                <div class="app-status">
+                    <div class="app-name">
+                        Status
+                    </div>
+                    <div class="app-info">
+                        Confirmed
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="app-edit-delete">
+        <button class="app-button">
+            <i class="fa fa-duotone fa-check"></i>
+            Confirm
+        </button>
+        <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid var(--light)">
+            <i class="fa-solid fa-trash"></i>
+            Delete
+        </button>
+        </div>
+    </div>
+    <button class="app-desc" onclick="document.getElementById('notification-popup').classList.toggle('active')" style="align-self:center">Close</button>
 </div>
 
 </body>
 <script src="../Profiles/Resources/JavaScript/toggle.js"></script>
 <script src="../Profiles/Resources/JavaScript/switch.js"></script>
 <script src="../Profiles/Resources/JavaScript/validateTimes.js"></script>
-<script>
+<script type="text/javascript">
+
     let likes=document.querySelectorAll('.review-likes'); 
 
     likes.forEach(function (e){
@@ -339,5 +283,23 @@
             }
         })
     })
+</script>
+<script>
+$(document).ready(function() {
+    // $('#profile-edit-button').click(function(){
+
+        $.ajax({
+            type:"GET",
+            url:"./edit.php",
+            dataType:"json",
+            success:function(res){
+                console.log(res);
+                let data=JSON.parse(res);
+                alert(data.test);
+            }
+        }).fail(alert("fail"));
+    // });
+});
+    
 </script>
 </html>
