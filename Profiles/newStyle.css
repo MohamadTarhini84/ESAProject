@@ -483,7 +483,7 @@ fieldset{
 .app-info{
     color:var(--green);
     text-transform: capitalize;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
 }
   
 .name-desc{
@@ -544,6 +544,30 @@ fieldset{
     scale: 1.6;
     rotate: -15deg;
     transition: 0.2s;
+}
+
+#confirm-popup{
+    border: 1px solid var(--dark);
+    position: fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:300px;
+    padding:20px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    box-shadow: 0 5px 30px rgba(0 0 0 0.3);
+    background: var(--white);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+#confirm-popup.active{
+    top:50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;   
 }
 
 #desc-popup{
