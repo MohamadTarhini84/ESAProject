@@ -124,62 +124,22 @@
                     <div id="option-1">
                         <!-- <button id="make-new-app" class="app-desc">Add appointment</button>               -->
                         <div id="appointments">
-                            <div class="appointment">
-                                <div class="app-top">
-                                <i class="fa-regular fa-clock"></i>
-                                <span class="app-information">Tue, 30 Sept at 4:00 PM</span>
-                                </div>
-                                <div class="app-mid">
-                                    <div class="name-desc">
-                                        <div>
-                                            <div class="app-name app-information">
-                                                batata me2leye
-                                            </div>
-                                            <div class="app-info app-information">
-                                                +961 123 123
-                                            </div>
-                                        </div>
-                                        <button class="app-desc" onclick="toggle('desc-popup')">
-                                            show description
-                                        </button>
-                                    </div>
-                                    <div class="app-triple">
-                                        <div class="app-room">
-                                            <div class="app-name">
-                                                Room
-                                            </div>
-                                            <div class="app-info app-information" style="font-size:16px">
-                                                adadadadsdadadadadad
-                                            </div>
-                                        </div>
-                                        <div class="app-status">
-                                            <div class="app-name">
-                                                Status
-                                            </div>
-                                            <div class="app-info app-information">
-                                                Confirmed
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="app-edit-delete">
-                                <button class="app-button confirm-app">
-                                    <i class="fa fa-duotone fa-check"></i>
-                                    <span>Confirm</span>
-                                </button>
-                                <button class="app-button delete-one-app" onclick="toggle('confirm-popup')" style="border-left:1px solid var(--light)">
-                                    <i class="fa-solid fa-trash"></i>
-                                    Delete
-                                </button>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     <div id="option-2" style="display:none">
                         <fieldset>
                             <legend>Click day to save changes</legend>
                         <div id="schedule-grid">
-                            <button class="grid-button" id="monday" onclick="validateTimes(0)">Monday</button>
+                            <button class="grid-button" id="monday">Monday</button>
+                            <div class="grid-edit-times">
+                                <label>Start time:</label>
+                                <input type="time" class="edit-times">
+                                
+                                <label>End time:</label>
+                                <input type="time" class="edit-times">
+                            </div>
+                            <button class="grid-button" id="tuesday">Tuesday</button>
                             <div class="grid-edit-times">
                                 <label>Start time:</label>
                                 <input type="time">
@@ -187,7 +147,7 @@
                                 <label>End time:</label>
                                 <input type="time">
                             </div>
-                            <button class="grid-button" id="tuesday" onclick="validateTimes(1)">Tuesday</button>
+                            <button class="grid-button" id="wednesday">Wednesday</button>
                             <div class="grid-edit-times">
                                 <label>Start time:</label>
                                 <input type="time">
@@ -195,7 +155,7 @@
                                 <label>End time:</label>
                                 <input type="time">
                             </div>
-                            <button class="grid-button" id="wednesday" onclick="validateTimes(2)">Wednesday</button>
+                            <button class="grid-button" id="thursday">Thursday</button>
                             <div class="grid-edit-times">
                                 <label>Start time:</label>
                                 <input type="time">
@@ -203,7 +163,7 @@
                                 <label>End time:</label>
                                 <input type="time">
                             </div>
-                            <button class="grid-button" id="thursday" onclick="validateTimes(3)">Thursday</button>
+                            <button class="grid-button" id="friday">Friday</button>
                             <div class="grid-edit-times">
                                 <label>Start time:</label>
                                 <input type="time">
@@ -211,7 +171,7 @@
                                 <label>End time:</label>
                                 <input type="time">
                             </div>
-                            <button class="grid-button" id="friday" onclick="validateTimes(4)">Friday</button>
+                            <button class="grid-button" id="saturday">Saturday</button>
                             <div class="grid-edit-times">
                                 <label>Start time:</label>
                                 <input type="time">
@@ -219,15 +179,7 @@
                                 <label>End time:</label>
                                 <input type="time">
                             </div>
-                            <button class="grid-button" id="saturday" onclick="validateTimes(5)">Saturday</button>
-                            <div class="grid-edit-times">
-                                <label>Start time:</label>
-                                <input type="time">
-                                
-                                <label>End time:</label>
-                                <input type="time">
-                            </div>
-                            <button class="grid-button" id="sunday" onclick="validateTimes(6)">Sunday</button>
+                            <button class="grid-button" id="sunday">Sunday</button>
                             <div class="grid-edit-times">
                                 <label>Start time:</label>
                                 <input type="time">
@@ -389,4 +341,5 @@
 <script src="../Profiles/Resources/JavaScript/fetchApps.js"></script>
 <script src="../Profiles/Resources/JavaScript/navbarDisplay.js"></script>
 <script src="../Profiles/Resources/JavaScript/editPopup.js"></script>
+<script src="../Profiles/Resources/JavaScript/editTimes.js"></script>
 </html>
