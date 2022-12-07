@@ -25,56 +25,30 @@
 </head>
 <body>
 <div id="page">
-<nav class="nav-bar">
-    <div id="nav-bar">
-        <div id="nav-left">
-            MedCenter
-        </div>
-        <div id="nav-mid">
-            <div class="mid-element">Home</div>
-            <div class="mid-element">Services</div>
-            <div class="mid-element">Book</div>
-            <div class="mid-element">Blog</div>
-            <div class="mid-element">Doctors</div>
-            <div class="mid-element">About</div>
-            <div class="mid-element">Contact</div>
-        </div>
-        <div id="nav-right">
-            <i class="fa-solid fa-bell"></i>
-            <div id="name-picture">
-                <img src="./Resources/Images/doctor.jpg">Batata Me2leye
+    <nav class="nav-bar">
+        <div id="nav-bar">
+            <div id="nav-left">
+                MedCenter
+            </div>
+            <div id="nav-mid">
+                <div class="mid-element">Home</div>
+                <div class="mid-element">Services</div>
+                <div class="mid-element">Book</div>
+                <div class="mid-element">Blog</div>
+                <div class="mid-element">Doctors</div>
+                <div class="mid-element">About</div>
+                <div class="mid-element">Contact</div>
+            </div>
+            <div id="nav-right">
+                <i class="fa-solid fa-bell"></i>
+                <div id="name-picture">
+                    <a href="#"><img src="./Resources/Images/doctor.jpg"></a>
+                    <a href="#">Batata Maslou2a</a>
+                </div>
+                <button id="nav-logout" onclick="location.href='#';">Logout</button>
             </div>
         </div>
-    </div>
-    <!-- navbar -->
-    <!-- <div class="boss">
-    
-        <nav class="navbar">
-            <div>
-                <img class="logo" src="./Resources/Images/logo.png">
-            </div>
-            <a href="#" class="toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </a>
-        <div class="menu">
-            <ul>
-                <li><a href="">Home</a>  </li>
-                <li><a href="">Services</a>  </li>
-                <li><a href="">Book</a>  </li>
-                <li><a href="">Blog</a>  </li>
-                <li><a href="">Doctors</a>  </li>
-                <li><a href="">About</a>  </li>
-                <li><a href="">Contact</a>  </li>
-           
-            </ul>
-        </div>
-        <div class="navbutton">
-            <button class="login-butt">login</button>
-        </div>
-    </div>  -->
-</nav>
+    </nav>
     <div id="profile-container">
         <div id="profile-info">
             <div class="info-element">
@@ -130,7 +104,6 @@
                     </div>
                 </div>
             </div>
-            <button id="profile-edit-button" class="app-desc" onclick="toggleEdit()">Edit Profile Info</button>
         </div>
         <div id="profile-details">
             <div id="top-half">
@@ -143,7 +116,7 @@
                             archeologist
                         </div>
                     </div>
-                    <button id="leave-review" onclick="toggleRev()">
+                    <button id="leave-review" onclick="toggle('review-popup')">
                         <i class="fa-solid fa-pen-to-square"></i>
                         Leave Review
                     </button>
@@ -161,7 +134,7 @@
                         <i class="fa-regular fa-star"></i>
                     </div>
                 </div>
-                <button id="app-button" onclick="toggleApp()">
+                <button id="app-button" onclick="toggle('app-popup')">
                     <i class="fa-solid fa-book-medical"></i>
                     Book Appointment
                 </button>
@@ -239,10 +212,10 @@
 
 
 
-<div class="app-popup">
+<div id="app-popup">
     <div id="app-popup-upper">
         <h3>Appointment Information</h3>
-        <i onclick="toggleApp()" class="fa-solid fa-xmark"></i>
+        <i onclick="toggle('app-popup')" class="fa-solid fa-xmark"></i>
     </div>
     <div id="app-popup-lower">
         <div id="app-popup-left">
@@ -257,8 +230,8 @@
                 <p>Appointment Description:</p>
                 <textarea placeholder="Description"></textarea>
                 <div id="left-buttons">
-                    <button class="app-desc" onclick="toggleApp()">Cancel</button>
-                    <button class="app-desc" onclick="toggleApp()" style="margin-right:0">Make Appointment</button>
+                    <button class="app-desc" onclick="toggle('app-popup')">Cancel</button>
+                    <button class="app-desc" onclick="toggle('app-popup')" style="margin-right:0">Make Appointment</button>
                 </div>
         </div>
         <div id="app-popup-right">
@@ -276,7 +249,7 @@
         </div>
     </div>
 </div>
-<div class="review-popup">
+<div id="review-popup">
     <div id="rp-logo">
         <img src="./Resources/Images/logo.png">
     </div>
@@ -335,104 +308,16 @@
         <textarea></textarea>
     </div>
     <div id="rp-buttons">
-        <button class="app-desc" onclick="toggleRev()">Cancel</button>
-        <button class="app-desc" onclick="toggleRev()">Submit Review</button>
-    </div>
-</div>
-<div class="edit-popup">
-    <div id="app-popup-upper">
-        <h3>Edit Profile</h3>
-        <i onclick="toggleEdit()" class="fa-solid fa-xmark"></i>
-    </div>
-    <div id="app-popup-lower">
-        <div id="edit-popup-left">
-            <div class="right-image">
-                <img src="./Resources/Images/doctor.jpg">
-            </div>
-            <div>
-                <div class="edit-name">
-                    Batata 7arra
-                </div>
-                <div class="edit-info">
-                    bobobob@gmail.com
-                </div>
-            </div>
-        </div>
-        <div id="edit-popup-right">
-                <div class="edit-left-input">
-                    <p>First Name:</p>
-                    <input type="text">
-                </div> 
-                <div class="edit-left-input">
-                    <p>Last Name:</p>
-                    <input type="text">
-                </div>
-                <div class="edit-left-input">
-                    <p>Email:</p>
-                    <input type="email">
-                </div> 
-                <div class="edit-left-input">
-                    <p>Phone Number:</p>
-                    <input type="number">
-                </div> 
-                <div class="edit-left-input">
-                    <p>Password:</p>
-                    <input type="password">
-                </div>
-                <div class="edit-left-input">
-                    <p>Confirm Password:</p>
-                    <input type="password">
-                </div>
-                <div class="edit-left-input">
-                    <p>Licence Card ID:</p>
-                    <input type="number">
-                </div>
-                <div class="edit-left-input">
-                    <p>Room:</p>
-                    <input type="text">
-                </div>
-                <div id="left-buttons">
-                    <button class="app-desc" onclick="toggleEdit()" style="margin-right:0">Save Settings</button>
-                    <button class="app-desc" onclick="toggleEdit()">Cancel</button>
-                </div>
-        </div>
+        <button class="app-desc" onclick="toggle('review-popup')">Cancel</button>
+        <button class="app-desc" onclick="toggle('review-popup')">Submit Review</button>
     </div>
 </div>
 </body>
+<script src="../Profiles/Resources/JavaScript/toggle.js"></script>
+<script src="../Profiles/Resources/JavaScript/switch.js"></script>
 <script>
     let likes=document.querySelectorAll('.review-likes');
     let blur=document.getElementById('page');
-
-    function clickDay(){
-        document.getElementById("option-1").setAttribute("style","display:flex");
-        document.getElementById("day-button").setAttribute("class","upper-button clicked");
-        document.getElementById("option-2").setAttribute("style","display:none");
-        document.getElementById("rev-button").setAttribute("class","upper-button");
-    }
-    function clickRev(){
-        document.getElementById("option-2").setAttribute("style","display:flex");
-        document.getElementById("day-button").setAttribute("class","upper-button");
-        document.getElementById("option-1").setAttribute("style","display:none");
-        document.getElementById("rev-button").setAttribute("class","upper-button clicked");
-    }
-
-    function toggleRev(){
-        blur.classList.toggle('active');
-        let revPopup=document.getElementsByClassName("review-popup");
-        revPopup[0].classList.toggle('active');
-    }
-
-    function toggleApp(){
-        blur.classList.toggle('active');
-        let appPopup=document.getElementsByClassName("app-popup");
-        appPopup[0].classList.toggle('active');
-    }
-
-    function toggleEdit(){
-        blur.classList.toggle('active');
-        let editPopup=document.getElementsByClassName("edit-popup");
-        editPopup[0].classList.toggle('active');
-    }
 
     likes.forEach(function (e){
         e.addEventListener('click',function(a){

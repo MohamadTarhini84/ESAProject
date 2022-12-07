@@ -135,7 +135,7 @@ input:focus, textarea:focus{
 
 
 
-/* ----RIGHT SIDE----- */
+/* ----LEFT SIDE----- */
 
 
 
@@ -289,6 +289,40 @@ input:focus, textarea:focus{
 
 #lower-section{
     padding:20px;
+}
+
+#schedule-grid{
+    width:90%;
+    height:600px;
+    display:grid;
+    grid-template-columns: 20% 80%;
+    background-color: var(--green);
+    color:var(--white);
+    margin:auto;
+}
+
+.grid-button{
+    width:100%;
+    height:100%;
+}
+
+fieldset{
+    width:100%;
+    padding:30px;
+    background-color: var(--patientbg);
+    border-radius: 10px;
+}
+
+.grid-edit-times{
+    border-bottom: 1px solid var(--light);
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    padding:10px;
+}
+
+.grid-edit-times input[type="time"]{
+    width:30%;
 }
 
 
@@ -449,7 +483,7 @@ input:focus, textarea:focus{
 .app-info{
     color:var(--green);
     text-transform: capitalize;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
 }
   
 .name-desc{
@@ -512,7 +546,31 @@ input:focus, textarea:focus{
     transition: 0.2s;
 }
 
-.desc-popup{
+#confirm-popup{
+    border: 1px solid var(--dark);
+    position: fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:300px;
+    padding:20px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    box-shadow: 0 5px 30px rgba(0 0 0 0.3);
+    background: var(--white);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+#confirm-popup.active{
+    top:50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;   
+}
+
+#desc-popup{
     border: 1px solid var(--dark);
     position: fixed;
     top:40%;
@@ -528,7 +586,7 @@ input:focus, textarea:focus{
     opacity: 0;
     transition: 0.5s;
 }
-.desc-popup.active{
+#desc-popup.active{
     top:50%;
     visibility: visible;
     opacity: 1;
@@ -536,7 +594,7 @@ input:focus, textarea:focus{
 }
 
 
-.review-popup{
+#review-popup{
     width:400px;
     height:500px;
     position: fixed;
@@ -555,14 +613,14 @@ input:focus, textarea:focus{
     flex-direction: column;
     justify-content: space-evenly;
 }
-.review-popup.active{
+#review-popup.active{
     top:50%;
     visibility: visible;
     opacity: 1;
     transition: 0.5s;   
 }
 
-.review-popup textarea{
+#review-popup textarea{
     width:100%;
     height:100px;
     border:1px dashed var(--dark);
@@ -601,7 +659,7 @@ input:focus, textarea:focus{
     justify-content: right;
 }
 
-.app-popup{
+#app-popup{
     width:700px;
     height: 400px;
     display:flex;
@@ -618,13 +676,13 @@ input:focus, textarea:focus{
     opacity: 0;
     transition: 0.5s;
 }
-.app-popup.active{
+#app-popup.active{
     top:50%;
     visibility: visible;
     opacity: 1;
     transition: 0.5s;   
 }
-.edit-popup.active{
+#edit-popup.active{
     top:50%;
     visibility: visible;
     opacity: 1;
@@ -638,10 +696,15 @@ input:focus, textarea:focus{
     justify-content: space-between;
     border-bottom: 1px solid var(--light);
     border-right: 1px solid var(--green);
-    padding:0 20px;
     background-color: var(--green);
     color: var(--white);
     align-items: center;
+}
+#app-popup-upper>h3{
+    margin-left:20px;
+}
+#app-popup-upper>i{
+    margin-right:20px;
 }
 
 .fa-xmark:hover{
@@ -653,6 +716,7 @@ input:focus, textarea:focus{
 
 #app-popup-lower{
     height: 100%;
+    width:100%;
     display:flex;
 }
 
@@ -674,6 +738,7 @@ input:focus, textarea:focus{
 }
 
 #app-popup-right{
+    width:100%;
     padding:20px;
     display:flex;
     flex-direction: column;
@@ -710,7 +775,7 @@ input:focus, textarea:focus{
     border: 1px solid var(--green);
 }
 
-.edit-popup{
+#edit-popup{
     width:700px;
     height: 400px;
     display:flex;
@@ -791,4 +856,50 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+#notification-popup{
+    border: 1px solid var(--light);
+    position: fixed;
+    top:15%;
+    left:70%;
+    transform: translate(-50%,-50%);
+    width:auto;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(0 0 0 0.3);
+    background: var(--white);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+#notification-popup.active{
+    top:25%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;   
+}
+.notification{
+    width:300px;
+    background-color: var(--white);
+    display:flex;
+    flex-direction: column;
+    padding:10px;
+    justify-content: space-evenly;
+    margin:20px;
+    border-radius: 10px;
+    border:1px solid var(--light);
+} 
+.noti-top{
+    border-bottom: 1px solid var(--light);
+    padding-bottom:5px;
+}
+.noti-bottom{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top:10px;
 }

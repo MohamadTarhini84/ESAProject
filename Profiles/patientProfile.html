@@ -38,39 +38,14 @@
                 <div class="mid-element">Contact</div>
             </div>
             <div id="nav-right">
-                <i class="fa-solid fa-bell"></i>
+                <i class="fa-solid fa-bell" onclick="document.getElementById('notification-popup').classList.toggle('active')"></i>
                 <div id="name-picture">
-                    <img src="./Resources/Images/patient.jpg">Batata Me2leye
+                    <a href="#"><img src="./Resources/Images/patient.jpg"></a>
+                    <a href="#">Batata Me2leye</a>
                 </div>
+                <button id="nav-logout" onclick="location.href='#';">Logout</button>
             </div>
         </div>
-        <!-- <div class="boss">
-    
-            <nav class="navbar">
-                <div>
-                    <p class="logo">MedCenter</p>
-                </div>
-                <a href="#" class="toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </a>
-            <div class="menu">
-                <ul>
-                    <li><a href="">Home</a>  </li>
-                    <li><a href="">Services</a>  </li>
-                    <li><a href="">Book</a>  </li>
-                    <li><a href="">Blog</a>  </li>
-                    <li><a href="">Doctors</a>  </li>
-                    <li><a href="">About</a>  </li>
-                    <li><a href="">Contact</a>  </li>
-               
-                </ul>
-            </div>
-            <div class="navbutton">
-                <button class="login-butt">login</button>
-            </div>
-        </div>  -->
     </nav>
     <div id="profile-container">
         <div id="profile-info">
@@ -105,7 +80,7 @@
                     </div>
                 </div>
             </div>
-            <button id="profile-edit-button" class="app-desc" onclick="toggleEdit()">Edit Profile Info</button>
+            <button id="profile-edit-button" class="app-desc" onclick="toggle('edit-popup')">Edit Profile Info</button>
         </div>
         <div id="profile-details">
             <div id="top-half">
@@ -160,7 +135,7 @@
                                                 archeologist
                                             </div>
                                         </div>
-                                        <button class="app-desc" onclick="toggleDesc()">
+                                        <button class="app-desc" onclick="toggle('desc-popup')">
                                             show description
                                         </button>
                                     </div>
@@ -187,59 +162,7 @@
                                     </div>
                                 </div>
                                 <div class="app-edit-delete">
-                                <button class="app-button" onclick="toggleApp()">
-                                    <i class="fa-solid fa-pen"></i>
-                                    Edit
-                                </button>
-                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid var(--light)">
-                                    <i class="fa-solid fa-trash"></i>
-                                    Delete
-                                </button>
-                                </div>
-                            </div>
-                            <div class="appointment">
-                                <div class="app-top">
-                                <i class="fa-regular fa-clock"></i>
-                                Tue, 30 Sept at 4:00 PM
-                                </div>
-                                <div class="app-mid">
-                                    <div class="name-desc">
-                                        <div>
-                                            <div class="app-name">
-                                                batata meshweye
-                                            </div>
-                                            <div class="app-info">
-                                                archeologist
-                                            </div>
-                                        </div>
-                                        <button class="app-desc" onclick="toggleDesc()">
-                                            show description
-                                        </button>
-                                    </div>
-                                    <div class="app-triple">
-                                        <div class="app-room">
-                                            <div class="app-name">
-                                                Room
-                                            </div>
-                                            <div class="app-info" style="font-size:10px">
-                                                adadadadsdadadadadad
-                                            </div>
-                                        </div>
-                                        <div class="app-status">
-                                            <div class="app-name">
-                                                Status
-                                            </div>
-                                            <div class="app-info">
-                                                Confirmed
-                                            </div>
-                                        </div>
-                                        <button class="app-call">
-                                            <i class="fa-solid fa-phone"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="app-edit-delete">
-                                <button class="app-button" onclick="toggleApp()">
+                                <button class="app-button" onclick="toggle('app-popup')">
                                     <i class="fa-solid fa-pen"></i>
                                     Edit
                                 </button>
@@ -317,16 +240,16 @@
     </div>
 </div>
     <div id="popups">
-        <div class="desc-popup">
+        <div id="desc-popup">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur enim 
             culpa nobis debitis magni quae vel minima laboriosam error pariatur ipsa, 
             hic provident rem. Odio perferendis consectetur maxime officiis delectus!<br><br>
-            <button class="app-desc" onclick="toggleDesc()" style="align-self:center">Close</button>
+            <button class="app-desc" onclick="toggle('desc-popup')" style="align-self:center">Close</button>
         </div>
-        <div class="app-popup">
+        <div id="app-popup">
             <div id="app-popup-upper">
                 <h3>Appointment Information</h3>
-                <i onclick="toggleApp()" class="fa-solid fa-xmark"></i>
+                <i onclick="toggle('app-popup')" class="fa-solid fa-xmark"></i>
             </div>
             <div id="app-popup-lower">
                 <div id="app-popup-left">
@@ -341,8 +264,8 @@
                         <p>Appointment Description:</p>
                         <textarea placeholder="Description"></textarea>
                         <div id="left-buttons">
-                            <button class="app-desc" onclick="toggleApp()">Cancel</button>
-                            <button class="app-desc" onclick="toggleApp()" style="margin-right:0">Make Appointment</button>
+                            <button class="app-desc" onclick="toggle('app-popup')">Cancel</button>
+                            <button class="app-desc" onclick="toggle('app-popup')" style="margin-right:0">Make Appointment</button>
                         </div>
                 </div>
                 <div id="app-popup-right">
@@ -360,10 +283,10 @@
                 </div>
             </div>
         </div>
-        <div class="edit-popup">
+        <div id="edit-popup">
             <div id="app-popup-upper">
                 <h3>Edit Profile</h3>
-                <i onclick="toggleEdit()" class="fa-solid fa-xmark"></i>
+                <i onclick="toggle('edit-popup')" class="fa-solid fa-xmark"></i>
             </div>
             <div id="app-popup-lower">
                 <div id="edit-popup-left">
@@ -405,16 +328,30 @@
                             <input type="password">
                         </div>
                         <div id="left-buttons">
-                            <button class="app-desc" onclick="toggleEdit()" style="margin-right:0">Save Settings</button>
-                            <button class="app-desc" onclick="toggleEdit()">Cancel</button>
+                            <button class="app-desc" onclick="toggle('edit-popup')" style="margin-right:0">Save Settings</button>
+                            <button class="app-desc" onclick="toggle('edit-popup')">Cancel</button>
                         </div>
                 </div>
             </div>
         </div>
+    </div><div id="notification-popup" style="z-index:1">
+        <div class="notification">
+            <div class="noti-top">
+                <i class="fa-regular fa-clock"></i>
+                Tue, 30 Sept at 4:00 PM
+            </div>
+            <div class="noti-bottom">
+                <p>Appointment confirmed by doctor</p>
+                <button class="app-desc">Ok</button>
+            </div>
+        </div>
+        <button class="app-desc" onclick="document.getElementById('notification-popup').classList.toggle('active')" style="align-self:center">Close</button>
     </div>
+    
 </body>
+<script src="../Profiles/Resources/JavaScript/toggle.js"></script>
+<script src="../Profiles/Resources/JavaScript/switch.js"></script>
 <script>
-    let blur=document.getElementById("page");
     let appAdd=document.getElementById("make-new-app");
     let appointments=document.getElementById("appointments");
     var delButtons=document.querySelectorAll('delete-one-app');
@@ -437,7 +374,7 @@
                                                 archeologist
                                             </div>
                                         </div>
-                                        <button class="app-desc" onclick="toggleDesc()">
+                                        <button class="app-desc" onclick="toggle('desc-popup')">
                                             show description
                                         </button>
                                     </div>
@@ -464,7 +401,7 @@
                                     </div>
                                 </div>
                                 <div class="app-edit-delete">
-                                <button class="app-button" onclick="toggleApp()">
+                                <button class="app-button" onclick="toggle('app-popup')">
                                     <i class="fa-solid fa-pen"></i>
                                     Edit
                                 </button>
@@ -484,37 +421,6 @@
                 event.target.closest('.appointment').remove();
             })
         })
-    }
-
-    function clickDay(){
-        document.getElementById("option-1").setAttribute("style","display:flex");
-        document.getElementById("day-button").setAttribute("class","upper-button clicked");
-        document.getElementById("option-2").setAttribute("style","display:none");
-        document.getElementById("rev-button").setAttribute("class","upper-button");
-    }
-    function clickRev(){
-        document.getElementById("option-2").setAttribute("style","display:flex");
-        document.getElementById("day-button").setAttribute("class","upper-button");
-        document.getElementById("option-1").setAttribute("style","display:none");
-        document.getElementById("rev-button").setAttribute("class","upper-button clicked");
-    }
-
-    function toggleDesc(){
-        blur.classList.toggle('active');
-        let descPopup=document.getElementsByClassName("desc-popup");
-        descPopup[0].classList.toggle('active');
-    }
-
-    function toggleApp(){
-        blur.classList.toggle('active');
-        let appPopup=document.getElementsByClassName("app-popup");
-        appPopup[0].classList.toggle('active');
-    }
-
-    function toggleEdit(){
-        blur.classList.toggle('active');
-        let editPopup=document.getElementsByClassName("edit-popup");
-        editPopup[0].classList.toggle('active');
     }
 
     let likes=document.querySelectorAll('.review-likes');
