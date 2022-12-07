@@ -147,7 +147,7 @@ switch(valel.innerHTML){
 
 
 // view Profile & validate 
-document.getElementById("prof-btn").addEventListener('click',openProfile)
+/*document.getElementById("prof-btn").addEventListener('click',openProfile)
 function openProfile(){
-  window.location.href="Drprofile.html";
-}
+  window.location.href="Drprofile.php";
+}*/

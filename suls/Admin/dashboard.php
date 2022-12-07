@@ -1,3 +1,6 @@
+<?php  require('../config/constants.php');?>
+<?php  require('./partials/login-check.php');?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,8 +29,10 @@
   </head>
 
   <body>
+  
     <div class="grid-container">
       <!-- Header -->
+      
       <header class="header">
         <div class="menu-icon" onclick="openSidebar()">
           <span class="material-icons-outlined">menu</span>
@@ -40,6 +45,7 @@
           <span class="material-icons-outlined">email</span>
           <span class="material-icons-outlined">account_circle</span>
         </div>
+        
       </header>
       <!-- End Header -->
 
@@ -55,6 +61,7 @@
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
             <span class="material-icons-outlined" id="">dashboard</span>  Dashboard
+            
           </li>
           <li class="sidebar-list-item">
             <span class="material-icons-outlined">admin_panel_settings</span>  Admin
@@ -90,7 +97,22 @@
       <!-- Main -->
       <main class="main-container">
         <div class="main-title">
-          <h2 class="font-weight-bold">DASHBOARD</h2>
+          <h2 class="font-weight-bold">DASHBOARD <br>
+          <?php
+              
+
+              if(isset($_SESSION['login'])){
+                echo $_SESSION['login'];
+                UNSET($_SESSION['login']);
+              }
+              if(isset( $_SESSION['not super admin'])){
+                echo  $_SESSION['not super admin'];
+                UNSET( $_SESSION['not super admin']);
+              }
+               
+          ?>
+          </h2>
+          
         </div>
 
         <div class="main-cards">

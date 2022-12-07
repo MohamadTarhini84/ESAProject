@@ -1,4 +1,6 @@
-<?php  include('./partials/sidebar.php');?>
+
+<?php  require('./config/constants.php');?>
+<?php  require('login-check.php');?>
 <style> 
 
 

@@ -1,3 +1,6 @@
+
+<?php  require('./config/constants.php');?>
+<?php  require('login-check.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

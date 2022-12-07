@@ -1,16 +1,16 @@
-<?php  include('./partials/sidebar.php');?>
+<?php  require('./partials/sidebar.php');?>
   
         <!-- Main -->
         <main class="main-container">
                 
                 <div class="main-title">
-                    <h2 class="font-weight-bold">REGISTER NEW</h2>
+                    <h2 class="font-weight-bold">Update Profile</h2>
                 </div>
                 <div class="container" style="margin: auto;">
                     <div class="login-content" >
-                        <form action="Admins.html">
+                        <form action="index.html">
                             
-                            <h2 class="title">Register</h2>
+                            <h2 class="title" style="width:auto ;">Update&nbsp;Profile</h2>
                             <div class="input-div one">
                                 <div class="i">
                                         <i class="fas fa-user"></i>
@@ -25,7 +25,16 @@
                                         <i class="fas fa-lock"></i>
                                 </div>
                                 <div class="div">
-                                        <h5>Password</h5>
+                                        <h5>Enter Old Password</h5>
+                                        <input type="password" class="input" required>
+                                </div>    
+                            </div>
+                            <div class="input-div pass">
+                                <div class="i"> 
+                                        <i class="fas fa-lock"></i>
+                                </div>
+                                <div class="div">
+                                        <h5>Enter New Password</h5>
                                         <input type="password" class="input" required>
                                 </div>    
                             </div>

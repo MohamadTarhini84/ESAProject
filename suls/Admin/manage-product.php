@@ -1,4 +1,4 @@
-<?php  include('./partials/sidebar.php');?>
+<?php  require('./partials/sidebar.php');?>
 
       <!-- Main -->
       
