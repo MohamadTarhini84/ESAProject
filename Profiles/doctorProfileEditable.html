@@ -5,12 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="newStyle.css">
-    <link rel="stylesheet" href="./js/fullcalendar-5.11.3/lib/main.css">
-    <script src="./js/fullcalendar-5.11.3/lib/main.js"></script>
     <script src="https://kit.fontawesome.com/4c2b37abf9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="./nav.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <title>Document</title>
 </head>
@@ -220,8 +218,8 @@
         <h3>Edit Profile</h3>
         <i onclick="toggle('edit-popup')" class="fa-solid fa-xmark"></i>
     </div>
-    <div id="app-popup-lower">
-            <div id="edit-popup-left">
+    <form id="app-popup-lower">
+        <div id="edit-popup-left">
             <div class="right-image">
                 <img id="ep-img" src="./Resources/Images/doctor.jpg">
             </div>
@@ -233,7 +231,12 @@
                     bobobob@gmail.com
                 </div>
             </div>
-        </div>
+            <label id="edit-popup-label">
+                <i class="fa fa-cloud-upload"></i>
+                <h5 style="width:70%;margin:auto">Choose Your Image to Upload</h5>
+                <input type="file" name="file" class="inputfile edit-popup-element" />
+            </label> 
+         </div>
         <div id="edit-popup-right">
             <div class="edit-left-input" >
                 <p>First Name:</p>
@@ -253,11 +256,11 @@
             </div> 
             <div class="edit-left-input">
                 <p>Password:</p>
-                <input id="ep-password" type="password">
+                <input id="ep-password" type="password" class=" edit-popup-element">
             </div>
             <div class="edit-left-input">
                 <p>Confirm Password:</p>
-                <input id="ep-confirm" type="password">
+                <input id="ep-confirm" type="password" class=" edit-popup-element">
             </div>
             <div class="edit-left-input">
                 <p>Specialty:</p>
@@ -268,11 +271,10 @@
                 <input id="ep-room" type="text" class=" edit-popup-element">
             </div>
             <div id="left-buttons">
-                <button class="app-desc" onclick="toggle('edit-popup')" style="margin-right:0">Save Settings</button>
-                <button class="app-desc" onclick="toggle('edit-popup')">Cancel</button>
+                <button type="submit" class="app-desc" style="margin-right:0">Save Settings</button>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 <div id="confirm-popup">
     <h3>Are you sure you want to delete this appointment?</h3>
@@ -341,55 +343,24 @@
     <button class="app-desc" onclick="document.getElementById('notification-popup').classList.toggle('active')" style="align-self:center">Close</button>
 </div>
 
+<div id="popup" style="display:none">
+    <div id="wrapper"> 
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> 
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> 
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+    </div>
+    <p>Updated Successfully!</p>
+</div>
+
 </body>
+<script src="../Profiles/Resources/JavaScript/successPopup.js"></script>
 <script src="../Profiles/Resources/JavaScript/toggle.js"></script>
 <script src="../Profiles/Resources/JavaScript/switch.js"></script>
 <script src="../Profiles/Resources/JavaScript/validateTimes.js"></script>
 <script src="../Profiles/Resources/JavaScript/fetchDrInfo.js"></script>
 <script src="../Profiles/Resources/JavaScript/fetchApps.js"></script>
 <script src="../Profiles/Resources/JavaScript/navbarDisplay.js"></script>
+<script src="../Profiles/Resources/JavaScript/validateEdit.js"></script>
 <script src="../Profiles/Resources/JavaScript/editPopup.js"></script>
-<script src="../Profiles/Resources/JavaScript/editTimes.js"></script>
-
-<script>
-    let timeForms=document.querySelectorAll('.grid-form');
-    
-    
-    timeForms.forEach((form)=>{
-    form.addEventListener('submit',function (e){
-        e.preventDefault();
-
-        let timeInput=form.childNodes[3].childNodes;
-        let whichDay=form.childNodes[1].innerHTML;
-        
-        if(parseInt(timeInput[3].value)>=9 && parseInt(timeInput[7].value)<16
-            && parseInt(timeInput[3].value)<parseInt(timeInput[7].value))
-        {
-            console.log(timeInput[3].value+"  "+timeInput[7].value);
-            timeInput[3].setAttribute('style','border:1px solid black;');
-            timeInput[7].setAttribute('style','border:1px solid black;');
-    
-    
-            $.ajax({
-                type: "POST",
-                url: "./Resources/php/processTimes.php",
-                dataType: "json",
-                data: {day:whichDay,startTime:timeInput[3].value, endTime:timeInput[7].value}
-            }).then(
-                function(data){
-                    if (data.code == "200"){
-                        alert("Success: "+data.msg);
-                    } else {
-                        console.log(data.msg);
-                    }
-                }
-            );
-        } else {
-            timeInput[3].setAttribute('style','border:1px solid red;');
-            timeInput[7].setAttribute('style','border:1px solid red;');
-            alert('Time has to be between 9:00 AM and 4:00 PM and Start Time has to be less than End Time');
-        }
-    })
-});
-    </script>
 </html>

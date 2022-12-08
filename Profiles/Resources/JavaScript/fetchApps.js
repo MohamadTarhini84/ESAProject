@@ -11,14 +11,14 @@ window.addEventListener("load", async function() {
 
     let conf;
 
-    c.forEach(element => {
+    c.forEach(function(element) {
         if(element.isConfirmed==true){
             conf="Confirmed";
         } else {conf="Pending";}
 
         let dateStr=element['date']+"T0"+element['time'];
         let appDate=new Date(dateStr);
-        let appDateStr=appDate.toString();
+        let appDateStr= appDate.toString().substring(0,24);
 
         apps.innerHTML+=`
         <div class="appointment">

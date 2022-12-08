@@ -9,10 +9,10 @@ edit.addEventListener('click', async function() {
     
     insideEdit[0].innerHTML=c.fname+" "+c.lname;
     insideEdit[1].innerHTML=c.email;
-    insideEdit[2].value=c.fname;
-    insideEdit[3].value=c.lname;
-    insideEdit[4].value=c.email;
-    insideEdit[5].value=c.phone;
-    insideEdit[6].value=c.specialty;
-    insideEdit[7].value=c.room;
+    insideEdit[3].value=c.fname;
+    insideEdit[4].value=c.lname;
+    insideEdit[5].value=c.email;
+    insideEdit[6].value=c.phone;
+    insideEdit[9].value=c.specialty;
+    insideEdit[10].value=c.room;
 });
