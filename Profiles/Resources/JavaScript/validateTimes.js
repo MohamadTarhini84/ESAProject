@@ -1,17 +1,47 @@
-let min=new Date();
-let max=new Date();
-min.setHours(9,30,0);
-max.setHours(16,0,0);
+// let date1=new Date();
+// date1.setHours(9,0);
+// let date2=new Date();
+// date1.setHours(16,0);
 
-let day=document.querySelectorAll('.grid-button');
-let children=document.querySelectorAll('.edit-times');
+// let timeInput=document.querySelectorAll('.edit-times');
 
 
-day.forEach((e)=>{e.addEventListener('click',function (a){
+// function validateTimes(a){
+//     if(!timeInput[a].value){
+//         timeInput[a].setAttribute('style','border:1px solid red;');
+//         alert("Please enter a value for the first field");
+//     } else{
+//         timeInput[a].setAttribute('style','border:1px solid black;');
+//     }
+//     if(!timeInput[a+1].value){
+//         timeInput[a+1].setAttribute('style','border:1px solid red;');
+//         alert("Please enter a value for the second field");
+//     } else{
+//         timeInput[a+1].setAttribute('style','border:1px solid black;');
+//     }
+//     // console.log(dateInput.getHours());
+//     if(parseInt(timeInput[a].value)>=date1.getHours() || parseInt(timeInput[a].value)<date2.getHours()
+//         && parseInt(timeInput[a+1].value)>=date1.getHours() || parseInt(timeInput[a+1].value)<date2.getHours())
+//     {
+//         console.log("test")
+//         var name = timeInput[a].val();
+//         var email = timeInput[a+1].val();
 
-    children[1].value='09:00';
-    console.log(children[0].value);
 
-    // let start=children[1].value;
-    // let end=children[3].value;
-})});
+//         $.ajax({
+//             type: "POST",
+//             url: "./Resources/php/processTimes.php",
+//             dataType: "json",
+//             data: {startTime:name, endTime:email},
+//             success : function(data){
+//                 if (data.code != "200"){
+//                     alert("Success: ");
+//                 } else {
+//                     console.log(data.msg);
+//                 }
+//             }
+//         });
+//     } else {
+//         console.log('Time has to be between 9:00 AM and 4:00 PM');
+//     }
+// };

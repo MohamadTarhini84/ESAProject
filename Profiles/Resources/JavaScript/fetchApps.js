@@ -1,21 +1,30 @@
 // let appInfo=document.querySelectorAll('.app-information');
 // let confirm=document.querySelector('.confirm-app');
 let apps=document.getElementById('appointments');
+let desc=document.getElementById('desc-popup-text');
 
 window.addEventListener("load", async function() { 
     let a = await fetch("./Resources/php/fetchApps.php");
     let b=await a.text();
     let c=JSON.parse(b);
-    console.log(c);
+    // console.log(c);
 
-    let index=0;
+    let conf;
 
     c.forEach(element => {
+        if(element.isConfirmed==true){
+            conf="Confirmed";
+        } else {conf="Pending";}
+
+        let dateStr=element['date']+"T0"+element['time'];
+        let appDate=new Date(dateStr);
+        let appDateStr=appDate.toString();
+
         apps.innerHTML+=`
         <div class="appointment">
         <div class="app-top">
         <i class="fa-regular fa-clock"></i>
-        <span class="app-information">Tue, 30 Sept at 4:00 PM</span>
+        <span class="app-information">`+appDateStr+`</span>
         </div>
         <div class="app-mid">
             <div class="name-desc">
@@ -24,10 +33,10 @@ window.addEventListener("load", async function() {
                         `+element['name']+`
                     </div>
                     <div class="app-info app-information">
-                        +961 123 123
+                        `+element['phone']+`
                     </div>
                 </div>
-                <button class="app-desc" onclick="toggle('desc-popup')">
+                <button class="app-desc" onclick="desc.innerHTML='`+element['desc']+`';toggle('desc-popup')">
                     show description
                 </button>
             </div>
@@ -37,7 +46,7 @@ window.addEventListener("load", async function() {
                         Room
                     </div>
                     <div class="app-info app-information" style="font-size:16px">
-                        adadadadsdadadadadad
+                        `+element['room']+`
                     </div>
                 </div>
                 <div class="app-status">
@@ -45,7 +54,7 @@ window.addEventListener("load", async function() {
                         Status
                     </div>
                     <div class="app-info app-information">
-                        Confirmed
+                        `+conf+`
                     </div>
                 </div>
             </div>

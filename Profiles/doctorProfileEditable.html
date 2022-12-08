@@ -131,61 +131,69 @@
                         <fieldset>
                             <legend>Click day to save changes</legend>
                         <div id="schedule-grid">
-                            <button class="grid-button" id="monday">Monday</button>
-                            <div class="grid-edit-times">
-                                <label>Start time:</label>
-                                <input type="time" class="edit-times">
-                                
-                                <label>End time:</label>
-                                <input type="time" class="edit-times">
-                            </div>
-                            <button class="grid-button" id="tuesday">Tuesday</button>
-                            <div class="grid-edit-times">
-                                <label>Start time:</label>
-                                <input type="time">
-                                
-                                <label>End time:</label>
-                                <input type="time">
-                            </div>
-                            <button class="grid-button" id="wednesday">Wednesday</button>
-                            <div class="grid-edit-times">
-                                <label>Start time:</label>
-                                <input type="time">
-                                
-                                <label>End time:</label>
-                                <input type="time">
-                            </div>
-                            <button class="grid-button" id="thursday">Thursday</button>
-                            <div class="grid-edit-times">
-                                <label>Start time:</label>
-                                <input type="time">
-                                
-                                <label>End time:</label>
-                                <input type="time">
-                            </div>
-                            <button class="grid-button" id="friday">Friday</button>
-                            <div class="grid-edit-times">
-                                <label>Start time:</label>
-                                <input type="time">
-                                
-                                <label>End time:</label>
-                                <input type="time">
-                            </div>
-                            <button class="grid-button" id="saturday">Saturday</button>
-                            <div class="grid-edit-times">
-                                <label>Start time:</label>
-                                <input type="time">
-                                
-                                <label>End time:</label>
-                                <input type="time">
-                            </div>
-                            <button class="grid-button" id="sunday">Sunday</button>
-                            <div class="grid-edit-times">
-                                <label>Start time:</label>
-                                <input type="time">
-                                
-                                <label>End time:</label>
-                                <input type="time">
+                            <form class="grid-form">
+                                <button class="grid-button" type="submit">Monday</button>
+                                <div class="grid-edit-times">
+                                    <label>Start time:</label>
+                                    <input type="time" class="edit-times">
+                                    
+                                    <label>End time:</label>
+                                    <input type="time" class="edit-times">
+                                </div>
+                            </form>
+                            <form class="grid-form">
+                                <button class="grid-button" type="submit">Tueday</button>
+                                <div class="grid-edit-times">
+                                    <label>Start time:</label>
+                                    <input type="time" class="edit-times">
+                                    
+                                    <label>End time:</label>
+                                    <input type="time" class="edit-times">
+                                </div>
+                            </form>
+                            <form class="grid-form">
+                                <button class="grid-button" type="submit">Wednesday</button>
+                                <div class="grid-edit-times">
+                                    <label>Start time:</label>
+                                    <input type="time" class="edit-times">
+                                    
+                                    <label>End time:</label>
+                                    <input type="time" class="edit-times">
+                                </div>
+                            </form>
+                            <form class="grid-form">
+                                <button class="grid-button" type="submit">Thursday</button>
+                                <div class="grid-edit-times">
+                                    <label>Start time:</label>
+                                    <input type="time" class="edit-times">
+                                    
+                                    <label>End time:</label>
+                                    <input type="time" class="edit-times">
+                                </div>
+                            </form>
+                            <form class="grid-form">
+                                <button class="grid-button" type="submit">Friday</button>
+                                <div class="grid-edit-times">
+                                    <label>Start time:</label>
+                                    <input type="time" class="edit-times">
+                                    
+                                    <label>End time:</label>
+                                    <input type="time" class="edit-times">
+                                </div>
+                            </form>
+                            <form class="grid-form">
+                                <button class="grid-button" type="submit">Saturday</button>
+                                <div class="grid-edit-times">
+                                    <label>Start time:</label>
+                                    <input type="time" class="edit-times">
+                                    
+                                    <label>End time:</label>
+                                    <input type="time" class="edit-times">
+                                </div>
+                            </form>
+                            <div class="grid-form">
+                                <button class="grid-button">Sunday</button>
+                                    <div style="margin:auto">Day Off</div>
                             </div>
                         </div>
                     </fieldset>
@@ -274,7 +282,7 @@
     </div>
 </div>
 <div id="desc-popup" style="z-index:2">
-    <span class="app-information">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur enim 
+    <span id="desc-popup-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur enim 
     culpa nobis debitis magni quae vel minima laboriosam error pariatur ipsa, 
     hic provident rem. Odio perferendis consectetur maxime officiis delectus!</span>
     <br> 
@@ -342,4 +350,46 @@
 <script src="../Profiles/Resources/JavaScript/navbarDisplay.js"></script>
 <script src="../Profiles/Resources/JavaScript/editPopup.js"></script>
 <script src="../Profiles/Resources/JavaScript/editTimes.js"></script>
+
+<script>
+    let timeForms=document.querySelectorAll('.grid-form');
+    
+    
+    timeForms.forEach((form)=>{
+    form.addEventListener('submit',function (e){
+        e.preventDefault();
+
+        let timeInput=form.childNodes[3].childNodes;
+        let whichDay=form.childNodes[1].innerHTML;
+        
+        if(parseInt(timeInput[3].value)>=9 && parseInt(timeInput[7].value)<16
+            && parseInt(timeInput[3].value)<parseInt(timeInput[7].value))
+        {
+            console.log(timeInput[3].value+"  "+timeInput[7].value);
+            timeInput[3].setAttribute('style','border:1px solid black;');
+            timeInput[7].setAttribute('style','border:1px solid black;');
+    
+    
+            $.ajax({
+                type: "POST",
+                url: "./Resources/php/processTimes.php",
+                dataType: "json",
+                data: {day:whichDay,startTime:timeInput[3].value, endTime:timeInput[7].value}
+            }).then(
+                function(data){
+                    if (data.code == "200"){
+                        alert("Success: "+data.msg);
+                    } else {
+                        console.log(data.msg);
+                    }
+                }
+            );
+        } else {
+            timeInput[3].setAttribute('style','border:1px solid red;');
+            timeInput[7].setAttribute('style','border:1px solid red;');
+            alert('Time has to be between 9:00 AM and 4:00 PM and Start Time has to be less than End Time');
+        }
+    })
+});
+    </script>
 </html>

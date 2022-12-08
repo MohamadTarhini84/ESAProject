@@ -294,11 +294,18 @@ input:focus, textarea:focus{
 #schedule-grid{
     width:90%;
     height:600px;
-    display:grid;
-    grid-template-columns: 20% 80%;
+    display:flex;
+    flex-direction: column;
     background-color: var(--green);
     color:var(--white);
     margin:auto;
+}
+
+.grid-form{
+    height:100%;
+    width:100%;
+    display:grid;
+    grid-template-columns: 20% 80%;
 }
 
 .grid-button{
