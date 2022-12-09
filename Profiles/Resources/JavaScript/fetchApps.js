@@ -20,7 +20,7 @@ window.addEventListener("load", async function() {
     let conf;
 
     c.forEach(function(element) {
-        if(element.isConfirmed==true){
+        if(element['isConfirmed']==true){
             conf="Confirmed";
         } else {conf="Pending";}
 

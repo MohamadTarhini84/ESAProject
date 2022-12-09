@@ -7,7 +7,7 @@
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
-      $user = array("fname"=> $row["firstName"], "lname"=> $row["lastName"], "gender"=> $row['gender'],
+      $user = array("name"=> $row["fullName"], "gender"=> $row['gender'],
       "birthday"=>$row['birthday'], "phone"=>$row['phoneNumber'], "room"=>$row['room'],
                   "licence"=>$row['licenceID'], "specialty"=>$row['speciality'], "email"=>$row['email']);
     }

@@ -599,6 +599,10 @@ fieldset{
     font-weight: 600;
 }
 
+.Dr-information{
+    text-align: right;
+}
+
 #desc-popup{
     border: 1px solid var(--dark);
     position: fixed;

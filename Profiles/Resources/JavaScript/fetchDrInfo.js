@@ -9,7 +9,7 @@ window.addEventListener("load", async function() {
     let c=JSON.parse(b);
     // console.log(b);
     
-    drInfo[0].innerHTML=c.fname+" "+c.lname;
+    drInfo[0].innerHTML=c.name;
     drInfo[1].innerHTML=c.birthday;
     drInfo[2].innerHTML=c.gender;
     drInfo[3].innerHTML=c.phone;
