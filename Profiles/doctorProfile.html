@@ -43,7 +43,7 @@
                 <i class="fa-solid fa-bell"></i>
                 <div id="name-picture">
                     <a href="#"><img src="./Resources/Images/doctor.jpg"></a>
-                    <a href="#">Batata Maslou2a</a>
+                    <a href="#" class="dr-info-name">Batata Maslou2a</a>
                 </div>
                 <button id="nav-logout" onclick="location.href='#';">Logout</button>
             </div>
@@ -61,6 +61,9 @@
             <div class="info-element">
                 <div class="info-element-div">
                     <div>
+                        Full Name:
+                    </div>
+                    <div>
                         Birthday:
                     </div>
                     <div>
@@ -71,13 +74,16 @@
                     </div>
                 </div>
                 <div class="info-element-div">
-                    <div id="bday">
+                    <div class="Dr-information">
+                        batata
+                    </div>
+                    <div id="bday" class="Dr-information">
                         131331
                     </div>
-                    <div id="gender">
+                    <div id="gender" class="Dr-information">
                         mamasd
                     </div>
-                    <div id="phone">
+                    <div id="phone" class="Dr-information">
                         12313123987
                     </div>
                 </div>
@@ -94,13 +100,19 @@
                     <div>
                         Licence card ID:
                     </div>
+                    <div>
+                        Specialty:
+                    </div>
                 </div>
                 <div class="info-element-div">
-                    <div>
+                    <div class="Dr-information">
                         131331s
                     </div>
-                    <div>
+                    <div class="Dr-information">
                         6255523
+                    </div>
+                    <div class="Dr-information">
+                        Archeologist
                     </div>
                 </div>
             </div>
@@ -109,10 +121,10 @@
             <div id="top-half">
                 <div id="first-row">
                     <div id="name-specialty">
-                        <div id="doctor-name">
+                        <div id="doctor-name" class="dr-info-name">
                             batata 7arra
                         </div>
-                        <div id="doctor-specialty">
+                        <div id="doctor-specialty" class="dr-info-spec">
                             archeologist
                         </div>
                     </div>
@@ -239,10 +251,10 @@
                 <img src="./Resources/Images/doctor.jpg">
             </div>
             <div>
-                <div class="app-name">
+                <div class="app-name" class="dr-info-name">
                     Dr. Batata ma2loube
                 </div>
-                <div class="app-info">
+                <div class="app-info" class="dr-info-spec">
                     archeologist
                 </div>
             </div>
@@ -313,8 +325,11 @@
     </div>
 </div>
 </body>
+<script src="../Profiles/Resources/JavaScript/successPopup.js"></script>
 <script src="../Profiles/Resources/JavaScript/toggle.js"></script>
 <script src="../Profiles/Resources/JavaScript/switch.js"></script>
+<script src="../Profiles/Resources/JavaScript/validateTimes.js"></script>
+<script src="../Profiles/Resources/JavaScript/fetchDrInfo.js"></script>
 <script>
     let likes=document.querySelectorAll('.review-likes');
     let blur=document.getElementById('page');

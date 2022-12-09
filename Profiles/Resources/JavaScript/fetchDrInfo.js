@@ -1,4 +1,7 @@
 let drInfo=document.querySelectorAll('.Dr-information');
+let drInfoName=document.querySelectorAll('.dr-info-name');
+let drInfoSpec=document.querySelectorAll('.dr-info-spec');
+let drInfoAvg=document.getElementById('rating-text');
 
 window.addEventListener("load", async function() { 
     let a = await fetch("./Resources/php/drInfo.php")
@@ -13,4 +16,14 @@ window.addEventListener("load", async function() {
     drInfo[4].innerHTML=c.room;
     drInfo[5].innerHTML=c.licence;
     drInfo[6].innerHTML=c.specialty;
+
+    drInfoName.forEach((e)=>{
+        e.innerHTML=c.fname+" "+c.lname;
+    })
+
+    drInfoSpec.forEach((e)=>{
+        e.innerHTML=c.specialty;
+    })
+
+    drInfoAvg=c.rating;
 });

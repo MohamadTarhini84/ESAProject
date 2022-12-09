@@ -2,13 +2,21 @@
 // let confirm=document.querySelector('.confirm-app');
 let apps=document.getElementById('appointments');
 let desc=document.getElementById('desc-popup-text');
+let delForm=document.getElementById('delete-form');
 
 window.addEventListener("load", async function() { 
     let a = await fetch("./Resources/php/fetchApps.php");
     let b=await a.text();
     let c=JSON.parse(b);
-    // console.log(c);
-
+    // console.log(b);
+    if(c.bob==-1){
+        apps.innerHTML=`
+            <div id="no-apps-question-mark">
+                You don't have any active appointments!
+            </div>
+        `;
+        return;
+    }
     let conf;
 
     c.forEach(function(element) {
@@ -64,7 +72,7 @@ window.addEventListener("load", async function() {
             <i class="fa fa-duotone fa-check"></i>
             <span>Confirm</span>
         </button>
-        <button class="app-button delete-one-app" onclick="toggle('confirm-popup')" style="border-left:1px solid var(--light)">
+        <button class="app-button delete-one-app" onclick="toggle('confirm-popup');delForm.setAttribute('href','Resources/php/deleteApp.php?id=1&del=`+element['id']+`')" style="border-left:1px solid var(--light)">
             <i class="fa-solid fa-trash"></i>
             Delete
         </button>
@@ -72,15 +80,4 @@ window.addEventListener("load", async function() {
     </div>
         `;
     });
-    
-    // appInfo[0].innerHTML=c.date+" at "+c.time;
-    // appInfo[1].innerHTML=c.name;
-    // appInfo[2].innerHTML=c.phone;
-    // appInfo[3].innerHTML=c.room;
-    // appInfo[4].innerHTML=c.isConfirmed;
-    // appInfo[5].innerHTML=c.desc;
-
-    // if(c.isConfirmed==true){
-    //     confirm.innerHTML='<i class="fa-solid fa-calendar-days" style="margin-right:5px"></i><span>Reschedule</span>';
-    // }
 });

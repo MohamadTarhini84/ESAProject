@@ -581,6 +581,23 @@ fieldset{
     opacity: 1;
     transition: 0.5s;   
 }
+#delete-form{
+    text-decoration: none;
+    color:inherit;
+}
+#no-apps-question-mark{
+    width:90%;
+    height:80px;
+    border-radius: 6px;
+    color:var(--white);
+    background-color: rgba(223, 71, 89,1);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:20px;
+    font-size:16px;
+    font-weight: 600;
+}
 
 #desc-popup{
     border: 1px solid var(--dark);

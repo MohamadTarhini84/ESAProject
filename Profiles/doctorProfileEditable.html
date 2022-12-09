@@ -95,7 +95,7 @@
                 <div class="info-element-div">
                     <div class="Dr-information">
                         131331s
-                    </div class="Dr-information">
+                    </div>
                     <div class="Dr-information">
                         6255523
                     </div>
@@ -279,7 +279,9 @@
 <div id="confirm-popup">
     <h3>Are you sure you want to delete this appointment?</h3>
     <div>
-        <button class="app-desc"  onclick="toggle('confirm-popup')" style="align-self:center">Delete</button>
+        <a id="delete-form" onclick="toggle('confirm-popup')">
+            <button class="app-desc"  style="align-self:center">Delete</button>
+        </a>
         <button class="app-desc" onclick="toggle('confirm-popup')" style="align-self:center">Cancel</button>
     </div>
 </div>
