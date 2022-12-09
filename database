@@ -46,9 +46,9 @@ CREATE TABLE appointments(
 
 CREATE TABLE reviews(
     id INT NOT NULL UNIQUE AUTO_INCREMENT,
-    doctorID INT NOT NULL UNIQUE,
+    doctorID INT NOT NULL,
     FOREIGN KEY (doctorID) REFERENCES users(id),
-    patientID INT NOT NULL UNIQUE,
+    patientID INT NOT NULL,
     FOREIGN KEY (patientID) REFERENCES users(id),
     rating ENUM('101','102','103','104','105'),
     likes INT
@@ -57,9 +57,9 @@ CREATE TABLE reviews(
 CREATE TABLE invoice(
     id INT NOT NULL UNIQUE AUTO_INCREMENT,
     PRIMARY KEY(id),
-    doctorID INT NOT NULL UNIQUE,
+    doctorID INT NOT NULL,
     FOREIGN KEY (doctorID) REFERENCES users(id),
-    patientID INT NOT NULL UNIQUE,
+    patientID INT NOT NULL,
     FOREIGN KEY (patientID) REFERENCES users(id),
     totalPrice DECIMAL
 );
