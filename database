@@ -8,7 +8,7 @@ CREATE TABLE users(
     gender ENUM('Male','Female'),
     phoneNumber VARCHAR(30),
     userType ENUM('100','101','102')
-)
+);
 
 CREATE TABLE doctordetails(
     id INT NOT NULL UNIQUE AUTO_INCREMENT,
@@ -21,7 +21,7 @@ CREATE TABLE doctordetails(
     room VARCHAR(100),
     fees INT,
     isConfirmed BOOLEAN
-)
+);
 
 CREATE TABLE doctortimes(
     id INT NOT NULL UNIQUE AUTO_INCREMENT,
@@ -31,7 +31,7 @@ CREATE TABLE doctortimes(
     dayOfWeek ENUM('monday','tuesday','wednesday','thursday','friday','saturday','sunday'),
     startTime TIME,
     endTime TIME
-)
+);
 
 CREATE TABLE appointments(
     id INT NOT NULL UNIQUE AUTO_INCREMENT,
@@ -42,7 +42,7 @@ CREATE TABLE appointments(
     appDate DATE,
     appTime ENUM('09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30'),
     appDesc TEXT
-)
+);
 
 CREATE TABLE reviews(
     id INT NOT NULL UNIQUE AUTO_INCREMENT,
@@ -52,7 +52,7 @@ CREATE TABLE reviews(
     FOREIGN KEY (patientID) REFERENCES users(id),
     rating ENUM('101','102','103','104','105'),
     likes INT
-)
+);
 
 CREATE TABLE invoice(
     id INT NOT NULL UNIQUE AUTO_INCREMENT,
@@ -62,18 +62,18 @@ CREATE TABLE invoice(
     patientID INT NOT NULL UNIQUE,
     FOREIGN KEY (patientID) REFERENCES users(id),
     totalPrice DECIMAL
-)
+);
 
 CREATE TABLE admins(
     id INT NOT NULL UNIQUE AUTO_INCREMENT,
     fullName VARCHAR(60),
     pass VARCHAR(100),
     adminType ENUM('100','101')
-)
+);
 
 CREATE TABLE services(
     id INT NOT NULL UNIQUE AUTO_INCREMENT,
     serviceName VARCHAR(60),
     serviceDesc TEXT,
     dayCreated DATE
-)
+);
