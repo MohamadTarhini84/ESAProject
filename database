@@ -1,0 +1,79 @@
+CREATE TABLE users(
+    id INT NOT NULL UNIQUE AUTO_INCREMENT,
+    PRIMARY KEY (id),
+    fullName VARCHAR(60),
+    email VARCHAR(80),
+    pass VARCHAR(100),
+    birthday DATE,
+    gender ENUM('Male','Female'),
+    phoneNumber VARCHAR(30),
+    userType ENUM('100','101','102')
+)
+
+CREATE TABLE doctordetails(
+    id INT NOT NULL UNIQUE AUTO_INCREMENT,
+    PRIMARY KEY (id),
+    doctorID INT NOT NULL UNIQUE,
+    FOREIGN KEY (doctorID) REFERENCES users(id),
+    certificateNumber INT NOT NULL UNIQUE,
+    licenceID INT NOT NULL UNIQUE,
+    speciality VARCHAR(100),
+    room VARCHAR(100),
+    fees INT,
+    isConfirmed BOOLEAN
+)
+
+CREATE TABLE doctortimes(
+    id INT NOT NULL UNIQUE AUTO_INCREMENT,
+    PRIMARY KEY (id),
+    doctorID INT NOT NULL UNIQUE,
+    FOREIGN KEY (doctorID) REFERENCES users(id),
+    dayOfWeek ENUM('monday','tuesday','wednesday','thursday','friday','saturday','sunday'),
+    startTime TIME,
+    endTime TIME
+)
+
+CREATE TABLE appointments(
+    id INT NOT NULL UNIQUE AUTO_INCREMENT,
+    patientID INT,
+    FOREIGN KEY (patientID) REFERENCES users(id),
+    doctorID INT,
+    FOREIGN KEY (doctorID) REFERENCES users(id),
+    appDate DATE,
+    appTime ENUM('09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30'),
+    appDesc TEXT
+)
+
+CREATE TABLE reviews(
+    id INT NOT NULL UNIQUE AUTO_INCREMENT,
+    doctorID INT NOT NULL UNIQUE,
+    FOREIGN KEY (doctorID) REFERENCES users(id),
+    patientID INT NOT NULL UNIQUE,
+    FOREIGN KEY (patientID) REFERENCES users(id),
+    rating ENUM('101','102','103','104','105'),
+    likes INT
+)
+
+CREATE TABLE invoice(
+    id INT NOT NULL UNIQUE AUTO_INCREMENT,
+    PRIMARY KEY(id),
+    doctorID INT NOT NULL UNIQUE,
+    FOREIGN KEY (doctorID) REFERENCES users(id),
+    patientID INT NOT NULL UNIQUE,
+    FOREIGN KEY (patientID) REFERENCES users(id),
+    totalPrice DECIMAL
+)
+
+CREATE TABLE admins(
+    id INT NOT NULL UNIQUE AUTO_INCREMENT,
+    fullName VARCHAR(60),
+    pass VARCHAR(100),
+    adminType ENUM('100','101')
+)
+
+CREATE TABLE services(
+    id INT NOT NULL UNIQUE AUTO_INCREMENT,
+    serviceName VARCHAR(60),
+    serviceDesc TEXT,
+    dayCreated DATE
+)
