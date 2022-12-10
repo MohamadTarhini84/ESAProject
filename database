@@ -20,7 +20,7 @@ CREATE TABLE doctordetails(
     speciality VARCHAR(100),
     room VARCHAR(100),
     fees INT,
-    isConfirmed BOOLEAN
+    appDesc,isConfirmed BOOLEAN
 );
 
 CREATE TABLE doctortimes(
@@ -49,9 +49,10 @@ CREATE TABLE reviews(
     id INT NOT NULL UNIQUE AUTO_INCREMENT,
     doctorID INT NOT NULL,
     FOREIGN KEY (doctorID) REFERENCES users(id),
-    patientID INT NOT NULL,
+    patientID INT NOT NULL UNIQUE,
     FOREIGN KEY (patientID) REFERENCES users(id),
-    rating ENUM('101','102','103','104','105'),
+    reviewDesc TEXT,
+    ENUM('1','2','3','4','5'),
     likes INT
 );
 
