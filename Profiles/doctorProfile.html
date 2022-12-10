@@ -140,11 +140,8 @@
                     </div>
                     <div id="rating">
                         <div id="rating-number">3</div>
-                        <i class="fa-solid fa-star" style="margin-left:10px"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
+                        <div id="rating-stars" style="margin-left:10px;color:var(--green)">
+                        </div>
                     </div>
                 </div>
                 <button id="app-button" onclick="toggle('app-popup')">
@@ -234,16 +231,15 @@
         <div id="app-popup-left">
                 <div class="left-input">
                     <p>Choose day:</p>
-                    <input type="date">
+                    <input type="date" id="dr-app-date">
                 </div> 
                 <div class=left-input>
                     <p>Choose Time:</p>
-                    <input type="time">
+                    <input type="time" id="dr-app-time">
                 </div>
                 <p>Appointment Description:</p>
                 <textarea placeholder="Description"></textarea>
                 <div id="left-buttons">
-                    <button class="app-desc" onclick="toggle('app-popup')">Cancel</button>
                     <button class="app-desc" onclick="toggle('app-popup')" style="margin-right:0">Make Appointment</button>
                 </div>
         </div>

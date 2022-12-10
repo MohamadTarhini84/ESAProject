@@ -2,6 +2,7 @@ let drInfo=document.querySelectorAll('.Dr-information');
 let drInfoName=document.querySelectorAll('.dr-info-name');
 let drInfoSpec=document.querySelectorAll('.dr-info-spec');
 let drInfoAvg=document.getElementById('rating-number');
+let drInfoStars=document.getElementById('rating-stars');
 
 window.addEventListener("load", async function() { 
     let a = await fetch("./Resources/php/drInfo.php");
@@ -25,4 +26,54 @@ window.addEventListener("load", async function() {
     drInfoSpec.forEach((e)=>{
         e.innerHTML=c.specialty;
     })
+
+    if(c.rating>=5){
+        drInfoStars.innerHTML=`   
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+        `;
+    } else if(c.rating>=4){
+        drInfoStars.innerHTML=`
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        `;
+    } else if(c.rating>=3){
+        drInfoStars.innerHTML=`
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        `;
+    } else if(c.rating>=2){
+        drInfoStars.innerHTML=`
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        `;
+    } else if(c.rating>=1){
+        drInfoStars.innerHTML=`
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        `;
+    } else {
+        drInfoStars.innerHTML=`
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        `;
+    }
 });
