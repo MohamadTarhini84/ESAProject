@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="./nav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <title>Document</title>
     <script>        
         document.addEventListener('DOMContentLoaded', function() {
@@ -251,17 +252,18 @@
                 <img src="./Resources/Images/doctor.jpg">
             </div>
             <div>
-                <div class="app-name" class="dr-info-name">
+                <div class="app-name dr-info-name">
                     Dr. Batata ma2loube
                 </div>
-                <div class="app-info" class="dr-info-spec">
+                <div class="app-info dr-info-spec">
                     archeologist
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div id="review-popup">
+<form id="review-popup">
+    <i onclick="toggle('review-popup')" class="fa-solid fa-xmark" style="position:absolute;top:10px;right:10px"></i>
     <div id="rp-logo">
         <img src="./Resources/Images/logo.png">
     </div>
@@ -275,20 +277,20 @@
     </div>
     <div id="rp-ratings">
         <div class="rp-rating">
-            <input type="radio" name="rating" required>
+            <input type="radio" name="rating" required value="1">
             <div class="rp-stars">
                 <i class="fa-solid fa-star"></i>
             </div>
         </div>
         <div class="rp-rating">
-            <input type="radio" name="rating" required>
+            <input type="radio" name="rating" required value="2">
             <div class="rp-stars">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                 </div>
         </div>
         <div class="rp-rating">
-            <input type="radio" name="rating" required>
+            <input type="radio" name="rating" required value="3">
             <div class="rp-stars">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
@@ -296,7 +298,7 @@
                 </div>
         </div>
         <div class="rp-rating">
-            <input type="radio" name="rating" required>
+            <input type="radio" name="rating" required value="4">
             <div class="rp-stars">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
@@ -305,7 +307,7 @@
             </div>
         </div>
         <div class="rp-rating">
-            <input type="radio" name="rating" required>
+            <input type="radio" name="rating" required value="5">
             <div class="rp-stars">
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -317,33 +319,45 @@
     </div>
     <div id="rp-comment">
         <p>Write a comment summarizing your experience at our center:</p>
-        <textarea></textarea>
+        <textarea id="dr-rev-desc"></textarea>
     </div>
     <div id="rp-buttons">
-        <button class="app-desc" onclick="toggle('review-popup')">Cancel</button>
-        <button class="app-desc" onclick="toggle('review-popup')">Submit Review</button>
+        <button class="app-desc" type="submit">Submit Review</button>
     </div>
+</form>
+
+<div id="popup" style="display:none">
+    <div id="wrapper"> 
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> 
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> 
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+    </div>
+    <p>Updated Successfully!</p>
 </div>
+
+
 </body>
 <script src="../Profiles/Resources/JavaScript/successPopup.js"></script>
 <script src="../Profiles/Resources/JavaScript/toggle.js"></script>
 <script src="../Profiles/Resources/JavaScript/switch.js"></script>
 <script src="../Profiles/Resources/JavaScript/validateTimes.js"></script>
 <script src="../Profiles/Resources/JavaScript/fetchDrInfo.js"></script>
+<script src="../Profiles/Resources/JavaScript/leaveReview.js"></script>
 <script>
-    let likes=document.querySelectorAll('.review-likes');
-    let blur=document.getElementById('page');
+    // let likes=document.querySelectorAll('.review-likes');
+    // let blur=document.getElementById('page');
 
-    likes.forEach(function (e){
-        e.addEventListener('click',function(a){
-            if(e.firstElementChild.classList.contains('liked')){
-                e.firstElementChild.setAttribute('class','fa-regular fa-heart');
-                e.firstElementChild.setAttribute('style','color:white');
-            } else{
-                e.firstElementChild.setAttribute('class','fa-solid fa-heart liked');
-                e.firstElementChild.setAttribute('style','color:red');
-            }
-        })
-    })
+    // likes.forEach(function (e){
+    //     e.addEventListener('click',function(a){
+    //         if(e.firstElementChild.classList.contains('liked')){
+    //             e.firstElementChild.setAttribute('class','fa-regular fa-heart');
+    //             e.firstElementChild.setAttribute('style','color:white');
+    //         } else{
+    //             e.firstElementChild.setAttribute('class','fa-solid fa-heart liked');
+    //             e.firstElementChild.setAttribute('style','color:red');
+    //         }
+    //     })
+    // })
 </script>
 </html>

@@ -15,12 +15,12 @@
     echo "0 results";
   }
 
-  $sql2="SELECT AVG(likes) AS rating FROM reviews WHERE patientID=1";
+  $sql2="SELECT AVG(rating) AS rating FROM reviews WHERE patientID=2";
   $result1 = mysqli_query($conn, $sql2);
   if (mysqli_num_rows($result1) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result1)) {
-      $user["rating"]=$row['rating'];
+      $user['rating']=$row['rating'];
     }
   } else {
     $user['rating']=0;
