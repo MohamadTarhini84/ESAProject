@@ -6,11 +6,10 @@ timeForms.forEach((form)=>{
 
         let timeInput=form.childNodes[3].childNodes;
         let whichDay=form.childNodes[1].innerHTML;
+        let startTimeInt=parseInt(timeInput[3].value.substring(0,2))+parseInt(timeInput[3].value.substring(3))/100;
+        let endTimeInt=parseInt(timeInput[7].value.substring(0,2))+parseInt(timeInput[7].value.substring(3))/100;
         
-        if(parseInt(timeInput[3].value)>=9 && parseInt(timeInput[7].value)<16
-            && parseInt(timeInput[3].value)<parseInt(timeInput[7].value)){
-                
-            // console.log(timeInput[3].value+"  "+timeInput[7].value);
+        if(startTimeInt>=9 && endTimeInt<=16 && startTimeInt<endTimeInt){
             timeInput[3].setAttribute('style','border:1px solid var(--light);');
             timeInput[7].setAttribute('style','border:1px solid var(--light);');
     

@@ -24,8 +24,11 @@
     
     include("db.php");
 
+    $drID=1;
 
-    $stmt = mysqli_prepare($conn,"UPDATE times SET startTime=?, endTime =? WHERE id=1");
+    $sql="UPDATE doctortimes SET startTime=?, endTime =? WHERE dayOfWeek=".$day." AND id=".$drID;
+
+    $stmt = mysqli_prepare($conn,$sql);
     mysqli_stmt_bind_param($stmt, "ss", $startTime, $endTime);
     mysqli_stmt_execute($stmt);
 

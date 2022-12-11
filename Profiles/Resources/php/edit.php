@@ -6,16 +6,16 @@
     $sql="UPDATE users SET ";
     $sql2="UPDATE doctordetails SET ";
 
-    if(isset($_POST['fname'])){
-        $sql.=" firstName='".test_input($_POST['fname'])."'";
+    if(isset($_POST['name'])){
+        $sql.=" fullName='".test_input($_POST['name'])."'";
     }else{
-        $errorMSG.=" missing first name";
+        $errorMSG.=" missing name";
     }
 
-    if(isset($_POST['lname'])){
-        $sql.=", lastName='".test_input($_POST['lname'])."'";
+    if(isset($_POST['licence'])){
+        $sql.=", licenceID='".test_input($_POST['licence'])."'";
     } else{
-        $errorMSG.=" missing last name";
+        $errorMSG.=" missing licence ID";
     }
 
     if(isset($_POST['email'])){

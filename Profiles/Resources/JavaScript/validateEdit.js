@@ -3,8 +3,8 @@ let editForm=document.getElementById('app-popup-lower');
 editForm.addEventListener('submit',function (e){
     e.preventDefault();
 
-    let firstName=insideEdit[3].value;
-    let lastName=insideEdit[4].value;  
+    let fullName=insideEdit[3].value;
+    let licenceID=insideEdit[4].value;  
     let email=insideEdit[5].value;
     let phone=insideEdit[6].value;
     let pass1=insideEdit[7].value;
@@ -19,7 +19,7 @@ editForm.addEventListener('submit',function (e){
             type: "POST",
             url: "./Resources/php/edit.php",
             dataType: "json",
-            data: {fname:firstName, lname:lastName, email:email, phone:phone, pass:pass1, spec:specialty, room:room}
+            data: {name:fullName,licence:licenceID, email:email, phone:phone, pass:pass1, spec:specialty, room:room}
         }).then(
             function(data){
                 // let data =JSON.parse(result);

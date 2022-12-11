@@ -27,7 +27,7 @@ reviewForm.addEventListener('submit',function (e){
                     toggle('review-popup');
                     console.log(data.msg);
                 } else if(data.code=='201'){
-                    alert("You already posted a review!");
+                    alert("You already posted a review for this doctor!");
                     toggle('review-popup');
                 } else {
                     console.log(data.msg);

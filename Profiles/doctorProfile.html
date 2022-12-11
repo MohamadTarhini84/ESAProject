@@ -235,12 +235,14 @@
                 </div> 
                 <div class=left-input>
                     <p>Choose Time:</p>
-                    <input type="time" id="dr-app-time">
+                    <select id="dr-app-time">
+                        <option disabled selected>Choose day first</option>
+                    </select>
                 </div>
                 <p>Appointment Description:</p>
                 <textarea placeholder="Description"></textarea>
                 <div id="left-buttons">
-                    <button class="app-desc" onclick="toggle('app-popup')" style="margin-right:0">Make Appointment</button>
+                    <button class="app-desc" onclick="toggle('app-popup')" style="margin-right:0" id="app-submit-button">Make Appointment</button>
                 </div>
         </div>
         <div id="app-popup-right">
@@ -340,6 +342,7 @@
 <script src="../Profiles/Resources/JavaScript/validateTimes.js"></script>
 <script src="../Profiles/Resources/JavaScript/fetchDrInfo.js"></script>
 <script src="../Profiles/Resources/JavaScript/leaveReview.js"></script>
+<script src="../Profiles/Resources/JavaScript/updateAppTimes.js"></script>
 <script>
     // let likes=document.querySelectorAll('.review-likes');
     // let blur=document.getElementById('page');
