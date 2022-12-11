@@ -76,7 +76,7 @@ CREATE TABLE admins(
 CREATE TABLE services(
     id INT NOT NULL UNIQUE AUTO_INCREMENT,
     serviceName VARCHAR(60),
-    serviceDesc TEXT,
+    description TEXT,
     dayCreated DATE
 );
 
