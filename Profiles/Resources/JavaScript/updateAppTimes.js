@@ -1,6 +1,3 @@
-let appointDate=document.getElementById('dr-app-date');
-let appointTime=document.getElementById('dr-app-time');
-let appSubmitButton=document.getElementById('app-submit-button');
 let array;
 let arrayOfApps;
 let finalArray;
@@ -64,7 +61,7 @@ function loadAvailableTimes(){
             if(finalArray.length==0){
                 appointTime.innerHTML="<option selected disabled>No Times Available</option>";
             } else{
-                appointTime.innerHTML="<option selected disabled>Choose time on</option>";
+                appointTime.innerHTML="<option selected disabled>Choose time</option>";
                 for(x of finalArray){
                     appointTime.innerHTML+=`
                         <option>${x}</option>

@@ -12,6 +12,9 @@ reviewForm.addEventListener('submit',function (e){
         }
     }
     let reviewDesc=document.getElementById('dr-rev-desc').value;
+    if(reviewDesc==""){
+        reviewDesc="No Description Provided.";
+    }
 
 
         $.ajax({
@@ -22,10 +25,10 @@ reviewForm.addEventListener('submit',function (e){
         }).then(
             function(data){
                 // let data =JSON.parse(result);
-                if (data.code == "200"){
+                if (data.code == '200'){
+                    // console.log(data.msg);
                     coolPopup();
                     toggle('review-popup');
-                    console.log(data.msg);
                 } else if(data.code=='201'){
                     alert("You already posted a review for this doctor!");
                     toggle('review-popup');
