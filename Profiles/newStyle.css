@@ -331,7 +331,7 @@ fieldset{
 .grid-edit-times input[type="time"]{
     width:30%;
     height:25px;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: none;
     padding-left:10px;
     border: 1px solid var(--light);

@@ -23,7 +23,7 @@ window.addEventListener("load", async function() {
         if(element['isConfirmed']==false){
             conf="Pending";
             confButton=`
-                <button class="app-button confirm-app">
+                <button class="app-button app-edit-button ${element['id']}">
                     <i class="fa fa-duotone fa-check"></i>
                     <span>Confirm</span>
                 </button>
@@ -31,9 +31,8 @@ window.addEventListener("load", async function() {
         } else {
             conf="Confirmed";
             confButton=`
-                <button class="app-button confirm-app">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>Call Patient</span>
+                <button class="app-button">
+                    <span>Confirmed</span>
                 </button>
             `;
         }
@@ -46,19 +45,19 @@ window.addEventListener("load", async function() {
         <div class="appointment">
             <div class="app-top">
                 <i class="fa-regular fa-clock"></i>
-                <span class="app-information">`+appDateStr+`</span>
+                <span class="app-information">${appDateStr}</span>
             </div>
             <div class="app-mid">
                 <div class="name-desc">
                     <div>
                         <div class="app-name app-information">
-                            `+element['name']+`
+                            ${element['name']}
                         </div>
                         <div class="app-info app-information">
-                            `+element['phone']+`
+                            ${element['phone']}
                         </div>
                     </div>
-                    <button class="app-desc" onclick="desc.innerHTML='`+element['desc']+`';toggle('desc-popup')">
+                    <button class="app-desc" onclick="desc.innerHTML='${element['desc']}';toggle('desc-popup')">
                         show description
                     </button>
                 </div>
@@ -68,7 +67,7 @@ window.addEventListener("load", async function() {
                             Room
                         </div>
                         <div class="app-info app-information" style="font-size:16px">
-                            `+element['room']+`
+                            ${element['room']}
                         </div>
                     </div>
                     <div class="app-status">
@@ -82,13 +81,28 @@ window.addEventListener("load", async function() {
                 </div>
             </div>
             <div class="app-edit-delete">
-                `+confButton+`
-                <button class="app-button delete-one-app" onclick="toggle('confirm-popup');delForm.setAttribute('href','Resources/php/deleteApp.php?id=1&del=`+element['id']+`')" style="border-left:1px solid var(--light)">
+                ${confButton}
+                <button class="app-button delete-one-app" onclick="toggle('confirm-popup');delForm.setAttribute('href','Resources/php/deleteApp.php?id=1&del=${element['id']}')" style="border-left:1px solid var(--light)">
                     <i class="fa-solid fa-trash"></i>
                     Cancel
                 </button>
             </div>
         </div>
         `;
+    });
+    let editButtons=document.querySelectorAll('.app-edit-button');
+    editButtons.forEach(function(button){
+        button.addEventListener('click',function (e){
+            let xmlReq=new XMLHttpRequest();
+            xmlReq.onreadystatechange=function(){
+                if(this.readyState==4 && this.status=='200'){
+                    alert(this.responseText);
+                    location.reload();
+                }
+            }
+
+            xmlReq.open('GET','./Resources/php/confirmEdit.php?id='+button.classList[2],true);
+            xmlReq.send();
+        });
     });
 });

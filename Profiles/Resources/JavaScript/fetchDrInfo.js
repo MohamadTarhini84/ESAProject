@@ -3,6 +3,7 @@ let drInfoName=document.querySelectorAll('.dr-info-name');
 let drInfoSpec=document.querySelectorAll('.dr-info-spec');
 let drInfoAvg=document.getElementById('rating-number');
 let drInfoStars=document.getElementById('rating-stars');
+let allFormInputs=document.querySelectorAll('input[type="time"]');
 
 window.addEventListener("load", async function() { 
     let a = await fetch("./Resources/php/drInfo.php");
@@ -76,4 +77,19 @@ window.addEventListener("load", async function() {
         <i class="fa-regular fa-star"></i>
         `;
     }
+});
+
+window.addEventListener("load", async function() { 
+    let a = await fetch("./Resources/php/fetchTimes.php");
+    let b=await a.text();
+    let c=JSON.parse(b);
+    // console.log(c);
+
+    let i=0;
+    c.forEach((time)=>{
+            allFormInputs[i].value=time.startTime;
+            i++;
+            allFormInputs[i].value=time.endTime;
+            i++;
+    }); 
 });
