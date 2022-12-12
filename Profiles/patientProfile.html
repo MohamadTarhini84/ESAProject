@@ -10,16 +10,6 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/4c2b37abf9.js" crossorigin="anonymous"></script>
     <title>Document</title>
-    <script>        
-        document.addEventListener('DOMContentLoaded', function() {
-                var calendarEl = document.getElementById('calendar');
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'timeGridWeek',
-                editable: 'true'
-                });
-                calendar.render();
-            });
-    </script>
 </head>
 <body>
 <div id="page">
@@ -43,7 +33,7 @@
                     <a href="#"><img src="./Resources/Images/patient.jpg"></a>
                     <a href="#">Batata Me2leye</a>
                 </div>
-                <button id="nav-logout" onclick="location.href='#';">Logout</button>
+                <button id="nav-logout">Logout</button>
             </div>
         </div>
     </nav>
@@ -83,28 +73,6 @@
             <button id="profile-edit-button" class="app-desc" onclick="toggle('edit-popup')">Edit Profile Info</button>
         </div>
         <div id="profile-details">
-            <div id="top-half">
-                <div id="first-row">
-                    <div id="patient-name">
-                        batata maslou2a
-                    </div>
-                </div>
-                <div id="patient-bio">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto blanditiis fugit eaque 
-                    consequatur eligendi, vero hic perferendis recusandae autem repudiandae placeat, 
-                    consequuntur aliquam debitis, perspiciatis ratione voluptate quas praesentium nisi!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto blanditiis fugit eaque 
-                    consequatur eligendi, vero hic perferendis recusandae autem repudiandae placeat, 
-                    consequuntur aliquam debitis, perspiciatis ratione voluptate quas praesentium nisi!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto blanditiis fugit eaque 
-                    consequatur eligendi, vero hic perferendis recusandae autem repudiandae placeat, 
-                    consequuntur aliquam debitis, perspiciatis ratione voluptate quas praesentium nisi!
-                </div>
-                <button id="bio-edit">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                    Update Medical History
-                </button>
-            </div>
             <div id="botton-half">
                 <div id="upper-section">
                     <button class="upper-button clicked" id="day-button" onclick="clickDay()">
@@ -117,9 +85,11 @@
                     </button>
                 </div>
                 <div id="lower-section">
-                    <div id="option-1">
-                        <button id="make-new-app" class="app-desc">Add appointment</button>              
-                        <div id="appointments">
+                    <div id="option-1">             
+                        <fieldset id="appointments">
+                            <legend>
+                                <a href="#"><button id="make-new-app" class="app-desc">Add appointment</button></a>
+                            </legend>
                             <div class="appointment">
                                 <div class="app-top">
                                 <i class="fa-regular fa-clock"></i>
@@ -172,7 +142,7 @@
                                 </button>
                                 </div>
                             </div>
-                        </div>
+                        </fieldset>
                     </div>
                     <div id="option-2" style="display:none">
                         <div class="review">

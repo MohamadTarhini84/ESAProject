@@ -460,8 +460,7 @@ fieldset{
 }
 
 #make-new-app{
-    position:absolute;
-    right:0;
+    margin:0;
 }
 
 .appointment{
@@ -538,8 +537,8 @@ fieldset{
 }
 .app-desc:hover{
     cursor: pointer;
-    background-color: rgba(22, 160, 133,0.4);
-    transition: 0.2s;
+    background-color: rgba(22, 220, 180,1);
+    transition: 0.3s;
 }
 
 .app-call{
@@ -660,12 +659,12 @@ fieldset{
     resize: none;
 }
 
-#rp-logo>img{
-    aspect-ratio: 1/1;
-    width:100px;
-}
 #rp-logo{
     align-self: center;
+    font-size: 30px;
+    font-weight: 700;
+    color:var(--green);
+    margin-bottom:20px;
 }
 
 #rp-ratings{
@@ -789,7 +788,7 @@ fieldset{
 }
 .left-input>input,.left-input>select{
     width:200px;
-    height: 20px;
+    height: 25px;
     border-radius: 5px;
     border: 1px solid var(--light);
 }
