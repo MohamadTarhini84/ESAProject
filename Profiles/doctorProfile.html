@@ -13,16 +13,6 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <title>Document</title>
-    <script>        
-        document.addEventListener('DOMContentLoaded', function() {
-                var calendarEl = document.getElementById('calendar');
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'timeGridWeek',
-                editable: 'true'
-                });
-                calendar.render();
-            });
-    </script>
 </head>
 <body>
 <div id="page">
@@ -336,6 +326,8 @@
 
 
 </body>
+<script src="../Profiles/Resources/JavaScript/calendar.js"></script>
+<style>.fc-event-title-container:hover{cursor:pointer;} </style>
 <script src="../Profiles/Resources/JavaScript/successPopup.js"></script>
 <script src="../Profiles/Resources/JavaScript/toggle.js"></script>
 <script src="../Profiles/Resources/JavaScript/switch.js"></script>
