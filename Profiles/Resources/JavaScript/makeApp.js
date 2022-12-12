@@ -6,7 +6,6 @@ let appForm=document.getElementById('app-popup-lower');
 appForm.addEventListener('submit',function (e){
     e.preventDefault();
 
-    
     let appDate=appointDate.value;
     let appTime=appointTime.value;
     let appDesc=appointDesc.value;
@@ -32,6 +31,7 @@ appForm.addEventListener('submit',function (e){
                     // console.log(data.msg);
                     coolPopup();
                     toggle('app-popup');
+                    appForm.reset();
                 } else if(data.code=='201'){
                     toggle('app-popup');
                     alert("You already have an appointment with this doctor!");
