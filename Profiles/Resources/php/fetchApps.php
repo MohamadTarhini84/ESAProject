@@ -1,13 +1,20 @@
 <?php
     include("db.php");
 
+    if($_GET['type']=='doc'){
+      $where=" dr.id=1";
+    } else{
+      $where=" pat.id=2";
+    }
+
     $sql = "SELECT appointments.id AS h, appointments.appDate AS a, appointments.appTime AS b, appointments.appDesc AS c, 
-    appointments.isConfirmed AS d, doctordetails.room AS e, pat.fullName AS f, pat.phoneNumber as g
+    appointments.isConfirmed AS d, doctordetails.room AS e, pat.fullName AS f, pat.phoneNumber as g, dr.fullName AS i,
+    dr.phoneNumber AS j, doctordetails.speciality AS l
     FROM appointments 
     JOIN users dr ON dr.id=appointments.doctorID 
     JOIN users pat ON pat.id=appointments.patientID
     JOIN doctordetails ON dr.id=doctordetails.doctorID 
-    WHERE dr.id=1";
+    WHERE ".$where;
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -16,7 +23,8 @@
         while($row = mysqli_fetch_assoc($result)) {
           $appointment = array("date"=> $row["a"], "time"=> $row['b'],
           "desc"=>$row['c'], "isConfirmed"=>$row['d'], "room"=>$row['e'],
-          "name"=>$row['f'], "phone"=>$row['g'], "id"=>$row['h']);
+          "name"=>$row['f'], "phone"=>$row['g'], "id"=>$row['h'], 
+          "drName"=>$row['i'], "drPhone"=>$row['j'], "drSpec"=>$row['l']);
           array_push($array, $appointment);
         }
         echo json_encode($array);

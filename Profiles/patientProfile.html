@@ -90,57 +90,8 @@
                             <legend>
                                 <a href="#"><button id="make-new-app" class="app-desc">Add appointment</button></a>
                             </legend>
-                            <div class="appointment">
-                                <div class="app-top">
-                                <i class="fa-regular fa-clock"></i>
-                                Tue, 30 Sept at 4:00 PM
-                                </div>
-                                <div class="app-mid">
-                                    <div class="name-desc">
-                                        <div>
-                                            <div class="app-name">
-                                                batata meshweye
-                                            </div>
-                                            <div class="app-info">
-                                                archeologist
-                                            </div>
-                                        </div>
-                                        <button class="app-desc" onclick="toggle('desc-popup')">
-                                            show description
-                                        </button>
-                                    </div>
-                                    <div class="app-triple">
-                                        <div class="app-room">
-                                            <div class="app-name">
-                                                Room
-                                            </div>
-                                            <div class="app-info" style="font-size:10px">
-                                                adadadadsdadadadadad
-                                            </div>
-                                        </div>
-                                        <div class="app-status">
-                                            <div class="app-name">
-                                                Status
-                                            </div>
-                                            <div class="app-info">
-                                                Confirmed
-                                            </div>
-                                        </div>
-                                        <button class="app-call">
-                                            <i class="fa-solid fa-phone"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="app-edit-delete">
-                                <button class="app-button" onclick="toggle('app-popup')">
-                                    <i class="fa-solid fa-pen"></i>
-                                    Edit
-                                </button>
-                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid var(--light)">
-                                    <i class="fa-solid fa-trash"></i>
-                                    Delete
-                                </button>
-                                </div>
+                            <div id="appointmentss">
+                            
                             </div>
                         </fieldset>
                     </div>
@@ -210,10 +161,8 @@
     </div>
 </div>
     <div id="popups">
-        <div id="desc-popup">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur enim 
-            culpa nobis debitis magni quae vel minima laboriosam error pariatur ipsa, 
-            hic provident rem. Odio perferendis consectetur maxime officiis delectus!<br><br>
+        <div id="desc-popup"><br>
+            <p id="desc-pp-text"></p>
             <button class="app-desc" onclick="toggle('desc-popup')" style="align-self:center">Close</button>
         </div>
         <div id="app-popup">
@@ -304,7 +253,8 @@
                 </div>
             </div>
         </div>
-    </div><div id="notification-popup" style="z-index:1">
+    </div>
+    <div id="notification-popup" style="z-index:1">
         <div class="notification">
             <div class="noti-top">
                 <i class="fa-regular fa-clock"></i>
@@ -317,73 +267,29 @@
         </div>
         <button class="app-desc" onclick="document.getElementById('notification-popup').classList.toggle('active')" style="align-self:center">Close</button>
     </div>
-    
+    <div id="confirm-popup">
+        <h3>Are you sure you want to delete this appointment?</h3>
+        <div>
+            <a id="delete-form" onclick="toggle('confirm-popup')">
+                <button class="app-desc"  style="align-self:center">Delete</button>
+            </a>
+            <button class="app-desc" onclick="toggle('confirm-popup')" style="align-self:center">Cancel</button>
+        </div>
+    </div>
+    <div id="popup" style="display:none">
+        <div id="wrapper"> 
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> 
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> 
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+        <p>Updated Successfully!</p>
+    </div>
 </body>
 <script src="../Profiles/Resources/JavaScript/toggle.js"></script>
 <script src="../Profiles/Resources/JavaScript/switch.js"></script>
+<script src="../Profiles/Resources/JavaScript/patApps.js"></script>
 <script>
-    let appAdd=document.getElementById("make-new-app");
-    let appointments=document.getElementById("appointments");
-    var delButtons=document.querySelectorAll('delete-one-app');
-
-    appAdd.addEventListener("click",addApp);
-    function addApp(){
-        appointments.innerHTML+= `
-            <div class="appointment">
-                                <div class="app-top">
-                                <i class="fa-regular fa-clock"></i>
-                                Tue, 30 Sept at 4:00 PM
-                                </div>
-                                <div class="app-mid">
-                                    <div class="name-desc">
-                                        <div>
-                                            <div class="app-name">
-                                                batata meshweye
-                                            </div>
-                                            <div class="app-info">
-                                                archeologist
-                                            </div>
-                                        </div>
-                                        <button class="app-desc" onclick="toggle('desc-popup')">
-                                            show description
-                                        </button>
-                                    </div>
-                                    <div class="app-triple">
-                                        <div class="app-room">
-                                            <div class="app-name">
-                                                Room
-                                            </div>
-                                            <div class="app-info" style="font-size:10px">
-                                                adadadadsdadadadadad
-                                            </div>
-                                        </div>
-                                        <div class="app-status">
-                                            <div class="app-name">
-                                                Status
-                                            </div>
-                                            <div class="app-info">
-                                                Confirmed
-                                            </div>
-                                        </div>
-                                        <button class="app-call">
-                                            <i class="fa-solid fa-phone"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="app-edit-delete">
-                                <button class="app-button" onclick="toggle('app-popup')">
-                                    <i class="fa-solid fa-pen"></i>
-                                    Edit
-                                </button>
-                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid var(--light)">
-                                    <i class="fa-solid fa-trash"></i>
-                                    Delete
-                                </button>
-                                </div>
-                            </div>
-            `;
-        delButtons=document.querySelectorAll('.delete-one-app');
-    }
 
     function deleteApp(){
         delButtons.forEach(function (e){

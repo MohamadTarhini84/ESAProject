@@ -1,9 +1,9 @@
-let apps=document.getElementById('appointments');
-let desc=document.getElementById('desc-popup-text');
-let delForm=document.getElementById('delete-form');
+let appss=document.getElementById('appointmentss');
+let descpp=document.getElementById('desc-pp-text');
+let delFormm=document.getElementById('delete-form');
 
 window.addEventListener("load", async function() { 
-    let a = await fetch("./Resources/php/fetchApps.php?type=doc");
+    let a = await fetch("./Resources/php/fetchApps.php?type=pat");
     let b=await a.text();
     let c=JSON.parse(b);
     // console.log(b);
@@ -15,31 +15,20 @@ window.addEventListener("load", async function() {
         `;
         return;
     }
-    let conf,confButton;
+    let conf;
 
     c.forEach(function(element) {
         if(element['isConfirmed']==false){
             conf="Pending";
-            confButton=`
-                <button class="app-button app-edit-button ${element['id']}">
-                    <i class="fa fa-duotone fa-check"></i>
-                    <span>Confirm</span>
-                </button>
-            `;
         } else {
             conf="Confirmed";
-            confButton=`
-                <button class="app-button">
-                    <span>Confirmed</span>
-                </button>
-            `;
         }
 
         let dateStr=element['date']+"T"+element['time'];
         let appDate=new Date(dateStr);
         let appDateStr= appDate.toString().substring(0,24);
 
-        apps.innerHTML+=`
+        appss.innerHTML+=`
         <div class="appointment">
             <div class="app-top">
                 <i class="fa-regular fa-clock"></i>
@@ -49,13 +38,13 @@ window.addEventListener("load", async function() {
                 <div class="name-desc">
                     <div>
                         <div class="app-name app-information">
-                            ${element['name']}
+                            ${element['drName']}
                         </div>
                         <div class="app-info app-information">
-                            ${element['phone']}
+                            ${element['drSpec']}
                         </div>
                     </div>
-                    <button class="app-desc" onclick="desc.innerHTML='${element['desc']}';toggle('desc-popup')">
+                    <button class="app-desc" onclick="descpp.innerHTML='${element['desc']}';toggle('desc-popup')">
                         show description
                     </button>
                 </div>
@@ -64,7 +53,7 @@ window.addEventListener("load", async function() {
                         <div class="app-name">
                             Room
                         </div>
-                        <div class="app-info app-information" style="font-size:16px">
+                        <div class="app-info app-information" style="font-size:16px;">
                             ${element['room']}
                         </div>
                     </div>
@@ -73,34 +62,24 @@ window.addEventListener("load", async function() {
                             Status
                         </div>
                         <div class="app-info app-information">
-                            `+conf+`
+                            ${conf}
                         </div>
                     </div>
+                    <button class="app-call" onclick="navigator.clipboard.writeText(${element['drPhone']});alert("Phone number copied to clipboard!")">
+                        <i class="fa-solid fa-phone"></i>
+                    </button>
                 </div>
             </div>
             <div class="app-edit-delete">
-                ${confButton}
-                <button class="app-button delete-one-app" onclick="toggle('confirm-popup');delForm.setAttribute('href','Resources/php/deleteApp.php?id=1&del=${element['id']}')" style="border-left:1px solid var(--light)">
+                <button class="app-button">
+                    <span>${conf}</span>
+                </button>
+                <button class="app-button delete-one-app" onclick="toggle('confirm-popup');delFormm.setAttribute('href','Resources/php/deleteApp.php?id=1&del=${element['id']}')" style="border-left:1px solid var(--light)">
                     <i class="fa-solid fa-trash"></i>
                     Cancel
                 </button>
             </div>
         </div>
         `;
-    });
-    let editButtons=document.querySelectorAll('.app-edit-button');
-    editButtons.forEach(function(button){
-        button.addEventListener('click',function (e){
-            let xmlReq=new XMLHttpRequest();
-            xmlReq.onreadystatechange=function(){
-                if(this.readyState==4 && this.status=='200'){
-                    alert(this.responseText);
-                    location.reload();
-                }
-            }
-
-            xmlReq.open('GET','./Resources/php/confirmEdit.php?id='+button.classList[2],true);
-            xmlReq.send();
-        });
     });
 });
