@@ -62,7 +62,7 @@ session_start();
                     <div class="menu">
                         <ul>
                             <li><a class="link-home"
-                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/index.html">Home</a>
+                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/index.php">Home</a>
                             </li>
                             <li><a class="link-home"
                                     href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/services/ser.html">Services</a>
