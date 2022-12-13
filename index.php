@@ -192,7 +192,8 @@ session_start();
                                 class="form-control" />
                             <input type="time" id="findtime" class="tarhini-input" class="form-control" />
 
-                            <button type="button" id="btn" name="btn" class="tarhini-search">Search</button>
+                            <button type="button" id="btn" name="btn" onclick="btnbook()"
+                                class="tarhini-search">Search</button>
                         </form>
                     </div>
                 </div>
@@ -988,6 +989,13 @@ session_start();
     //login
     function loginbtt() {
         const url = './loginn/newSignIN.php';
+        window.location.replace(url);
+    }
+
+    // btnserach
+
+    function btnbook() {
+        const url = './book/yasser.php';
         window.location.replace(url);
     }
 
