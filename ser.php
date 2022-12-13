@@ -61,9 +61,9 @@ session_start();
                     </a>
                     <div class="menu">
                         <ul>
-                            <li><a class="link-home" href="./">Home</a> </li>
+                            <li><a class="link-home" href="./index.php">Home</a> </li>
                             <li><a class="link-home" href="./ser.php">SERVICES</a> </li>
-                            <li><a class="link-home" href="./book/yasser.html">Book</a> </li>
+                            <li><a class="link-home" href="./book/yasser.php">Book</a> </li>
                             <li><a class="link-home" href="./blog/blog.html">Blog</a> </li>
                             <li><a class="link-home" href="./doctors/Doctors23.html">Doctors</a> </li>
                             <li><a class="link-home" href="./about/About.html">About</a> </li>
