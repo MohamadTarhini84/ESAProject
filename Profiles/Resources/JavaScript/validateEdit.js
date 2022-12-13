@@ -26,9 +26,8 @@ editForm.addEventListener('submit',function (e){
                 if (data.code == "200"){
                     coolPopup();
                     toggle('edit-popup');
-                    console.log(data.msg+"adadad");
                 } else {
-                    console.log(data.msg+"adadadaadadadada");
+                    console.log(data.msg);
                 }
             }
         );

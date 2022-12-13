@@ -15,4 +15,6 @@ edit.addEventListener('click', async function() {
     insideEdit[6].value=c.phone;
     insideEdit[9].value=c.specialty;
     insideEdit[10].value=c.room;
+
+    toggle('edit-popup');
 });

@@ -65,7 +65,7 @@ window.addEventListener("load", async function() {
                             ${conf}
                         </div>
                     </div>
-                    <button class="app-call" onclick="navigator.clipboard.writeText(${element['drPhone']});alert("Phone number copied to clipboard!")">
+                    <button class="app-call" onclick="navigator.clipboard.writeText(${element['drPhone']});alert('Phone number copied to clipboard!')">
                         <i class="fa-solid fa-phone"></i>
                     </button>
                 </div>
