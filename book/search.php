@@ -9,7 +9,7 @@ class User
 }
 /* Receive the RAW post data. */
 $content = trim(file_get_contents("php://input"));
-require_once('./conn.php');
+require_once('../connect1.php');
 /* $decoded can be used the same as you would use $_POST in $.ajax */
 $decoded = json_decode($content, true);
 $data = [];
@@ -21,14 +21,14 @@ $timestamp = strtotime($decoded['datenow']);
 $day = date('l', $timestamp);
 $data['datenow'] = $day;
 // print_r($data['user']);
-$sql = "SELECT name, email,age,phone,speciality
+$sql = "SELECT fullName, email,birthday ,phoneNumber,speciality
 FROM users 
-INNER JOIN doctordetail ON users.id=doctordetail.doctorid 
-INNER JOIN timess ON users.id=timess.doctorid 
-WHERE users.istype='doctor' and users.name ='" . $data['users'] . "'
-and timess.day = '" . $data['datenow'] . "'
-and timess.starttime <='" . $data['timefrom'] . "'
-and timess.endtime >'" . $data['findtime'] . "'
+INNER JOIN doctordetails ON users.id=doctordetails.doctorid 
+INNER JOIN timess ON users.id=doctortimes.doctorid 
+WHERE users.userType='102' and users.fullName ='" . $data['users'] . "'
+and doctortimes.dayOfWeek > '" . $data['datenow'] . "'
+and doctortimes.startTime <='" . $data['timefrom'] . "'
+and doctortimes.endTime >'" . $data['findtime'] . "'
 
 ";
 
