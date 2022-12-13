@@ -61,27 +61,13 @@ session_start();
                     </a>
                     <div class="menu">
                         <ul>
-                            <li><a class="link-home"
-                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/index.php">Home</a>
-                            </li>
-                            <li><a class="link-home"
-                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/services/ser.html">Services</a>
-                            </li>
-                            <li><a class="link-home"
-                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/book/yasser.php">Book</a>
-                            </li>
-                            <li><a class="link-home"
-                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/blog/blog.html">Blog</a>
-                            </li>
-                            <li><a class="link-home"
-                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/doctors/Doctors23.html">Doctors</a>
-                            </li>
-                            <li><a class="link-home"
-                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/about/About.php">About</a>
-                            </li>
-                            <li><a class="link-home"
-                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/newcontact/contact.php">Contact</a>
-                            </li>
+                            <li><a class="link-home" href="./index.php>Home</a> </li>
+                            <li><a class=" link-home" href="./services/ser.html">Services</a> </li>
+                            <li><a class="link-home" href="./book/yasser.html">Book</a> </li>
+                            <li><a class="link-home" href="./blog/blog.html">Blog</a> </li>
+                            <li><a class="link-home" href="./doctors/Doctors23.html">Doctors</a> </li>
+                            <li><a class="link-home" href="./about/About.html">About</a> </li>
+                            <li><a class="link-home" href="./newcontact/contact.php">Contact</a> </li>
 
                         </ul>
                     </div>
@@ -980,7 +966,7 @@ session_start();
     //   service
 
     function divservice() {
-        const url = '.file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/services/ser.html';
+        const url = './services/ser.html';
         window.location.replace(url);
     }
 
@@ -988,20 +974,20 @@ session_start();
     // articl
 
     function morearticl() {
-        const url = '.file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/blog/blog.html';
+        const url = './blog/blog.html';
         window.location.replace(url);
     }
 
     // make 
     function makebtt() {
-        const url = '.file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/book/yasser.html';
+        const url = './book/yasser.html';
         window.location.replace(url);
     }
 
 
     //login
     function loginbtt() {
-        const url = 'file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/Login/newSignIN.php';
+        const url = '/Login/newSignIN.php';
         window.location.replace(url);
     }
 
