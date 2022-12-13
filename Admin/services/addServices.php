@@ -10,9 +10,9 @@ if(isset($_POST['submit'])){
             $errorMessage ="ALL THE FIELDS ARE REQUIRED";
         }
         if(!empty($service) && !empty($description)){
-           $insert="INSERT INTO  service(serviceName,description) VALUES ('$service','$description')";
+           $insert="INSERT INTO services(serviceName,description) VALUES ('$service','$description')";
            $result= mysqli_query($conn,$insert);
-           header('Location:/ESAProject - Copy/Admin/services/service.php');
+           header('Location:/ESAProject/Admin/services/service.php');
         }  
   }
   ?>
@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
             </div>
             <div class="DIV">
             <button type="submit" class="btn" name="submit">ADD</button>
-            <a type="cancel" class="btnc" href="/ESAProject - Copy/Admin/services/service.php">Cancel</a>
+            <a type="cancel" class="btnc" href="/ESAProject/services/service.php">Cancel</a>
             </div>
         </div>  
         </form>

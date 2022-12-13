@@ -1,18 +1,22 @@
 <?php
 include 'connect.php';
+$id = $_GET['id'];
+$query=mysqli_query($conn,"SELECT * FROM services WHERE id='$id'");
+$row=mysqli_fetch_array($query);
 $service="";
 $description="";
 $errorMessage="";
 if(isset($_POST['submit'])){
+        $id = $_POST['id'];
         $service=$_POST['service'];
         $description=$_POST['description'];
         if(empty($service) || empty($description)){
             $errorMessage ="ALL THE FIELDS ARE REQUIRED";
         }
         if(!empty($service) && !empty($description)){
-           $update=" UPDATE service SET description='$description'  WHERE  serviceName='$service'";
+           $update=" UPDATE services SET description='$description',serviceName='$service'  WHERE id='$id' ";
            $result= mysqli_query($conn,$update);
-           header('Location:/ESAProject - Copy/Admin/services/service.php');
+           header('Location:/ESAProject/Admin/services/service.php');
         }  
   }
   ?>
@@ -26,7 +30,7 @@ if(isset($_POST['submit'])){
 </head>
 <body>
     <div class="container">
-            <img id="logo" src="news-animate.svg">
+            <img id="logo" src="medicine-animate.svg">
             <div class="content">
                 <h2 class="title">Add  New Services</h2>
                 <?php
@@ -41,11 +45,12 @@ if(isset($_POST['submit'])){
             </div>
             <div class="div">
             <label class="labeli" >Description:</label>
-            <textarea class="input" name="description" ><?php echo $description;?></textarea>
+            <textarea class="input" name="description" ><?php echo  $description;?></textarea>
             </div>
+            <input type="hidden" name="id" value="<?php echo $id;?>">
             <div class="DIV">
             <button type="submit" class="btn" name="submit">ADD</button>
-            <a type="cancel" class="btnc" href="/ESAProject - Copy/Admin/services/service.php">Cancel</a>
+            <a type="cancel" class="btnc" href="/ESAProject/Admin/services/service.php">Cancel</a>
             </div>
         </div>  
         </form>
@@ -57,7 +62,7 @@ if(isset($_POST['submit'])){
 #logo{
     height: 500px;
     width: 500px;
-    background-color:#16a08590;
+    background-color:#16a085;
 }
 .container{
     display: flex;
@@ -128,13 +133,13 @@ if(isset($_POST['submit'])){
 .label{
     font-size:18px;
     color:#16a085;
-    margin-right:280px;
+    margin-right:265px;
     font-weight:600;
 }
 .labeli{
     font-size:18px;
     color:#16a085;
-    margin-right:315px;
+    margin-right:300px;
     font-weight:600;
 }
 </style>

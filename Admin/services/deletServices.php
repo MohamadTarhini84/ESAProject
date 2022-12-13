@@ -1,10 +1,10 @@
 <?php
-$conn=mysqli_connect('localhost','root','','services');
+$conn=mysqli_connect('localhost','root','','esaproject1');
    
     if(isset($_GET['id'])){
         $id=$_GET['id'];
-        $delete=mysqli_query($conn,"DELETE FROM service WHERE id=$id");
+        $delete=mysqli_query($conn,"DELETE FROM services WHERE id=$id");
     }
-header('location:/ESAProject - Copy/Admin/services/service.php');
+header('location:/ESAProject/Admin/services/service.php');
 exit;
 ?>
