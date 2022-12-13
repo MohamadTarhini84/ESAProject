@@ -24,7 +24,12 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
 
+<style>
 
+  a{
+    text-decoration:none!important;
+  }
+</style>
 
   </head>
 
@@ -48,44 +53,68 @@
         
       </header>
       <!-- End Header -->
-
+      
       <!-- Sidebar -->
       <aside id="sidebar">
         <div class="sidebar-title">
           <div class="sidebar-brand">
-            <span class="material-icons-outlined"><img src="images/logo.png" alt="logo" style="background-color:#21232d ;"></span> MedCenter
+            <span class="material-icons-outlined"><!--<img src="images/logo.png" alt="logo" style="background-color:#21232d ;">--></span> MedCenter
           </div>
           <span class="material-icons-outlined closeIc" onclick="closeSidebar()">close</span>
         </div>
 
         <ul class="sidebar-list">
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined" id="">dashboard</span>  Dashboard
+            <li class="sidebar-list-item" >
+            <a href="dashboard.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">dashboard</span> Dashboard</a>
+            </li>
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              
+            <li class="sidebar-list-item" >
+            <a href="admins.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">admin_panel_settings</span>  Admins</a>
+            </li>
+              
+            <?php
+              } 
+            } 
+            ?>        
+            <li class="sidebar-list-item" >
+            <a href="doctors.php"style="color:white!important; text-align:left"><span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors</a>
+            </li>
+            <li class="sidebar-list-item" > 
+            <a href="patients.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="Patients">personal_injury</span> Patients</a>
+            </li>
+            <li class="sidebar-list-item">
+            <a href="appointments.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="appo">book_online</span> Appointments</a>
+            </li>
+  
+            <!--<li class="sidebar-list-item">
+              <span class="material-symbols-outlined " id="phar">medication</span> Pharmacy
+            </li>
+            <li class="sidebar-list-item">
+              <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
+            </li>-->
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              <li class="sidebar-list-item">
+            <a href="add-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="reg">settings</span> Register New</a>
+            </li> 
+            <?php
+              } 
+            } 
+            ?>
             
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined">admin_panel_settings</span>  Admin
-          </li>          
-          <li class="sidebar-list-item">
-            <span class="fa fa-user-md " style="font-size: 20px;"></span> &nbsp; Doctors
-          </li>
-          <li class="sidebar-list-item"> 
-            <span class="material-symbols-outlined">personal_injury</span> Patients
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-symbols-outlined">book_online</span> Appointments
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-symbols-outlined ">medication</span> Pharmacy
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined">shopping_cart</span> Sales Orders
-          </li>
-          
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined">settings</span> Settings
-          </li>
-        </ul>
+            <li class="sidebar-list-item">
+            <a href="update-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="upd">settings</span> Update Profile</a>
+            </li>
+            <li class="sidebar-list-item">
+              <a href="logout.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" >logout</span>Logout</a>
+            </li>
+          </ul>
       </aside>
       <!-- End Sidebar -->
 <style>
@@ -141,13 +170,7 @@
             <span class="text-primary font-weight-bold">79</span>
           </div>
 
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">PATIENTS</p>
-              <span class="material-symbols-outlined text-blue">personal_injury</span>
-            </div>
-            <span class="text-primary font-weight-bold">56</span>
-          </div>
+          
 
         
         <div class="card">
@@ -172,8 +195,8 @@
             <div id="area-chart"></div>
           </div>
 
-        </div>
-<!-- -------------------------------details div----------------------------------------->
+        </div><!--
+-------------------------------details div-----------------------------------------
         <div class="details">
 
             <div class="charts-card">
@@ -185,7 +208,7 @@
             </div>
             <br>
             <hr>  
-             <!--Appointments List-->
+             Appointments List
           <div class="list">          
             <table class="table">
               <thead>
@@ -202,10 +225,10 @@
               </thead>
               <tbody>
                 <tr>
-                  <!--<td class="name-img">
+                  <td class="name-img">
                     <img src="img/avatar.svg" alt="" class="climg">
                     
-                  </td>-->
+                  </td>
                   <td>Sam David</td>
                   <td>Cardiology</td>
                   <td>03-24-22</td>
@@ -218,7 +241,7 @@
           </div>
      
       </div>
-        <!-- Recent Orders-->
+        
           <div class="charts-card">
             <p class="chart-title"> Orders</p>
             <div>
@@ -260,57 +283,9 @@
                 
         </div>
         </div>
-        </div>
+        </div>-->
       <!------------------------------Patients Reviews------------------------------------------------->
-      <div class="details">
-
-            
-        <!-- Recent Orders-->
-          <div class="charts-card">
-            <p class="chart-title"> Orders</p>
-            <div>
-                <div class="card-inner">
-                    <span class="material-symbols-outlined text-blue marg">medication</span>
-                    <span style="font-size: 20px; " class="margR">500 patient</span>      
-                                                          
-                </div>
-                <br>
-                <hr> 
-
-                <div class="list">          
-                  <table class="table">
-                    <thead>
-                      <tr>
-                      
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Qty</th>
-                        <th>Order Date</th>
-                        <th>Status</th>                  
-                        <th>Customer Name</th>
-
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                      <td class="name-img">
-                    
-                    01
-                  </td>
-                  <td>Face Mask</td>                  
-                  <td>20.00</td>
-                  <td>2</td>
-                  <td>40.00</td>
-                  <td>27-11-22</td> 
-                  <td>Delivered</td>
-                      
-                    </tbody>
-                  </table>
-                </div>
-                
-        </div>
-        </div>
+      <!--<div class="details">
       
         <div class="charts-card">  
           <p class="chart-title">Patients Reviews</p>
@@ -358,7 +333,7 @@
         </div>
 
       </div>
-    </div>
+    </div>-->
   </div>
 
       </main>

@@ -2,19 +2,26 @@
 <?php  require('./partials/login-check.php');?>
 <?php 
     if(isset($_SESSION['userType'])){
-      if($_SESSION['userType']!='100')
+      if($_SESSION['userType']=='100'){
         $_SESSION['not super admin']="<div style='text-center'> You do not have access to the admins page</div>";
         header('location:'.SITEURL.'admin/dashboard.php');
-    }
+      }
+    }  
 ?>
+<?php
+$sql = "SELECT * FROM admin where type='100'";
+                
+$res=mysqli_query($conn,$sql);
+            
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width,initial-scale=0.75">
-    <title>MedCenter-Pharmacy</title>
+   <meta name="viewport" content="width=device-width,initial-scale=0.8">
+    <title>MedCenter-Admins</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -34,7 +41,11 @@
     <link rel="stylesheet" href="css/admins.css">
     
     <link rel="stylesheet" href="css/styles.css">
-
+    <style>
+  a{
+    text-decoration:none!important;
+  }
+</style>
 </head>
 
 <body>
@@ -66,19 +77,29 @@
   
           <ul class="sidebar-list">
             <li class="sidebar-list-item" >
-              <span class="material-icons-outlined" id="dash">dashboard</span> Dashboard
+            <a href="dashboard.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">dashboard</span> Dashboard</a>
             </li>
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              
             <li class="sidebar-list-item" >
-              <span class="material-icons-outlined" id="admins">admin_panel_settings</span>  Admins
-            </li>          
+            <a href="admins.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">admin_panel_settings</span>  Admins</a>
+            </li>
+              
+            <?php
+              } 
+            } 
+            ?>        
             <li class="sidebar-list-item" >
-              <span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors
+            <a href="doctors.php"style="color:white!important; text-align:left"><span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors</a>
             </li>
             <li class="sidebar-list-item" > 
-              <span class="material-symbols-outlined" id="Patients">personal_injury</span> Patients
+            <a href="patients.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="Patients">personal_injury</span> Patients</a>
             </li>
             <li class="sidebar-list-item">
-              <span class="material-symbols-outlined" id="appo">book_online</span> Appointments
+            <a href="appointments.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="appo">book_online</span> Appointments</a>
             </li>
   
             <!--<li class="sidebar-list-item">
@@ -87,12 +108,23 @@
             <li class="sidebar-list-item">
               <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
             </li>-->
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              <li class="sidebar-list-item">
+            <a href="add-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="reg">settings</span> Register New</a>
+            </li> 
+            <?php
+              } 
+            } 
+            ?>
             
             <li class="sidebar-list-item">
-              <span class="material-icons-outlined" id="reg">settings</span> Register New
+            <a href="update-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="upd">settings</span> Update Profile</a>
             </li>
             <li class="sidebar-list-item">
-              <span class="material-icons-outlined" id="upd">settings</span> Update Profile
+              <a href="logout.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" >logout</span>Logout</a>
             </li>
           </ul>
         </aside>
@@ -101,7 +133,14 @@
         <!-- Main -->
         <main class="main-adm-container">
           <div class="adm-title">
-            <h2 class="font-weight-bold">ADMINS</h2>
+            <h2 class="font-weight-bold">ADMINS <br>
+            <?php
+              if(isset($_SESSION['delete'])){
+                echo $_SESSION['delete'];
+                UNSET($_SESSION['delete']);
+              }
+          ?>
+          </h2>
           </div>
   
             <div class="adm-cards">
@@ -110,49 +149,37 @@
               <div class="adm-inner">
                 <p class="text-primary">Add New Admin</p>
               </div>
-              <button class="text-primary adm-btn" id="register">Register</button>              
+              <button class="text-primary adm-btn" id="register"> <a href="add-admin.php" style="color:white"> Register</a></button>              
             </div>
 
             <div class="adm-card">
                 <div class="adm-inner">
                   <p class="text-primary">Update Profile</p>
                 </div>
-                <button class="text-primary adm-btn" id="viewprof">Update Profile</button>              
+                <button class="text-primary adm-btn" id="viewprof"><a href="update-admin.php" style="color:white">Update Profile</a></button>              
             </div>
+            <?php
+              while($row=mysqli_fetch_assoc($res)){
+                $aid=$row['id'];
+                $admName=$row['username'];
             
+            ?>
             <div class="adm-card">
                 <div class="adm-inner">
-                  <p class="text-primary">Sultana</p>
+                  <p class="text-primary" style="color:black !important;"><?php echo $admName ?></p>
                 </div>
-                <button class="text-primary adm-btn remove">Remove Admin</button>                                
+                <button class="text-primary adm-btn remove"> <a  style="color:white" href="delete-admin.php?a_id=<?php echo $aid?>">Remove Admin</a> </button>                                
             </div>
-
-            <div class="adm-card">
-                <div class="adm-inner">
-                  <p class="text-primary">Yasser</p>
-                </div>
-                <button class="text-primary adm-btn remove">Remove Admin</button>                                
-            </div>
-
-            <div class="adm-card">
-                <div class="adm-inner">
-                  <p class="text-primary">Mohammad</p>
-                </div>
-                <button class="text-primary adm-btn remove">Remove Admin</button>                                
-            </div>
-
-            <div class="adm-card">
-                <div class="adm-inner">
-                  <p class="text-primary">Suzane</p>
-                </div>
-                <button class="text-primary adm-btn remove">Remove Admin</button>                                
-            </div>
+            <?php
+           }
+            
+            ?>
            
         </div>
     </main>
    
     <script src="javascript/scripts.js"></script>
-    <script>
+    <!--<script>
         document.getElementById("register").addEventListener('click',function(){
         location.href="add-admin.php";
         });
@@ -167,7 +194,7 @@
         location.href="update-admin.php";
         });
 
-    </script>
+    </script>-->
     <script src="javascript/scripts1.js"></script>
 </body>
 </html>

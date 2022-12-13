@@ -2,7 +2,7 @@
     //start Session
     session_start();
 
-    define('SITEURL','http://localhost:80/suls/');
+    define('SITEURL','http://localhost:80/ESAProject/');
     define('LOCALHOST','localhost');
     define('DB_USERNAME','root');
     define('DB_PASSWORD','');

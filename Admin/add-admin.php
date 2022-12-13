@@ -1,13 +1,86 @@
 <?php  require('../config/constants.php');?>
 <?php  require('./partials/login-check.php');?>
 
+<?php 
+    if(isset($_SESSION['userType'])){
+      if($_SESSION['userType']=='100'){
+        $_SESSION['not super admin']="<div style='text-center'> You do not have access to the admins page</div>";
+        header('location:'.SITEURL.'admin/dashboard.php');
+      }
+    }  
+?>
+<?php
+
+  $errors=array(
+      "usernameError"=>"",
+      "passError"=>"",
+      "verfError"=>"",
+      "verfpass"=>"",
+      "exist"=>"",
+      "success"=>""
+  );
+  
+  if(isset($_POST['submit'])){
+
+      if(empty($_POST['username'])){
+          $errors['usernameError']= 'username field is empty';
+      }
+      if(empty($_POST['pass'])){
+          $errors['passError']= 'password field is empty';
+      }
+      if(empty($_POST['Verpass'])){
+          $errors['verfError']= 'verify password field is empty';
+      }
+
+      else{
+          
+        $username=$_POST['username'];
+        $password=$_POST['pass'];
+        $passwordver=$_POST['Verpass'];
+
+        //sql to check if the username and password exist or not
+        $sql="SELECT * FROM admin WHERE username='$username'";
+        //execute the query
+        $res=mysqli_query($conn,$sql);
+        
+        //check if user exists or not
+        $count = mysqli_num_rows($res);
+            
+        if($count!=0){
+          $errors['exist']="username already exists";
+        }
+        else{
+            if($password != $passwordver){
+          
+              $errors['verfpass']= 'Passwords do not match';
+            }
+            else{
+              
+                $sql2="INSERT INTO admin SET
+                username='$username',
+                pass='$password'
+                ";
+                $res2=mysqli_query($conn,$sql2);
+                if($res2==true){
+                  $errors['success']="Admin added successfully";
+                }
+              else{
+                $errors['success']="Admin added successfully";
+                }
+            }
+          
+        }
+    }
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width,initial-scale=0.75">
-    <title>MedCenter</title>
+    <title>MedCenter-Add New</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -27,7 +100,11 @@
     
     <link rel="stylesheet"  href="css/register.css">    
     <link rel="stylesheet" href="css/styles.css">
-
+<style>
+  a{
+    text-decoration:none!important;
+  }
+</style>
 </head>
 
 <body>
@@ -59,19 +136,29 @@
   
           <ul class="sidebar-list">
             <li class="sidebar-list-item" >
-              <span class="material-icons-outlined" id="dash">dashboard</span> Dashboard
+            <a href="dashboard.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">dashboard</span> Dashboard</a>
             </li>
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              
             <li class="sidebar-list-item" >
-              <span class="material-icons-outlined" id="admins">admin_panel_settings</span>  Admins
-            </li>          
+            <a href="admins.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">admin_panel_settings</span>  Admins</a>
+            </li>
+              
+            <?php
+              } 
+            } 
+            ?>        
             <li class="sidebar-list-item" >
-              <span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors
+            <a href="doctors.php"style="color:white!important; text-align:left"><span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors</a>
             </li>
             <li class="sidebar-list-item" > 
-              <span class="material-symbols-outlined" id="Patients">personal_injury</span> Patients
+            <a href="patients.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="Patients">personal_injury</span> Patients</a>
             </li>
             <li class="sidebar-list-item">
-              <span class="material-symbols-outlined" id="appo">book_online</span> Appointments
+            <a href="appointments.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="appo">book_online</span> Appointments</a>
             </li>
   
             <!--<li class="sidebar-list-item">
@@ -80,12 +167,23 @@
             <li class="sidebar-list-item">
               <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
             </li>-->
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              <li class="sidebar-list-item">
+            <a href="add-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="reg">settings</span> Register New</a>
+            </li> 
+            <?php
+              } 
+            } 
+            ?>
             
             <li class="sidebar-list-item">
-              <span class="material-icons-outlined" id="reg">settings</span> Register New
+            <a href="update-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="upd">settings</span> Update Profile</a>
             </li>
             <li class="sidebar-list-item">
-              <span class="material-icons-outlined" id="upd">settings</span> Update Profile
+              <a href="logout.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" >logout</span>Logout</a>
             </li>
           </ul>
         </aside>
@@ -94,63 +192,60 @@
         <!-- Main -->
         <main class="main-container">
                 
-                <div class="main-title">
-                    <h2 class="font-weight-bold">REGISTER NEW
-                    <?php 
-                        if(isset($_SESSION['userType'])){
-                          if($_SESSION['userType']!='100')
-                            $_SESSION['not super admin']="<div style='text-center'> You are not authorized to add a new admin</div>";
-                            header('location:'.SITEURL.'admin/dashboard.php');
-                        }
-                    ?>
-                    </h2>
+          <div class="main-title">
+            <h2 class="font-weight-bold">REGISTER NEW  <br>
+          <b style="color:red"><?php echo $errors['exist']; ?>
+          <?php echo $errors['success'] ?></b>
+        </h2>
+          </div>
+          <div class="container" style="margin: auto;">
+            <div class="login-content" >
+              <form action="<?php $_SERVER['PHP_SELF']?>"  method="POST">
+                            
+                <h2 class="title">Register 
+                </h2>
+                <div class="input-div one">
+                  <div class="i">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="div">
+                  <h6 style="text-align:left; color:red"><?php echo $errors['usernameError']; ?></h6>
+                    <h5>Username</h5>
+                    <input type="text" name="username" class="input">
+                    
+                  </div>
+                  
                 </div>
-                <div class="container" style="margin: auto;">
-                    <div class="login-content" >
-                        <form action="Admins.html">
-                            
-                            <h2 class="title">Register</h2>
-                            <div class="input-div one">
-                                <div class="i">
-                                        <i class="fas fa-user"></i>
-                                </div>
-                                <div class="div">
-                                        <h5>Username</h5>
-                                        <input type="text" class="input" required>
-                                </div>
-                            </div>
-                            <div class="input-div pass">
-                                <div class="i"> 
-                                        <i class="fas fa-lock"></i>
-                                </div>
-                                <div class="div">
-                                        <h5>Password</h5>
-                                        <input type="password" class="input" required>
-                                </div>    
-                            </div>
-                            <div class="input-div pass">
-                                <div class="i"> 
-                                        <i class="fas fa-lock"></i>
-                                </div>
-                                <div class="div">
-                                        <h5>Confirm Password</h5>
-                                        <input type="password" class="input" required>
-                                </div>
-                          </div>
-                            
-                            
-                            <input type="submit" class="btn" value="Register New">
-                        </form>
-                    </div>
-                 </div>
-                
-        
+                <div class="input-div pass">
+                  <div class="i"> 
+                    <i class="fas fa-lock"></i>
+                  </div>
+                  <div class="div">
+                  <h6 style="text-align:left; color:red"><?php echo $errors['passError']; ?></h6><br>
+                    <h5>Password</h5>
+                    <input type="password" name="pass" class="input">
+                  </div>    
+                </div>
+                <div class="input-div pass">
+                  <div class="i"> 
+                    <i class="fas fa-lock"></i>
+                  </div>
+                  <div class="div">
+                    <h6 style="text-align:left; color:red"><?php echo $errors['verfError'];?> <?php echo $errors['verfpass']; ?></h6><br>
+                    
+                    <h5> Confirm Password</h5>
+                    <input type="password" name="Verpass" class="input" >
+                  </div>
+                </div>
+
+                <input type="submit" name="submit" class="btn" value="Register New">
+              </form>
+            </div>            
+          </div>  
     </main>
-    <script src="javascript/scripts.js"></script>
     
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  </div>
+  <script src="javascript/scripts.js"></script> 
+  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </body>
 </html>
-<?php
-
-?>

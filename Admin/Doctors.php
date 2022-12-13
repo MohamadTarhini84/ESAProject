@@ -1,6 +1,15 @@
 <?php  require('../config/constants.php');?>
 <?php  require('./partials/login-check.php');?>
-
+<?php
+  $sql="SELECT * FROM users 
+  join doctordetails 
+  on doctordetails.doctorID=users.id";
+  
+  //execute the query
+  $res=mysqli_query($conn,$sql);
+  $sn=1;
+ 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +17,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width,initial-scale=0.75">
-    <title>MedCenter-Pharmacy</title>
+    <title>MedCenter- Doctors</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -27,7 +36,14 @@
     
     <link rel="stylesheet" href="css/pharmacy-style.css">
     <link rel="stylesheet" href="css/styles.css">
-
+    <style>
+  a{
+    text-decoration:none!important;
+  }
+  a:hover{
+    color: white !important;
+  }
+</style>
 </head>
 
 <body>
@@ -59,19 +75,29 @@
   
           <ul class="sidebar-list">
             <li class="sidebar-list-item" >
-              <span class="material-icons-outlined" id="dash">dashboard</span> Dashboard
+            <a href="dashboard.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">dashboard</span> Dashboard</a>
             </li>
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              
             <li class="sidebar-list-item" >
-              <span class="material-icons-outlined" id="admins">admin_panel_settings</span>  Admins
-            </li>          
+            <a href="admins.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">admin_panel_settings</span>  Admins</a>
+            </li>
+              
+            <?php
+              } 
+            } 
+            ?>        
             <li class="sidebar-list-item" >
-              <span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors
+            <a href="doctors.php"style="color:white!important; text-align:left"><span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors</a>
             </li>
             <li class="sidebar-list-item" > 
-              <span class="material-symbols-outlined" id="Patients">personal_injury</span> Patients
+            <a href="patients.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="Patients">personal_injury</span> Patients</a>
             </li>
             <li class="sidebar-list-item">
-              <span class="material-symbols-outlined" id="appo">book_online</span> Appointments
+            <a href="appointments.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="appo">book_online</span> Appointments</a>
             </li>
   
             <!--<li class="sidebar-list-item">
@@ -80,12 +106,23 @@
             <li class="sidebar-list-item">
               <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
             </li>-->
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              <li class="sidebar-list-item">
+            <a href="add-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="reg">settings</span> Register New</a>
+            </li> 
+            <?php
+              } 
+            } 
+            ?>
             
             <li class="sidebar-list-item">
-              <span class="material-icons-outlined" id="reg">settings</span> Register New
+            <a href="update-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="upd">settings</span> Update Profile</a>
             </li>
             <li class="sidebar-list-item">
-              <span class="material-icons-outlined" id="upd">settings</span> Update Profile
+              <a href="logout.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" >logout</span>Logout</a>
             </li>
           </ul>
         </aside>
@@ -105,7 +142,7 @@
              <!--Appointments List-->
           <div class="list" style="height: 700px;">   
             
-            <div id="search-container">
+           <!--  <div id="search-container">
         <input
           type="search"
           id="search-input"
@@ -124,7 +161,7 @@
         <button class="button-value" >
           Declined
         </button>
-      </div>
+      </div>-->
       <br>
             <table class="table">
               <thead>
@@ -135,31 +172,64 @@
                   <th>Age</th>
                   <th>Gender</th>                  
                   <th>Department</th>
-                  <th>Address</th>
-                  <th>Date</th>
+                  <th>Certificate Number</th>
+                  <th>License ID</th>
+                  <th>Fees</th>
                   <th>Status</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
+                <?php
+                
+                 while($row = mysqli_fetch_assoc($res)){
+    
+                  //user available
+                    $cid=$row['id'];
+                    $docname = $row['firstName'].' '.$row['lastName'];                    
+                    $email=$row['email'];
+                    $age=$row['age'];
+                    $gender=$row['gender'];
+                    $cer=$row['certificateNumber'];
+                    $spec=$row['speciality'];
+                    $lID=$row['licenceID'];
+                    $fee=$row['fees'];
+                    $stat=$row['isConfirmed'];
+                    if($stat==100){
+                      $status="pending";
+                    }
+                    elseif($stat==101){
+                      $status="confirmed";
+                    }
+                    else{
+                      $status="declined";
+                    }
+                    
+                ?>
                 <tr>
                     <td class="name-img">
-                        <img src="img/avatar.svg" alt="" class="climg">
-                        01
+                        <?php echo $sn;?>
                     </td>
-                    <td>Sam David</td>
-                    <td>Sam-David@email.com</td>
-                    <td>23</td>
-                    <td>Male</td>
-                    <td>Pediatric</td>
-                    <td>1452-ABC Street,NY</td>
-                    <td>03-24-22</td>
-                    <td class="Appr" id="status">Approved</td>                                   
-                    <td><button onclick="goto()" >View Profile</button>
-
+                    <td><?php echo $docname;?></td>
+                    <td><?php echo $email;?></td>
+                    <td><?php echo $age;?></td>
+                    <td><?php echo $gender;?></td>
+                    <td><?php echo $spec;?></td>
+                    <td><?php echo $cer;?></td>
+                    <td><?php echo $lID;?></td>
+                    <td><?php echo $fee;?></td>
+                    <td class="Appr" id="status"><?php echo $status;?></td>                                   
+                    <td><button><a style="color:black;" href="<?php echo SITEURL; ?>admin/Doctors.php?id=<?php echo $cid?>&docname=<?php echo $docname?>">View Profile</a></button>
+                    <button><a style="color:black;" href="<?php echo SITEURL; ?>admin/DeleteDoctor.php?app_id=<?php echo $cid?>">Delete Doctor</a></button>
                       <button onclick="toggle()" > Validate</button>
                     </td>
                 </tr>
+                <?php
+                
+                $sn++;
+                 }
+
+                ?>
               </tbody>
             </table>
           </div>

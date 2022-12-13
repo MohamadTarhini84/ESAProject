@@ -1,13 +1,19 @@
 <?php  require('../config/constants.php');?>
 <?php  require('./partials/login-check.php');?>
-
+<?php
+  $sql="SELECT * FROM users WHERE isDoctor='100'";
+  
+  //execute the query
+  $res=mysqli_query($conn,$sql);
+  $sn=1;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width,initial-scale=0.75">
-    <title>MedCenter-Pharmacy</title>
+    <title>MedCenter-Patients</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -24,12 +30,16 @@
     
     <!-- Custom CSS -->
     
-    <
+    
     <link rel="stylesheet" href="css/newStyle.css">
-    <link rel="stylesheet" href="css/pharmacy-style.css">
     
     <link rel="stylesheet" href="css/styles.css">
-
+    <link rel="stylesheet" href="css/pharmacy-style.css">
+    <style>
+  a{
+    text-decoration:none!important;
+  }
+</style>
 </head>
 
 <body>
@@ -61,19 +71,29 @@
   
           <ul class="sidebar-list">
             <li class="sidebar-list-item" >
-              <span class="material-icons-outlined" id="dash">dashboard</span> Dashboard
+            <a href="dashboard.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">dashboard</span> Dashboard</a>
             </li>
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              
             <li class="sidebar-list-item" >
-              <span class="material-icons-outlined" id="admins">admin_panel_settings</span>  Admins
-            </li>          
+            <a href="admins.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">admin_panel_settings</span>  Admins</a>
+            </li>
+              
+            <?php
+              } 
+            } 
+            ?>        
             <li class="sidebar-list-item" >
-              <span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors
+            <a href="doctors.php"style="color:white!important; text-align:left"><span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors</a>
             </li>
             <li class="sidebar-list-item" > 
-              <span class="material-symbols-outlined" id="Patients">personal_injury</span> Patients
+            <a href="patients.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="Patients">personal_injury</span> Patients</a>
             </li>
             <li class="sidebar-list-item">
-              <span class="material-symbols-outlined" id="appo">book_online</span> Appointments
+            <a href="appointments.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="appo">book_online</span> Appointments</a>
             </li>
   
             <!--<li class="sidebar-list-item">
@@ -82,12 +102,23 @@
             <li class="sidebar-list-item">
               <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
             </li>-->
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              <li class="sidebar-list-item">
+            <a href="add-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="reg">settings</span> Register New</a>
+            </li> 
+            <?php
+              } 
+            } 
+            ?>
             
             <li class="sidebar-list-item">
-              <span class="material-icons-outlined" id="reg">settings</span> Register New
+            <a href="update-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="upd">settings</span> Update Profile</a>
             </li>
             <li class="sidebar-list-item">
-              <span class="material-icons-outlined" id="upd">settings</span> Update Profile
+              <a href="logout.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" >logout</span>Logout</a>
             </li>
           </ul>
         </aside>
@@ -108,7 +139,7 @@
              <!--Appointments List-->
           <div class="list" style="height: 700px;">   
             
-            <div id="search-container">
+        <!--    <div id="search-container">
         <input
           type="search"
           id="search-input"
@@ -125,7 +156,7 @@
           Banned
         </button>
         
-      </div>
+      </div>-->
       <br>
             <table class="table">
               <thead>
@@ -136,151 +167,82 @@
                   <th>Age</th>
                   <th>Gender</th>                  
                   
-                  <th>Address</th>
+                  <th>Phone Number</th>
                   
-                  <th>Status</th>
+                  <!--<th>Status</th>-->
                   <th></th>
                  
                 </tr>
               </thead>
               <tbody>
+              <?php
+                
+                while($row = mysqli_fetch_assoc($res)){
+   
+                 //user available
+                   $cid=$row['id'];
+                   $patname = $row['firstName'].' '.$row['lastName'];                    
+                   $email=$row['email'];
+                   $age=$row['age'];
+                   $gender=$row['gender'];
+                   
+                   $phone=$row['phoneNumber'];             
+               ?>
                 <tr>
-                    <td class="name-img">
-                        <img src="img/avatar.svg" alt="" class="climg">
-                        01
+                    <td class="name-img">                        
+                    <?php echo $sn;?>
                     </td>
-                    <td>Sam David</td>
-                    <td>Sam-David@email.com</td>
-                    <td>23</td>
-                    <td>Male</td>
+                    <td><?php echo $patname;?></td>
+                    <td><?php echo$email;?></td>
+                    <td><?php echo$age;?></td>
+                    <td><?php echo$gender;?></td>
                     
-                    <td>1452-ABC Street,NY</td>
+                    <td><?php echo$phone;?></td>
                     
-                    <td class="Appr" id="status">Normal</td>                                   
-                    <td><button onclick="goto()">View Profile</button>
+                    <!--<td class="Appr" id="status">Normal</td>  -->                                 
+                    <td>
+                      <button><a style="color:black;" href="<?php echo SITEURL; ?>admin/patients.php?id=<?php echo $cid?>&patname=<?php echo $patname?>">View Profile</a></button>
+                      <button><a style="color:black;" href="<?php echo SITEURL; ?>admin/deletePatient.php?id=<?php echo $cid?>">Delete Patient</a></button>
 
-                      <button onclick="openPopUp()"> Status</button>
+                      <!--<button onclick="toggle()"> Status</button>-->
                     </td>
                 </tr>
-                <tr>
-                    <td class="name-img">
-                        <img src="img/avatar.svg" alt="" class="climg">
-                        02
-                    </td>
-                    <td>Sam David</td>
-                    <td>Sam-David@email.com</td>
-                    <td>23</td>
-                    <td>Male</td>
-                    
-                    <td>1452-ABC Street,NY</td>
-                    
-                    <td class="ban" id="status">Banned</td>                                   
-                    <td><button onclick="goto()">View Profile</button>
-
-                      <button onclick="openPopUp()"> Status</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="name-img">
-                        <img src="img/avatar.svg" alt="" class="climg">
-                        03
-                    </td>
-                    <td>Sam David</td>
-                    <td>Sam-David@email.com</td>
-                    <td>23</td>
-                    <td>Male</td>
-                    
-                    <td>1452-ABC Street,NY</td>
-                    
-                    <td class="Appr" id="status">Normal</td>                                   
-                    <td><button onclick="goto()">View Profile</button>
-
-                      <button onclick="openPopUp()"> Status</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="name-img">
-                        <img src="img/avatar.svg" alt="" class="climg">
-                        04
-                    </td>
-                    <td>Sam David</td>
-                    <td>Sam-David@email.com</td>
-                    <td>23</td>
-                    <td>Male</td>
-                    
-                    <td>1452-ABC Street,NY</td>
-                    
-                    <td class="ban" id="status">Banned</td>                                   
-                    <td><button onclick="goto()">View Profile</button>
-
-                      <button onclick="openPopUp()"> Status</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="name-img">
-                        <img src="img/avatar.svg" alt="" class="climg">
-                        05
-                    </td>
-                    <td>Sam David</td>
-                    <td>Sam-David@email.com</td>
-                    <td>23</td>
-                    <td>Male</td>
-                    
-                    <td>1452-ABC Street,NY</td>
-                    
-                    <td class="Appr" id="status">Normal</td>                                   
-                    <td><button onclick="goto()">View Profile</button>
-
-                      <button onclick="openPopUp()"> Status</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="name-img">
-                        <img src="img/avatar.svg" alt="" class="climg">
-                        06
-                    </td>
-                    <td>Sam David</td>
-                    <td>Sam-David@email.com</td>
-                    <td>23</td>
-                    <td>Male</td>
-                    
-                    <td>1452-ABC Street,NY</td>
-                    
-                    <td class="Appr" id="status">Normal</td>                                   
-                    <td><button onclick="goto()">View Profile</button>
-
-                      <button onclick="openPopUp()"> Status</button>
-                    </td>
-                </tr>
+                <?php               
+                $sn++;
+                 }
+                ?>
               </tbody>
             </table>
           </div>
 
     </div>
-
+</div><!--
+    <div class="popup" id="popup">
+      <h2>Dr. Doc Doctor</h2>
+      <br>
+      <button onclick="toggle()" id="ok">Approve</button>
+      <button onclick="toggle()" id="ban">Decline</button>
+      <button onclick="toggle()" id="del">Cancel</button>
+    </div>-->
       </main>
       <!-- End Main -->
     
     <!-- Custom JS -->
     <script src="javascript/scripts.js"></script>
     <script>
-      function goto(){
-        window.location.href="PatientPro.php";
+      function toggle(){
+        var blur=document.getElementById('blur');
+        blur.classList.toggle('active');
+        var popup=document.getElementById('popup');
+        popup.classList.toggle('active');
+
       }
     </script>
 
-      <script>
-        function openPopUp(){
-          popup.classList.add("open-popup");
-
-        }
-        function closePopUp(){
-          popup.classList.remove("open-popup");
-
-      }</script>
-       
-      <script src="javascript/scripts1.js"></script>
-      
-   
+     <script>      
+      function goto(){
+          window.location.href="Drprofile.php";
+      }
+    </script>
 </body>
 </html>

@@ -89,6 +89,8 @@ if(isset($_POST['submit'])){
 			$_SESSION['user']=$username;//check if the user is logged in or not and logout will unset it
 			$usertype=$row['type'];
 			$_SESSION['userType']=$usertype;
+			$aid=$row['id'];
+			$_SESSION['aid']=$aid;
 			//redirect to home page
 			echo "<h1>sucess</h1>";
 			header('location:'.SITEURL.'admin/dashboard.php');

@@ -8,6 +8,6 @@ if(!isset($_SESSION['user'])){
   //redirect to login page
   echo "<h1>something went wrong</h1>";
   //header('location:'.SITEURL.'admin/index.php');
-  header('location:http://localhost:80/suls/');
+  header('location:http://localhost:80/EsaProject/');
 }
  ?>

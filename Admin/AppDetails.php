@@ -1,13 +1,30 @@
 <?php  require('../config/constants.php');?>
 <?php  require('./partials/login-check.php');?>
-
+<?php
+    if(isset($_GET['app_id'])){
+    $aid = $_GET['app_id'];
+    $patname=$_GET['patname'];
+    $docname=$_GET['drname'];
+    $sql = "SELECT * FROM appointments WHERE id='$aid'";
+                
+    $res=mysqli_query($conn,$sql);
+                
+    $row=mysqli_fetch_assoc($res);
+                        
+    $date=$row['appDate'];
+    $time=$row['appTime'];              
+    }
+    else{
+        header('location:http://localhost:80/ESAProject/admin/appointments.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width,initial-scale=0.75">
-    <title>MedCenter-Appointments</title>
+    <title>MedCenter-Appointmnent Details</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -24,7 +41,34 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
-    <style>
+
+<style>
+    .popup2{
+        width:500px;
+        height: 500px;
+        background-color:  #367952;
+        border-radius: 6px;
+        margin: auto;
+        
+        /*transform: translate(-50%,-50%) scale(0.1);*/
+        text-align: center;
+        padding: 10px 30px 30px;
+        color: #333;
+        opacity: 1;
+        visibility: visible;
+        transition: 0.4s,top 0.4s;
+        }
+        .popup2 button{
+        background-color: white !important;
+        color:   #367952 !important;
+        
+        }
+        .popup2 button:hover{
+        background:  #367952 !important;
+        color: #fff !important; 
+        transition: 0.5rem;
+    }
+  
   a{
     text-decoration:none!important;
     color:black;
@@ -32,7 +76,10 @@
   a:hover{
     color: white !important;
   }
+
 </style>
+
+
 </head>
 
 <body>
@@ -124,134 +171,32 @@
         <div class="main-title">
           <h2 class="font-weight-bold">Appointments
             <p style="color:#367952;">MedCenter
-              <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Appointments</small></p>
+              <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Appointment Details</small></p>
         </h2>
         </div>
-         
-<!-- -------------------------------Appointments Div----------------------------------------->
-<br><br>
-          <div class="charts-card">
-              
-             <!--Appointments List-->
-          <div class="list" style="height: 700px;">     
-                
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Age</th>
-                  <th>Gender</th>                  
-                  <th>Speciality</th>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Doctor</th>
-                  <th>Fees</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-              <?php
-
-                  $sql="SELECT users.firstName ,users.lastName,users.email,users.age,users.gender,appointments.*,doctordetails.speciality,doctordetails.fees
-                  FROM appointments
-                  join users 
-                  on appointments.patientID=users.id
-                  join doctordetails 
-                  on doctordetails.doctorID=appointments.doctorID order BY appointments.id";
-                  
-                  //execute the query
-                  $res=mysqli_query($conn,$sql);
-                  $count=mysqli_num_rows($res);
-                  $sn=1;
-                  while($row = mysqli_fetch_assoc($res)){
-                    
-                  //user available
-                    $cid=$row['id'];
-                    $patname = $row['firstName'].' '.$row['lastName'];
-                    
-                    $email=$row['email'];
-                    $age=$row['age'];
-                    $gender=$row['gender'];
-                    
-                    $spec=$row['speciality'];
-                    $date=$row['appDate'];
-                    $time=$row['appTime'];
-                    $fee=$row['fees'];
-
-                    $drID=$row['doctorID'];
-                    $sql2="SELECT firstName ,lastName
-                    FROM users
-                    where id='$drID'";
-                    $res2=mysqli_query($conn,$sql2);
-                    $row2 = mysqli_fetch_assoc($res2);
-                    
-                    $drName = $row2['firstName'].' '.$row2['lastName'];
-                    
-
-              ?>
-                <tr>
-                  <td class="name-img">
-                  <img src="img/avatar.svg" alt="" class="climg">&nbsp
-                    <?php echo '0'.$sn;?>                   
-                  </td>
-                  <td><?php echo $patname;?></td>
-                  <td><?php echo $email;?></td>
-                  <td><?php echo $age;?></td>
-                  <td><?php echo $gender;?></td>
-                  <td><?php echo $spec;?></td>
-                  <td><?php echo $date;?></td>
-                  <td><?php echo $time;?></td>
-                  <td><?php echo 'Dr'.$drName; ?></td>
-                  <td><?php echo '$'.$fee;?></td>                                   
-                  <td><button><a href="<?php echo SITEURL; ?>admin/AppDetails.php?app_id=<?php echo $cid?>&patname=<?php echo $patname?>&drname=<?php echo $drName?>"> View</button></td>
-                </tr>
-                
-                <?php
-                  $sn++;
-                }
-                ?> 
-              </tbody>
-            </table>
+        
+        <div class="popup2">
+          <form action="<?php $_SERVER['PHP_SELF']?>"  method="POST">
+            <br> <h2>Appointmet for </h2>
+            <h2><?php echo $patname?> with</h2>
+            <h2>Dr.<?php echo $docname?></h2>
+            <hr>
+            <h3>Appointment Details</h3>
             
-          </div> 
+            <h4><?php echo $date ?><br><?php echo $time ?></h4>
+            <h5 style="text-align:left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore voluptas quasi voluptate iure quo deserunt dicta, minus modi odit labore. 
+            Nesciunt voluptatibus, recusandae est dolorem quibusdam mollitia iure minima reiciendis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni blanditiis obcaecati illum earum dolorum! Unde, exercitationem aliquid! Voluptatum vel pariatur autem consequatur similique. 
+            Placeat vel rem eligendi animi ut illo!</h5>
+            <br>
+            <button><a href="<?php echo SITEURL; ?>admin/AppDetails.php?app_id=<?php echo $aid?>&patname=<?php echo $patname?>&drname=<?php echo $drName?>"> Delete</button>
+          </form>
+        </div>
 
-    </div>
-</div>
-<!--
-<div class="popup" id="popup">
-    Appointmet by <br> <h2 ?>"></h2>
-    <h3>Appointment Details</h3>
-    <br>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore voluptas quasi voluptate iure quo deserunt dicta, minus modi odit labore. 
-      Nesciunt voluptatibus, recusandae est dolorem quibusdam mollitia iure minima reiciendis.</p>
-      <br>
-    <button onclick="toggle()">Okay</button>
-    <button onclick="toggle()">Delete</button>
+        
 
-</div>-->
-               
-      </main>
-      
-      <!-- End Main -->
-      
-
-    <!-- Scripts -->
-    
-    <!-- Custom JS -->
+        
     <script src="javascript/scripts.js"></script>
     <script src="javascript/scripts1.js"></script>
-    <script>
-      var b;
-      function toggle(){        
-        var blur=document.getElementById('blur');
-        blur.classList.toggle('active');
-        var popup=document.getElementById('popup');
-        popup.classList.toggle('active');
-
-      }
-      
-    </script>
-  </body>
+    </body>
 </html>
