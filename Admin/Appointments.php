@@ -66,9 +66,19 @@
             <li class="sidebar-list-item" >
             <a href="dashboard.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">dashboard</span> Dashboard</a>
             </li>
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              
             <li class="sidebar-list-item" >
             <a href="admins.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">admin_panel_settings</span>  Admins</a>
-            </li>          
+            </li>
+              
+            <?php
+              } 
+            } 
+            ?>        
             <li class="sidebar-list-item" >
             <a href="doctors.php"style="color:white!important; text-align:left"><span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors</a>
             </li>
@@ -85,10 +95,18 @@
             <li class="sidebar-list-item">
               <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
             </li>-->
-            
-            <li class="sidebar-list-item">
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              <li class="sidebar-list-item">
             <a href="add-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="reg">settings</span> Register New</a>
-            </li>
+            </li> 
+            <?php
+              } 
+            } 
+            ?>
+            
             <li class="sidebar-list-item">
             <a href="update-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="upd">settings</span> Update Profile</a>
             </li>
@@ -178,7 +196,7 @@
                   <img src="img/avatar.svg" alt="" class="climg">&nbsp
                     <?php echo '0'.$sn;?>                   
                   </td>
-                  <td><?php echo $patname; ?></td>
+                  <td><?php echo $patname;?></td>
                   <td><?php echo $email;?></td>
                   <td><?php echo $age;?></td>
                   <td><?php echo $gender;?></td>
@@ -201,6 +219,7 @@
 
     </div>
 </div>
+<!--
 <div class="popup" id="popup">
     Appointmet by <br> <h2 ?>"></h2>
     <h3>Appointment Details</h3>
@@ -211,7 +230,7 @@
     <button onclick="toggle()">Okay</button>
     <button onclick="toggle()">Delete</button>
 
-</div>
+</div>-->
                
       </main>
       

@@ -65,9 +65,8 @@
 
         <ul class="sidebar-list">
             <li class="sidebar-list-item" >
-            <a href="dashboard.php"style="color:white!important; text-align:left; "><span class="material-icons-outlined">dashboard</span> Dashboard</a>
+            <a href="dashboard.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">dashboard</span> Dashboard</a>
             </li>
-
             <?php
             if(isset($_SESSION['userType'])){
               if($_SESSION['userType']!='100'){
@@ -80,7 +79,7 @@
             <?php
               } 
             } 
-            ?>          
+            ?>        
             <li class="sidebar-list-item" >
             <a href="doctors.php"style="color:white!important; text-align:left"><span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors</a>
             </li>
@@ -97,10 +96,18 @@
             <li class="sidebar-list-item">
               <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
             </li>-->
-            
-            <li class="sidebar-list-item">
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              <li class="sidebar-list-item">
             <a href="add-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="reg">settings</span> Register New</a>
-            </li>
+            </li> 
+            <?php
+              } 
+            } 
+            ?>
+            
             <li class="sidebar-list-item">
             <a href="update-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="upd">settings</span> Update Profile</a>
             </li>

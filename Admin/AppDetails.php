@@ -12,9 +12,7 @@
     $row=mysqli_fetch_assoc($res);
                         
     $date=$row['appDate'];
-    $time=$row['appTime'];
-    
-                
+    $time=$row['appTime'];              
     }
     else{
         header('location:http://localhost:80/ESAProject/admin/appointments.php');
@@ -60,9 +58,6 @@
         visibility: visible;
         transition: 0.4s,top 0.4s;
         }
-
-
-
         .popup2 button{
         background-color: white !important;
         color:   #367952 !important;
@@ -73,9 +68,13 @@
         color: #fff !important; 
         transition: 0.5rem;
     }
-    
+  
   a{
     text-decoration:none!important;
+    color:black;
+  }
+  a:hover{
+    color: white !important;
   }
 
 </style>
@@ -114,9 +113,19 @@
             <li class="sidebar-list-item" >
             <a href="dashboard.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">dashboard</span> Dashboard</a>
             </li>
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              
             <li class="sidebar-list-item" >
             <a href="admins.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">admin_panel_settings</span>  Admins</a>
-            </li>          
+            </li>
+              
+            <?php
+              } 
+            } 
+            ?>        
             <li class="sidebar-list-item" >
             <a href="doctors.php"style="color:white!important; text-align:left"><span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors</a>
             </li>
@@ -133,10 +142,18 @@
             <li class="sidebar-list-item">
               <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
             </li>-->
-            
-            <li class="sidebar-list-item">
+            <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']!='100'){
+                ?>
+              <li class="sidebar-list-item">
             <a href="add-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="reg">settings</span> Register New</a>
-            </li>
+            </li> 
+            <?php
+              } 
+            } 
+            ?>
+            
             <li class="sidebar-list-item">
             <a href="update-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="upd">settings</span> Update Profile</a>
             </li>
@@ -172,31 +189,11 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni blanditiis obcaecati illum earum dolorum! Unde, exercitationem aliquid! Voluptatum vel pariatur autem consequatur similique. 
             Placeat vel rem eligendi animi ut illo!</h5>
             <br>
-            <input type="submit" name="Delete" class="btn" value="Delete">
+            <button><a href="<?php echo SITEURL; ?>admin/AppDetails.php?app_id=<?php echo $aid?>&patname=<?php echo $patname?>&drname=<?php echo $drName?>"> Delete</button>
           </form>
         </div>
 
-        <?php
-        if(isset($_POST['Delete'])){
-          $sql2 = "DELETE  FROM  Appointments where id = $aid ";
-          //execute the query
-          $res2 = mysqli_query($conn,$sql2);
-
-          if($res2==true){
-              
-              $_SESSION['delete'] = "Appointment Deleted Successfully";
-              header('location:http://localhost:80/ESAProject/admin/appointments.php');
-    
-          }
-          else {
-              //Failed to delete admin
-
-              $_SESSION['delete'] = "Failed to Delete Appointment . try Again Later";
-              header('location:'.SITEURL.'admin/appointments.php');
-          }
-          
-        }
-      ?>
+        
 
         
     <script src="javascript/scripts.js"></script>
