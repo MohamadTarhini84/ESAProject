@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "person")
+$conn = mysqli_connect("localhost", "root", "", "abcd")
 
     or die("<p>the database server is not available.</p>");
 
