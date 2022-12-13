@@ -20,7 +20,7 @@ CREATE TABLE doctordetails(
     speciality VARCHAR(100),
     room VARCHAR(100),
     fees INT,
-    appDesc,isConfirmed BOOLEAN
+    isConfirmed BOOLEAN
 );
 
 CREATE TABLE doctortimes(
