@@ -80,7 +80,7 @@ window.addEventListener("load", async function () {
             </div>
             <div class="app-edit-delete">
                 ${confButton}
-                <button class="app-button delete-one-app" onclick="toggle('confirm-popup');delForm.setAttribute('href','Resources/php/deleteApp.php?id=1&del=${element['id']}')" style="border-left:1px solid var(--light)">
+                <button class="app-button delete-one-app" onclick="toggle('confirm-popup');delForm.setAttribute('href','Resources/php/deleteApp.php?id=1&del=${element['id']}&what=app')" style="border-left:1px solid var(--light)">
                     <i class="fa-solid fa-trash"></i>
                     Cancel
                 </button>

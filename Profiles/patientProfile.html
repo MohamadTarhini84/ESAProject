@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/4c2b37abf9.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -101,53 +102,9 @@
                         </fieldset>
                     </div>
                     <div id="option-2" style="display:none">
-                        <div class="review">
-                            <div class="review-container">
-                                <div class="quotes">
-                                    <img src="./Resources/Images/quotes.png">
-                                </div>
-                                <div class="review-bg">
-                                    <div class="review-pic">
-                                        <img src="./Resources/Images/doctor.jpg">
-                                    </div>
-                                    <div class="review-element" id="review-1st">
-                                        Review of: Dr batata
-                                    </div>
-                                    <div class="review-element">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                    </div>
-                                    <div class="review-element" style="height:200px;overflow-y:auto;">
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
-                                        accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
-                                        Possimus laudantium dignissimos ipsum quos at tempora recusandae! 
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
-                                        accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
-                                        Possimus laudantium dignissimos ipsum quos at tempora recusandae! 
-                                        Repudiandae, rerum corrupti?Repudiandae, rerum corrupti?
-                                    </div>
-                                    <div class="review-edit-delete">
-                                        <button class="review-button">
-                                            <i class="fa-solid fa-pen"></i>
-                                            Edit
-                                        </button>
-                                        <button class="review-button" style="border-left:1px solid var(--light)">
-                                            <i class="fa-solid fa-trash"></i>
-                                            Delete
-                                        </button>
-                                    </div>
-                                    <div class="review-likes">
-                                        <i class="fa-regular fa-heart"></i> 123
-                                    </div>
-                                </div>
-                                <div class="quotes">
-                                    <img src="./Resources/Images/quotes.png">
-                                </div>
-                            </div>
-                        </div>
+                        <fieldset id="review-field">
+
+                        </fieldset>
                     </div>
                 </div>
             </div>
@@ -254,6 +211,7 @@
         <p>Updated Successfully!</p>
     </div>
 </body>
+<script src="../Profiles/Resources/JavaScript/successPopup.js"></script>
 <script src="../Profiles/Resources/JavaScript/toggle.js"></script>
 <script src="../Profiles/Resources/JavaScript/switch.js"></script>
 <script src="../Profiles/Resources/JavaScript/navbarDisplay.js"></script>
@@ -261,6 +219,7 @@
 <script src="../Profiles/Resources/JavaScript/fetchPatInfo.js"></script>
 <script src="../Profiles/Resources/JavaScript/patEdit.js"></script>
 <script src="../Profiles/Resources/JavaScript/validatePatEdit.js"></script>
+<script src="../Profiles/Resources/JavaScript/patFetchRevs.js"></script>
 <script>
 
     function deleteApp(){
