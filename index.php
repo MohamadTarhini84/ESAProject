@@ -61,13 +61,27 @@ session_start();
                     </a>
                     <div class="menu">
                         <ul>
-                            <li><a class="link-home" href="./index.html">Home</a> </li>
-                            <li><a class="link-home" href="./services/ser.html">Services</a> </li>
-                            <li><a class="link-home" href="./book/yasser.html">Book</a> </li>
-                            <li><a class="link-home" href="./blog/blog.html">Blog</a> </li>
-                            <li><a class="link-home" href="./doctors/Doctors23.html">Doctors</a> </li>
-                            <li><a class="link-home" href="./about/About.html">About</a> </li>
-                            <li><a class="link-home" href="./newcontact/contact.php">Contact</a> </li>
+                            <li><a class="link-home"
+                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/index.html">Home</a>
+                            </li>
+                            <li><a class="link-home"
+                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/services/ser.html">Services</a>
+                            </li>
+                            <li><a class="link-home"
+                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/book/yasser.php">Book</a>
+                            </li>
+                            <li><a class="link-home"
+                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/blog/blog.html">Blog</a>
+                            </li>
+                            <li><a class="link-home"
+                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/doctors/Doctors23.html">Doctors</a>
+                            </li>
+                            <li><a class="link-home"
+                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/about/About.php">About</a>
+                            </li>
+                            <li><a class="link-home"
+                                    href=".file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/newcontact/contact.php">Contact</a>
+                            </li>
 
                         </ul>
                     </div>
