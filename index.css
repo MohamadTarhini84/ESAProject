@@ -91,7 +91,7 @@ body{
 
 .login-butt{
     border: none;
-    background-image: radial-gradient(#93e4d4,#16a085);
+    background-color:#16a085;
     padding: 4px 25px;
     border-radius: 30px;
     color: #FFFFFF;
@@ -100,6 +100,7 @@ body{
     transition: .4s;
     margin-right:50px ;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .login-butt:hover{
@@ -2113,7 +2114,7 @@ background-color: transparent;
     align-items: center;
 }
 #option-1 input, #option-2 input{
-    width:35%;
+    width:25%;
     height:40px;
     align-self: center;
     margin:10px;
@@ -2134,6 +2135,7 @@ background-color: transparent;
     border-radius: 5px;
     width:90px; 
     height: 35px;
+    margin:0 40px;
 }
 .tarhini-search:hover{
     cursor: pointer;   
@@ -2564,3 +2566,19 @@ height: 350px;
   .up.show{
     right: 10px;
   }
+  .logout{
+    text-decoration: none;
+    color: white;
+    background-color: #16a085;
+    border-radius: 19px;
+    padding: 7px;
+    margin-right:35px;
+    font-size:18px;
+  }
+  .users{
+    font-size:18px;
+    color:#333333;
+    font-weight: bold;
+    margin-left:50px;
+  }
+  
