@@ -23,12 +23,12 @@ $data['donedate'] = $day;
 // print_r($data['user']);
 $sql = "SELECT name, email ,age ,phone ,pic, speciality
 FROM users 
-INNER JOIN doctordetail ON users.id=doctordetail.doctorid 
-INNER JOIN timess ON users.id=timess.doctorid 
+INNER JOIN doctordetails ON users.id=doctordetails.doctorID
+INNER JOIN doctortimes ON users.id=times.doctorID 
 WHERE doctordetail.speciality='" . $data['fetchval'] . "'
-and timess.day = '" . $data['donedate'] . "'
-and timess.starttime <='" . $data['starttime'] . "'
-and timess.endtime >'" . $data['closetime'] . "'
+and doctortimes.dayOfWeek > '" . $data['donedate'] . "'
+and doctortimes.starttime <='" . $data['starttime'] . "'
+and doctortimes.endtime >'" . $data['closetime'] . "'
 
 ";
 
