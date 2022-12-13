@@ -8,7 +8,7 @@ if(isset($_POST['submit'])){
     $headers="From: ".$email;
     $txt="You Have recivied an e-mail from".$name.".\n\n".$message;
     mail($mailTo,$message,$txt,$headers);
-    header("Location:/ESAProject/newcontact/contact.php?mailsend");
+    header("Location:contact.php?mailsend");
 }?>
 <!DOCTYPE html>
 <html lang="en">
@@ -165,7 +165,7 @@ if(isset($_POST['submit'])){
                 <pre id="erroremail" style="text-align: end;width:100%;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: red;" ></pre>
                 </div>
             <div class="inputbox"> 
-                <input type="text"  name="message" required="required" id="message"  onkeyup="validateText()">
+                <input type="text" required="required" id="message" name="message" onkeyup="validateText()">
                 <span>Type your Message...</span>
                 <pre id="errormessage"  style="text-align: end;width:100%;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: red;"></pre>
             </div>
