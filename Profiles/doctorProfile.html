@@ -11,17 +11,8 @@
     <link rel="stylesheet" type="text/css" href="./nav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <title>Document</title>
-    <script>        
-        document.addEventListener('DOMContentLoaded', function() {
-                var calendarEl = document.getElementById('calendar');
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'timeGridWeek',
-                editable: 'true'
-                });
-                calendar.render();
-            });
-    </script>
 </head>
 <body>
 <div id="page">
@@ -43,7 +34,7 @@
                 <i class="fa-solid fa-bell"></i>
                 <div id="name-picture">
                     <a href="#"><img src="./Resources/Images/doctor.jpg"></a>
-                    <a href="#">Batata Maslou2a</a>
+                    <a href="#" class="dr-info-name">Batata Maslou2a</a>
                 </div>
                 <button id="nav-logout" onclick="location.href='#';">Logout</button>
             </div>
@@ -61,6 +52,9 @@
             <div class="info-element">
                 <div class="info-element-div">
                     <div>
+                        Full Name:
+                    </div>
+                    <div>
                         Birthday:
                     </div>
                     <div>
@@ -71,13 +65,16 @@
                     </div>
                 </div>
                 <div class="info-element-div">
-                    <div id="bday">
+                    <div class="Dr-information">
+                        batata
+                    </div>
+                    <div id="bday" class="Dr-information">
                         131331
                     </div>
-                    <div id="gender">
+                    <div id="gender" class="Dr-information">
                         mamasd
                     </div>
-                    <div id="phone">
+                    <div id="phone" class="Dr-information">
                         12313123987
                     </div>
                 </div>
@@ -94,13 +91,19 @@
                     <div>
                         Licence card ID:
                     </div>
+                    <div>
+                        Specialty:
+                    </div>
                 </div>
                 <div class="info-element-div">
-                    <div>
+                    <div class="Dr-information">
                         131331s
                     </div>
-                    <div>
+                    <div class="Dr-information">
                         6255523
+                    </div>
+                    <div class="Dr-information">
+                        Archeologist
                     </div>
                 </div>
             </div>
@@ -109,10 +112,10 @@
             <div id="top-half">
                 <div id="first-row">
                     <div id="name-specialty">
-                        <div id="doctor-name">
+                        <div id="doctor-name" class="dr-info-name">
                             batata 7arra
                         </div>
-                        <div id="doctor-specialty">
+                        <div id="doctor-specialty" class="dr-info-spec">
                             archeologist
                         </div>
                     </div>
@@ -127,11 +130,8 @@
                     </div>
                     <div id="rating">
                         <div id="rating-number">3</div>
-                        <i class="fa-solid fa-star" style="margin-left:10px"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
+                        <div id="rating-stars" style="margin-left:10px;color:var(--green)">
+                        </div>
                     </div>
                 </div>
                 <button id="app-button" onclick="toggle('app-popup')">
@@ -218,65 +218,67 @@
         <i onclick="toggle('app-popup')" class="fa-solid fa-xmark"></i>
     </div>
     <div id="app-popup-lower">
-        <div id="app-popup-left">
-                <div class="left-input">
-                    <p>Choose day:</p>
-                    <input type="date">
-                </div> 
-                <div class=left-input>
-                    <p>Choose Time:</p>
-                    <input type="time">
-                </div>
-                <p>Appointment Description:</p>
-                <textarea placeholder="Description"></textarea>
-                <div id="left-buttons">
-                    <button class="app-desc" onclick="toggle('app-popup')">Cancel</button>
-                    <button class="app-desc" onclick="toggle('app-popup')" style="margin-right:0">Make Appointment</button>
-                </div>
-        </div>
+        <form id="app-popup-left">
+            <div class="left-input">
+                <p>Choose day:</p>
+                <input type="date" id="dr-app-date" rquired>
+            </div> 
+            <div class=left-input>
+                <p>Choose Time:</p>
+                <select id="dr-app-time" required>
+                    <option disabled selected>Choose day first</option>
+                </select>
+            </div>
+            <p>Appointment Description:</p>
+            <textarea placeholder="Description (optional)" id="dr-app-desc"></textarea>
+            <div id="left-buttons">
+                <button class="app-desc" id="app-submit-button" type="submit" style="margin-right:0">Make Appointment</button>
+            </div>
+        </form>
         <div id="app-popup-right">
             <div class="right-image">
                 <img src="./Resources/Images/doctor.jpg">
             </div>
             <div>
-                <div class="app-name">
+                <div class="app-name dr-info-name">
                     Dr. Batata ma2loube
                 </div>
-                <div class="app-info">
+                <div class="app-info dr-info-spec">
                     archeologist
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div id="review-popup">
+<form id="review-popup">
+    <i onclick="toggle('review-popup')" class="fa-solid fa-xmark" style="position:absolute;top:10px;right:10px"></i>
     <div id="rp-logo">
-        <img src="./Resources/Images/logo.png">
+        MedCenter
     </div>
     <div id="rp-text">
-        <h2>How was your experience?</h2>
+        <h3 style="color:var(--green);margin-bottom: 10px;">How was your experience?</h3>
         <p>
-            Hello batata, <br>
+            Hello, <br>
             We are constantly striving to improve and we'd love to hear your thoughts on service in general,
-            and our doctors in particular.
+            and our doctors in particular
         </p>
     </div>
     <div id="rp-ratings">
         <div class="rp-rating">
-            <input type="radio" name="rating" required>
+            <input type="radio" name="rating" required value="1">
             <div class="rp-stars">
                 <i class="fa-solid fa-star"></i>
             </div>
         </div>
         <div class="rp-rating">
-            <input type="radio" name="rating" required>
+            <input type="radio" name="rating" required value="2">
             <div class="rp-stars">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                 </div>
         </div>
         <div class="rp-rating">
-            <input type="radio" name="rating" required>
+            <input type="radio" name="rating" required value="3">
             <div class="rp-stars">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
@@ -284,7 +286,7 @@
                 </div>
         </div>
         <div class="rp-rating">
-            <input type="radio" name="rating" required>
+            <input type="radio" name="rating" required value="4">
             <div class="rp-stars">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
@@ -293,7 +295,7 @@
             </div>
         </div>
         <div class="rp-rating">
-            <input type="radio" name="rating" required>
+            <input type="radio" name="rating" required value="5">
             <div class="rp-stars">
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -305,30 +307,49 @@
     </div>
     <div id="rp-comment">
         <p>Write a comment summarizing your experience at our center:</p>
-        <textarea></textarea>
+        <textarea id="dr-rev-desc"></textarea>
     </div>
     <div id="rp-buttons">
-        <button class="app-desc" onclick="toggle('review-popup')">Cancel</button>
-        <button class="app-desc" onclick="toggle('review-popup')">Submit Review</button>
+        <button class="app-desc" type="submit">Submit Review</button>
     </div>
+</form>
+
+<div id="popup" style="display:none">
+    <div id="wrapper"> 
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> 
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> 
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+    </div>
+    <p>Action Successful!</p>
 </div>
+
+
 </body>
+<script src="../Profiles/Resources/JavaScript/calendar.js"></script>
+<style>.fc-event-title-container:hover{cursor:pointer;} </style>
+<script src="../Profiles/Resources/JavaScript/successPopup.js"></script>
 <script src="../Profiles/Resources/JavaScript/toggle.js"></script>
 <script src="../Profiles/Resources/JavaScript/switch.js"></script>
+<script src="../Profiles/Resources/JavaScript/validateTimes.js"></script>
+<script src="../Profiles/Resources/JavaScript/fetchDrInfo.js"></script>
+<script src="../Profiles/Resources/JavaScript/leaveReview.js"></script>
+<script src="../Profiles/Resources/JavaScript/makeApp.js"></script>
+<script src="../Profiles/Resources/JavaScript/updateAppTimes.js"></script>
 <script>
-    let likes=document.querySelectorAll('.review-likes');
-    let blur=document.getElementById('page');
+    // let likes=document.querySelectorAll('.review-likes');
+    // let blur=document.getElementById('page');
 
-    likes.forEach(function (e){
-        e.addEventListener('click',function(a){
-            if(e.firstElementChild.classList.contains('liked')){
-                e.firstElementChild.setAttribute('class','fa-regular fa-heart');
-                e.firstElementChild.setAttribute('style','color:white');
-            } else{
-                e.firstElementChild.setAttribute('class','fa-solid fa-heart liked');
-                e.firstElementChild.setAttribute('style','color:red');
-            }
-        })
-    })
+    // likes.forEach(function (e){
+    //     e.addEventListener('click',function(a){
+    //         if(e.firstElementChild.classList.contains('liked')){
+    //             e.firstElementChild.setAttribute('class','fa-regular fa-heart');
+    //             e.firstElementChild.setAttribute('style','color:white');
+    //         } else{
+    //             e.firstElementChild.setAttribute('class','fa-solid fa-heart liked');
+    //             e.firstElementChild.setAttribute('style','color:red');
+    //         }
+    //     })
+    // })
 </script>
 </html>

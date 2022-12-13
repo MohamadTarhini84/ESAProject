@@ -10,16 +10,6 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/4c2b37abf9.js" crossorigin="anonymous"></script>
     <title>Document</title>
-    <script>        
-        document.addEventListener('DOMContentLoaded', function() {
-                var calendarEl = document.getElementById('calendar');
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'timeGridWeek',
-                editable: 'true'
-                });
-                calendar.render();
-            });
-    </script>
 </head>
 <body>
 <div id="page">
@@ -40,10 +30,9 @@
             <div id="nav-right">
                 <i class="fa-solid fa-bell" onclick="document.getElementById('notification-popup').classList.toggle('active')"></i>
                 <div id="name-picture">
-                    <a href="#"><img src="./Resources/Images/patient.jpg"></a>
-                    <a href="#">Batata Me2leye</a>
+                    <!--  -->
                 </div>
-                <button id="nav-logout" onclick="location.href='#';">Logout</button>
+                <button id="nav-logout">Logout</button>
             </div>
         </div>
     </nav>
@@ -59,6 +48,9 @@
             <div class="info-element">
                 <div class="info-element-div">
                     <div>
+                        Full Name:
+                    </div>
+                    <div>
                         Birthday:
                     </div>
                     <div>
@@ -69,42 +61,23 @@
                     </div>
                 </div>
                 <div class="info-element-div">
-                    <div id="bday">
+                    <div class="pat-information">
+                        batata
+                    </div>
+                    <div class="pat-information">
                         131331
                     </div>
-                    <div id="gender">
+                    <div class="pat-information">
                         mamasd
                     </div>
-                    <div id="phone">
+                    <div class="pat-information">
                         12313123987
                     </div>
                 </div>
             </div>
-            <button id="profile-edit-button" class="app-desc" onclick="toggle('edit-popup')">Edit Profile Info</button>
+            <button id="profile-edit-button" class="app-desc">Edit Profile Info</button>
         </div>
         <div id="profile-details">
-            <div id="top-half">
-                <div id="first-row">
-                    <div id="patient-name">
-                        batata maslou2a
-                    </div>
-                </div>
-                <div id="patient-bio">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto blanditiis fugit eaque 
-                    consequatur eligendi, vero hic perferendis recusandae autem repudiandae placeat, 
-                    consequuntur aliquam debitis, perspiciatis ratione voluptate quas praesentium nisi!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto blanditiis fugit eaque 
-                    consequatur eligendi, vero hic perferendis recusandae autem repudiandae placeat, 
-                    consequuntur aliquam debitis, perspiciatis ratione voluptate quas praesentium nisi!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto blanditiis fugit eaque 
-                    consequatur eligendi, vero hic perferendis recusandae autem repudiandae placeat, 
-                    consequuntur aliquam debitis, perspiciatis ratione voluptate quas praesentium nisi!
-                </div>
-                <button id="bio-edit">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                    Update Medical History
-                </button>
-            </div>
             <div id="botton-half">
                 <div id="upper-section">
                     <button class="upper-button clicked" id="day-button" onclick="clickDay()">
@@ -117,62 +90,15 @@
                     </button>
                 </div>
                 <div id="lower-section">
-                    <div id="option-1">
-                        <button id="make-new-app" class="app-desc">Add appointment</button>              
-                        <div id="appointments">
-                            <div class="appointment">
-                                <div class="app-top">
-                                <i class="fa-regular fa-clock"></i>
-                                Tue, 30 Sept at 4:00 PM
-                                </div>
-                                <div class="app-mid">
-                                    <div class="name-desc">
-                                        <div>
-                                            <div class="app-name">
-                                                batata meshweye
-                                            </div>
-                                            <div class="app-info">
-                                                archeologist
-                                            </div>
-                                        </div>
-                                        <button class="app-desc" onclick="toggle('desc-popup')">
-                                            show description
-                                        </button>
-                                    </div>
-                                    <div class="app-triple">
-                                        <div class="app-room">
-                                            <div class="app-name">
-                                                Room
-                                            </div>
-                                            <div class="app-info" style="font-size:10px">
-                                                adadadadsdadadadadad
-                                            </div>
-                                        </div>
-                                        <div class="app-status">
-                                            <div class="app-name">
-                                                Status
-                                            </div>
-                                            <div class="app-info">
-                                                Confirmed
-                                            </div>
-                                        </div>
-                                        <button class="app-call">
-                                            <i class="fa-solid fa-phone"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="app-edit-delete">
-                                <button class="app-button" onclick="toggle('app-popup')">
-                                    <i class="fa-solid fa-pen"></i>
-                                    Edit
-                                </button>
-                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid var(--light)">
-                                    <i class="fa-solid fa-trash"></i>
-                                    Delete
-                                </button>
-                                </div>
+                    <div id="option-1">             
+                        <fieldset id="appointments">
+                            <legend>
+                                <a href="#"><button id="make-new-app" class="app-desc">Add appointment</button></a>
+                            </legend>
+                            <div id="appointmentss">
+                            
                             </div>
-                        </div>
+                        </fieldset>
                     </div>
                     <div id="option-2" style="display:none">
                         <div class="review">
@@ -240,101 +166,63 @@
     </div>
 </div>
     <div id="popups">
-        <div id="desc-popup">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur enim 
-            culpa nobis debitis magni quae vel minima laboriosam error pariatur ipsa, 
-            hic provident rem. Odio perferendis consectetur maxime officiis delectus!<br><br>
+        <div id="desc-popup"><br>
+            <p id="desc-pp-text"></p>
             <button class="app-desc" onclick="toggle('desc-popup')" style="align-self:center">Close</button>
-        </div>
-        <div id="app-popup">
-            <div id="app-popup-upper">
-                <h3>Appointment Information</h3>
-                <i onclick="toggle('app-popup')" class="fa-solid fa-xmark"></i>
-            </div>
-            <div id="app-popup-lower">
-                <div id="app-popup-left">
-                        <div class="edit-left-input">
-                            <p>Choose day:</p>
-                            <input type="date">
-                        </div> 
-                        <div class="edit-left-input">
-                            <p>Choose Time:</p>
-                            <input type="time">
-                        </div>
-                        <p>Appointment Description:</p>
-                        <textarea placeholder="Description"></textarea>
-                        <div id="left-buttons">
-                            <button class="app-desc" onclick="toggle('app-popup')">Cancel</button>
-                            <button class="app-desc" onclick="toggle('app-popup')" style="margin-right:0">Make Appointment</button>
-                        </div>
-                </div>
-                <div id="app-popup-right">
-                    <div class="right-image">
-                        <img src="./Resources/Images/doctor.jpg">
-                    </div>
-                    <div>
-                        <div class="app-name">
-                            Dr. Batata ma2loube
-                        </div>
-                        <div class="app-info">
-                            archeologist
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div id="edit-popup">
             <div id="app-popup-upper">
                 <h3>Edit Profile</h3>
                 <i onclick="toggle('edit-popup')" class="fa-solid fa-xmark"></i>
             </div>
-            <div id="app-popup-lower">
-                <div id="edit-popup-left">
+            <form id="app-popup-lower">
+                <div id="edit-popup-left" style="margin-bottom:30px">
                     <div class="right-image">
                         <img src="./Resources/Images/patient.jpg">
                     </div>
                     <div>
-                        <div class="edit-name">
+                        <div class="edit-name pat-information">
                             Batata maslou2a
                         </div>
-                        <div class="edit-info">
+                        <div class="edit-info pat-information">
                             bobobob@gmail.com
                         </div>
                     </div>
                 </div>
                 <div id="edit-popup-right">
                         <div class="edit-left-input">
-                            <p>First Name:</p>
-                            <input type="text">
+                            <p>Full Name:</p>
+                            <input type="text" class=" pat-information">
                         </div> 
-                        <div class="edit-left-input">
-                            <p>Last Name:</p>
-                            <input type="text">
-                        </div>
+                        <label id="edit-popup-label-patient">
+                            <i class="fa fa-cloud-upload" style="scale:2"></i>
+                            <h5 style="width:70%;">Choose Your Image to Upload</h5>
+                            <input type="file" name="file" class="inputfile edit-popup-element pat-information" />
+                        </label> 
                         <div class="edit-left-input">
                             <p>Email:</p>
-                            <input type="email">
+                            <input type="email" class=" pat-information">
                         </div> 
                         <div class="edit-left-input">
                             <p>Phone Number:</p>
-                            <input type="number">
+                            <input type="number" class=" pat-information">
                         </div> 
                         <div class="edit-left-input">
                             <p>Password:</p>
-                            <input type="password">
+                            <input type="password" class=" pat-information">
                         </div>
                         <div class="edit-left-input">
                             <p>Confirm Password:</p>
-                            <input type="password">
+                            <input type="password" class=" pat-information">
                         </div>
                         <div id="left-buttons">
-                            <button class="app-desc" onclick="toggle('edit-popup')" style="margin-right:0">Save Settings</button>
-                            <button class="app-desc" onclick="toggle('edit-popup')">Cancel</button>
+                            <button class="app-desc" class="edit-save-button" style="margin-right:0">Save Settings</button>
                         </div>
                 </div>
-            </div>
+            </form>
         </div>
-    </div><div id="notification-popup" style="z-index:1">
+    </div>
+    <div id="notification-popup" style="z-index:1">
         <div class="notification">
             <div class="noti-top">
                 <i class="fa-regular fa-clock"></i>
@@ -347,73 +235,33 @@
         </div>
         <button class="app-desc" onclick="document.getElementById('notification-popup').classList.toggle('active')" style="align-self:center">Close</button>
     </div>
-    
+    <div id="confirm-popup">
+        <h3>Are you sure you want to delete this appointment?</h3>
+        <div>
+            <a id="delete-form" onclick="toggle('confirm-popup')">
+                <button class="app-desc"  style="align-self:center">Delete</button>
+            </a>
+            <button class="app-desc" onclick="toggle('confirm-popup')" style="align-self:center">Cancel</button>
+        </div>
+    </div>
+    <div id="popup" style="display:none">
+        <div id="wrapper"> 
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> 
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> 
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+        <p>Updated Successfully!</p>
+    </div>
 </body>
 <script src="../Profiles/Resources/JavaScript/toggle.js"></script>
 <script src="../Profiles/Resources/JavaScript/switch.js"></script>
+<script src="../Profiles/Resources/JavaScript/navbarDisplay.js"></script>
+<script src="../Profiles/Resources/JavaScript/patApps.js"></script>
+<script src="../Profiles/Resources/JavaScript/fetchPatInfo.js"></script>
+<script src="../Profiles/Resources/JavaScript/patEdit.js"></script>
+<script src="../Profiles/Resources/JavaScript/validatePatEdit.js"></script>
 <script>
-    let appAdd=document.getElementById("make-new-app");
-    let appointments=document.getElementById("appointments");
-    var delButtons=document.querySelectorAll('delete-one-app');
-
-    appAdd.addEventListener("click",addApp);
-    function addApp(){
-        appointments.innerHTML+= `
-            <div class="appointment">
-                                <div class="app-top">
-                                <i class="fa-regular fa-clock"></i>
-                                Tue, 30 Sept at 4:00 PM
-                                </div>
-                                <div class="app-mid">
-                                    <div class="name-desc">
-                                        <div>
-                                            <div class="app-name">
-                                                batata meshweye
-                                            </div>
-                                            <div class="app-info">
-                                                archeologist
-                                            </div>
-                                        </div>
-                                        <button class="app-desc" onclick="toggle('desc-popup')">
-                                            show description
-                                        </button>
-                                    </div>
-                                    <div class="app-triple">
-                                        <div class="app-room">
-                                            <div class="app-name">
-                                                Room
-                                            </div>
-                                            <div class="app-info" style="font-size:10px">
-                                                adadadadsdadadadadad
-                                            </div>
-                                        </div>
-                                        <div class="app-status">
-                                            <div class="app-name">
-                                                Status
-                                            </div>
-                                            <div class="app-info">
-                                                Confirmed
-                                            </div>
-                                        </div>
-                                        <button class="app-call">
-                                            <i class="fa-solid fa-phone"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="app-edit-delete">
-                                <button class="app-button" onclick="toggle('app-popup')">
-                                    <i class="fa-solid fa-pen"></i>
-                                    Edit
-                                </button>
-                                <button class="app-button delete-one-app" onclick="deleteApp()" style="border-left:1px solid var(--light)">
-                                    <i class="fa-solid fa-trash"></i>
-                                    Delete
-                                </button>
-                                </div>
-                            </div>
-            `;
-        delButtons=document.querySelectorAll('.delete-one-app');
-    }
 
     function deleteApp(){
         delButtons.forEach(function (e){

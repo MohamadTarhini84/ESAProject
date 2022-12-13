@@ -60,7 +60,7 @@ input:focus, textarea:focus{
     width:100%;
     height:80px;
     background-color: var(--green);
-    position:static;
+    position:relative;
     bottom:0;
     display:flex;
     flex-direction: column;
@@ -117,7 +117,7 @@ input:focus, textarea:focus{
 .devider{
     width: 100%;
     display:flex;
-    font-size: 8px;
+    font-size: 10px;
     color:var(--light);
     justify-content: stretch;
     position: relative;
@@ -294,11 +294,18 @@ input:focus, textarea:focus{
 #schedule-grid{
     width:90%;
     height:600px;
-    display:grid;
-    grid-template-columns: 20% 80%;
+    display:flex;
+    flex-direction: column;
     background-color: var(--green);
     color:var(--white);
     margin:auto;
+}
+
+.grid-form{
+    height:100%;
+    width:100%;
+    display:grid;
+    grid-template-columns: 20% 80%;
 }
 
 .grid-button{
@@ -323,6 +330,11 @@ fieldset{
 
 .grid-edit-times input[type="time"]{
     width:30%;
+    height:25px;
+    border-radius: 5px;
+    box-shadow: none;
+    padding-left:10px;
+    border: 1px solid var(--light);
 }
 
 
@@ -333,6 +345,7 @@ fieldset{
 
 #option-1{
     position: relative;
+    height:auto;
 }
 
 #option-2{
@@ -448,8 +461,7 @@ fieldset{
 }
 
 #make-new-app{
-    position:absolute;
-    right:0;
+    margin:0;
 }
 
 .appointment{
@@ -460,7 +472,7 @@ fieldset{
     flex-direction: column;
     padding:10px;
     justify-content: space-evenly;
-    margin:20px;
+    margin:20px 10px;
     border-radius: 10px;
 }
   
@@ -526,8 +538,8 @@ fieldset{
 }
 .app-desc:hover{
     cursor: pointer;
-    background-color: rgba(22, 160, 133,0.4);
-    transition: 0.2s;
+    background-color: rgba(22, 220, 180,1);
+    transition: 0.3s;
 }
 
 .app-call{
@@ -568,6 +580,27 @@ fieldset{
     visibility: visible;
     opacity: 1;
     transition: 0.5s;   
+}
+#delete-form{
+    text-decoration: none;
+    color:inherit;
+}
+#no-apps-question-mark{
+    width:90%;
+    height:80px;
+    border-radius: 6px;
+    color:var(--white);
+    background-color: rgba(223, 71, 89,1);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:20px;
+    font-size:16px;
+    font-weight: 600;
+}
+
+.Dr-information{
+    text-align: right;
 }
 
 #desc-popup{
@@ -627,12 +660,12 @@ fieldset{
     resize: none;
 }
 
-#rp-logo>img{
-    aspect-ratio: 1/1;
-    width:100px;
-}
 #rp-logo{
     align-self: center;
+    font-size: 30px;
+    font-weight: 700;
+    color:var(--green);
+    margin-bottom:20px;
 }
 
 #rp-ratings{
@@ -754,9 +787,9 @@ fieldset{
     justify-content: space-between;
     align-items: center;
 }
-.left-input>input{
+.left-input>input,.left-input>select{
     width:200px;
-    height: 20px;
+    height: 25px;
     border-radius: 5px;
     border: 1px solid var(--light);
 }
@@ -810,7 +843,6 @@ fieldset{
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-bottom: 50px;
 }
 
 .edit-name{
@@ -903,3 +935,111 @@ input::-webkit-inner-spin-button {
     align-items: center;
     padding-top:10px;
 }
+
+.inputfile {
+	width: 100%;
+	height: 50px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+    bottom:0;
+    left:0;
+}
+
+#edit-popup-label {
+    width:80%;
+    height: 50px;
+    padding:15px;
+    margin-top:20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--dark);
+    display: inline-block;
+    position: relative;
+    border-radius: 5px;
+}
+
+#edit-popup-label:hover ,#edit-popup-label-patient:hover {
+    background-color: var(--light);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#edit-popup-label-patient {
+    width:70%;
+    height: 100px;
+    margin:auto;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    border-radius: 5px;
+    grid-column-start: 2;
+    text-align: center;
+    grid-row-start: span 3;
+}
+
+
+
+/* SUCESS ANIMATION POPUP */
+
+
+#popup{
+    position:fixed;
+    top:14%;
+    left:40%;
+    width:250px;
+    height:300px;
+    background-color: var(--white);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    color: var(--green);
+}
+#wrapper{
+    height:100px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:transparent;
+}
+.checkmark__circle{
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: var(--green);
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
+}
+.checkmark{
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    margin: 10% auto;
+    box-shadow: inset 0px 0px 0px var(--green);
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
+}
+.checkmark__check{
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards
+}
+@keyframes stroke{100%{stroke-dashoffset: 0}}
+
+@keyframes scale{0%, 100%{transform: none}50%{transform: scale3d(1.1, 1.1, 1)}}
+
+@keyframes fill{100%{box-shadow: inset 0px 0px 0px 30px var(--green)}}

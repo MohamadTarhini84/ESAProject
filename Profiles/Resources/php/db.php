@@ -5,4 +5,10 @@
 
     $conn=mysqli_connect($server, $name, $pass, 'esaproject1');
 
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
 ?>
