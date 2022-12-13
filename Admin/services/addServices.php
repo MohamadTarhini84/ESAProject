@@ -1,4 +1,23 @@
 <?php
+<<<<<<< HEAD
+include 'connect.php';
+$service="";
+$description="";
+$errorMessage="";
+if(isset($_POST['submit'])){
+        $service=$_POST['service'];
+        $description=$_POST['description'];
+        if(empty($service) || empty($description)){
+            $errorMessage ="ALL THE FIELDS ARE REQUIRED";
+        }
+        if(!empty($service) && !empty($description)){
+           $insert="INSERT INTO services(serviceName,description) VALUES ('$service','$description')";
+           $result= mysqli_query($conn,$insert);
+           header('Location:/ESAProject/Admin/services/service.php');
+        }  
+  }
+  ?>
+=======
 include './connect1.php';
 $service = "";
 $description = "";
@@ -16,6 +35,7 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+>>>>>>> dcc4e9c8d25b530368621eedcfebad1f1098d0c5
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,6 +57,21 @@ if (isset($_POST['submit'])) {
             }
             ?>
             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<<<<<<< HEAD
+            <div class="div">
+            <label class="label">Name Of Service:</label>
+            <input type="text" class="input"  name="service" value="<?php echo $service;?>"><br>
+            </div>
+            <div class="div">
+            <label class="labeli" >Description:</label>
+            <textarea class="input" name="description" ><?php echo $description;?></textarea>
+            </div>
+            <div class="DIV">
+            <button type="submit" class="btn" name="submit">ADD</button>
+            <a type="cancel" class="btnc" href="/ESAProject/services/service.php">Cancel</a>
+            </div>
+        </div>  
+=======
                 <div class="div">
                     <label class="label">Name Of Service:</label>
                     <input type="text" class="input" name="service" value="<?php echo $service; ?>"><br>
@@ -50,6 +85,7 @@ if (isset($_POST['submit'])) {
                     <a type="cancel" class="btnc" href="/ESAProject - Copy/Admin/services/service.php">Cancel</a>
                 </div>
         </div>
+>>>>>>> dcc4e9c8d25b530368621eedcfebad1f1098d0c5
         </form>
     </div>
     </div>

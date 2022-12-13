@@ -1,4 +1,27 @@
 <?php
+<<<<<<< HEAD
+include 'connect.php';
+$id = $_GET['id'];
+$query=mysqli_query($conn,"SELECT * FROM services WHERE id='$id'");
+$row=mysqli_fetch_array($query);
+$service="";
+$description="";
+$errorMessage="";
+if(isset($_POST['submit'])){
+        $id = $_POST['id'];
+        $service=$_POST['service'];
+        $description=$_POST['description'];
+        if(empty($service) || empty($description)){
+            $errorMessage ="ALL THE FIELDS ARE REQUIRED";
+        }
+        if(!empty($service) && !empty($description)){
+           $update=" UPDATE services SET description='$description',serviceName='$service'  WHERE id='$id' ";
+           $result= mysqli_query($conn,$update);
+           header('Location:/ESAProject/Admin/services/service.php');
+        }  
+  }
+  ?>
+=======
 include './connect1.php';
 $service = "";
 $description = "";
@@ -16,6 +39,7 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+>>>>>>> dcc4e9c8d25b530368621eedcfebad1f1098d0c5
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +52,31 @@ if (isset($_POST['submit'])) {
 
 <body>
     <div class="container">
+<<<<<<< HEAD
+            <img id="logo" src="medicine-animate.svg">
+            <div class="content">
+                <h2 class="title">Add  New Services</h2>
+                <?php
+                 if(!empty($errorMessage)){
+                   echo '<span class="error">'.$errorMessage.'</span>';
+                 }
+                ?>
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <div class="div">
+            <label class="label">Name Of Service:</label>
+            <input type="text" class="input"  name="service" value="<?php echo $service;?>"><br>
+            </div>
+            <div class="div">
+            <label class="labeli" >Description:</label>
+            <textarea class="input" name="description" ><?php echo  $description;?></textarea>
+            </div>
+            <input type="hidden" name="id" value="<?php echo $id;?>">
+            <div class="DIV">
+            <button type="submit" class="btn" name="submit">ADD</button>
+            <a type="cancel" class="btnc" href="/ESAProject/Admin/services/service.php">Cancel</a>
+            </div>
+        </div>  
+=======
         <img id="logo" src="news-animate.svg">
         <div class="content">
             <h2 class="title">Add New Services</h2>
@@ -50,6 +99,7 @@ if (isset($_POST['submit'])) {
                     <a type="cancel" class="btnc" href="/ESAProject - Copy/Admin/services/service.php">Cancel</a>
                 </div>
         </div>
+>>>>>>> dcc4e9c8d25b530368621eedcfebad1f1098d0c5
         </form>
     </div>
     </div>
@@ -60,7 +110,11 @@ if (isset($_POST['submit'])) {
 #logo {
     height: 500px;
     width: 500px;
+<<<<<<< HEAD
+    background-color:#16a085;
+=======
     background-color: #16a08590;
+>>>>>>> dcc4e9c8d25b530368621eedcfebad1f1098d0c5
 }
 
 .container {
@@ -139,6 +193,19 @@ if (isset($_POST['submit'])) {
     font-size: 20px;
 
 }
+<<<<<<< HEAD
+.label{
+    font-size:18px;
+    color:#16a085;
+    margin-right:265px;
+    font-weight:600;
+}
+.labeli{
+    font-size:18px;
+    color:#16a085;
+    margin-right:300px;
+    font-weight:600;
+=======
 
 .label {
     font-size: 18px;
@@ -152,5 +219,6 @@ if (isset($_POST['submit'])) {
     color: #16a085;
     margin-right: 315px;
     font-weight: 600;
+>>>>>>> dcc4e9c8d25b530368621eedcfebad1f1098d0c5
 }
 </style>

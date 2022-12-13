@@ -10,7 +10,7 @@
 <body>
     <div class="container my-5" >
         <h2 style="text-align:center;font-size:45px;text-shadow:2px 2px 2px gray;">List of Services</h2>
-        <a class="btn btn-primary" href="/ESAProject - Copy/Admin/services/addServices.php" role="button" style=" background-color:#367952;color:#fff;font-size:18px;border:none;margin-top:20px;font-weight:500;">Add New Service</a>
+        <a class="btn btn-primary" href="/ESAProject/Admin/services/addServices.php" role="button" style=" background-color:#367952;color:#fff;font-size:18px;border:none;margin-top:20px;font-weight:500;">Add New Service</a>
         <br>
         <table class="table" style="margin-top:10px;">
             <thead class="titre">
@@ -25,14 +25,14 @@
             <tbody>
                 <?php
                 //creation connection avec database
-                $conn=mysqli_connect('localhost','root','','services');
+                $conn=mysqli_connect('localhost','root','','esaproject1');
                 //check connection
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
                   }
                  
                   //select from data base
-                  $select=" SELECT * FROM service";
+                  $select=" SELECT * FROM services";
                   $result= mysqli_query($conn, $select);
                   if (mysqli_num_rows($result) > 0) {
                     //read data of each row
@@ -43,8 +43,8 @@
                         <td style='font-size:18px;font-weight:500;'>$row[description]</td>
                         <td style='font-size:18px;font-weight:500;'>$row[created_at]</td>
                         <td>
-                            <a style='background-color:#367952;border:none;padding:5px 17px 5px 17px;' class='btn btn-primary btn-sm' href='/ESAProject - Copy/Admin/services/edit.php?id=$row[id]'>Edit</a>
-                            <a class='btn btn-danger btn-sm' href='/ESAProject - Copy/Admin/services/deletServices.php?id=$row[id]'>Delete</a>
+                            <a style='background-color:#367952;border:none;padding:5px 17px 5px 17px;' class='btn btn-primary btn-sm' href='/ESAProject/Admin/services/edit.php?id=$row[id]'>Edit</a>
+                            <a class='btn btn-danger btn-sm' href='/ESAProject/Admin/services/deletServices.php?id=$row[id]'>Delete</a>
              
                         </td>
                     </tr>";
