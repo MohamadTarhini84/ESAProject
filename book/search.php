@@ -9,7 +9,7 @@ class User
 }
 /* Receive the RAW post data. */
 $content = trim(file_get_contents("php://input"));
-require_once('./conn.php');
+require_once('../connect1.php');
 /* $decoded can be used the same as you would use $_POST in $.ajax */
 $decoded = json_decode($content, true);
 $data = [];
