@@ -1,12 +1,39 @@
-let min=new Date();
-let max=new Date();
-min.setHours(9,30,0);
-max.setHours(16,0,0);
+let timeForms=document.querySelectorAll('.grid-form');
+    
+timeForms.forEach((form)=>{
+    form.addEventListener('submit',function (e){
+        e.preventDefault();
 
-function validateTimes(a){
-    let day=document.getElementsByClassName('grid-edit-times');
-    let children=day[a].children;
 
-    let start=children[1].value;
-    let end=children[3].value;
-}
+        let timeInput1=form.childNodes[3].childNodes[3];
+        let timeInput2=form.childNodes[3].childNodes[7];
+        let whichDay=form.childNodes[1].innerHTML.toLowerCase();
+        let startTimeInt=parseInt(timeInput1.value.substring(0,2))+parseInt(timeInput1.value.substring(3))/100;
+        let endTimeInt=parseInt(timeInput2.value.substring(0,2))+parseInt(timeInput2.value.substring(3))/100;
+        
+        if(startTimeInt>=9 && endTimeInt<=16 && startTimeInt<endTimeInt){
+            allFormInputs.forEach((a)=>{
+                a.setAttribute('style','border:1px solid var(--light);');
+            })
+    
+            $.ajax({
+                type: "POST",
+                url: "./Resources/php/processTimes.php",
+                dataType: "json",
+                data: {day:whichDay,startTime:timeInput1.value, endTime:timeInput2.value}
+            }).then(
+                function(data){
+                    if (data.code == "200"){
+                        coolPopup();
+                    } else {
+                        console.log(data.msg);
+                    }
+                }
+            );
+        } else {
+            timeInput1.setAttribute('style','border:1px solid red;');
+            timeInput2.setAttribute('style','border:1px solid red;');
+            alert('Time has to be between 9:00 AM and 4:00 PM and Start Time has to be less than End Time');
+        }
+    })
+});
