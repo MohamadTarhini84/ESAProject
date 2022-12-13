@@ -1,352 +1,159 @@
+<?php  require('../config/constants.php');?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+	<title>Login Form</title>
+	<link rel="stylesheet" type="text/css" href="css/style-login.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.5">
+</head>
+<body>
+	
+	<img class="wave" src="img/wave-01.jpg">
+	<h1>
+			<?php
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=0.75">
-    <title>Admin Dashboard</title>
+				if(isset($_SESSION['no-login-message'])){
+					echo $_SESSION['no-login-message'];
+					unset($_SESSION['no-login-message']);
+					echo "<br><br>";
+				}
+				if(isset($_SESSION['user'])){
+					header('location:'.SITEURL.'admin/dashboard.php');
+				}
+			?>
+			</h1>
+	<div class="container">
+		<div class="img">
+			<img src="img/bg.svg">
+		</div>
+		
+		<div class="login-content">
+			<form action="" method="post">
 
-    <!-- Montserrat Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    
-    <!-- Material Symbols -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-    
-    <!-- font awesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-
-
-
-  </head>
-
-  <body>
-    <div class="grid-container">
-      <!-- Header -->
-      <header class="header">
-        <div class="menu-icon" onclick="openSidebar()">
-          <span class="material-icons-outlined">menu</span>
+				<img src="img/avatar.svg">
+				<h2 class="title">Welcome</h2>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Username</h5>
+           		   		<input type="text" name="username" class="input" >
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input type="password" name="password" class="input" >
+            	   </div>
+            	</div>
+            	
+            	<input type="submit" name="submit" class="btn" value="Login" >
+				
+            </form>
+			
         </div>
-        <div class="header-left">
-          <span class="material-icons-outlined">search</span>
-        </div>
-        <div class="header-right">
-          <span class="material-icons-outlined">notifications</span>
-          <span class="material-icons-outlined">email</span>
-          <span class="material-icons-outlined">account_circle</span>
-        </div>
-      </header>
-      <!-- End Header -->
+		<?php
+  //check if the submit button is clicked
+ // echo '<h1> Empty </h1>';
+ 
+if(isset($_POST['submit'])){
 
-      <!-- Sidebar -->
-      <aside id="sidebar">
-        <div class="sidebar-title">
-          <div class="sidebar-brand">
-            <span class="material-icons-outlined"><img src="images/logo.png" alt="logo" style="background-color:#21232d ;"></span> MedCenter
-          </div>
-          <span class="material-icons-outlined closeIc" onclick="closeSidebar()">close</span>
-        </div>
+	if(empty($_POST['username'])||empty($_POST['password'])){
+		echo '<h1> Empty </h1>';
+	}
 
-        <ul class="sidebar-list">
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined" id="">dashboard</span>  Dashboard
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined">admin_panel_settings</span>  Admin
-          </li>          
-          <li class="sidebar-list-item">
-            <span class="fa fa-user-md " style="font-size: 20px;"></span> &nbsp; Doctors
-          </li>
-          <li class="sidebar-list-item"> 
-            <span class="material-symbols-outlined">personal_injury</span> Patients
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-symbols-outlined">book_online</span> Appointments
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-symbols-outlined ">medication</span> Pharmacy
-          </li>
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined">shopping_cart</span> Sales Orders
-          </li>
-          
-          <li class="sidebar-list-item">
-            <span class="material-icons-outlined">settings</span> Settings
-          </li>
-        </ul>
-      </aside>
-      <!-- End Sidebar -->
-<style>
-  hr{
-    border: solid 1px black;
+	else{
+				
+		$username=$_POST['username'];
+		$password=$_POST['password'];		
 
-  }
-</style>
-      <!-- Main -->
-      <main class="main-container">
-        <div class="main-title">
-          <h2 class="font-weight-bold">DASHBOARD</h2>
-        </div>
-
-        <div class="main-cards">
-
-          <div class="card" >
-            <div class="card-inner">
-              <p class="text-primary">PATIENTS</p>
-              <span class="material-symbols-outlined text-blue">personal_injury</span>
-            </div>
-            <span class="text-primary font-weight-bold">558</span>
-          </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">Admins</p>
-              <span class="material-symbols-outlined text-blue">medication</span>
-            </div>
-            <span class="text-primary font-weight-blue">4</span>
-          </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">DOCTORS</p>
-              <span class="fa fa-user-md text-blue"></span>
-            </div>
-            <span class="text-primary font-weight-bold">79</span>
-          </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">PATIENTS</p>
-              <span class="material-symbols-outlined text-blue">personal_injury</span>
-            </div>
-            <span class="text-primary font-weight-bold">56</span>
-          </div>
-
-        
-        <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">APPOINTMENTS</p>
-              <span class="material-symbols-outlined text-blue">book_online</span>
-            </div>
-            <span class="text-primary font-weight-bold">56</span>
-          </div>
-
-        </div>
-<!-- -------------------------------charts div----------------------------------------->
-        <div class="charts">
-
-          <div class="charts-card">
-            <p class="chart-title">Appointments</p>
-            <div id="bar-chart"></div>
-          </div>
-
-          <div class="charts-card">
-            <p class="chart-title">Patients per Department</p>
-            <div id="area-chart"></div>
-          </div>
-
-        </div>
-<!-- -------------------------------details div----------------------------------------->
-        <div class="details">
-
-            <div class="charts-card">
-              <p class="chart-title">Appointments</p>
-              <div class="card-inner">
-                <span class="material-symbols-outlined text-blue marg">book_online</span>
-                
-                <span style="font-size: 20px; " class="margR">150 Patients</span>                                             
-            </div>
-            <br>
-            <hr>  
-             <!--Appointments List-->
-          <div class="list">          
-            <table class="table">
-              <thead>
-                <tr>
-                  
-                  <th>Name</th>            
-                  <th>Department</th>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Doctor</th>
-                  <th>Status</th>
-                  
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <!--<td class="name-img">
-                    <img src="img/avatar.svg" alt="" class="climg">
-                    
-                  </td>-->
-                  <td>Sam David</td>
-                  <td>Cardiology</td>
-                  <td>03-24-22</td>
-                  <td>8:00AM</td>
-                  <td>Dr.Doctor Doctor</td>
-                  <td>Confirmed</td>
-                </tr>                
-              </tbody>
-            </table>
-          </div>
-     
-      </div>
-        <!-- Recent Orders-->
-          <div class="charts-card">
-            <p class="chart-title"> Orders</p>
-            <div>
-                <div class="card-inner">
-                    <span class="material-symbols-outlined text-blue marg">medication</span>
-                    <span style="font-size: 20px; " class="margR">500 patient</span>                                                                
-                </div>
-                <br>
-                <hr> 
-
-                <div class="list">          
-                  <table class="table">
-                    <thead>
-                      <tr>
-                      
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Qty</th>
-                        <th>Order Date</th>
-                        <th>Status</th>                  
-                        <th>Customer Name</th>
-
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="name-img">01</td>
-                        <td>Face Mask</td>                  
-                        <td>20.00</td>
-                        <td>2</td>
-                        <td>40.00</td>
-                        <td></td> 
-                        <td>Delivered</td>
-                      </tr>                      
-                    </tbody>
-                  </table>
-                </div>
-                
-        </div>
-        </div>
-        </div>
-      <!------------------------------Patients Reviews------------------------------------------------->
-      <div class="details">
-
-            
-        <!-- Recent Orders-->
-          <div class="charts-card">
-            <p class="chart-title"> Orders</p>
-            <div>
-                <div class="card-inner">
-                    <span class="material-symbols-outlined text-blue marg">medication</span>
-                    <span style="font-size: 20px; " class="margR">500 patient</span>      
-                                                          
-                </div>
-                <br>
-                <hr> 
-
-                <div class="list">          
-                  <table class="table">
-                    <thead>
-                      <tr>
-                      
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Qty</th>
-                        <th>Order Date</th>
-                        <th>Status</th>                  
-                        <th>Customer Name</th>
-
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                      <td class="name-img">
-                    
-                    01
-                  </td>
-                  <td>Face Mask</td>                  
-                  <td>20.00</td>
-                  <td>2</td>
-                  <td>40.00</td>
-                  <td>27-11-22</td> 
-                  <td>Delivered</td>
-                      
-                    </tbody>
-                  </table>
-                </div>
-                
-        </div>
-        </div>
-      
-        <div class="charts-card">  
-          <p class="chart-title">Patients Reviews</p>
-                    
-            <div class="card-inner">
-                <span class="material-symbols-outlined text-blue marg" >personal_injury</span>
-                <div>
-                  <select name="neol" id="newold" class="det-select margR" >
-                    <option value="new">New</option>
-                    <option value="old">Old</option>
-                  </select>
-                </div>                     
-          </div> 
-          <br>           
-            <hr>
-          <div class="Rev-inner"> 
-            <div class="customer">            
-                <div class="listRev">
-                  <div> <img src="img/avatar.svg" alt="" ></div>
-                  <div class="dr-details">
-                    <h4>Dr Doctor Doctor <br>
-                      <small>Pediatric</small><br>
-                      <small>(45) Excellent</small></h4>            
-                  </div>
-                </div>  
-                <div class="contact">
-                  <span >150 Patients</span>                  
-                </div>            
-          </div>
-          <div class="customer">            
-            <div class="listRev">
-              <div> <img src="img/avatar.svg" alt="" ></div>
-              <div class="dr-details">
-                <h4>Dr Doctor Doctor <br>
-                <small>Pediatric</small><br>
-                <small>(45) Excellent</small>
-              </h4>                  
-              </div>
-            </div>  
-            <div class="contact">
-              <span >150 Patients</span>                  
-            </div>            
-          </div>
-
-        </div>
-
-      </div>
+		//sql to check if the username and password exist or not
+		$sql="SELECT * FROM admin WHERE username='$username' AND pass='$password'";
+		//execute the query
+		$res=mysqli_query($conn,$sql);
+		
+		//check if user exists or not
+		 $count = mysqli_num_rows($res);
+				
+		if($count==1){
+			$row = mysqli_fetch_assoc($res);
+		//user available
+			$_SESSION['login']="<div >Login Successful.</div>";
+			$_SESSION['user']=$username;//check if the user is logged in or not and logout will unset it
+			$usertype=$row['type'];
+			$_SESSION['userType']=$usertype;
+			$aid=$row['id'];
+			$_SESSION['aid']=$aid;
+			//redirect to home page
+			echo "<h1>sucess</h1>";
+			header('location:'.SITEURL.'admin/dashboard.php');
+			//header('location:http://localhost:80/suls/admin/dashboard.php');
+		}
+		else{
+		//user not available and login fail
+			$_SESSION['login']="<div> Username OR Password did not match </div>";
+			echo "<h1>failed</h1>";
+			header('location:http://localhost:80/suls/');
+		}
+	}
+}
+  
+?>
     </div>
-  </div>
+	
 
-      </main>
-      <!-- End Main -->
-
-    <!-- Scripts -->
-    <!-- ApexCharts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.0/apexcharts.min.js"></script>
-    <!-- Custom JS -->
     <script src="javascript/scripts.js"></script>
-    <script src="javascript/scripts1.js"></script>
-  </body>
+	
+</body>
 </html>
+
+
+
+<?php
+  //check if the submit button is clicked
+ // echo '<h1> Empty </h1>';
+ /*
+if(isset($_POST['submit'])){
+
+	if(empty($_POST['username'])||empty($_POST['password'])){
+		echo '<h1> Empty </h1>';
+	}
+	else{
+		echo $username=$_POST['username'];
+		echo  $password=$_POST['password'];
+		echo '<h1>'.$username.'</h1>';
+		echo $password;
+		//sql to check if the username and password exist or not
+		echo $sql="SELECT * FROM admin WHERE username='$username' AND pass='$password'";
+		//execute the query
+		echo $res=mysqli_query($conn,$sql);
+
+		//check if user exists or not
+		echo  $count = mysqli_num_rows($res);
+		
+		if($count==1){
+		//user available
+		$_SESSION['login']="<div >Login Successful.</div>";
+		$_SESSION['user']=$username;//check if the user is logged in or not and logout will unset it
+		//redirect to home page
+		echo "<h1>sucess</h1>";
+		//header('location:'.SITEURL.'admin/dashboard.php');
+		header('location:http://localhost:80/suls/admin/dashboard.php');
+		}
+		else{
+		//user not available and login fail
+		$_SESSION['login']="<div> Username OR Password did not match </div>";
+		echo "<h1>failed</h1>";
+		header('location:http://localhost:80/suls/');
+		}
+	}
+}*/
+  
+?>

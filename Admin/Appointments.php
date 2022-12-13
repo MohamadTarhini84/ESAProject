@@ -1,5 +1,103 @@
+<?php  require('../config/constants.php');?>
+<?php  require('./partials/login-check.php');?>
 
-<?php  include('./partials/sidebar.php');?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width,initial-scale=0.75">
+    <title>MedCenter-Appointments</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+  a{
+    text-decoration:none!important;
+    color:black;
+  }
+  a:hover{
+    color: white !important;
+  }
+</style>
+</head>
+
+<body>
+    <div class="grid-container" id="blur">
+        <!-- Header -->
+        <header class="header">
+          <div class="menu-icon" onclick="openSidebar()">
+            <span class="material-icons-outlined">menu</span>
+          </div>
+          <div class="header-left">
+            <span class="material-icons-outlined">search</span>
+          </div>
+          <div class="header-right">
+            <span class="material-icons-outlined">notifications</span>
+            <span class="material-icons-outlined">email</span>
+            <span class="material-icons-outlined">account_circle</span>
+          </div>
+        </header>
+        <!-- End Header -->
+  
+        <!-- Sidebar -->
+        <aside id="sidebar">
+          <div class="sidebar-title">
+            <div class="sidebar-brand">
+              <span class="material-icons-outlined"><!--<img src="images/logo.png" alt="logo" style="background-color:#21232d ;">--></span> MedCenter
+            </div>
+            <span class="material-icons-outlined closeIc" onclick="closeSidebar()">close</span>
+          </div>
+  
+          <ul class="sidebar-list">
+            <li class="sidebar-list-item" >
+            <a href="dashboard.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">dashboard</span> Dashboard</a>
+            </li>
+            <li class="sidebar-list-item" >
+            <a href="admins.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">admin_panel_settings</span>  Admins</a>
+            </li>          
+            <li class="sidebar-list-item" >
+            <a href="doctors.php"style="color:white!important; text-align:left"><span class="fa fa-user-md " style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors</a>
+            </li>
+            <li class="sidebar-list-item" > 
+            <a href="patients.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="Patients">personal_injury</span> Patients</a>
+            </li>
+            <li class="sidebar-list-item">
+            <a href="appointments.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="appo">book_online</span> Appointments</a>
+            </li>
+  
+            <!--<li class="sidebar-list-item">
+              <span class="material-symbols-outlined " id="phar">medication</span> Pharmacy
+            </li>
+            <li class="sidebar-list-item">
+              <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
+            </li>-->
+            
+            <li class="sidebar-list-item">
+            <a href="add-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="reg">settings</span> Register New</a>
+            </li>
+            <li class="sidebar-list-item">
+            <a href="update-admin.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" id="upd">settings</span> Update Profile</a>
+            </li>
+            <li class="sidebar-list-item">
+              <a href="logout.php"style="color:white!important; text-align:left"><span class="material-icons-outlined" >logout</span>Logout</a>
+            </li>
+          </ul>
+        </aside>
+        <!-- End Sidebar -->
 
       <!-- Main -->
       
@@ -27,7 +125,7 @@
                   <th>Email</th>
                   <th>Age</th>
                   <th>Gender</th>                  
-                  <th>Department</th>
+                  <th>Speciality</th>
                   <th>Date</th>
                   <th>Time</th>
                   <th>Doctor</th>
@@ -36,23 +134,66 @@
                 </tr>
               </thead>
               <tbody>
+              <?php
+
+                  $sql="SELECT users.firstName ,users.lastName,users.email,users.age,users.gender,appointments.*,doctordetails.speciality,doctordetails.fees
+                  FROM appointments
+                  join users 
+                  on appointments.patientID=users.id
+                  join doctordetails 
+                  on doctordetails.doctorID=appointments.doctorID order BY appointments.id";
+                  
+                  //execute the query
+                  $res=mysqli_query($conn,$sql);
+                  $count=mysqli_num_rows($res);
+                  $sn=1;
+                  while($row = mysqli_fetch_assoc($res)){
+                    
+                  //user available
+                    $cid=$row['id'];
+                    $patname = $row['firstName'].' '.$row['lastName'];
+                    
+                    $email=$row['email'];
+                    $age=$row['age'];
+                    $gender=$row['gender'];
+                    
+                    $spec=$row['speciality'];
+                    $date=$row['appDate'];
+                    $time=$row['appTime'];
+                    $fee=$row['fees'];
+
+                    $drID=$row['doctorID'];
+                    $sql2="SELECT firstName ,lastName
+                    FROM users
+                    where id='$drID'";
+                    $res2=mysqli_query($conn,$sql2);
+                    $row2 = mysqli_fetch_assoc($res2);
+                    
+                    $drName = $row2['firstName'].' '.$row2['lastName'];
+                    
+
+              ?>
                 <tr>
                   <td class="name-img">
-                    <img src="img/avatar.svg" alt="" class="climg">
-                    01
+                  <img src="img/avatar.svg" alt="" class="climg">&nbsp
+                    <?php echo '0'.$sn;?>                   
                   </td>
-                  <td>Sam David</td>
-                  <td>Sam-David@email.com</td>
-                  <td>23</td>
-                  <td>Male</td>
-                  <td>Pediatric</td>
-                  <td>03-24-22</td>
-                  <td>8:00AM</td>
-                  <td>Dr.Doctor Doctor</td>
-                  <td>50$</td>                                   
-                  <td><button onclick="toggle()">View</button></td>
+                  <td><?php echo $patname; ?></td>
+                  <td><?php echo $email;?></td>
+                  <td><?php echo $age;?></td>
+                  <td><?php echo $gender;?></td>
+                  <td><?php echo $spec;?></td>
+                  <td><?php echo $date;?></td>
+                  <td><?php echo $time;?></td>
+                  <td><?php echo 'Dr'.$drName; ?></td>
+                  <td><?php echo '$'.$fee;?></td>                                   
+                  <td><button><a href="<?php echo SITEURL; ?>admin/AppDetails.php?app_id=<?php echo $cid?>&patname=<?php echo $patname?>&drname=<?php echo $drName?>"> View</button></td>
                 </tr>
-              
+                
+                <?php
+                  $sn++;
+                }
+                ?> 
               </tbody>
             </table>
             
@@ -61,7 +202,7 @@
     </div>
 </div>
 <div class="popup" id="popup">
-    <h2>Appointmet by Mr Patient Pat</h2>
+    Appointmet by <br> <h2 ?>"></h2>
     <h3>Appointment Details</h3>
     <br>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore voluptas quasi voluptate iure quo deserunt dicta, minus modi odit labore. 
@@ -71,6 +212,7 @@
     <button onclick="toggle()">Delete</button>
 
 </div>
+               
       </main>
       
       <!-- End Main -->
@@ -80,27 +222,17 @@
     
     <!-- Custom JS -->
     <script src="javascript/scripts.js"></script>
-    <script>
-      /*
-      function openPopUp(){
-        popup.classList.add("open-popup");
-
-      }
-      function closePopUp(){
-        popup.classList.remove("open-popup");
-
-      }
-      */
-    </script>
     <script src="javascript/scripts1.js"></script>
     <script>
-      function toggle(){
+      var b;
+      function toggle(){        
         var blur=document.getElementById('blur');
         blur.classList.toggle('active');
         var popup=document.getElementById('popup');
         popup.classList.toggle('active');
 
       }
+      
     </script>
   </body>
 </html>

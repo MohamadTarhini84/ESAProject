@@ -1,78 +1,24 @@
 <?php  require('../config/constants.php');?>
 <?php  require('./partials/login-check.php');?>
-
-<?php 
-    if(isset($_SESSION['userType'])){
-      if($_SESSION['userType']=='100'){
-        $_SESSION['not super admin']="<div style='text-center'> You do not have access to the admins page</div>";
-        header('location:'.SITEURL.'admin/dashboard.php');
-      }
-    }  
-?>
 <?php
-
-  $errors=array(
-      "usernameError"=>"",
-      "passError"=>"",
-      "verfError"=>"",
-      "verfpass"=>"",
-      "exist"=>"",
-      "success"=>""
-  );
-  
-  if(isset($_POST['submit'])){
-
-      if(empty($_POST['username'])){
-          $errors['usernameError']= 'username field is empty';
-      }
-      if(empty($_POST['pass'])){
-          $errors['passError']= 'password field is empty';
-      }
-      if(empty($_POST['Verpass'])){
-          $errors['verfError']= 'verify password field is empty';
-      }
-
-      else{
-          
-        $username=$_POST['username'];
-        $password=$_POST['pass'];
-        $passwordver=$_POST['Verpass'];
-
-        //sql to check if the username and password exist or not
-        $sql="SELECT * FROM admin WHERE username='$username'";
-        //execute the query
-        $res=mysqli_query($conn,$sql);
-        
-        //check if user exists or not
-        $count = mysqli_num_rows($res);
-            
-        if($count!=0){
-          $errors['exist']="username already exists";
-        }
-        else{
-            if($password != $passwordver){
-          
-              $errors['verfpass']= 'Passwords do not match';
-            }
-            else{
-              
-                $sql2="INSERT INTO admin SET
-                username='$username',
-                pass='$password'
-                ";
-                $res2=mysqli_query($conn,$sql2);
-                if($res2==true){
-                  $errors['success']="Admin added successfully";
-                }
-              else{
-                $errors['success']="Admin added successfully";
-                }
-            }
-          
-        }
+    if(isset($_GET['app_id'])){
+    $aid = $_GET['app_id'];
+    $patname=$_GET['patname'];
+    $docname=$_GET['drname'];
+    $sql = "SELECT * FROM appointments WHERE id='$aid'";
+                
+    $res=mysqli_query($conn,$sql);
+                
+    $row=mysqli_fetch_assoc($res);
+                        
+    $date=$row['appDate'];
+    $time=$row['appTime'];
+    
+                
     }
-  }
-
+    else{
+        header('location:http://localhost:80/ESAProject/admin/appointments.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,7 +26,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width,initial-scale=0.75">
-    <title>MedCenter-Add New</title>
+    <title>MedCenter-Appointmnent Details</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -96,15 +42,45 @@
     
     
     <!-- Custom CSS -->
-    
-    
-    <link rel="stylesheet"  href="css/register.css">    
     <link rel="stylesheet" href="css/styles.css">
+
 <style>
+    .popup2{
+        width:500px;
+        height: 500px;
+        background-color:  #367952;
+        border-radius: 6px;
+        margin: auto;
+        
+        /*transform: translate(-50%,-50%) scale(0.1);*/
+        text-align: center;
+        padding: 10px 30px 30px;
+        color: #333;
+        opacity: 1;
+        visibility: visible;
+        transition: 0.4s,top 0.4s;
+        }
+
+
+
+        .popup2 button{
+        background-color: white !important;
+        color:   #367952 !important;
+        
+        }
+        .popup2 button:hover{
+        background:  #367952 !important;
+        color: #fff !important; 
+        transition: 0.5rem;
+    }
+    
   a{
     text-decoration:none!important;
   }
+
 </style>
+
+
 </head>
 
 <body>
@@ -170,64 +146,60 @@
           </ul>
         </aside>
         <!-- End Sidebar -->
-  
-        <!-- Main -->
-        <main class="main-container">
-                
-          <div class="main-title">
-            <h2 class="font-weight-bold">REGISTER NEW  <br>
-          <b style="color:red"><?php echo $errors['exist']; ?>
-          <?php echo $errors['success'] ?></b>
-        </h2>
-          </div>
-          <div class="container" style="margin: auto;">
-            <div class="login-content" >
-              <form action="<?php $_SERVER['PHP_SELF']?>"  method="POST">
-                            
-                <h2 class="title">Register 
-                </h2>
-                <div class="input-div one">
-                  <div class="i">
-                    <i class="fas fa-user"></i>
-                  </div>
-                  <div class="div">
-                  <h6 style="text-align:left; color:red"><?php echo $errors['usernameError']; ?></h6>
-                    <h5>Username</h5>
-                    <input type="text" name="username" class="input">
-                    
-                  </div>
-                  
-                </div>
-                <div class="input-div pass">
-                  <div class="i"> 
-                    <i class="fas fa-lock"></i>
-                  </div>
-                  <div class="div">
-                  <h6 style="text-align:left; color:red"><?php echo $errors['passError']; ?></h6><br>
-                    <h5>Password</h5>
-                    <input type="password" name="pass" class="input">
-                  </div>    
-                </div>
-                <div class="input-div pass">
-                  <div class="i"> 
-                    <i class="fas fa-lock"></i>
-                  </div>
-                  <div class="div">
-                    <h6 style="text-align:left; color:red"><?php echo $errors['verfError'];?> <?php echo $errors['verfpass']; ?></h6><br>
-                    
-                    <h5> Confirm Password</h5>
-                    <input type="password" name="Verpass" class="input" >
-                  </div>
-                </div>
 
-                <input type="submit" name="submit" class="btn" value="Register New">
-              </form>
-            </div>            
-          </div>  
-    </main>
+      <!-- Main -->
+      
+
+      <main class="main-container">
+        <div class="main-title">
+          <h2 class="font-weight-bold">Appointments
+            <p style="color:#367952;">MedCenter
+              <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Appointment Details</small></p>
+        </h2>
+        </div>
+        
+        <div class="popup2">
+          <form action="<?php $_SERVER['PHP_SELF']?>"  method="POST">
+            <br> <h2>Appointmet for </h2>
+            <h2><?php echo $patname?> with</h2>
+            <h2>Dr.<?php echo $docname?></h2>
+            <hr>
+            <h3>Appointment Details</h3>
+            
+            <h4><?php echo $date ?><br><?php echo $time ?></h4>
+            <h5 style="text-align:left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore voluptas quasi voluptate iure quo deserunt dicta, minus modi odit labore. 
+            Nesciunt voluptatibus, recusandae est dolorem quibusdam mollitia iure minima reiciendis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni blanditiis obcaecati illum earum dolorum! Unde, exercitationem aliquid! Voluptatum vel pariatur autem consequatur similique. 
+            Placeat vel rem eligendi animi ut illo!</h5>
+            <br>
+            <input type="submit" name="Delete" class="btn" value="Delete">
+          </form>
+        </div>
+
+        <?php
+        if(isset($_POST['Delete'])){
+          $sql2 = "DELETE  FROM  Appointments where id = $aid ";
+          //execute the query
+          $res2 = mysqli_query($conn,$sql2);
+
+          if($res2==true){
+              
+              $_SESSION['delete'] = "Appointment Deleted Successfully";
+              header('location:http://localhost:80/ESAProject/admin/appointments.php');
     
-  </div>
-  <script src="javascript/scripts.js"></script> 
-  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-</body>
+          }
+          else {
+              //Failed to delete admin
+
+              $_SESSION['delete'] = "Failed to Delete Appointment . try Again Later";
+              header('location:'.SITEURL.'admin/appointments.php');
+          }
+          
+        }
+      ?>
+
+        
+    <script src="javascript/scripts.js"></script>
+    <script src="javascript/scripts1.js"></script>
+    </body>
 </html>
