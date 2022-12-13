@@ -116,6 +116,7 @@
         </div>
         <!-- end navbar -->
         <div class="bgImage">
+            <div class="overlay"></div>
             <div class="content">
                 <h1>Medical<span>Center</span></h1>
 

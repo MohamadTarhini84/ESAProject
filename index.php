@@ -159,6 +159,50 @@ session_start();
             <div id="tarhini-search-container">
                 <div id="tarhini-upper">
                     <div id="tarhini-head-1" class="tarhini-heading tarhini-button tarhini-selected"
+                        onclick="clickFind()">
+                        Find
+                        a doctor</div>
+                    <div id="tarhini-head-2" class="tarhini-heading tarhini-button" onclick="clickName()">Search by
+                        name
+                    </div>
+                </div>
+                <div id="tarhini-lower" class="bg-primary">
+                    <div id="option-1" style="display:flex">
+                        <form class="tarhini-form" id="datausers">
+
+                            <select class="sel" id="fetchval">
+                                <option disabled="" selected="">select filtres</option>
+
+                            </select>
+
+                            <input type="date" id="donedate" class="tarhini-input" placeholder="Select Date (Optional)">
+                            <input type="time" name="start_time" class="tarhini-input" id="starttime"
+                                class="form-control" />
+                            <input type="time" id="closetime" class="tarhini-input" class="form-control" />
+
+                            <button type="button" id="btnselect" name="btnselect" class="tarhini-search">Search</button>
+                        </form>
+                    </div>
+                    <div id="option-2" style="display:none">
+                        <form class="tarhini-form" id="userdata">
+                            <input type="text" id="users" name="user" class="tarhini-input" placeholder="Enter Name">
+                            <input type="date" id="datenow" class="tarhini-input" placeholder="Select Date (Optional)">
+
+                            <input type="time" id="timefrom" class="tarhini-input" name="timefrom"
+                                class="form-control" />
+                            <input type="time" id="findtime" class="tarhini-input" class="form-control" />
+
+                            <button type="button" id="btn" name="btn" class="tarhini-search">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="searchyasser">
+            <div id="tarhini-search-container">
+                <div id="tarhini-upper">
+                    <div id="tarhini-head-1" class="tarhini-heading tarhini-button tarhini-selected"
                         onclick="clickFind()">Find a doctor</div>
                     <div id="tarhini-head-2" class="tarhini-heading tarhini-button" onclick="clickName()">Search by name
                     </div>
@@ -182,7 +226,7 @@ session_start();
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- end search -->
 

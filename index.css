@@ -2069,6 +2069,16 @@ background-color: transparent;
     align-items: center;
 }
 
+.sel {
+    width: 100px;
+    height: 35px;
+    border: 1px solid #999;
+    font-size: 18px;
+    color: black;
+    border-radius: 5px;
+
+  }
+
 #tarhini-search-container{
     width:90%;
     height:200px;
@@ -2114,7 +2124,7 @@ background-color: transparent;
     align-items: center;
 }
 #option-1 input, #option-2 input{
-    width:25%;
+    width:15%;
     height:40px;
     align-self: center;
     margin:10px;
