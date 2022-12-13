@@ -980,7 +980,7 @@ session_start();
     //   service
 
     function divservice() {
-        const url = './services/ser.html';
+        const url = '.file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/services/ser.html';
         window.location.replace(url);
     }
 
@@ -988,20 +988,20 @@ session_start();
     // articl
 
     function morearticl() {
-        const url = './blog/blog.html';
+        const url = '.file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/blog/blog.html';
         window.location.replace(url);
     }
 
     // make 
     function makebtt() {
-        const url = './book/yasser.html';
+        const url = '.file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/book/yasser.html';
         window.location.replace(url);
     }
 
 
     //login
     function loginbtt() {
-        const url = '/Login/newSignIN.php';
+        const url = 'file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/Login/newSignIN.php';
         window.location.replace(url);
     }
 
