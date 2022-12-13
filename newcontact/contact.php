@@ -61,23 +61,12 @@ if (isset($_POST['submit'])) {
                 </a>
                 <div class="menu">
                     <ul>
-                        <li><a href="..file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/index.php">Home</a>
-                        </li>
-                        <li><a
-                                href="..file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/services/ser.html">Services</a>
-                        </li>
-                        <li><a
-                                href="..file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/book/yasser.php">Book</a>
-                        </li>
-                        <li><a
-                                href="..file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/blog/blog.html">Blog</a>
-                        </li>
-                        <li><a
-                                href="..file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/doctors/Doctors23.html">Doctors</a>
-                        </li>
-                        <li><a
-                                href="..file:///C:/Users/trabo/OneDrive/Documents/GitHub/ESAProject/about/About.html">About</a>
-                        </li>
+                        <li><a href="../index.html">Home</a> </li>
+                        <li><a href="../services/ser.html">Services</a> </li>
+                        <li><a href="../book/yasser.html">Book</a> </li>
+                        <li><a href="../blog/blog.html">Blog</a> </li>
+                        <li><a href="../doctors/Doctors23.html">Doctors</a> </li>
+                        <li><a href="../about/About.html">About</a> </li>
                         <li><a href="#">Contact</a> </li>
 
                     </ul>
