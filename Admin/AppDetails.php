@@ -171,7 +171,7 @@
         <div class="main-title">
           <h2 class="font-weight-bold">Appointments
             <p style="color:#367952;">MedCenter
-              <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Appointment Details</small></p>
+              <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Appointment Details</small></p>             
         </h2>
         </div>
         
@@ -189,7 +189,7 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni blanditiis obcaecati illum earum dolorum! Unde, exercitationem aliquid! Voluptatum vel pariatur autem consequatur similique. 
             Placeat vel rem eligendi animi ut illo!</h5>
             <br>
-            <button><a href="<?php echo SITEURL; ?>admin/AppDetails.php?app_id=<?php echo $aid?>&patname=<?php echo $patname?>&drname=<?php echo $drName?>"> Delete</button>
+            <button><a href="<?php echo SITEURL; ?>admin/deleteApp.php?app_id=<?php echo $aid?>&patname=<?php echo $patname?>"> Delete</button>
           </form>
         </div>
 
