@@ -987,7 +987,7 @@ session_start();
 
     //login
     function loginbtt() {
-        const url = '/Login/newSignIN.php';
+        const url = './loginn/newSignIN.php';
         window.location.replace(url);
     }
 
