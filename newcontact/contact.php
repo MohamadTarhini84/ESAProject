@@ -1,5 +1,5 @@
 <?php
-
+if(isset($_POST['submit'])){
     $name =$_POST['name'];
     $email =$_POST['email'];
     $message=$_POST['message'];
@@ -7,10 +7,10 @@
     $subject="Mail From Website";
     $headers="From: ".$email;
     $txt="You Have recivied an e-mail from" . $name .".\r\n". $message;
-    if($email != NULL){
     mail($mailTo,$subject,$txt,$headers);
-    }
     header("Location:contact.php?mailsend");
+}
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -153,7 +153,7 @@
         
 </div>
     <div class="contactForm" id="error">
-        <form id="form" >
+        <form id="form" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <h2>Send Message</h2>
             <div class="inputbox">
                 <input type="text" name="name" required="required" id="name"  onkeyup="validateName()">
@@ -172,7 +172,7 @@
                 <pre id="errormessage"  style="text-align: end;width:100%;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: red;"></pre>
             </div>
             <div class="inputbox">
-                <input   type="submit" value="send" id="submit" onclick="validateForm()">
+                <input   type="submit" name="submit" value="send" id="submit" onclick="validateForm()">
                 <diy id="errorsubmit" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: red;"></div>
             </div> 
             
