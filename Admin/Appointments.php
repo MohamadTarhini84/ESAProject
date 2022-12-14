@@ -125,6 +125,13 @@
           <h2 class="font-weight-bold">Appointments
             <p style="color:#367952;">MedCenter
               <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Appointments</small></p>
+              <?php
+              if(isset($_SESSION['deleteApp'])){
+                echo $_SESSION['deleteApp'];
+                UNSET($_SESSION['deleteApp']);
+              }
+              
+              ?>
         </h2>
         </div>
          

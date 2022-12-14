@@ -61,9 +61,9 @@ session_start();
                     </a>
                     <div class="menu">
                         <ul>
-                            <li><a class="link-home" href="./index.html">Home</a> </li>
-                            <li><a class="link-home" href="./services/ser.html">Services</a> </li>
-                            <li><a class="link-home" href="./book/yasser.html">Book</a> </li>
+                            <li><a class="link-home" href="./index.php">Home</a> </li>
+                            <li><a class="link-home" href="./services/ser.html">SERVICES</a> </li>
+                            <li><a class="link-home" href="./book/book.php">Book</a> </li>
                             <li><a class="link-home" href="./blog/blog.html">Blog</a> </li>
                             <li><a class="link-home" href="./doctors/Doctors23.html">Doctors</a> </li>
                             <li><a class="link-home" href="./about/About.html">About</a> </li>
@@ -168,31 +168,30 @@ session_start();
                 </div>
                 <div id="tarhini-lower" class="bg-primary">
                     <div id="option-1" style="display:flex">
-                        <form class="tarhini-form" id="datausers">
+                        <form class="tarhini-form">
 
                             <select class="sel" id="fetchval">
                                 <option disabled="" selected="">select filtres</option>
 
                             </select>
 
-                            <input type="date" id="donedate" class="tarhini-input" placeholder="Select Date (Optional)">
-                            <input type="time" name="start_time" class="tarhini-input" id="starttime"
-                                class="form-control" />
-                            <input type="time" id="closetime" class="tarhini-input" class="form-control" />
+                            <input type="date" class="tarhini-input" placeholder="Select Date (Optional)">
+                            <input type="time" name="start_time" class="tarhini-input" class="form-control" />
+                            <input type="time" class="tarhini-input" class="form-control" />
 
-                            <button type="button" id="btnselect" name="btnselect" class="tarhini-search">Search</button>
+                            <button type="button" name="btnselect" onclick="btnbook()"
+                                class="tarhini-search">Search</button>
                         </form>
                     </div>
                     <div id="option-2" style="display:none">
-                        <form class="tarhini-form" id="userdata">
-                            <input type="text" id="users" name="user" class="tarhini-input" placeholder="Enter Name">
-                            <input type="date" id="datenow" class="tarhini-input" placeholder="Select Date (Optional)">
+                        <form class="tarhini-form">
+                            <input type="text" name="user" class="tarhini-input" placeholder="Enter Name">
+                            <input type="date" class="tarhini-input" placeholder="Select Date (Optional)">
 
-                            <input type="time" id="timefrom" class="tarhini-input" name="timefrom"
-                                class="form-control" />
-                            <input type="time" id="findtime" class="tarhini-input" class="form-control" />
+                            <input type="time" class="tarhini-input" name="timefrom" class="form-control" />
+                            <input type="time" class="tarhini-input" class="form-control" />
 
-                            <button type="button" id="btn" name="btn" class="tarhini-search">Search</button>
+                            <button type="button" onclick="btnbook()" class="tarhini-search">Search</button>
                         </form>
                     </div>
                 </div>
@@ -987,7 +986,14 @@ session_start();
 
     //login
     function loginbtt() {
-        const url = '/Login/newSignIN.php';
+        const url = './loginn/newSignIN.php';
+        window.location.replace(url);
+    }
+
+    // btnserach
+
+    function btnbook() {
+        const url = './book/yasser.php';
         window.location.replace(url);
     }
 

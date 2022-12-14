@@ -14,7 +14,6 @@
 	<img class="wave" src="img/wave-01.jpg">
 	<h1>
 			<?php
-
 				if(isset($_SESSION['no-login-message'])){
 					echo $_SESSION['no-login-message'];
 					unset($_SESSION['no-login-message']);
@@ -23,8 +22,9 @@
 				if(isset($_SESSION['user'])){
 					header('location:'.SITEURL.'admin/dashboard.php');
 				}
+				
 			?>
-			</h1>
+	</h1>
 	<div class="container">
 		<div class="img">
 			<img src="img/bg.svg">
@@ -61,7 +61,6 @@
         </div>
 		<?php
   //check if the submit button is clicked
- // echo '<h1> Empty </h1>';
  
 if(isset($_POST['submit'])){
 
@@ -85,21 +84,21 @@ if(isset($_POST['submit'])){
 		if($count==1){
 			$row = mysqli_fetch_assoc($res);
 		//user available
-			$_SESSION['login']="<div >Login Successful.</div>";
-			$_SESSION['user']=$username;//check if the user is logged in or not and logout will unset it
 			$usertype=$row['type'];
-			$_SESSION['userType']=$usertype;
 			$aid=$row['id'];
+
+			$_SESSION['login']="<div >Login Successful.</div>";
+			$_SESSION['user']=$username;//check if the user is logged in or not and logout will unset it			
+			$_SESSION['userType']=$usertype;			
 			$_SESSION['aid']=$aid;
+
 			//redirect to home page
-			echo "<h1>sucess</h1>";
 			header('location:'.SITEURL.'admin/dashboard.php');
 			//header('location:http://localhost:80/suls/admin/dashboard.php');
 		}
 		else{
 		//user not available and login fail
 			$_SESSION['login']="<div> Username OR Password did not match </div>";
-			echo "<h1>failed</h1>";
 			header('location:http://localhost:80/suls/');
 		}
 	}
@@ -107,53 +106,8 @@ if(isset($_POST['submit'])){
   
 ?>
     </div>
-	
 
     <script src="javascript/scripts.js"></script>
-	
+
 </body>
 </html>
-
-
-
-<?php
-  //check if the submit button is clicked
- // echo '<h1> Empty </h1>';
- /*
-if(isset($_POST['submit'])){
-
-	if(empty($_POST['username'])||empty($_POST['password'])){
-		echo '<h1> Empty </h1>';
-	}
-	else{
-		echo $username=$_POST['username'];
-		echo  $password=$_POST['password'];
-		echo '<h1>'.$username.'</h1>';
-		echo $password;
-		//sql to check if the username and password exist or not
-		echo $sql="SELECT * FROM admin WHERE username='$username' AND pass='$password'";
-		//execute the query
-		echo $res=mysqli_query($conn,$sql);
-
-		//check if user exists or not
-		echo  $count = mysqli_num_rows($res);
-		
-		if($count==1){
-		//user available
-		$_SESSION['login']="<div >Login Successful.</div>";
-		$_SESSION['user']=$username;//check if the user is logged in or not and logout will unset it
-		//redirect to home page
-		echo "<h1>sucess</h1>";
-		//header('location:'.SITEURL.'admin/dashboard.php');
-		header('location:http://localhost:80/suls/admin/dashboard.php');
-		}
-		else{
-		//user not available and login fail
-		$_SESSION['login']="<div> Username OR Password did not match </div>";
-		echo "<h1>failed</h1>";
-		header('location:http://localhost:80/suls/');
-		}
-	}
-}*/
-  
-?>
