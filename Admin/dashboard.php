@@ -381,8 +381,7 @@
           ],
         labels: <?php echo json_encode($data)?>
       };
-
-
+      
       var radialChart = new ApexCharts(document.querySelector("#area-chart"), radialBaroptions);
       radialChart.render();
     </script>
