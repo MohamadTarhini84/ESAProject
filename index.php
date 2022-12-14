@@ -979,14 +979,14 @@ session_start();
 
     // make 
     function makebtt() {
-        const url = './book/yasser.html';
+        const url = './book/book.php';
         window.location.replace(url);
     }
 
 
     //login
     function loginbtt() {
-        const url = './ESAProject/loginn/newSignIN.php';
+        const url = './loginn/newSignIN.php';
         window.location.replace(url);
     }
 
