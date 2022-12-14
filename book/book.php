@@ -488,25 +488,25 @@ input:focus {
 <script>
 // buutt
 
-let blur = document.getElementById('page');
+// let blur = document.getElementById('page');
 
-function toggleApp() {
-    blur.classList.toggle('active');
-    let appPopup = document.getElementsByClassName("app-popup");
-    appPopup[0].classList.toggle('active');
-}
+// function toggleApp() {
+//     blur.classList.toggle('active');
+//     let appPopup = document.getElementsByClassName("app-popup");
+//     appPopup[0].classList.toggle('active');
+// }
 
 
 
 
 // navbar
 
-const toggle = document.getElementsByClassName('toggle')[0]
-const menu = document.getElementsByClassName('menu')[0]
+// const toggle = document.getElementsByClassName('toggle')[0]
+// const menu = document.getElementsByClassName('menu')[0]
 
-toggle.addEventListener('click', () => {
-    menu.classList.toggle('active')
-});
+// toggle.addEventListener('click', () => {
+//     menu.classList.toggle('active')
+// });
 
 
 // button search
@@ -535,6 +535,11 @@ function clickName() {
 
 
 // login
+function loginbtt() {
+    const url = '../ESAProject/Login/newSignIN.html';
+    window.location.replace(url);
+}
+
 function loginbtt() {
     const url = '../ESAProject/Login/newSignIN.html';
     window.location.replace(url);
