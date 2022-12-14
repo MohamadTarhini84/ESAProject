@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         slotMaxTime: "17:00:00",
         aspectRatio: 1.9,
         eventStartEditable:false,
+        firstDay: 1,
         events:[
             {
                 title:"Day Off",

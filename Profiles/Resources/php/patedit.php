@@ -29,7 +29,7 @@
         $errorMSG.=" missing password";
     }
 
-    $sql.=" WHERE id=1";
+    $sql.=" WHERE id=2";
     
     if(mysqli_query($conn,$sql)){
         $errorMSG.=" Table users Query Completed Successfully ";

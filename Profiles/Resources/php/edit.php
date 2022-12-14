@@ -13,7 +13,7 @@
     }
 
     if(isset($_POST['licence'])){
-        $sql.=", licenceID='".test_input($_POST['licence'])."'";
+        $sql2.=" licenceID='".test_input($_POST['licence'])."'";
     } else{
         $errorMSG.=" missing licence ID";
     }
@@ -37,7 +37,7 @@
     }
 
     if(isset($_POST['spec'])){
-        $sql2.= " speciality='".test_input($_POST['spec'])."'";
+        $sql2.= ",speciality='".test_input($_POST['spec'])."'";
     } else{
         $errorMSG.=" missing specialty";
     }

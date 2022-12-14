@@ -21,7 +21,7 @@
         $array2=array();
         // output data of each row
         while($row = mysqli_fetch_assoc($result2)) {
-            $a=array("appID"=>$row['id'],"appTime"=>$row['appTime']);
+            $a=array(["appID"=>$row['id'],"appTime"=>$row['appTime']]);
             array_push($array2,$a);
         }
         array_push($response,$array2);

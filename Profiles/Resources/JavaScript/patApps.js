@@ -71,10 +71,11 @@ window.addEventListener("load", async function() {
                 </div>
             </div>
             <div class="app-edit-delete">
-                <button class="app-button">
-                    <span>${conf}</span>
+                <button class="app-button" onclick="toggle('confirm-popup');delFormm.setAttribute('href','Resources/php/deleteApp.php?id=2&del=${element['id']}&what=edit')">
+                    <i class="fa-solid fa-pen"></i>
+                    Edit
                 </button>
-                <button class="app-button delete-one-app" onclick="toggle('confirm-popup');delFormm.setAttribute('href','Resources/php/deleteApp.php?id=1&del=${element['id']}')" style="border-left:1px solid var(--light)">
+                <button class="app-button delete-one-app" onclick="toggle('confirm-popup');delFormm.setAttribute('href','Resources/php/deleteApp.php?id=2&del=${element['id']}&what=del')" style="border-left:1px solid var(--light)">
                     <i class="fa-solid fa-trash"></i>
                     Cancel
                 </button>

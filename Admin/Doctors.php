@@ -186,9 +186,9 @@
     
                   //user available
                     $cid=$row['id'];
-                    $docname = $row['firstName'].' '.$row['lastName'];                    
+                    $docname = $row['fullName'];                    
                     $email=$row['email'];
-                    $age=$row['age'];
+                    $age=$row['birthday'];
                     $gender=$row['gender'];
                     $cer=$row['certificateNumber'];
                     $spec=$row['speciality'];
@@ -219,9 +219,10 @@
                     <td><?php echo $lID;?></td>
                     <td><?php echo $fee;?></td>
                     <td class="Appr" id="status"><?php echo $status;?></td>                                   
-                    <td><button><a style="color:black;" href="<?php echo SITEURL; ?>admin/Doctors.php?id=<?php echo $cid?>&docname=<?php echo $docname?>">View Profile</a></button>
+                    <td><button><a style="color:black;" href="<?php echo SITEURL; ?>Profiles/doctorProfile.html?id=<?php echo $cid?>">View Profile</a></button>
                     <button><a style="color:black;" href="<?php echo SITEURL; ?>admin/DeleteDoctor.php?app_id=<?php echo $cid?>">Delete Doctor</a></button>
-                      <button onclick="toggle()" > Validate</button>
+                    <button onclick="alert()" > Validate</button>
+                    <!-- <button onclick="toggle()" > Validate</button>-->
                     </td>
                 </tr>
                 <?php

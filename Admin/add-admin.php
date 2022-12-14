@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
     $passwordver = $_POST['Verpass'];
 
     //sql to check if the username and password exist or not
-    $sql = "SELECT * FROM admin WHERE username='$username'";
+    $sql = "SELECT * FROM admins WHERE fullName='$username'";
     //execute the query
     $res = mysqli_query($conn, $sql);
 
@@ -52,9 +52,10 @@ if (isset($_POST['submit'])) {
         $errors['verfpass'] = 'Passwords do not match';
       } else {
 
-        $sql2 = "INSERT INTO admin SET
-                username='$username',
-                pass='$password'
+        $sql2 = "INSERT INTO admins SET
+                fullName='$username',
+                pass='$password',
+                adminType='100'
                 ";
         $res2 = mysqli_query($conn, $sql2);
         if ($res2 == true) {

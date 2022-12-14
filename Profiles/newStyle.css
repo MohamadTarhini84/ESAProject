@@ -352,8 +352,16 @@ fieldset{
     justify-content: center;
 }
 
+#review-field{
+    background-color: var(--patientbg);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 .review-container{
-    width:500px;
+    width:450px;
     height:auto;
     display:flex;
     justify-content: space-evenly;
@@ -378,7 +386,6 @@ fieldset{
     border-radius: 10px;
     text-align: center;
     position:relative;
-    margin-top:5%;
     box-shadow: 5px 5px 20px -5px var(--dark);
 }
 
@@ -411,8 +418,8 @@ fieldset{
     transition: 0.2s;
 }
 
-#review-1st{
-    margin-top: 20%;
+.review-1st{
+    margin-top: 80px;
 }
 
 .quotes>img{

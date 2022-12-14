@@ -128,8 +128,6 @@
         <div class="main-title">
           <h2 class="font-weight-bold">DASHBOARD <br>
           <?php
-              
-
               if(isset($_SESSION['login'])){
                 echo $_SESSION['login'];
                 UNSET($_SESSION['login']);
@@ -137,11 +135,9 @@
               if(isset( $_SESSION['not super admin'])){
                 echo  $_SESSION['not super admin'];
                 UNSET( $_SESSION['not super admin']);
-              }
-               
+              }               
           ?>
-          </h2>
-          
+          </h2>          
         </div>
 
         <div class="main-cards">

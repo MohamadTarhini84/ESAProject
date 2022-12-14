@@ -236,11 +236,14 @@ if(isset($_POST['submit'])){
             menu.classList.toggle('active')
         });
 
+
         function loginbtt(){
-    const url = '../ESAProject/Login/newSignIN.html';
+    const url = '/ESAProject/Loginn/newSignIN.php';
     window.location.replace(url);
 }
 
         </script>
+    
+
 </body>
 </html>

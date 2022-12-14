@@ -73,10 +73,10 @@ session_start();
                     $userType=100;
                     $userType=101;
                     if (isset($_SESSION['name']) && $userType === 100) {
-                        echo "<p class='users'style='color:#16a085'> Hello "  . $_SESSION['name'] . "</p>";
+                        echo "<p class='users'style='color:#16a085'>"  . $_SESSION['name'] . "</p>";
                         echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
                     }elseif (isset($_SESSION['name']) && $userType === 101) {
-                        echo "<p class='users' style='color:#16a085'> Hello DR  " . $_SESSION['name'] . "</p>";
+                        echo "<p class='users' style='color:#16a085'>DR  " . $_SESSION['name'] . "</p>";
                         echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
                     }else{
                         echo "<a href='/ESAProject/Loginn/newSignIN.php' class='login-butt' style='text-decoration:none;'>Login</a>";
