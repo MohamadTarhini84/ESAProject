@@ -26,6 +26,7 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
                 $_SESSION['logged_in'] = true;
                 $_SESSION['name'] = $row['fullName'];
                 $_SESSION['id'] = $row['id'];
+                $_SESSION['userType']=$row['userType'];
                 header("Location:/ESAProject/index.php");
                 exit();
             } else {

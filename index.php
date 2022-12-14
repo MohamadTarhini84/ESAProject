@@ -70,13 +70,12 @@ session_start();
                         </ul>
                     </div>
                     <?php
-                    $userType=100;
-                    $userType=101;
+                    $userType='100' ;
                     if (isset($_SESSION['name']) && $userType === 100) {
-                        echo "<p class='users'style='color:#16a085'>"  . $_SESSION['name'] . "</p>";
+                        echo "<p class='users'style='color:#16a085'> "  . $_SESSION['name'] . "</p>";
                         echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
                     }elseif (isset($_SESSION['name']) && $userType === 101) {
-                        echo "<p class='users' style='color:#16a085'>DR  " . $_SESSION['name'] . "</p>";
+                        echo "<p class='users' style='color:#16a085'>" . $_SESSION['name'] . "</p>";
                         echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
                     }else{
                         echo "<a href='/ESAProject/Loginn/newSignIN.php' class='login-butt' style='text-decoration:none;'>Login</a>";
@@ -145,8 +144,10 @@ session_start();
                         Arepudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt
                         fugit,
                         deserunt rem suscipit placeat</div>
-                    <div class="makebutton"> <button onclick="makebtt()" class="butt" type="button">Make
-                            Appoinment</button></div>
+
+                        <div class="makebutton">
+                        <button onclick='makebtt()' class='butt' type='button'>Make Appoinment</button>
+                        </div>
                 </div>
             </div>
         </div>
@@ -977,7 +978,7 @@ session_start();
 
     // make 
     function makebtt() {
-        const url = './book/yasser.html';
+        const url = './book/book.php';
         window.location.replace(url);
     }
 
