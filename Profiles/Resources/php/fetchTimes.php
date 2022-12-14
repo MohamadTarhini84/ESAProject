@@ -1,7 +1,7 @@
 <?php
     include("db.php");
 
-    $drID=1;
+    $drID=$_GET['id'];
 
     $sql = "SELECT * FROM doctortimes WHERE doctorID=".$drID;
     $result = mysqli_query($conn, $sql);

@@ -201,6 +201,13 @@
             <button class="app-desc" onclick="toggle('confirm-popup')" style="align-self:center">Cancel</button>
         </div>
     </div>
+    <form id="edit-app-popup">
+        <div>
+            <i onclick="toggle('edit-app-popup')" class="fa-solid fa-xmark" style="position:absolute;top:5px;right:5px"></i>
+        </div>
+        <textarea placeholder="New description" id="edit-app-desc" style="padding:10px"></textarea>
+            <button class="app-desc" id="edit-app-button" type="submit" style="margin-right:0">Confirm Edit</button>
+     </form>
     <div id="popup" style="display:none">
         <div id="wrapper"> 
             <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> 
@@ -211,37 +218,14 @@
         <p>Updated Successfully!</p>
     </div>
 </body>
+<script src="../Profiles/Resources/JavaScript/navbarDisplay.js"></script>
 <script src="../Profiles/Resources/JavaScript/successPopup.js"></script>
 <script src="../Profiles/Resources/JavaScript/toggle.js"></script>
 <script src="../Profiles/Resources/JavaScript/switch.js"></script>
-<script src="../Profiles/Resources/JavaScript/navbarDisplay.js"></script>
 <script src="../Profiles/Resources/JavaScript/patApps.js"></script>
 <script src="../Profiles/Resources/JavaScript/fetchPatInfo.js"></script>
 <script src="../Profiles/Resources/JavaScript/patEdit.js"></script>
 <script src="../Profiles/Resources/JavaScript/validatePatEdit.js"></script>
 <script src="../Profiles/Resources/JavaScript/patFetchRevs.js"></script>
-<script>
-
-    function deleteApp(){
-        delButtons.forEach(function (e){
-            e.addEventListener('click',function (event){
-                event.target.closest('.appointment').remove();
-            })
-        })
-    }
-
-    let likes=document.querySelectorAll('.review-likes');
-
-    likes.forEach(function (e){
-        e.addEventListener('click',function(){
-            if(e.firstElementChild.classList.contains('liked')){
-                e.firstElementChild.setAttribute('class','fa-regular fa-heart');
-                e.firstElementChild.setAttribute('style','color:white');
-            } else{
-                e.firstElementChild.setAttribute('class','fa-solid fa-heart liked');
-                e.firstElementChild.setAttribute('style','color:red');
-            }
-        })
-    })
-</script>
+<script src="../Profiles/Resources/JavaScript/editAppDesc.js"></script>
 </html>

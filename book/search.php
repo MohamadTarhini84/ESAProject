@@ -1,6 +1,7 @@
 <?php
 class User
 {
+    public $id;
     public $name;
     public $email;
     public $age;
@@ -26,9 +27,9 @@ FROM users
 INNER JOIN doctordetail ON users.id=doctordetail.doctorid 
 INNER JOIN timess ON users.id=timess.doctorid 
 WHERE users.istype='doctor' and users.name ='" . $data['users'] . "'
-and timess.day = '" . $data['datenow'] . "'
-and timess.starttime <='" . $data['timefrom'] . "'
-and timess.endtime >'" . $data['findtime'] . "'
+and doctortimes.day = '" . $data['datenow'] . "'
+and doctortimes.startTime <='" . $data['timefrom'] . "'
+and doctortimes.endTime >'" . $data['findtime'] . "'
 
 ";
 
@@ -37,6 +38,7 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $a = new User();
+        $a->id = $row['id'];
         $a->name = $row['name'];
         $a->email = $row['email'];
         $a->age = $row['age'];

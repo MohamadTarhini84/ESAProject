@@ -1,6 +1,7 @@
 <?php
 class User
 {
+    public $id;
     public $name;
     public $email;
     public $age;
@@ -37,6 +38,7 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $a = new User();
+        $a->name = $row['id'];
         $a->name = $row['name'];
         $a->email = $row['email'];
         $a->age = $row['age'];

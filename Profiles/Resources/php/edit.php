@@ -1,6 +1,9 @@
 <?php
     include("db.php");
 
+    session_start();
+    $id=$_SESSION['id'];
+
     $errorMSG="";
 
     $sql="UPDATE users SET ";
@@ -48,8 +51,8 @@
         $errorMSG.=" missing room";
     }
 
-    $sql.=" WHERE id=1";
-    $sql2.=" WHERE doctorID=1";
+    $sql.=" WHERE id=".$id;
+    $sql2.=" WHERE doctorID=".$id;
     
     if(mysqli_query($conn,$sql)){
         $errorMSG.=" Table users Query Completed Successfully ";

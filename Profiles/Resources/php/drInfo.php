@@ -1,7 +1,11 @@
 <?php
     include("db.php");
 
-    $sql = "SELECT * FROM users JOIN doctordetails ON users.id=doctordetails.doctorID WHERE users.id=1;";
+  session_start();
+
+  $id=$_GET['id'];
+
+    $sql = "SELECT * FROM users JOIN doctordetails ON users.id=doctordetails.doctorID WHERE users.id=".$id;
     $result = mysqli_query($conn, $sql);
 
   if (mysqli_num_rows($result) > 0) {
@@ -15,13 +19,12 @@
     echo "0 results";
   }
 
-  $sql2="SELECT AVG(rating) AS rating FROM reviews WHERE patientID=2";
+  $sql2="SELECT AVG(rating) AS rating FROM reviews WHERE doctorID=".$id;
   $result1 = mysqli_query($conn, $sql2);
   if (mysqli_num_rows($result1) > 0) {
     // output data of each row
-    while($row = mysqli_fetch_assoc($result1)) {
+      $row = mysqli_fetch_assoc($result1);
       $user['rating']=$row['rating'];
-    }
   } else {
     $user['rating']=0;
   }

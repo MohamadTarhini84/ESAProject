@@ -46,7 +46,7 @@ const search = () => {
                 <div class="second-info">NABATIEH CITY<br>
         
                     Medical Center</div>
-                <div class="book-butt" onclick="toggleApp()"> <button>Book Online</button></div>
+                    <div class="book-butt" onclick="todoctor()"> <a href="../Profiles/doctorProfile.html?id=users.id"><button>Book Online</button></a></div>
         
             </div>
             </div>
