@@ -26,14 +26,14 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
                 $_SESSION['logged_in'] = true;
                 $_SESSION['name'] = $row['fullName'];
                 $_SESSION['id'] = $row['id'];
-                header("Location:/ESAProject/ESAProject/index.php");
+                header("Location:/ESAProject/index.php");
                 exit();
             } else {
-                header("Location:newSignIN.php?error=Incorect User or Password");
+                header("Location:/ESAProjct/loginn/newSignIN.php?error=Incorect User or Password");
                 exit();
             }
         } else {
-            header("Location:newSignIN.php?error=Incorect User or Password ");
+            header("Location:/ESAProjct/loginn/newSignIN.php?error=Incorect User or Password ");
             exit();
         }
     }

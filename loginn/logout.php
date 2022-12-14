@@ -4,4 +4,5 @@
 session_start();
 session_unset();
 session_destroy();
-header('location:/ESAProject/ESAProject/index.php');
+header('location:/ESAProject/index.php');
+?>

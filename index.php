@@ -1,8 +1,6 @@
 <?php
 session_start();
-// if(isset($_SESSION['logged_in'])){
-//     if($_SESSION['logged_in'] == false)
-// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,17 +70,17 @@ session_start();
                         </ul>
                     </div>
                     <?php
-                    $userType = 101;
-                    $userType = 102;
-                    if (isset($_SESSION['name']) && $userType === 101) {
-                        echo "<p class='users'style='color:#16a085'> Hello  "  . $_SESSION['name'] . "</p>";
-                        echo "<a href='logout.php' class='logout'>Logout</a>";
-                    } elseif (isset($_SESSION['name']) && $userType === 102) {
+                    $userType=100;
+                    $userType=101;
+                    if (isset($_SESSION['name']) && $userType === 100) {
+                        echo "<p class='users'style='color:#16a085'> Hello "  . $_SESSION['name'] . "</p>";
+                        echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
+                    }elseif (isset($_SESSION['name']) && $userType === 101) {
                         echo "<p class='users' style='color:#16a085'> Hello DR  " . $_SESSION['name'] . "</p>";
-                        echo "<a href='logout.php' class='logout'>Logout</a>";
-                    } else {
-                        echo "<a href='/ESAProject/Login/newSignIN.php' class='login-butt' style='text-decoration:none;'>Login</a>";
-                    } ?>
+                        echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
+                    }else{
+                        echo "<a href='/ESAProject/Loginn/newSignIN.php' class='login-butt' style='text-decoration:none;'>Login</a>";
+                    }?>
                 </nav>
 
                 <div class="navo">

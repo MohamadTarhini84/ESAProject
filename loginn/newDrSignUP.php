@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
         $room = $_POST['room'];
         $insert = " INSERT INTO doctordetails(licenceID,certificateNumber,speciality,room) VALUES ('$idcard','$certification','$speciality','$room')";
         mysqli_query($conn, $insert);
-        header('location:/ESAProject/ESAProject/index.php');
+        header('location:/ESAProject/index.php');
     }
 }
 ?>
