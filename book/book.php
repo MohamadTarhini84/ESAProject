@@ -1,3 +1,11 @@
+<?php
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -486,41 +494,6 @@ input:focus {
 
 <script src="./sel.js"></script>
 <script>
-// buutt
-
-// let blur = document.getElementById('page');
-
-// function toggleApp() {
-//     blur.classList.toggle('active');
-//     let appPopup = document.getElementsByClassName("app-popup");
-//     appPopup[0].classList.toggle('active');
-// }
-
-
-function todoctor() {
-    const url = '../Profiles/doctorProfile.html';
-    window.location.replace(url);
-}
-
-// navbar
-
-// const toggle = document.getElementsByClassName('toggle')[0]
-// const menu = document.getElementsByClassName('menu')[0]
-
-// toggle.addEventListener('click', () => {
-//     menu.classList.toggle('active')
-// });
-
-
-// button search
-
-
-// function divtext(){
-//     document.querySelector('.nesk').style.display = 'inline';
-// }
-
-
-
 // search
 function clickFind() {
     document.getElementById("option-1").setAttribute("style", "display:flex");
