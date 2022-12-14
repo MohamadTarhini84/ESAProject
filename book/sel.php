@@ -3,7 +3,7 @@ class Dynamic
 {
     public $speciality;
 }
-require_once('./conn.php');
+require_once('../connect1.php');
 $content = trim(file_get_contents("php://input"));
 $data = [];
 $dataforsend = [];
