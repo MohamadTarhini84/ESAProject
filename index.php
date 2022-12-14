@@ -76,12 +76,12 @@ session_start();
                     $userType = 102;
                     if (isset($_SESSION['name']) && $userType === 101) {
                         echo "<p class='users'style='color:#16a085'> Hello  "  . $_SESSION['name'] . "</p>";
-                        echo "<a href='logout.php' class='logout'>Logout</a>";
+                        echo "<a href='./loginn/logout.php' class='logout'>Logout</a>";
                     } elseif (isset($_SESSION['name']) && $userType === 102) {
                         echo "<p class='users' style='color:#16a085'> Hello DR  " . $_SESSION['name'] . "</p>";
-                        echo "<a href='logout.php' class='logout'>Logout</a>";
+                        echo "<a href='./loginn/logout.php' class='logout'>Logout</a>";
                     } else {
-                        echo "<a href='/ESAProject/Login/newSignIN.php' class='login-butt' style='text-decoration:none;'>Login</a>";
+                        echo "<a href='./loginn/newSignIN.php' class='login-butt' style='text-decoration:none;'>Login</a>";
                     } ?>
                 </nav>
 
@@ -986,7 +986,7 @@ session_start();
 
     //login
     function loginbtt() {
-        const url = './loginn/newSignIN.html';
+        const url = './loginn/newSignIN.php';
         window.location.replace(url);
     }
 
