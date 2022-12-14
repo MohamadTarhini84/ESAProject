@@ -148,7 +148,7 @@
                   <th>ID</th>
                   <th>Name</th>
                   <th>Email</th>
-                  <th>Age</th>
+                  <th>birthday</th>
                   <th>Gender</th>                  
                   <th>Speciality</th>
                   <th>Date</th>
@@ -197,11 +197,7 @@
                     
                     $drName = $row2['firstName'].' '.$row2['lastName'];
                     */
-                    $sql="SELECT users.fullName,users.email,users.birthday,users.gender,appointments.*
-                  FROM appointments
-                  join users 
-                  on appointments.patientID=users.id
-                  ";
+                    $sql="SELECT * FROM appointments";
                   
                   //execute the query
                   $res=mysqli_query($conn,$sql);
@@ -210,29 +206,46 @@
                   $sn=1;
                   while($row = mysqli_fetch_assoc($res)){
                     $cid=$row['id'];
-                    $patname = $row['fullName'];
-                    
-                    $email=$row['email'];
-                    $age=$row['birthday'];
-                    $gender=$row['gender'];
+                    $pid=$row['patientID'];
+                    $did=$row['doctorID'];
                     $date=$row['appDate'];
                     $time=$row['appTime'];
+
+                    $sql2="SELECT * FROM users where id='$pid'";
+                    $res2=mysqli_query($conn,$sql2);
+                    $row2 = mysqli_fetch_assoc($res2);
+
+                    $patname = $row2['fullName'];                    
+                    $email=$row2['email'];
+                    $age=$row2['birthday'];
+                    $gender=$row2['gender'];
+
+                    $sql3="SELECT * FROM users where id='$did'";
+                    $res3=mysqli_query($conn,$sql3);
+                    $row3 = mysqli_fetch_assoc($res3);
+                    $drName = $row3['fullName'];   
+
+                    $sql4="SELECT * FROM doctordetails where doctorID='$did'";
+                    $res4=mysqli_query($conn,$sql4);
+                    $row4 = mysqli_fetch_assoc($res4);
+                    $spec = $row4['speciality'];  
+                    $fee= $row4['fees'];  
               ?>
                 <tr>
                   <td class="name-img">
-                  <img src="img/avatar.svg" alt="" class="climg">&nbsp
-                    <?php echo '0'.$sn;?>                   
+                  
+                    <?php echo $sn;?>                   
                   </td>
                   <td><?php echo $patname;?></td>
                   <td><?php echo $email;?></td>
                   <td><?php echo $age;?></td>
                   <td><?php echo $gender;?></td>
-                  <td><?php //echo $spec;?></td>
+                  <td><?php echo $spec;?></td>
                   <td><?php echo $date;?></td>
                   <td><?php echo $time;?></td>
-                  <td><?php// echo 'Dr'.$drName; ?></td>
-                  <td><?php //echo '$'.$fee;?></td>                                   
-                  <td><button><a href="<?php echo SITEURL; ?>admin/AppDetails.php?app_id=<?php echo $cid?>&patname=<?php echo $patname?>&drname=<?php //echo $drName?>"> View</button></td>
+                  <td><?php echo 'Dr. '.$drName; ?></td>
+                  <td><?php echo '$'.$fee;?></td>                                   
+                  <td><button><a href="<?php echo SITEURL; ?>admin/AppDetails.php?app_id=<?php echo $cid?>&patname=<?php echo $patname?>&drname=<?php echo $drName?>"> View</button></td>
                 </tr>
                 
                 <?php

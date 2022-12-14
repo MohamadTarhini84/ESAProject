@@ -1,10 +1,9 @@
 <?php  require('../config/constants.php');?>
 <?php  require('./partials/login-check.php');?>
 <?php
-  $sql="SELECT * FROM users 
-  join doctordetails 
-  on doctordetails.doctorID=users.id";
-  
+  $sql="SELECT * FROM users where userType='101'";
+
+
   //execute the query
   $res=mysqli_query($conn,$sql);
   $sn=1;
@@ -133,6 +132,13 @@
           <h2 class="font-weight-bold"><br>
             <p style="color:#367952;">MedCenter
               <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Doctors</small></p>
+              <?php
+              if(isset($_SESSION['deleteDoc'])){
+                echo $_SESSION['deleteDoc'];
+                UNSET($_SESSION['deleteDoc']);
+              }
+              
+              ?> 
         </h2>
         </div>
 <br>
@@ -169,7 +175,7 @@
                   <th>ID</th>
                   <th>Name</th>
                   <th>Email</th>
-                  <th>Age</th>
+                  <th>birthday</th>
                   <th>Gender</th>                  
                   <th>Department</th>
                   <th>Certificate Number</th>
@@ -183,22 +189,27 @@
                 <?php
                 
                  while($row = mysqli_fetch_assoc($res)){
-    
+                  
                   //user available
                     $cid=$row['id'];
                     $docname = $row['fullName'];                    
                     $email=$row['email'];
                     $age=$row['birthday'];
                     $gender=$row['gender'];
-                    $cer=$row['certificateNumber'];
-                    $spec=$row['speciality'];
-                    $lID=$row['licenceID'];
-                    $fee=$row['fees'];
-                    $stat=$row['isConfirmed'];
-                    if($stat==100){
+
+                    $sql2="SELECT * FROM doctordetails where doctordetails.doctorID = $cid";
+                    $res2=mysqli_query($conn,$sql2);
+                    $row2=mysqli_fetch_assoc($res2);
+                    
+                    $cer=$row2['certificateNumber'];
+                    $spec=$row2['speciality'];
+                    $lID=$row2['licenceID'];
+                    $fee=$row2['fees'];
+                    $stat=$row2['isConfirmed'];
+                    if($stat==0){
                       $status="pending";
                     }
-                    elseif($stat==101){
+                    elseif($stat==1){
                       $status="confirmed";
                     }
                     else{
@@ -220,7 +231,7 @@
                     <td><?php echo $fee;?></td>
                     <td class="Appr" id="status"><?php echo $status;?></td>                                   
                     <td><button><a style="color:black;" href="<?php echo SITEURL; ?>Profiles/doctorProfile.html?id=<?php echo $cid?>">View Profile</a></button>
-                    <button><a style="color:black;" href="<?php echo SITEURL; ?>admin/DeleteDoctor.php?app_id=<?php echo $cid?>">Delete Doctor</a></button>
+                    <button><a style="color:black;" href="<?php echo SITEURL; ?>admin/DeleteDoctor.php?id=<?php echo $cid?>">Delete Doctor</a></button>
                     <button onclick="alert()" > Validate</button>
                     <!-- <button onclick="toggle()" > Validate</button>-->
                     </td>
