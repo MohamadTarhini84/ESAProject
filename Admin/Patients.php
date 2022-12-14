@@ -1,7 +1,7 @@
 <?php  require('../config/constants.php');?>
 <?php  require('./partials/login-check.php');?>
 <?php
-  $sql="SELECT * FROM users WHERE isDoctor='100'";
+  $sql="SELECT * FROM users WHERE userType='100'";
   
   //execute the query
   $res=mysqli_query($conn,$sql);
@@ -181,9 +181,9 @@
    
                  //user available
                    $cid=$row['id'];
-                   $patname = $row['firstName'].' '.$row['lastName'];                    
+                   $patname = $row['fullName'];                   
                    $email=$row['email'];
-                   $age=$row['age'];
+                   $age=$row['birthday'];
                    $gender=$row['gender'];
                    
                    $phone=$row['phoneNumber'];             
@@ -202,7 +202,7 @@
                     <!--<td class="Appr" id="status">Normal</td>  -->                                 
                     <td>
                       <button><a style="color:black;" href="<?php echo SITEURL; ?>admin/patients.php?id=<?php echo $cid?>&patname=<?php echo $patname?>">View Profile</a></button>
-                      <button><a style="color:black;" href="<?php echo SITEURL; ?>admin/deletePatient.php?id=<?php echo $cid?>">Delete Patient</a></button>
+                      <button><a style="color:black;" href="<?php echo SITEURL; ?>admin/deletePatient.php?id=<?php echo $cid?>" onclick="return confirm('Are you sure you want to delete this?')">Delete Patient</a></button>
 
                       <!--<button onclick="toggle()"> Status</button>-->
                     </td>
