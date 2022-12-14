@@ -3,6 +3,8 @@ let starRating=document.querySelectorAll('input[name="rating"]');
     
 reviewForm.addEventListener('submit',function (e){
     e.preventDefault();
+    const urlParams = new URLSearchParams(window.location.search);
+    let patientProfileId=urlParams.get('id');
 
     let selected;
     for (const radioButton of starRating) {
@@ -21,7 +23,7 @@ reviewForm.addEventListener('submit',function (e){
             type: "POST",
             url: "./Resources/php/review.php",
             dataType: "json",
-            data: {rating:selected,desc:reviewDesc}
+            data: {rating:selected,desc:reviewDesc, id:patientProfileId}
         }).then(
             function(data){
                 // let data =JSON.parse(result);

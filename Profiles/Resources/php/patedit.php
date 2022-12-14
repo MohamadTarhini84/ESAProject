@@ -3,6 +3,8 @@
 
     $errorMSG="";
 
+    $id=$_SESSION['id'];
+
     $sql="UPDATE users SET ";
 
     if(isset($_POST['name'])){
