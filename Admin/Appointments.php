@@ -36,7 +36,7 @@
 </head>
 
 <body>
-    <div class="grid-container" id="blur">
+    <div class="grid-container" >
         <!-- Header -->
         <header class="header">
           <div class="menu-icon" onclick="openSidebar()">
@@ -121,7 +121,7 @@
       
 
       <main class="main-container">
-        <div class="main-title">
+        <div class="main-title" >
           <h2 class="font-weight-bold">Appointments
             <p style="color:#367952;">MedCenter
               <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Appointments</small></p>
@@ -140,7 +140,7 @@
           <div class="charts-card">
               
              <!--Appointments List-->
-          <div class="list" style="height: 700px;">     
+          <div class="list" style="height: 700px;" id="blur">     
                 
             <table class="table">
               <thead>
@@ -161,7 +161,7 @@
               <tbody>
               <?php
 
-                  $sql="SELECT users.firstName ,users.lastName,users.email,users.age,users.gender,appointments.*,doctordetails.speciality,doctordetails.fees
+                  /*$sql="SELECT users.firstName ,users.lastName,users.email,users.age,users.gender,appointments.*,doctordetails.speciality,doctordetails.fees
                   FROM appointments
                   join users 
                   on appointments.patientID=users.id
@@ -170,7 +170,8 @@
                   
                   //execute the query
                   $res=mysqli_query($conn,$sql);
-                  $count=mysqli_num_rows($res);
+                  
+                  echo $count=mysqli_num_rows($res);
                   $sn=1;
                   while($row = mysqli_fetch_assoc($res)){
                     
@@ -195,8 +196,27 @@
                     $row2 = mysqli_fetch_assoc($res2);
                     
                     $drName = $row2['firstName'].' '.$row2['lastName'];
+                    */
+                    $sql="SELECT users.fullName,users.email,users.birthday,users.gender,appointments.*
+                  FROM appointments
+                  join users 
+                  on appointments.patientID=users.id
+                  ";
+                  
+                  //execute the query
+                  $res=mysqli_query($conn,$sql);
+                  
+                  $count=mysqli_num_rows($res);
+                  $sn=1;
+                  while($row = mysqli_fetch_assoc($res)){
+                    $cid=$row['id'];
+                    $patname = $row['fullName'];
                     
-
+                    $email=$row['email'];
+                    $age=$row['birthday'];
+                    $gender=$row['gender'];
+                    $date=$row['appDate'];
+                    $time=$row['appTime'];
               ?>
                 <tr>
                   <td class="name-img">
@@ -207,12 +227,12 @@
                   <td><?php echo $email;?></td>
                   <td><?php echo $age;?></td>
                   <td><?php echo $gender;?></td>
-                  <td><?php echo $spec;?></td>
+                  <td><?php //echo $spec;?></td>
                   <td><?php echo $date;?></td>
                   <td><?php echo $time;?></td>
-                  <td><?php echo 'Dr'.$drName; ?></td>
-                  <td><?php echo '$'.$fee;?></td>                                   
-                  <td><button><a href="<?php echo SITEURL; ?>admin/AppDetails.php?app_id=<?php echo $cid?>&patname=<?php echo $patname?>&drname=<?php echo $drName?>"> View</button></td>
+                  <td><?php// echo 'Dr'.$drName; ?></td>
+                  <td><?php //echo '$'.$fee;?></td>                                   
+                  <td><button><a href="<?php echo SITEURL; ?>admin/AppDetails.php?app_id=<?php echo $cid?>&patname=<?php echo $patname?>&drname=<?php //echo $drName?>"> View</button></td>
                 </tr>
                 
                 <?php

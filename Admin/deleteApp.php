@@ -4,7 +4,7 @@
         if(isset($_GET['app_id'])){
             $aid = $_GET['app_id'];
 
-          $sql2 = "DELETE  FROM  Appointments where id = $aid ";
+          $sql2 = "DELETE  FROM  appointments where id = $aid ";
           //execute the query
           $res2 = mysqli_query($conn,$sql2);
 

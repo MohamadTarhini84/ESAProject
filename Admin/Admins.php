@@ -10,7 +10,7 @@ if (isset($_SESSION['userType'])) {
 }
 ?>
 <?php
-$sql = "SELECT * FROM admin where type='100'";
+$sql = "SELECT * FROM admins where adminType='100'";
 
 $res = mysqli_query($conn, $sql);
 
@@ -179,7 +179,7 @@ $res = mysqli_query($conn, $sql);
                 <?php
         while ($row = mysqli_fetch_assoc($res)) {
           $aid = $row['id'];
-          $admName = $row['username'];
+          $admName = $row['fullName'];
 
         ?>
                 <div class="adm-card">

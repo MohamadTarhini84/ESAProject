@@ -6,8 +6,7 @@ if(!isset($_SESSION['user'])){
   //redirect to login page with Message
   $_SESSION['no-login-message']="<div class='error text-center'>Please login to access admin panel</div>";
   //redirect to login page
-  echo "<h1>something went wrong</h1>";
   //header('location:'.SITEURL.'admin/index.php');
-  header('location:http://localhost:80/EsaProject/');
+  header('location:http://localhost:80/EsaProject/Admin');
 }
  ?>

@@ -1,5 +1,57 @@
 <?php  require('../config/constants.php');?>
 
+<?php
+
+$errors = array(
+  "usernameError" => "",
+  "passError" => "",
+);
+
+if (isset($_POST['submit'])) {
+
+  if (empty($_POST['username'])) {
+    $errors['usernameError'] = 'username field is empty';
+  }
+  if (empty($_POST['password'])) {
+    $errors['passError'] = 'password field is empty';
+  }
+   else {
+	$username=$_POST['username'];
+		$password=$_POST['password'];		
+
+		//sql to check if the username and password exist or not
+		$sql="SELECT * FROM admins WHERE fullName='$username' AND pass='$password'";
+		//execute the query
+		$res=mysqli_query($conn,$sql);
+		
+		//check if user exists or not
+		 $count = mysqli_num_rows($res);
+				
+		if($count==1){
+			$row = mysqli_fetch_assoc($res);
+		//user available
+			$usertype=$row['adminType'];
+			$aid=$row['id'];
+
+			$_SESSION['login']="<div >Login Successful.</div>";
+			$_SESSION['user']=$username;//check if the user is logged in or not and logout will unset it			
+			$_SESSION['userType']=$usertype;			
+			$_SESSION['aid']=$aid;
+
+			//redirect to home page
+			header('location:'.SITEURL.'Admin/dashboard.php');
+			//header('location:http://localhost:80/suls/admin/dashboard.php');
+		}
+		else{
+		//user not available and login fail
+			$_SESSION['login']="<div> Username OR Password did not match </div>";
+			header('location:http://localhost:80/ESAProject/Admin');
+		}    
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,6 +92,7 @@
            		   		<i class="fas fa-user"></i>
            		   </div>
            		   <div class="div">
+					  <h6 style="text-align:left; color:red"><?php echo $errors['usernameError']; ?></h6>
            		   		<h5>Username</h5>
            		   		<input type="text" name="username" class="input" >
            		   </div>
@@ -49,6 +102,7 @@
            		    	<i class="fas fa-lock"></i>
            		   </div>
            		   <div class="div">
+					  <h6 style="text-align:left; color:red"><?php echo $errors['passError']; ?></h6>
            		    	<h5>Password</h5>
            		    	<input type="password" name="password" class="input" >
             	   </div>
@@ -59,52 +113,6 @@
             </form>
 			
         </div>
-		<?php
-  //check if the submit button is clicked
- 
-if(isset($_POST['submit'])){
-
-	if(empty($_POST['username'])||empty($_POST['password'])){
-		echo '<h1> Empty </h1>';
-	}
-
-	else{
-				
-		$username=$_POST['username'];
-		$password=$_POST['password'];		
-
-		//sql to check if the username and password exist or not
-		$sql="SELECT * FROM admin WHERE username='$username' AND pass='$password'";
-		//execute the query
-		$res=mysqli_query($conn,$sql);
-		
-		//check if user exists or not
-		 $count = mysqli_num_rows($res);
-				
-		if($count==1){
-			$row = mysqli_fetch_assoc($res);
-		//user available
-			$usertype=$row['type'];
-			$aid=$row['id'];
-
-			$_SESSION['login']="<div >Login Successful.</div>";
-			$_SESSION['user']=$username;//check if the user is logged in or not and logout will unset it			
-			$_SESSION['userType']=$usertype;			
-			$_SESSION['aid']=$aid;
-
-			//redirect to home page
-			header('location:'.SITEURL.'admin/dashboard.php');
-			//header('location:http://localhost:80/suls/admin/dashboard.php');
-		}
-		else{
-		//user not available and login fail
-			$_SESSION['login']="<div> Username OR Password did not match </div>";
-			header('location:http://localhost:80/suls/');
-		}
-	}
-}
-  
-?>
     </div>
 
     <script src="javascript/scripts.js"></script>

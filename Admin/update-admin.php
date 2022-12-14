@@ -4,14 +4,14 @@
 if (isset($_SESSION['aid'])) {
   $id = $_SESSION['aid'];
 
-  $sql = "SELECT * FROM admin WHERE id='$id'";
+  $sql = "SELECT * FROM admins WHERE id='$id'";
   $res = mysqli_query($conn, $sql);
 
   $count = mysqli_num_rows($res);
 
   if ($count == 1) {
     $row = mysqli_fetch_assoc($res);
-    $username = $row['username'];
+    $username = $row['fullName'];
     $password = $row['pass'];
   }
 }
@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
 
     //sql to check if the username and password exist or not
     if ($username2 != $username) {
-      $sql3 = "SELECT * FROM admin WHERE username='$username2'";
+      $sql3 = "SELECT * FROM admins WHERE fullname='$username2'";
       //execute the query
       $res3 = mysqli_query($conn, $sql3);
 
@@ -70,7 +70,7 @@ if (isset($_POST['submit'])) {
           $errors['verfpass'] = 'Passwords do not match';
         } else {
 
-          $sql2 = "UPDATE admin SET username='$username2',pass='$newpassword' WHERE id='$id'";
+          $sql2 = "UPDATE admins SET fullname='$username2',pass='$newpassword' WHERE id='$id'";
           $res2 = mysqli_query($conn, $sql2);
           if ($res2 == true) {
             $errors['success'] = "Admin updated successfully";
