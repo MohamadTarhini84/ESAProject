@@ -3,7 +3,10 @@ let calendarEndTimes=[];
 let appDateInput=document.getElementById('dr-app-date');
 
 document.addEventListener('DOMContentLoaded', async function() {
-    let a = await fetch("./Resources/php/fetchTimes.php");
+    const urlParams = new URLSearchParams(window.location.search);
+    let patientProfileId=urlParams.get('id');
+
+    let a = await fetch("./Resources/php/fetchTimes.php?id="+patientProfileId);
     let b=await a.text();
     let c=JSON.parse(b);
     // console.log(c);

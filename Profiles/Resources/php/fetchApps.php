@@ -1,15 +1,16 @@
 <?php
     include("db.php");
 
+    $id=$_GET['id'];
     if($_GET['type']=='doc'){
-      $where=" dr.id=1";
+      $where=" dr.id=".$id;
     } else{
-      $where=" pat.id=2";
+      $where=" pat.id=".$id;
     }
 
     $sql = "SELECT appointments.id AS h, appointments.appDate AS a, appointments.appTime AS b, appointments.appDesc AS c, 
     appointments.isConfirmed AS d, doctordetails.room AS e, pat.fullName AS f, pat.phoneNumber as g, dr.fullName AS i,
-    dr.phoneNumber AS j, doctordetails.speciality AS l
+    dr.phoneNumber AS j, doctordetails.speciality AS k
     FROM appointments 
     JOIN users dr ON dr.id=appointments.doctorID 
     JOIN users pat ON pat.id=appointments.patientID
@@ -24,7 +25,7 @@
           $appointment = array("date"=> $row["a"], "time"=> $row['b'],
           "desc"=>$row['c'], "isConfirmed"=>$row['d'], "room"=>$row['e'],
           "name"=>$row['f'], "phone"=>$row['g'], "id"=>$row['h'], 
-          "drName"=>$row['i'], "drPhone"=>$row['j'], "drSpec"=>$row['l']);
+          "drName"=>$row['i'], "drPhone"=>$row['j'], "drSpec"=>$row['k']);
           array_push($array, $appointment);
         }
         echo json_encode($array);

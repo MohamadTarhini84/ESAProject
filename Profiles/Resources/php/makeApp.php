@@ -1,8 +1,10 @@
 <?php 
     include("db.php");
 
+    session_start();
+
     $drID=1;
-    $patID=2;
+    $patID=$_SESSION['id'];
     $code="200";
     $errorMSG="An error occured!";
 

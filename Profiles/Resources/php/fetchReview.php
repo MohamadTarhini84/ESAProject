@@ -1,10 +1,12 @@
 <?php
     include("db.php");
+    session_start();
+    $id=$_SESSION['id'];
 
     if($_GET['type']=='doc'){
-      $where=" dr.id=1";
+      $where=" dr.id=".$id;
     } else{
-      $where=" pat.id=2";
+      $where=" pat.id=".$id;
     }
 
     $sql = "SELECT dr.fullName as a, pat.fullName as b, reviews.patientID as c, reviews.doctorID as d,

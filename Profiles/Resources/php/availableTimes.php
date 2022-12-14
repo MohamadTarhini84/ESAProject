@@ -1,10 +1,11 @@
 <?php
     include("db.php");
 
+    session_start();
 
     $date=$_REQUEST['date'];
     $day=$_REQUEST['day'];
-    $drID=1;
+    $drID=$_SESSION['id'];
 
     $sql1="SELECT startTime, endTime FROM doctortimes WHERE doctorID=".$drID." AND dayOfWeek=".$day;
     $sql2="SELECT id, appTime FROM appointments WHERE doctorID=".$drID." AND appDate='".$date."'";
