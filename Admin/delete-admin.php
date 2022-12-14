@@ -5,7 +5,7 @@
 <?php
     $id = $_GET['a_id'];
     //2. Created SQLQuery to delete Admin
-    $sql = "DELETE  FROM  admin where id = $id ";
+    $sql = "DELETE  FROM  admins where id = $id ";
     //execute the query
     $res = mysqli_query($conn,$sql);
 
