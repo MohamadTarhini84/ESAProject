@@ -231,8 +231,8 @@
                     <td><?php echo $fee;?></td>
                     <td class="Appr" id="status"><?php echo $status;?></td>                                   
                     <td><button><a style="color:black;" href="<?php echo SITEURL; ?>Profiles/doctorProfile.html?id=<?php echo $cid?>">View Profile</a></button>
-                    <button><a style="color:black;" href="<?php echo SITEURL; ?>admin/DeleteDoctor.php?id=<?php echo $cid?>">Delete Doctor</a></button>
-                    <button onclick="alert()" > Validate</button>
+                    <button><a style="color:black;" href="<?php echo SITEURL; ?>admin/DeleteDoctor.php?id=<?php echo $cid?>" onclick="return confirm('Are you sure you want to delete this?')">Delete Doctor</a></button>
+                    <td><button onclick="alert()" > Validate</button></td>
                     <!-- <button onclick="toggle()" > Validate</button>-->
                     </td>
                 </tr>

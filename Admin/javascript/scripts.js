@@ -46,7 +46,7 @@ function closeSidebar() {
 // ---------- CHARTS ----------
 
 // BAR CHART
-var barChartOptions = {
+/*var barChartOptions = {
   
     series: [{
         name:"Female",
@@ -130,7 +130,7 @@ var radialBaroptions = {
   var radialChart = new ApexCharts(document.querySelector("#area-chart"), radialBaroptions);
   radialChart.render();
 
-
+*/
 //Validation 
 
 /*
