@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
         $password = $_POST['password'];
         $gender = $_POST['gender'];
         $birthday = $_POST['birthday'];
-        $userType="";
+        $userType=100;
         $insert = " INSERT INTO users(fullName,email,pass,birthday,gender,userType) VALUES ('$name','$email','$password','$birthday','$gender','$userType')";
         mysqli_query($conn, $insert);
         header('location:/ESAProject/index.php');
