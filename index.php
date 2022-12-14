@@ -993,7 +993,14 @@ session_start();
     // btnserach
 
     function btnbook() {
-        const url = './book/yasser.php';
+        const url = './book/book.php';
+        window.location.replace(url);
+    }
+
+
+    // get app
+    function btnbook() {
+        const url = './book/book.php';
         window.location.replace(url);
     }
 
