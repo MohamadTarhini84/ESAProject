@@ -147,7 +147,12 @@
               <p class="text-primary">PATIENTS</p>
               <span class="material-symbols-outlined text-blue">personal_injury</span>
             </div>
-            <span class="text-primary font-weight-bold">558</span>
+            <?php
+              $sql="SELECT * FROM users WHERE userType='100'";
+              $res=mysqli_query($conn,$sql);
+              $count=mysqli_num_rows($res);
+            ?>
+            <span class="text-primary font-weight-bold"><?php echo $count?></span>
           </div>
 
           <div class="card">
@@ -155,7 +160,12 @@
               <p class="text-primary">Admins</p>
               <span class="material-symbols-outlined text-blue">medication</span>
             </div>
-            <span class="text-primary font-weight-blue">4</span>
+            <?php
+              $sql2="SELECT * FROM admins";
+              $res2=mysqli_query($conn,$sql2);
+              $count2=mysqli_num_rows($res2);
+            ?>
+            <span class="text-primary font-weight-blue"><?php echo $count2?></span>
           </div>
 
           <div class="card">
@@ -163,18 +173,24 @@
               <p class="text-primary">DOCTORS</p>
               <span class="fa fa-user-md text-blue"></span>
             </div>
-            <span class="text-primary font-weight-bold">79</span>
+            <?php
+              $sql3="SELECT * FROM users where userType='101'";
+              $res3=mysqli_query($conn,$sql3);
+              $count3=mysqli_num_rows($res3);
+            ?>
+            <span class="text-primary font-weight-bold"><?php echo $count3?></span>
           </div>
-
-          
-
-        
         <div class="card">
             <div class="card-inner">
               <p class="text-primary">APPOINTMENTS</p>
               <span class="material-symbols-outlined text-blue">book_online</span>
             </div>
-            <span class="text-primary font-weight-bold">56</span>
+            <?php
+              $sql4="SELECT * FROM appointments";
+              $res4=mysqli_query($conn,$sql4);
+              $count4=mysqli_num_rows($res4);
+            ?>
+            <span class="text-primary font-weight-bold"><?php echo $count4?></span>
           </div>
 
         </div>
@@ -191,7 +207,8 @@
             <div id="area-chart"></div>
           </div>
 
-        </div><!--
+        </div>
+        <!--
 -------------------------------details div-----------------------------------------
         <div class="details">
 

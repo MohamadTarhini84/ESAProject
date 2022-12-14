@@ -9,14 +9,14 @@ $sql2 = "DELETE  FROM  users where id = $pid";
 $res2 = mysqli_query($conn,$sql2);
 
 if($res2==true){
-    $_SESSION['deleteDoc'] = "Patient Deleted Successfully";
+    $_SESSION['deletePat'] = "Patient Deleted Successfully";
     header('location:http://localhost:80/ESAProject/admin/patients.php');
 
 }
 
 else {
     //Failed to delete admin
-    $_SESSION['deleteDoc'] = "Failed to Delete doctor . try Again Later";
+    $_SESSION['deletePat'] = "Failed to Delete doctor . try Again Later";
     header('location:'.SITEURL.'admin/patients.php');
 }
 
