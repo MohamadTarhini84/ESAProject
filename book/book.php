@@ -535,7 +535,7 @@ function clickName() {
 
 // login
 function loginbtt() {
-    const url = '../ESAProject/Login/newSignIN.php';
+    const url = '../loginn/newSignIN.php';
     window.location.replace(url);
 }
 </script>
