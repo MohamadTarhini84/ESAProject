@@ -119,7 +119,7 @@
             <div class="overlay"></div>
             <div class="content">
                 <h1>Medical<span>Center</span></h1>
-
+                <img src="./Doctor-pana.svg" class="kabera">
                 <!-- <button class="explore" onclick="bntexplor()">Appoinment now</button> -->
                 <div id="tarhini-search-container">
                     <div id="tarhini-upper">

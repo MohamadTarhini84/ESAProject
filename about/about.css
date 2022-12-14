@@ -311,7 +311,7 @@
 
 .login-butt{
     border: none;
-    background-image: radial-gradient(#93e4d4,#16a085);
+    background-color:  #16a085;
     padding: 4px 25px;
     border-radius: 30px;
     color: #FFFFFF;
