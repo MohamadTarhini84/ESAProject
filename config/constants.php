@@ -15,5 +15,3 @@
         $sql="SELECT * FROM admin .'<br>'";
 
     }*/
-    
-?>

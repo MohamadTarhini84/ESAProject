@@ -116,7 +116,6 @@
         </div>
         <!-- end navbar -->
         <div class="bgImage">
-            <div class="overlay"></div>
             <div class="content">
                 <h1>Medical<span>Center</span></h1>
 
@@ -536,7 +535,7 @@ function clickName() {
 
 // login
 function loginbtt() {
-    const url = '../ESAProject/Login/newSignIN.html';
+    const url = '../ESAProject/Login/newSignIN.php';
     window.location.replace(url);
 }
 </script>
