@@ -155,43 +155,9 @@
                         <div id="calendar" style="width:100%"></div>
                     </div>
                     <div id="option-2" style="display:none">
-                        <div class="review">
-                            <div class="review-container">
-                                <div class="quotes">
-                                    <img src="./Resources/Images/quotes.png">
-                                </div>
-                                <div class="review-bg">
-                                    <div class="review-pic">
-                                        <img src="./Resources/Images/patient.jpg">
-                                    </div>
-                                    <div class="review-element" id="review-1st">
-                                        Review by: Mr batata
-                                    </div>
-                                    <div class="review-element">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                    </div>
-                                    <div class="review-element" style="height:200px;overflow-y:auto;">
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
-                                        accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
-                                        Possimus laudantium dignissimos ipsum quos at tempora recusandae! 
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facilis 
-                                        accusamus aliquam voluptatum iusto optio nihil molestias quibusdam dolor. 
-                                        Possimus laudantium dignissimos ipsum quos at tempora recusandae! 
-                                        Repudiandae, rerum corrupti?Repudiandae, rerum corrupti?
-                                    </div>
-                                    <div class="review-likes">
-                                        <i class="fa-regular fa-heart"></i> 123
-                                    </div>
-                                </div>
-                                <div class="quotes">
-                                    <img src="./Resources/Images/quotes.png">
-                                </div>
-                            </div>
-                        </div>
+                        <fieldset id="review-field">
+
+                        </fieldset>
                     </div>
                 </div>
             </div>
@@ -336,20 +302,5 @@
 <script src="../Profiles/Resources/JavaScript/leaveReview.js"></script>
 <script src="../Profiles/Resources/JavaScript/makeApp.js"></script>
 <script src="../Profiles/Resources/JavaScript/updateAppTimes.js"></script>
-<script>
-    // let likes=document.querySelectorAll('.review-likes');
-    // let blur=document.getElementById('page');
-
-    // likes.forEach(function (e){
-    //     e.addEventListener('click',function(a){
-    //         if(e.firstElementChild.classList.contains('liked')){
-    //             e.firstElementChild.setAttribute('class','fa-regular fa-heart');
-    //             e.firstElementChild.setAttribute('style','color:white');
-    //         } else{
-    //             e.firstElementChild.setAttribute('class','fa-solid fa-heart liked');
-    //             e.firstElementChild.setAttribute('style','color:red');
-    //         }
-    //     })
-    // })
-</script>
+<script src="../Profiles/Resources/JavaScript/docFetchRevs.js"></script>
 </html>
