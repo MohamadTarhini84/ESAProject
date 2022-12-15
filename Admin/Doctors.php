@@ -204,7 +204,7 @@
                     $age=$row['birthday'];
                     $gender=$row['gender'];
 
-                    $sql2="SELECT * FROM doctordetails where doctordetails.doctorID = $cid";
+                    $sql2="SELECT * FROM doctordetails where doctordetails.doctorID = $cid ";
                     $res2=mysqli_query($conn,$sql2);
                     $row2=mysqli_fetch_assoc($res2);
                     
@@ -244,7 +244,7 @@
                         <a style="color:black;" href="<?php echo SITEURL; ?>Profiles/doctorProfile.html?id=<?php echo $cid?>">View Profile</a>
                       </button>
                       <button>
-                        <a style="color:black;" href="<?php echo SITEURL; ?>admin/DeleteDoctor.php?id=<?php echo $cid?>" onclick="return confirm('Are you sure you want to delete this?')">
+                        <a style="color:black;" href="<?php echo SITEURL; ?>admin/DeleteDoctor.php?id=<?php echo $cid?>" onclick="return confirm('Are you sure you want to delete this doctor?')">
                           Delete Doctor
                         </a>
                       </button>

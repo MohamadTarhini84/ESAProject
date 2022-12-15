@@ -23,6 +23,7 @@ $errors = array(
   "passError" => "",
   "newpassError" => "",
   "verfError" => "",
+  "verfpass" => "",
   "oldError" => "",
   "exist" => "",
   "success" => "",
@@ -266,7 +267,7 @@ if (isset($_POST['submit'])) {
                                 <i class="fas fa-lock"></i>
                             </div>
                             <div class="div">
-                                <h6 style="text-align:left; color:red"><?php echo $errors['verfError']; ?></h6>
+                                <h6 style="text-align:left; color:red"><?php echo $errors['verfError']; ?><?php $errors['verfpass']?></h6>
                                 <h5>Confirm Password</h5>
                                 <input type="password" name="Verpass" class="input">
                             </div>

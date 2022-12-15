@@ -27,8 +27,8 @@ if(isset($_POST['submit'])){
                 $errors['exist'] = "service already exists";
             }
             else{
-                
-            $insert="INSERT INTO services(serviceName,serviceDesc) VALUES ('$service','$description')";
+              echo $date=date('d-m-y');  
+            $insert="INSERT INTO services(serviceName,serviceDesc,dayCreated) VALUES ('$service','$description','$date')";
             $result= mysqli_query($conn,$insert);
             header('Location:/ESAProject/Admin/service.php');
             }
@@ -188,6 +188,7 @@ if(isset($_POST['submit'])){
             <label class="labeli" >Description:</label>
             <textarea class="input" name="description" ><?php echo $description;?></textarea>
             </div>
+            
             <div class="DIV">
             <button type="submit" class="btn" name="submit">ADD</button>
             <a type="cancel" class="btnc" href="/ESAProject/services/service.php">Cancel</a>
