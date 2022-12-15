@@ -1,7 +1,7 @@
 <?php
     include("db.php");
-    session_start();
-    $id=$_SESSION['id'];
+    
+    $id=$_GET['id'];
 
     if($_GET['type']=='doc'){
       $where=" dr.id=".$id;

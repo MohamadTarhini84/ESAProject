@@ -5,6 +5,9 @@ let appForm=document.getElementById('app-popup-lower');
     
 appForm.addEventListener('submit',function (e){
     e.preventDefault();
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    let patientProfileId=urlParams.get('id');
 
     let appDate=appointDate.value;
     let appTime=appointTime.value;
@@ -24,7 +27,7 @@ appForm.addEventListener('submit',function (e){
             type: "POST",
             url: "./Resources/php/makeApp.php",
             dataType: "json",
-            data: {date:appDate,time:appTime,desc:appDesc}
+            data: {date:appDate,time:appTime,desc:appDesc,id:patientProfileId}
         }).then(function(data){
                 // let data =JSON.parse(result);
                 if (data.code == "200"){

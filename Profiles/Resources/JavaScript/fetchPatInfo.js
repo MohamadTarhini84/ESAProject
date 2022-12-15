@@ -1,7 +1,11 @@
 let patPInfo=document.querySelectorAll('.pat-information');
 
 window.addEventListener("load", async function() { 
-    let a = await fetch("./Resources/php/patInfo.php");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    let patientProfileId=urlParams.get('id');
+    
+    let a = await fetch("./Resources/php/patInfo.php?id="+patientProfileId);
     let b=await a.text();
     let c=JSON.parse(b);
     // console.log(b);

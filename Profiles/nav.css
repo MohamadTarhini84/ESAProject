@@ -28,6 +28,8 @@
 .mid-element{
     margin:15px 10px 0 10px;
     font-weight: 600;
+    color:inherit !important;
+    text-decoration: none;
 }
 .mid-element:hover{
     cursor: pointer;
