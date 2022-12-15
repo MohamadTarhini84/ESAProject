@@ -578,7 +578,7 @@ table thead tr{
   }
 
   /*Validation Page*/
-  .Appr{
+  .confirmed{
     color: yellowgreen;
    
   }
@@ -586,7 +586,7 @@ table thead tr{
     
     color:red;
   }
-  .Pend{
+  .Pending{
     
     color:blue;
   }

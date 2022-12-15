@@ -1,17 +1,18 @@
 <?php
     include("db.php");
 
+    session_start();
 
-    $sql = "SELECT fullName, id FROM users WHERE users.id=1";
+    $id=$_SESSION['id'];
+    $type=2;
+
+    $sql = "SELECT fullName, id FROM users WHERE id=".$id;
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
         // output data of each row
         while($row = mysqli_fetch_assoc($result)) {
-          $a=$row['fullName'];
-          $b=$row['id'];
-            $c="<img src=\"./Resources/Images/doctor.jpg\"></a>
-            <a href=\"\">{$a}</a>";
+          $c=array("name"=>$row['fullName'],"id"=>$row['id'],"type"=>$type);
           echo json_encode($c);
         }
       } else {

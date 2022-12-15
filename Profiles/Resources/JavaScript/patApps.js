@@ -1,6 +1,9 @@
 let appss=document.getElementById('appointmentss');
 let descpp=document.getElementById('desc-pp-text');
 let delFormm=document.getElementById('delete-form');
+let editForm=document.getElementById('app=popup');
+let editAppDesc=document.getElementById('edit-app-popup');
+let editAppDsc=document.getElementById('edit-app-desc');
 
 window.addEventListener("load", async function() { 
     let a = await fetch("./Resources/php/fetchApps.php?type=pat");
@@ -71,7 +74,7 @@ window.addEventListener("load", async function() {
                 </div>
             </div>
             <div class="app-edit-delete">
-                <button class="app-button" onclick="toggle('confirm-popup');delFormm.setAttribute('href','Resources/php/deleteApp.php?id=2&del=${element['id']}&what=edit')">
+                <button class="app-button" onclick="toggle('edit-app-popup');editAppDsc.setAttribute('class','${element['id']}')">
                     <i class="fa-solid fa-pen"></i>
                     Edit
                 </button>

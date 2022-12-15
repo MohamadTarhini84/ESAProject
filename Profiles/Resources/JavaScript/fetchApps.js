@@ -3,7 +3,10 @@ let desc = document.getElementById('desc-popup-text');
 let delForm = document.getElementById('delete-form');
 
 window.addEventListener("load", async function () {
-    let a = await fetch("./Resources/php/fetchApps.php?type=doc");
+    const urlParams = new URLSearchParams(window.location.search);
+    let patientProfileId=urlParams.get('id');
+
+    let a = await fetch("./Resources/php/fetchApps.php?type=doc&id="+patientProfileId);
     let b = await a.text();
     let c = JSON.parse(b);
     // console.log(b);

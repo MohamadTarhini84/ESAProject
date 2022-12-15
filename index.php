@@ -60,7 +60,7 @@ session_start();
                     <div class="menu">
                         <ul>
                             <li><a class="link-home" href="./index.php">Home</a> </li>
-                            <li><a class="link-home" href="./services/ser.html">SERVICES</a> </li>
+                            <li><a class="link-home" href="./services/ser.html">Services</a> </li>
                             <li><a class="link-home" href="./book/book.php">Book</a> </li>
                             <li><a class="link-home" href="./blog/blog.html">Blog</a> </li>
                             <li><a class="link-home" href="./doctors/Doctors23.html">Doctors</a> </li>
@@ -992,7 +992,14 @@ session_start();
     // btnserach
 
     function btnbook() {
-        const url = './book/yasser.php';
+        const url = './book/book.php';
+        window.location.replace(url);
+    }
+
+
+    // get app
+    function btnbook() {
+        const url = './book/book.php';
         window.location.replace(url);
     }
 

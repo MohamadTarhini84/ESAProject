@@ -4,6 +4,8 @@ timeForms.forEach((form)=>{
     form.addEventListener('submit',function (e){
         e.preventDefault();
 
+    const urlParams = new URLSearchParams(window.location.search);
+    let patientProfileId=urlParams.get('id');
 
         let timeInput1=form.childNodes[3].childNodes[3];
         let timeInput2=form.childNodes[3].childNodes[7];
@@ -20,7 +22,7 @@ timeForms.forEach((form)=>{
                 type: "POST",
                 url: "./Resources/php/processTimes.php",
                 dataType: "json",
-                data: {day:whichDay,startTime:timeInput1.value, endTime:timeInput2.value}
+                data: {day:whichDay,startTime:timeInput1.value, endTime:timeInput2.value, id:patientProfileId}
             }).then(
                 function(data){
                     if (data.code == "200"){

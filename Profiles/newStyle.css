@@ -606,8 +606,31 @@ fieldset{
     font-weight: 600;
 }
 
-.Dr-information{
+.Dr-information,.pat-information{
     text-align: right;
+}
+
+#edit-app-popup{
+    border: 1px solid var(--dark);
+    position: fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:400px;
+    padding:30px 10px 5px 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 30px rgba(0 0 0 0.3);
+    background: var(--white);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+#edit-app-popup.active{
+    top:50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;   
 }
 
 #desc-popup{

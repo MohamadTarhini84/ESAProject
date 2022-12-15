@@ -1,10 +1,7 @@
 <?php  require('../config/constants.php');?>
 <?php  require('./partials/login-check.php');?>
 <?php
-  $sql="SELECT * FROM users 
-  join doctordetails 
-  on doctordetails.doctorID=users.id";
-  
+  $sql="SELECT * FROM users where userType='101'";
   //execute the query
   $res=mysqli_query($conn,$sql);
   $sn=1;
@@ -37,13 +34,33 @@
     <link rel="stylesheet" href="css/pharmacy-style.css">
     <link rel="stylesheet" href="css/styles.css">
     <style>
-  a{
-    text-decoration:none!important;
-  }
-  a:hover{
-    color: white !important;
-  }
-</style>
+        a{
+          text-decoration:none!important;
+        }
+        a:hover{
+          color: white !important;
+        }
+        .fixbtn{
+          display: flex;
+          flex-direction:row;
+          justify-content:space-between;
+          align-items: center;
+          
+        }
+        .fixbtn button{
+          padding: 6px 20px;
+          border-radius: 10px;
+          cursor: pointer;
+          background: transparent;
+          border: 1px solid #4AD489;
+        }
+        .confirmed{
+          color:blue!important;
+        }
+        .pending{
+          color:red!important;
+        }
+    </style>
 </head>
 
 <body>
@@ -133,35 +150,28 @@
           <h2 class="font-weight-bold"><br>
             <p style="color:#367952;">MedCenter
               <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Doctors</small></p>
+              <?php
+              if(isset($_SESSION['deleteDoc'])){
+                echo $_SESSION['deleteDoc'];
+                UNSET($_SESSION['deleteDoc']);
+              }
+              
+              ?> 
+              <?php
+              if(isset($_SESSION['updateDoc'])){
+                echo $_SESSION['updateDoc'];                
+                UNSET($_SESSION['updateDoc']);
+              }
+              
+              ?>
         </h2>
-        </div>
-<br>
+      </div>
+      <br>
 
-          <div class="charts-card">
+      <div class="charts-card">
               
              <!--Appointments List-->
-          <div class="list" style="height: 700px;">   
-            
-           <!--  <div id="search-container">
-        <input
-          type="search"
-          id="search-input"
-          placeholder="Search doctor name here.."
-        />
-        <button id="search">Search</button>
-      </div>
-      <div id="buttons">
-        <button class="button-value" >All</button>
-        <button class="button-value" >
-          Approved
-        </button>
-        <button class="button-value" >
-          Pending
-        </button>
-        <button class="button-value" >
-          Declined
-        </button>
-      </div>-->
+      <div class="list" style="height: 700px;">   
       <br>
             <table class="table">
               <thead>
@@ -169,13 +179,13 @@
                   <th>ID</th>
                   <th>Name</th>
                   <th>Email</th>
-                  <th>Age</th>
-                  <th>Gender</th>                  
-                  <th>Department</th>
-                  <th>Certificate Number</th>
+                  <th>Gender</th>
+                  <th>Department</th>                  
+                  <th>Certificate</th>
                   <th>License ID</th>
                   <th>Fees</th>
                   <th>Status</th>
+                  <th></th>
                   <th></th>
                 </tr>
               </thead>
@@ -183,22 +193,27 @@
                 <?php
                 
                  while($row = mysqli_fetch_assoc($res)){
-    
+                  
                   //user available
                     $cid=$row['id'];
                     $docname = $row['fullName'];                    
                     $email=$row['email'];
                     $age=$row['birthday'];
                     $gender=$row['gender'];
-                    $cer=$row['certificateNumber'];
-                    $spec=$row['speciality'];
-                    $lID=$row['licenceID'];
-                    $fee=$row['fees'];
-                    $stat=$row['isConfirmed'];
-                    if($stat==100){
+
+                    $sql2="SELECT * FROM doctordetails where doctordetails.doctorID = $cid";
+                    $res2=mysqli_query($conn,$sql2);
+                    $row2=mysqli_fetch_assoc($res2);
+                    
+                    $cer=$row2['certificateNumber'];
+                    $spec=$row2['speciality'];
+                    $lID=$row2['licenceID'];
+                    $fee=$row2['fees'];
+                    $stat=$row2['isConfirmed'];
+                    if($stat==0){
                       $status="pending";
                     }
-                    elseif($stat==101){
+                    elseif($stat==1){
                       $status="confirmed";
                     }
                     else{
@@ -212,17 +227,36 @@
                     </td>
                     <td><?php echo $docname;?></td>
                     <td><?php echo $email;?></td>
-                    <td><?php echo $age;?></td>
+                    
                     <td><?php echo $gender;?></td>
                     <td><?php echo $spec;?></td>
                     <td><?php echo $cer;?></td>
                     <td><?php echo $lID;?></td>
                     <td><?php echo $fee;?></td>
-                    <td class="Appr" id="status"><?php echo $status;?></td>                                   
-                    <td><button><a style="color:black;" href="<?php echo SITEURL; ?>Profiles/doctorProfile.html?id=<?php echo $cid?>">View Profile</a></button>
-                    <button><a style="color:black;" href="<?php echo SITEURL; ?>admin/DeleteDoctor.php?app_id=<?php echo $cid?>">Delete Doctor</a></button>
-                    <button onclick="alert()" > Validate</button>
-                    <!-- <button onclick="toggle()" > Validate</button>-->
+                    <td > 
+                      <p class="<?php echo $status;?>"><?php echo $status;?> </p>
+                    </td>                                   
+                    <td class="fixbtn">
+                      <button>
+                        <a style="color:black;" href="<?php echo SITEURL; ?>Profiles/doctorProfile.html?id=<?php echo $cid?>">View Profile</a>
+                      </button>
+                      <button>
+                        <a style="color:black;" href="<?php echo SITEURL; ?>admin/DeleteDoctor.php?id=<?php echo $cid?>" onclick="return confirm('Are you sure you want to delete this?')">
+                          Delete Doctor
+                        </a>
+                      </button>
+                    <td>
+                      <button>
+                        <?php
+                          if($status=="confirmed"){echo "Already Validated"; } 
+                         else{ ?>                     
+                          <a style="color:black;" href="<?php echo SITEURL; ?>admin/ValidateDoctor.php?id=<?php echo $cid?>" onclick="return confirm('Do you want to approve this doctor')">
+                            Validate
+                          </a>
+                          <?php
+                            } 
+                          ?>
+                      </button></td>
                     </td>
                 </tr>
                 <?php
@@ -235,13 +269,6 @@
             </table>
           </div>
     </div>
-</div>
-<div class="popup" id="popup">
-    <h2>Dr. Doc Doctor</h2>
-    <br>
-    <button onclick="toggle()" id="ok">Approve</button>
-    <button onclick="toggle()" id="ban">Decline</button>
-    <button onclick="toggle()" id="del">Cancel</button>
 </div>
       </main>
       <!-- End Main -->
@@ -256,12 +283,6 @@
         var popup=document.getElementById('popup');
         popup.classList.toggle('active');
 
-      }
-    </script>
-
-     <script>      
-      function goto(){
-          window.location.href="Drprofile.php";
       }
     </script>
 

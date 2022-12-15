@@ -179,7 +179,7 @@
           <form action="<?php $_SERVER['PHP_SELF']?>"  method="POST">
             <br> <h2>Appointmet for </h2>
             <h2><?php echo $patname?> with</h2>
-            <h2>Dr.<?php echo $docname?></h2>
+            <h2>Dr. <?php echo ' '.$docname?></h2>
             <hr>
             <h3>Appointment Details</h3>
             
@@ -189,7 +189,8 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni blanditiis obcaecati illum earum dolorum! Unde, exercitationem aliquid! Voluptatum vel pariatur autem consequatur similique. 
             Placeat vel rem eligendi animi ut illo!</h5>
             <br>
-            <button><a href="<?php echo SITEURL; ?>admin/deleteApp.php?app_id=<?php echo $aid?>&patname=<?php echo $patname?>"> Delete</button>
+            
+            <button ><a href="<?php echo SITEURL;?>admin/deleteApp.php?app_id=<?php echo $aid?>&patname=<?php echo $patname?>" onclick="return confirm('Are you sure you want to delete this?')"> Delete</button>
           </form>
         </div>
 

@@ -93,7 +93,7 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
                     </div>
                     <div class="create margin">
                         <p>Don't have an account?</p>
-                        <a href="../Login/newPrompt.html" class="create_acc">Create Account</a>
+                        <a href="../Loginn/newPrompt.html" class="create_acc">Create Account</a>
                     </div>
                 </form>
             </div>

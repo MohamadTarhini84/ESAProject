@@ -1,6 +1,6 @@
-let editForm=document.getElementById('app-popup-lower');
+let editFormm=document.getElementById('app-popup-lower');
     
-editForm.addEventListener('submit',function (e){
+editFormm.addEventListener('submit',function (e){
     e.preventDefault();
 
     let fullName=patPInfo[6].value;  

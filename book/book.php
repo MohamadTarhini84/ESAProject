@@ -1,6 +1,14 @@
 <?php
 session_start();
+if (isset($_SESSION['logged_in'])) {
+    if ($_SESSION['logged_in'] == false) {
+        header('Location:/ESAProject/loginn/newSignIN.php');
+    } else {
+        header('Location:../Profiles/doctorProfile.html?id=users.id');
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,13 +65,13 @@ session_start();
                     </a>
                     <div class="menu">
                         <ul>
-                            <li><a href="../index.php">Home</a> </li>
+                            <li><a href="../index.html">Home</a> </li>
                             <li><a href="../services/ser.html">Services</a> </li>
                             <li><a href="./book.php">Book</a> </li>
                             <li><a href="../blog/blog.html">Blog</a> </li>
                             <li><a href="../doctors/Doctors23.html">Doctors</a> </li>
                             <li><a href="../about/About.html">About</a> </li>
-                            <li><a href="../newcontact/contact.php">Contact</a> </li>
+                            <li><a href="../newcontact/contact.html">Contact</a> </li>
 
                         </ul>
                     </div>
@@ -119,10 +127,11 @@ session_start();
         </div>
         <!-- end navbar -->
         <div class="bgImage">
+            <div class="overlay"></div>
             <div class="content">
                 <h1>Medical<span>Center</span></h1>
-
-                <button class="explore">Appoinment now</button>
+                <img src="./Doctor-pana.svg" class="kabera">
+                <!-- <button class="explore" onclick="bntexplor()">Appoinment now</button> -->
                 <div id="tarhini-search-container">
                     <div id="tarhini-upper">
                         <div id="tarhini-head-1" class="tarhini-heading tarhini-button tarhini-selected"
@@ -488,38 +497,6 @@ input:focus {
 
 <script src="./sel.js"></script>
 <script>
-// buutt
-
-let blur = document.getElementById('page');
-
-function toggleApp() {
-    blur.classList.toggle('active');
-    let appPopup = document.getElementsByClassName("app-popup");
-    appPopup[0].classList.toggle('active');
-}
-
-
-
-
-// navbar
-
-const toggle = document.getElementsByClassName('toggle')[0]
-const menu = document.getElementsByClassName('menu')[0]
-
-toggle.addEventListener('click', () => {
-    menu.classList.toggle('active')
-});
-
-
-// button search
-
-
-// function divtext(){
-//     document.querySelector('.nesk').style.display = 'inline';
-// }
-
-
-
 // search
 function clickFind() {
     document.getElementById("option-1").setAttribute("style", "display:flex");
@@ -538,7 +515,12 @@ function clickName() {
 
 // login
 function loginbtt() {
-    const url = '../loginn/newSignIN.php';
+    const url = '../ESAProject/loginn/newSignIN.php';
+    window.location.replace(url);
+}
+
+function loginbtt() {
+    const url = '../ESAProject/loginn/newSignIN.php';
     window.location.replace(url);
 }
 </script>

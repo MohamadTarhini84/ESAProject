@@ -20,8 +20,6 @@ if (isset($_POST['submit'])) {
         $certification = $_POST['certification'];
         $speciality = $_POST['speciality'];
         $room = $_POST['room'];
-        $dayOfWeek=$startTime=$endTime="";
-        
         $insert = " INSERT INTO doctordetails(licenceID,certificateNumber,speciality,room) VALUES ('$idcard','$certification','$speciality','$room') ; INSERT INTO doctorTimes(dayOfWeek,startTime,endTime) VALUES ('$dayOfWeek','$startTime','$endTime') ;" ;
         mysqli_query($conn, $insert);
         header('location:/ESAProject/index.php');

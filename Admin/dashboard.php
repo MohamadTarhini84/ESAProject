@@ -70,12 +70,10 @@
             <?php
             if(isset($_SESSION['userType'])){
               if($_SESSION['userType']!='100'){
-                ?>
-              
+                ?>              
             <li class="sidebar-list-item" >
             <a href="admins.php"style="color:white!important; text-align:left"><span class="material-icons-outlined">admin_panel_settings</span>  Admins</a>
-            </li>
-              
+            </li>              
             <?php
               } 
             } 
@@ -89,13 +87,7 @@
             <li class="sidebar-list-item">
             <a href="appointments.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="appo">book_online</span> Appointments</a>
             </li>
-  
-            <!--<li class="sidebar-list-item">
-              <span class="material-symbols-outlined " id="phar">medication</span> Pharmacy
-            </li>
-            <li class="sidebar-list-item">
-              <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
-            </li>-->
+
             <?php
             if(isset($_SESSION['userType'])){
               if($_SESSION['userType']!='100'){
@@ -147,7 +139,12 @@
               <p class="text-primary">PATIENTS</p>
               <span class="material-symbols-outlined text-blue">personal_injury</span>
             </div>
-            <span class="text-primary font-weight-bold">558</span>
+            <?php
+              $sql="SELECT * FROM users WHERE userType='100'";
+              $res=mysqli_query($conn,$sql);
+              $count=mysqli_num_rows($res);
+            ?>
+            <span class="text-primary font-weight-bold"><?php echo $count?></span>
           </div>
 
           <div class="card">
@@ -155,7 +152,12 @@
               <p class="text-primary">Admins</p>
               <span class="material-symbols-outlined text-blue">medication</span>
             </div>
-            <span class="text-primary font-weight-blue">4</span>
+            <?php
+              $sql2="SELECT * FROM admins";
+              $res2=mysqli_query($conn,$sql2);
+              $count2=mysqli_num_rows($res2);
+            ?>
+            <span class="text-primary font-weight-blue"><?php echo $count2?></span>
           </div>
 
           <div class="card">
@@ -163,18 +165,24 @@
               <p class="text-primary">DOCTORS</p>
               <span class="fa fa-user-md text-blue"></span>
             </div>
-            <span class="text-primary font-weight-bold">79</span>
+            <?php
+              $sql3="SELECT * FROM users where userType='101'";
+              $res3=mysqli_query($conn,$sql3);
+              $count3=mysqli_num_rows($res3);
+            ?>
+            <span class="text-primary font-weight-bold"><?php echo $count3?></span>
           </div>
-
-          
-
-        
         <div class="card">
             <div class="card-inner">
               <p class="text-primary">APPOINTMENTS</p>
               <span class="material-symbols-outlined text-blue">book_online</span>
             </div>
-            <span class="text-primary font-weight-bold">56</span>
+            <?php
+              $sql4="SELECT * FROM appointments";
+              $res4=mysqli_query($conn,$sql4);
+              $count4=mysqli_num_rows($res4);
+            ?>
+            <span class="text-primary font-weight-bold"><?php echo $count4?></span>
           </div>
 
         </div>
@@ -190,146 +198,7 @@
             <p class="chart-title">Patients per Department</p>
             <div id="area-chart"></div>
           </div>
-
-        </div><!--
--------------------------------details div-----------------------------------------
-        <div class="details">
-
-            <div class="charts-card">
-              <p class="chart-title">Appointments</p>
-              <div class="card-inner">
-                <span class="material-symbols-outlined text-blue marg">book_online</span>
-                
-                <span style="font-size: 20px; " class="margR">150 Patients</span>                                             
-            </div>
-            <br>
-            <hr>  
-             Appointments List
-          <div class="list">          
-            <table class="table">
-              <thead>
-                <tr>
-                  
-                  <th>Name</th>            
-                  <th>Department</th>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Doctor</th>
-                  <th>Status</th>
-                  
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="name-img">
-                    <img src="img/avatar.svg" alt="" class="climg">
-                    
-                  </td>
-                  <td>Sam David</td>
-                  <td>Cardiology</td>
-                  <td>03-24-22</td>
-                  <td>8:00AM</td>
-                  <td>Dr.Doctor Doctor</td>
-                  <td>Confirmed</td>
-                </tr>                
-              </tbody>
-            </table>
-          </div>
-     
-      </div>
-        
-          <div class="charts-card">
-            <p class="chart-title"> Orders</p>
-            <div>
-                <div class="card-inner">
-                    <span class="material-symbols-outlined text-blue marg">medication</span>
-                    <span style="font-size: 20px; " class="margR">500 patient</span>                                                                
-                </div>
-                <br>
-                <hr> 
-
-                <div class="list">          
-                  <table class="table">
-                    <thead>
-                      <tr>
-                      
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Qty</th>
-                        <th>Order Date</th>
-                        <th>Status</th>                  
-                        <th>Customer Name</th>
-
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="name-img">01</td>
-                        <td>Face Mask</td>                  
-                        <td>20.00</td>
-                        <td>2</td>
-                        <td>40.00</td>
-                        <td></td> 
-                        <td>Delivered</td>
-                      </tr>                      
-                    </tbody>
-                  </table>
-                </div>
-                
-        </div>
-        </div>
-        </div>-->
-      <!------------------------------Patients Reviews------------------------------------------------->
-      <!--<div class="details">
-      
-        <div class="charts-card">  
-          <p class="chart-title">Patients Reviews</p>
-                    
-            <div class="card-inner">
-                <span class="material-symbols-outlined text-blue marg" >personal_injury</span>
-                <div>
-                  <select name="neol" id="newold" class="det-select margR" >
-                    <option value="new">New</option>
-                    <option value="old">Old</option>
-                  </select>
-                </div>                     
-          </div> 
-          <br>           
-            <hr>
-          <div class="Rev-inner"> 
-            <div class="customer">            
-                <div class="listRev">
-                  <div> <img src="img/avatar.svg" alt="" ></div>
-                  <div class="dr-details">
-                    <h4>Dr Doctor Doctor <br>
-                      <small>Pediatric</small><br>
-                      <small>(45) Excellent</small></h4>            
-                  </div>
-                </div>  
-                <div class="contact">
-                  <span >150 Patients</span>                  
-                </div>            
-          </div>
-          <div class="customer">            
-            <div class="listRev">
-              <div> <img src="img/avatar.svg" alt="" ></div>
-              <div class="dr-details">
-                <h4>Dr Doctor Doctor <br>
-                <small>Pediatric</small><br>
-                <small>(45) Excellent</small>
-              </h4>                  
-              </div>
-            </div>  
-            <div class="contact">
-              <span >150 Patients</span>                  
-            </div>            
-          </div>
-
-        </div>
-
-      </div>
-    </div>-->
+        </div>       
   </div>
 
       </main>
@@ -338,8 +207,183 @@
     <!-- Scripts -->
     <!-- ApexCharts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.0/apexcharts.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-data-adapter.min.js"></script>
     <!-- Custom JS -->
     <script src="javascript/scripts.js"></script>
     <script src="javascript/scripts1.js"></script>
+
+
+    <?php
+    
+    $sql5="SELECT * FROM appointments";
+    $res5=mysqli_query($conn,$sql5);
+    $count5 = mysqli_num_rows($res5);
+
+    $appdata= [0,0,0,0,0,0,0,0,0,0,0,0];
+
+
+    while($row= mysqli_fetch_assoc($res5)){
+
+        $date=$row['appDate'];
+        $arr= explode ("-", $date); 
+        
+
+        if($arr[1]=='01'){
+            $appdata[0]+=1;
+        }
+        elseif($arr[1]=='02'){
+            $appdata[1]+=1;
+        }
+        elseif($arr[1]=='03'){
+            $appdata[2]+=1;
+        }
+        elseif($arr[1]=='04'){
+            $appdata[3]+=1;
+        }
+        elseif($arr[1]=='05'){
+            $appdata[4]+=1;
+        }
+        elseif($arr[1]=='06'){
+            $appdata[5]+=1;
+        }
+        elseif($arr[1]=='07'){
+            $appdata[6]+=1;
+        }
+        elseif($arr[1]=='08'){
+            $appdata[7]+=1;
+        }
+        elseif($arr[1]=='09'){
+            $appdata[8]+=1;
+        }
+        elseif($arr[1]=='10'){
+            $appdata[9]+=1;
+        }
+        elseif($arr[1]=='11'){
+            $appdata[10]+=1;
+        }
+        elseif($arr[1]=='12'){
+           $appdata[11]+=1;
+        }
+    }
+
+?>
+<script>
+      var barChartOptions = {
+  
+      series: [{
+          name:"appointments",
+          data: <?php echo json_encode($appdata)?>
+      }],
+      chart: {
+        type: 'bar',
+        height: 350,
+        toolbar: {
+          show: false
+        },
+      },
+      colors: [
+        "#246dec",
+        "#cc3c43",
+        "#367952",
+        "#f5b74f",
+        "#4f35a1"
+      ],
+      plotOptions: {
+        bar: {
+          distributed: true,
+          borderRadius: 4,
+          horizontal: false,
+          columnWidth: '30%',
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      legend: {
+        show: false
+      },
+      xaxis: {
+        categories: ["January", "February", "March", "April","May", "June","July","August","September","October","November","December"],
+      },
+      yaxis: {
+        title: {
+          text: "Count"
+        }
+      }
+      };
+
+      var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
+      barChart.render();
+</script>
+
+      
+      <?php
+    $data= array();
+    $sql="SELECT * FROM services";
+    $res=mysqli_query($conn,$sql);
+    $count = mysqli_num_rows($res);
+    $i=0;
+
+    $sql3="SELECT * FROM appointments";
+    $res3=mysqli_query($conn,$sql3);
+    $count3 = mysqli_num_rows($res3);
+
+    $sql4="SELECT * FROM users where userType='100'";
+    $res4=mysqli_query($conn,$sql4);
+    $count4 = mysqli_num_rows($res4);
+
+    while($row= mysqli_fetch_assoc($res)){
+
+        $data[$i]=$row['serviceName'];
+        $d=$data[$i];
+
+        $sql2="SELECT * FROM appointments 
+        join doctorDetails 
+        on doctorDetails.doctorID=appointments.doctorID 
+        where doctorDetails.speciality = '$d'";
+
+        $res2=mysqli_query($conn,$sql2);
+        $count2 = mysqli_num_rows($res2);
+
+        $c[$i]=$count2*100/$count3;    
+        $i++;   
+    }
+?>
+
+<script>
+      // Radial Chart
+      var radialBaroptions = {
+        chart: {
+          height: 280,
+          type: "radialBar",
+        },
+        series: <?php echo json_encode($c)?>,
+        plotOptions: {
+          radialBar: {
+            dataLabels: {
+              total: {
+                show: true,
+                formatter: function (w) {
+                  
+                  return <?php echo json_encode($count4)?>
+                }
+                
+              }
+            }
+          }
+        },
+        colors: [
+            "#246dec",
+            "#cc3c43",
+            "#367952",
+            "#f5b74f",
+            "#4f35a1"
+          ],
+        labels: <?php echo json_encode($data)?>
+      };
+      
+      var radialChart = new ApexCharts(document.querySelector("#area-chart"), radialBaroptions);
+      radialChart.render();
+    </script>
   </body>
 </html>

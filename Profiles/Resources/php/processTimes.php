@@ -1,7 +1,7 @@
 <?php
     include("db.php");
 
-    $drID=1;
+    $drID=$_POST['id'];
     $errorMSG="Schedule Edited Successfully";
 
     if(isset($_POST['day'])){
