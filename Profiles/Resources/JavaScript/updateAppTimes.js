@@ -20,9 +20,10 @@ function loadAvailableTimes(){
 
             if(bigArray[1]!=undefined){
                 for(appoint of bigArray[1]){
-                    arrayOfApps.push(appoint.appTime);
+                    arrayOfApps.push(appoint[0].appTime);
                 }
             }
+            // console.log(arrayOfApps);
 
             date.setHours(parseInt(startTime.substring(0,2)));
             date.setMinutes(parseInt(startTime.substring(3,5)));
@@ -73,8 +74,11 @@ function loadAvailableTimes(){
         }
     }
 
+    const urlParams = new URLSearchParams(window.location.search);
+    let patientProfileId=urlParams.get('id');
+
     let dayDate=new Date(appointDate.value);
-    let dateStr="?date="+appointDate.value+"&day="+dayDate.getDay();
+    let dateStr="?date="+appointDate.value+"&day="+dayDate.getDay()+"&id="+patientProfileId;
     xhr.open('GET','./Resources/php/availableTimes.php'+dateStr,true);
     xhr.send();
 }

@@ -33,7 +33,7 @@
         $errorMSG.=" missing phone number";
     }
 
-    if(isset($_POST['pass'])){
+    if($_POST['pass']!=""){
         $sql.=", pass='".test_input($_POST['pass'])."'";
     } else{
         $errorMSG.=" missing password";

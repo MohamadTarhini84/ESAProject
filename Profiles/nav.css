@@ -28,6 +28,8 @@
 .mid-element{
     margin:15px 10px 0 10px;
     font-weight: 600;
+    color:inherit !important;
+    text-decoration: none;
 }
 .mid-element:hover{
     cursor: pointer;
@@ -38,12 +40,6 @@
 #nav-right{
     display:flex;
     align-items: center;
-}
-#nav-right img{
-    width:30px;
-    margin:10px;
-    border-radius: 50px;
-    border: 1px solid var(--green);
 }
 
 #name-picture{
@@ -59,6 +55,12 @@
 #name-picture>a{
     color:var(--green);
     text-decoration: none;
+}
+#name-picture>img{
+    width:30px;
+    margin:10px;
+    border-radius: 50px;
+    border: 1px solid var(--green);
 }
 
 #nav-right i{

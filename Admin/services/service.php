@@ -25,7 +25,7 @@
             <tbody>
                 <?php
                 //creation connection avec database
-                $conn=mysqli_connect('localhost','root','','esaproject1');
+                $conn=mysqli_connect('localhost','root','','abcd');
                 //check connection
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
@@ -40,8 +40,8 @@
                         echo"<tr>
                         <td style='font-size:18px;font-weight:bold;color:#367952;'>$row[id]</td>
                         <td style='font-size:18px;font-weight:500;'>$row[serviceName]</td>
-                        <td style='font-size:18px;font-weight:500;'>$row[description]</td>
-                        <td style='font-size:18px;font-weight:500;'>$row[created_at]</td>
+                        <td style='font-size:18px;font-weight:500;'>$row[serviceDesc]</td>
+                        <td style='font-size:18px;font-weight:500;'>$row[dayCreated]</td>
                         <td>
                             <a style='background-color:#367952;border:none;padding:5px 17px 5px 17px;' class='btn btn-primary btn-sm' href='/ESAProject/Admin/services/edit.php?id=$row[id]'>Edit</a>
                             <a class='btn btn-danger btn-sm' href='/ESAProject/Admin/services/deletServices.php?id=$row[id]'>Delete</a>

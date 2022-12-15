@@ -34,15 +34,15 @@ const searchs = () => {
                 als.innerHTML +=
                     ` <div class="info-doc"> 
                     <div class="info-img">
-                    <img src="./images/img1.jpg" class="images" />
-                    </div> 
+                    <img src="/ESAProject/Profiles/Resources/Images/doctor.jpg" class="images" />
+                    </div>
                     <div class="info-del"><div class="first-info"><span class="span-doc">` + user.name + `</span> <br> EMAIL:`
-                    + user.email + `<div> AGE:` + user.age + `</div> </div>
+                    + user.email + `<div> AGE:` + user.birthday + `</div> </div>
                 <hr>  <div class="secon-book">
                 <div class="second-info">NABATIEH CITY<br>
         
                     Medical Center</div>
-                    <div class="book-butt" onclick="todoctor()"> <a href="../Profiles/doctorProfile.html?id=users.id"><button>Book Online</button></a></div>
+                    <a href="/ESAProject/Profiles/doctorProfile.html?id=${user.id}"><div class="book-butt"><button>Book Online</button></div>
             </div>
             </div>
             </div>` ;

@@ -106,6 +106,9 @@ $res = mysqli_query($conn, $sql);
                     <a href="doctors.php" style="color:white!important; text-align:left"><span class="fa fa-user-md "
                             style="font-size: 20px;" id="doctors"></span> &nbsp; Doctors</a>
                 </li>
+                <li class="sidebar-list-item" >
+            <a href="service.php"style="color:white!important; text-align:left"><span class="fa fa-heartbeat " style="font-size: 20px;" id="services"></span> &nbsp; Services</a>
+            </li>
                 <li class="sidebar-list-item">
                     <a href="patients.php" style="color:white!important; text-align:left"><span
                             class="material-symbols-outlined" id="Patients">personal_injury</span> Patients</a>
@@ -114,13 +117,6 @@ $res = mysqli_query($conn, $sql);
                     <a href="appointments.php" style="color:white!important; text-align:left"><span
                             class="material-symbols-outlined" id="appo">book_online</span> Appointments</a>
                 </li>
-
-                <!--<li class="sidebar-list-item">
-              <span class="material-symbols-outlined " id="phar">medication</span> Pharmacy
-            </li>
-            <li class="sidebar-list-item">
-              <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
-            </li>-->
                 <?php
         if (isset($_SESSION['userType'])) {
           if ($_SESSION['userType'] != '100') {

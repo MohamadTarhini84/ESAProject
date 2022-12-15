@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION['id'])){
+    header("location:/ESAProject/index.php");
+}
 include '../connect1.php';
 if (isset($_POST['name']) && isset($_POST['password'])) {
     function validate($data)
