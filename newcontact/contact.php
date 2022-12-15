@@ -126,24 +126,7 @@ if(isset($_POST['submit'])){
             <h2>Contact Us</h2>
             <p>We are happy answer questions and get you acquainted with slack.</p>
         </div>
-<<<<<<< HEAD
-<div class="container1">
-    <div class="ani"><img src="doctor-animate.svg" class="ani1"></div>
-    <div class="containerinfo">
-        <div class="box">
-            <div class="icons"><i class="fa-solid fa-location-dot"></i></div>
-             <div class="text">
-               <h3>Address</h3>
-               <p>Nabtieh,sabbah street</p>
-             </div>
-    </div>
-         <div class="box">
-             <div class="icons"><i class="fa-sharp fa-solid fa-phone"></i></div>
-              <div class="text">
-                <h3>Phone</h3>
-                <p>+961 76123456</p>
-              </div>
-=======
+
         <div class="container1">
             <div class="ani"><img src="doctor-animate.svg" class="ani1"></div>
             <div class="containerinfo">
@@ -170,43 +153,6 @@ if(isset($_POST['submit'])){
                 </div>
 
             </div>
-            <div class="contactForm" id="error">
-                <form id="form">
-                    <h2>Send Message</h2>
-                    <div class="inputbox">
-                        <input type="text" name="name" required="required" id="name" onkeyup="validateName()">
-                        <span>Full Name</span>
-                        <pre id="errorname" style="text-align: end;width:100%;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: red;"></pre>
-
-                    </div>
-                    <div class="inputbox">
-                        <input type="text" name="email" required="required " id="email" onkeyup="validateEmail()">
-                        <span>Email</span>
-                        <pre id="erroremail" style="text-align: end;width:100%;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: red;"></pre>
-                    </div>
-                    <div class="inputbox">
-                        <input type="text" name="message" required="required" id="message" onkeyup="validateText()">
-                        <span>Type your Message...</span>
-                        <pre id="errormessage" style="text-align: end;width:100%;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: red;"></pre>
-                    </div>
-                    <div class="inputbox">
-                        <input type="submit" value="send" id="submit" name="submit" onclick="validateForm()">
-                        <diy id="errorsubmit" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: red;">
-                    </div>
-            </div>
-
-            </form>
->>>>>>> d180b9f728a01762d8c4c4c09e160931c0cc47be
-        </div>
-            <div class="box">
-                <div class="icons"> <i class="fa-sharp fa-solid fa-envelope"></i></div>
-                <div class="text">
-                    <h3>Email</h3>
-                    <p>MedCenter111</p>
-                </div>
-            </div>
-        
-</div>
     <div class="contactForm" id="error">
         <form id="form" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <h2>Send Message</h2>
@@ -236,11 +182,8 @@ if(isset($_POST['submit'])){
 
     </section>
     <div class="map">
-<<<<<<< HEAD
+
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26496.135290220027!2d35.5042823!3d33.889218299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slb!4v1666818779557!5m2!1sen!2slb"  height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-=======
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26496.135290220027!2d35.5042823!3d33.889218299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slb!4v1666818779557!5m2!1sen!2slb" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
->>>>>>> d180b9f728a01762d8c4c4c09e160931c0cc47be
     </div>
 
     <!-- footer -->
@@ -303,18 +246,6 @@ if(isset($_POST['submit'])){
 }
 
         </script>
-    
 
-=======
-        toggle.addEventListener('click', () => {
-            menu.classList.toggle('active')
-        });
-
-        function loginbtt() {
-            const url = '../ESAProject/loginn/newSignIN.phps';
-            window.location.replace(url);
-        }
-    </script>
->>>>>>> d180b9f728a01762d8c4c4c09e160931c0cc47be
 </body>
 </html>

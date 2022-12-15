@@ -26,8 +26,14 @@ if (isset($_POST['submit'])) {
         $birthday = $_POST['birthday'];
         $userType = 101;
         $insert = " INSERT INTO users(fullName,email,pass,birthday,gender,userType) VALUES ('$name','$email','$password','$birthday','$gender','$userType')";
-        mysqli_query($conn, $insert);
+        $result=mysqli_query($conn, $insert);
         header('location:/ESAProject/Loginn/newDrSignUP.php');
+        if($result){
+        $doctor_id=mysqli_insert_id($conn);
+        $sql="INSERT INTO doctortimes(doctorID,dayOfWeek,startTime,endTime) VALUES ('$doctor_id','monday','9:00','16:00'),('$doctor_id','tuesday','9:00','16:00'),('$doctor_id','wednesday','9:00','16:00'),('$doctor_id','thursday','9:00','16:00'),('$doctor_id','friday','9:00','16:00')('$doctor_id','saturday','9:00','16:00'),('$doctor_id','sunday','9:00','16:00')";
+        }else{
+            echo "error";
+        }
     }
 }
 ?>
