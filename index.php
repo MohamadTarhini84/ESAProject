@@ -905,8 +905,14 @@ session_start();
     <span class="up">up</span>
 
     </div>
+
+
+    
     <link rel="stylesheet" type="text/css" href="/ESAProject/Profiles/nav.css">
     <script src="/ESAProject/Profiles/Resources/JavaScript/globalNavBar.js"></script>
+
+
+
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 
