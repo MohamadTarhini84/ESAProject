@@ -71,14 +71,13 @@ session_start();
 
                         </ul>
                     </div>
+                    <div id="name-picture"></div>
                     <?php
                     $userType = 101;
                     $userType = 102;
                     if (isset($_SESSION['name']) && $userType === 101) {
-                        echo "<p class='users'style='color:#16a085'> Hello  "  . $_SESSION['name'] . "</p>";
                         echo "<a href='./loginn/logout.php' class='logout'>Logout</a>";
                     } elseif (isset($_SESSION['name']) && $userType === 102) {
-                        echo "<p class='users' style='color:#16a085'> Hello DR  " . $_SESSION['name'] . "</p>";
                         echo "<a href='./loginn/logout.php' class='logout'>Logout</a>";
                     } else {
                         echo "<a href='./loginn/newSignIN.php' class='login-butt' style='text-decoration:none;'>Login</a>";
@@ -906,6 +905,8 @@ session_start();
     <span class="up">up</span>
 
     </div>
+    <link rel="stylesheet" type="text/css" href="/ESAProject/Profiles/nav.css">
+    <script src="/ESAProject/Profiles/Resources/JavaScript/globalNavBar.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 

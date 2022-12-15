@@ -17,7 +17,7 @@ window.addEventListener("load", async function() {
     //     window.location="/ESAProject/index.php"
     // }
 
-    if(c['type']=='2'){
+    if(c['type']=='101'){
         navbar.innerHTML=`<img src="./Resources/Images/doctor.jpg"></a>
         <a href="./doctorProfileEditable.html?id=${c['id']}">${c['name']}</a>`;
       } else {

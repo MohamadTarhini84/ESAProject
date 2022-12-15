@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION['id'])){
+    header("location:/ESAProject/index.php");
+}
 include '../connect1.php';
 if (isset($_POST['name']) && isset($_POST['password'])) {
     function validate($data)
@@ -26,7 +29,8 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
                 $_SESSION['logged_in'] = true;
                 $_SESSION['name'] = $row['fullName'];
                 $_SESSION['id'] = $row['id'];
-                header("Location:/ESAProject/ESAProject/index.php");
+                $_SESSION['type']=$row['userType'];
+                header("Location:/ESAProject/index.php");
                 exit();
             } else {
                 header("Location:newSignIN.php?error=Incorect User or Password");
