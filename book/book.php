@@ -1,7 +1,13 @@
 <?php
-
+session_start();
+if (isset($_SESSION['logged_in'])) {
+    if ($_SESSION['logged_in'] == false) {
+        header('Location:/ESAProject/loginn/newSignIN.php');
+    } else {
+        header('Location:../Profiles/doctorProfile.html?id=users.id');
+    }
+}
 ?>
-
 
 
 
@@ -512,12 +518,12 @@ function clickName() {
 
 // login
 function loginbtt() {
-    const url = '../ESAProject/Login/newSignIN.html';
+    const url = '../ESAProject/loginn/newSignIN.php';
     window.location.replace(url);
 }
 
 function loginbtt() {
-    const url = '../ESAProject/Login/newSignIN.html';
+    const url = '../ESAProject/loginn/newSignIN.php';
     window.location.replace(url);
 }
 </script>
