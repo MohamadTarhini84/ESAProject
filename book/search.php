@@ -22,12 +22,12 @@ $timestamp = strtotime($decoded['datenow']);
 $day = date('l', $timestamp);
 $data['datenow'] = $day;
 // print_r($data['user']);
-$sql = "SELECT name, email,age,phone,speciality
+$sql = "SELECT fullName, email,birthday,phoneNumber,speciality
 FROM users 
-INNER JOIN doctordetail ON users.id=doctordetail.doctorid 
-INNER JOIN timess ON users.id=timess.doctorid 
-WHERE users.istype='doctor' and users.name ='" . $data['users'] . "'
-and doctortimes.day = '" . $data['datenow'] . "'
+INNER JOIN doctordetails ON users.id=doctordetails.doctorID
+INNER JOIN doctorTimes ON users.id=doctorTimes.doctorID 
+WHERE users.userType='101' and users.name ='" . $data['users'] . "'
+and doctortimes.dayOfWeek = '" . $data['datenow'] . "'
 and doctortimes.startTime <='" . $data['timefrom'] . "'
 and doctortimes.endTime >'" . $data['findtime'] . "'
 
