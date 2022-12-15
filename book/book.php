@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +44,7 @@
                         <div class="btn-make">
                             <button class="bt" name="appoinment" id="make">Get Appoinment</button>
                         </div>
-
+                        
                     </div>
                 </div>
 

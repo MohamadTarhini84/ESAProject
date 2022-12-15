@@ -70,7 +70,7 @@ session_start();
                         </ul>
                     </div>
                     <?php
-                    $userType='100' ;
+                    $userType=100;
                     if (isset($_SESSION['name']) && $userType === 100) {
                         echo "<p class='users'style='color:#16a085'> "  . $_SESSION['name'] . "</p>";
                         echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
