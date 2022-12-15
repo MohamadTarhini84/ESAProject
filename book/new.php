@@ -22,14 +22,14 @@ $timestamp = strtotime($decoded['donedate']);
 $day = date('l', $timestamp);
 $data['donedate'] = $day;
 // print_r($data['user']);
-$sql = "SELECT fullName, email ,birthday ,phoneNumber ,pic, speciality
+$sql = "SELECT users.id, fullName, email, birthday, phoneNumber, speciality 
 FROM users 
-INNER JOIN doctordetails ON users.id=doctordetails.doctorID
-INNER JOIN timess ON users.id=doctortimes.doctorID
+INNER JOIN doctordetails ON users.id=doctordetails.doctorID 
+INNER JOIN doctortimes ON users.id=doctortimes.doctorID 
 WHERE doctordetails.speciality='" . $data['fetchval'] . "'
-and doctortimes.dayOfWeek = '" . $data['donedate'] . "'
-and doctortimes.startTime <='" . $data['starttime'] . "'
-and doctortimes.endTime >'" . $data['closetime'] . "'
+ and doctortimes.dayOfWeek = '" . $data['donedate'] . "'
+ and doctortimes.startTime <='" . $data['starttime'] . "'
+ and doctortimes.endTime >'" . $data['closetime'] . "'
 
 ";
 
@@ -38,12 +38,11 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $a = new User();
-        $a->name = $row['id'];
-        $a->name = $row['name'];
+        $a->id = $row['id'];
+        $a->name = $row['fullName'];
         $a->email = $row['email'];
         $a->birthday = $row['birthday'];
-        $a->phone = $row['phone'];
-        $a->pic = $row['pic'];
+        $a->phone = $row['phoneNumber'];
         $a->spec = $row['speciality'];
         array_push($dataforsend, $a);
     }
