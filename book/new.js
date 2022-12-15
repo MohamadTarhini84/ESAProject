@@ -37,7 +37,7 @@ const searchs = () => {
                     <img src="./images/img1.jpg" class="images" />
                     </div> 
                     <div class="info-del"><div class="first-info"><span class="span-doc">` + user.name + `</span> <br> EMAIL:`
-                    + user.email + `<div> AGE:` + user.age + `</div> </div>
+                    + user.email + `<div> AGE:` + user.birthday + `</div> </div>
                 <hr>  <div class="secon-book">
                 <div class="second-info">NABATIEH CITY<br>
         
