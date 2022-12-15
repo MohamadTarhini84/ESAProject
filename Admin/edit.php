@@ -1,30 +1,45 @@
 <?php  require('../config/constants.php');?>
 <?php  require('./partials/login-check.php');?>
+
 <?php
-    if(isset($_GET['app_id'])){
-    $aid = $_GET['app_id'];
-    $patname=$_GET['patname'];
-    $docname=$_GET['drname'];
-    $sql = "SELECT * FROM appointments WHERE id='$aid'";
-                
-    $res=mysqli_query($conn,$sql);
-                
-    $row=mysqli_fetch_assoc($res);
-                        
-    $date=$row['appDate'];
-    $time=$row['appTime'];              
+
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $query=mysqli_query($conn,"SELECT * FROM services WHERE id='$id'");
+  
+    $count=mysqli_num_rows($query);
+
+    if ($count == 1){
+        $row = mysqli_fetch_assoc($query);
+        $service=$row['serviceName'];
+        $description=$row['serviceDesc'];
     }
-    else{
-        header('location:http://localhost:80/ESAProject/admin/appointments.php');
-    }
-?>
+}
+    $errorMessage="";
+
+if(isset($_POST['submit'])){
+
+        $id = $_POST['id'];
+        $service=$_POST['service'];
+        $description=$_POST['description'];
+        if(empty($service) || empty($description)){
+            $errorMessage ="ALL FIELDS ARE REQUIRED";
+        }
+        else{
+           $update=" UPDATE services SET serviceDesc='$description',serviceName='$service'  WHERE id='$id' ";
+           $result= mysqli_query($conn,$update);
+           header('Location:/ESAProject/Admin/service.php');
+        }  
+  }
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width,initial-scale=0.75">
-    <title>MedCenter-Appointmnent Details</title>
+    <title>MedCenter- Add New Service</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -38,52 +53,15 @@
     <!-- font awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    
     <!-- Custom CSS -->
+    
+    
     <link rel="stylesheet" href="css/styles.css">
-
-<style>
-    .popup2{
-        width:500px;
-        height: 500px;
-        background-color:  #367952;
-        border-radius: 6px;
-        margin: auto;
-        
-        /*transform: translate(-50%,-50%) scale(0.1);*/
-        text-align: center;
-        padding: 10px 30px 30px;
-        color: #333;
-        opacity: 1;
-        visibility: visible;
-        transition: 0.4s,top 0.4s;
-        }
-        .popup2 button{
-        background-color: white !important;
-        color:   #367952 !important;
-        
-        }
-        .popup2 button:hover{
-        background:  #367952 !important;
-        color: #fff !important; 
-        transition: 0.5rem;
-    }
-  
-  a{
-    text-decoration:none!important;
-    color:black;
-  }
-  a:hover{
-    color: white !important;
-  }
-
-</style>
-
-
+    
 </head>
 
 <body>
-    <div class="grid-container" id="blur">
+    <div class="grid-container" id="blur" >
         <!-- Header -->
         <header class="header">
           <div class="menu-icon" onclick="openSidebar()">
@@ -139,12 +117,6 @@
             <a href="appointments.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="appo">book_online</span> Appointments</a>
             </li>
   
-            <!--<li class="sidebar-list-item">
-              <span class="material-symbols-outlined " id="phar">medication</span> Pharmacy
-            </li>
-            <li class="sidebar-list-item">
-              <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
-            </li>-->
             <?php
             if(isset($_SESSION['userType'])){
               if($_SESSION['userType']!='100'){
@@ -165,42 +137,137 @@
             </li>
           </ul>
         </aside>
-        <!-- End Sidebar -->
 
-      <!-- Main -->
-      
+<body>
+    <div style="margin-top:60px;margin-left: 50%;">
+    <div class="container"  style="margin: auto;">
 
-      <main class="main-container">
-        <div class="main-title">
-          <h2 class="font-weight-bold">Appointments
-            <p style="color:#367952;">MedCenter
-              <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Appointment Details</small></p>             
-        </h2>
-        </div>
-        
-        <div class="popup2">
-          <form action="<?php $_SERVER['PHP_SELF']?>"  method="POST">
-            <br> <h2>Appointmet for </h2>
-            <h2><?php echo $patname?> with</h2>
-            <h2>Dr. <?php echo ' '.$docname?></h2>
-            <hr>
-            <h3>Appointment Details</h3>
-            
-            <h4><?php echo $date ?><br><?php echo $time ?></h4>
-            <h5 style="text-align:left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore voluptas quasi voluptate iure quo deserunt dicta, minus modi odit labore. 
-            Nesciunt voluptatibus, recusandae est dolorem quibusdam mollitia iure minima reiciendis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni blanditiis obcaecati illum earum dolorum! Unde, exercitationem aliquid! Voluptatum vel pariatur autem consequatur similique. 
-            Placeat vel rem eligendi animi ut illo!</h5>
-            <br>
-            
-            <button ><a href="<?php echo SITEURL;?>admin/deleteApp.php?app_id=<?php echo $aid?>&patname=<?php echo $patname?>" onclick="return confirm('Are you sure you want to delete this?')"> Delete</button>
-          </form>
-        </div>
+            <img id="logo" src="../images/medicine-animate.svg">
+            <div class="content">
+                <h2 class="title">Add  New Services</h2>
+                <?php
+                 if(!empty($errorMessage)){
+                   echo '<span class="error">'.$errorMessage.'</span>';
+                 }
+                ?>
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <div class="div">
+            <label class="label">Name Of Service:</label>
+            <input type="text" class="input"  name="service" value="<?php echo $service;?>"><br>
+            </div>
+            <div class="div">
+            <label class="labeli" >Description:</label>
+            <textarea class="input" name="description" ><?php echo  $description;?></textarea>
+            </div>
+            <input type="hidden" name="id" value="<?php echo $id;?>">
+            <div class="DIV">
+            <button type="submit" class="btn" name="submit">ADD</button>
+            <a type="cancel" class="btnc" href="/ESAProject/Admin/services/service.php">Cancel</a>
+            </div>
+        </div>  
 
-        
+        </form>
+    </div>
+    </div>
+    </div>
+</body>
 
-        
-    <script src="javascript/scripts.js"></script>
-    <script src="javascript/scripts1.js"></script>
-    </body>
 </html>
+<style>
+#logo {
+    height: 500px;
+    width: 500px;
+    background-color:#16a085;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+
+}
+
+.content {
+    height: 500px;
+    width: 500px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.input {
+    height: 25px;
+    width: 400px;
+    border: none;
+    background-color: #E7DCE6;
+    outline: 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.div {
+    padding-top: 30px;
+
+}
+
+.title {
+    padding-top: 50px;
+    font-size: 40px;
+    color: #16a085;
+}
+
+.btn {
+    background-color: #16a085;
+    color: white;
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+
+}
+
+.btnc {
+    color: #16a085;
+    padding: 6px 30px 7px 30px;
+    border: 2px solid #16a085;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.DIV {
+    padding-top: 30px;
+}
+
+.btn:hover {
+
+    cursor: pointer;
+}
+
+.btnc:hover {
+    background-color: #16a085;
+    color: white;
+    cursor: pointer;
+}
+
+.error {
+    padding: 5px 12px 5px 12px;
+    border-radius: 5px;
+    background-color: #FF8A8A;
+    color: white;
+    font-size: 20px;
+
+}
+
+.label{
+    font-size:18px;
+    color:#16a085;
+    margin-right:265px;
+    font-weight:600;
+}
+.labeli{
+    font-size:18px;
+    color:#16a085;
+    margin-right:300px;
+    font-weight:600;
+}
+</style>
