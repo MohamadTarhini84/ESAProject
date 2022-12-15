@@ -54,7 +54,7 @@
                     </a>
                     <div class="menu">
                         <ul>
-                            <li><a href="../index.html">Home</a> </li>
+                            <li><a href="../index.php">Home</a> </li>
                             <li><a href="../services/ser.html">Services</a> </li>
                             <li><a href="./book.php">Book</a> </li>
                             <li><a href="../blog/blog.html">Blog</a> </li>
