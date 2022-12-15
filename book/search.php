@@ -1,7 +1,6 @@
 <?php
 class User
 {
-    public $id;
     public $name;
     public $email;
     public $birthday;
@@ -22,7 +21,7 @@ $timestamp = strtotime($decoded['datenow']);
 $day = date('l', $timestamp);
 $data['datenow'] = $day;
 // print_r($data['user']);
-$sql = "SELECT fullName, email,birthday,phoneNumber,speciality
+$sql = "SELECT fullName, email, birthday ,phoneNumber, speciality
 FROM users 
 INNER JOIN doctordetails ON users.id=doctordetails.doctorID
 INNER JOIN doctorTimes ON users.id=doctorTimes.doctorID 
@@ -38,7 +37,6 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $a = new User();
-        $a->id = $row['id'];
         $a->name = $row['name'];
         $a->email = $row['email'];
         $a->birthday = $row['birthday'];
