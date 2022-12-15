@@ -152,7 +152,7 @@ if(isset($_POST['submit'])){
                 ?>
             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="div">
-            <label class="label">Name Of Service:</label>
+            <label class="label">Name OfService:</label>
             <input type="text" class="input"  name="service" value="<?php echo $service;?>"><br>
             </div>
             <div class="div">
