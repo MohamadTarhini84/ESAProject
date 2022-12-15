@@ -67,15 +67,13 @@ session_start();
                             <li><a class="link-home" href="./about/About.html">About</a> </li>
                             <li><a class="link-home" href="./newcontact/contact.php">Contact</a></li>
                         </ul>
+                        <div id="name-picture"></div>
                     </div>
-                    <div id="name-picture"></div>
                     <?php
                     $userType=100;
                     if (isset($_SESSION['name']) && $_SESSION['userType']= '100') {
-                        echo "<p class='users'style='color:#16a085'> "  . $_SESSION['name'] . "</p>";
                         echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
                     }elseif (isset($_SESSION['name']) && $_SESSION['userType'] = '101') {
-                        echo "<p class='users' style='color:#16a085'>DR" . $_SESSION['name'] . "</p>";
                         echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
                     }else{
                         echo "<a href='/ESAProject/Loginn/newSignIN.php' class='login-butt' style='text-decoration:none;'>Login</a>";
@@ -908,8 +906,6 @@ session_start();
     <link rel="stylesheet" type="text/css" href="/ESAProject/Profiles/nav.css">
     <script src="/ESAProject/Profiles/Resources/JavaScript/globalNavBar.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-
     <script type="text/javascript">
     const toggle = document.getElementsByClassName('toggle')[0]
     const menu = document.getElementsByClassName('menu')[0]
@@ -1020,6 +1016,7 @@ session_start();
         });
     };
     </script>
+     
 </body>
 
 </html>

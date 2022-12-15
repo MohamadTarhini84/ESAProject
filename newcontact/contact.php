@@ -71,6 +71,7 @@ if(isset($_POST['submit'])){
                
             </ul>
         </div>
+        <div id="name-picture"></div>
         <div class="navbutton">
             <button onclick="loginbtt()"  class="login-butt">login</button>
         </div>
