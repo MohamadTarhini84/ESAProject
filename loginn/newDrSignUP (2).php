@@ -24,10 +24,16 @@ if (isset($_POST['submit'])) {
         $password = $_POST['password'];
         $gender = $_POST['gender'];
         $birthday = $_POST['birthday'];
-        $userType = 102;
+        $userType = 101;
         $insert = " INSERT INTO users(fullName,email,pass,birthday,gender,userType) VALUES ('$name','$email','$password','$birthday','$gender','$userType')";
-        mysqli_query($conn, $insert);
-        header('location:/ESAProject/Login/newDrSignUP.php');
+        $result=mysqli_query($conn, $insert);
+        header('location:/ESAProject/Loginn/newDrSignUP.php');
+        if($result){
+        $doctor_id=mysqli_insert_id($conn);
+        $sql="INSERT INTO doctortimes(doctorID,dayOfWeek,startTime,endTime) VALUES ('$doctor_id','monday','9:00','16:00'),('$doctor_id','tuesday','9:00','16:00'),('$doctor_id','wednesday','9:00','16:00'),('$doctor_id','thursday','9:00','16:00'),('$doctor_id','friday','9:00','16:00')('$doctor_id','saturday','9:00','16:00'),('$doctor_id','sunday','9:00','16:00')";
+        }else{
+            echo "error";
+        }
     }
 }
 ?>
@@ -125,7 +131,7 @@ if (isset($_POST['submit'])) {
                         <button id="signup_button" href="./newDrSignUP.php" name="submit" type="submit">Next</button>
                     </div>
                     <div class="create">
-                        <p>Already have an account? <a href="../Login/newSignIN.php" class="login_acc">Sign in</a></p>
+                        <p>Already have an account? <a href="../Loginn/newSignIN.php" class="login_acc">Sign in</a></p>
                     </div>
                 </form>
             </div>

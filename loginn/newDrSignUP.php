@@ -16,13 +16,14 @@ if (isset($_POST['submit'])) {
     }
 
     if (!empty($_POST['card_id']) && !empty($_POST['certification']) && !empty($_POST['speciality']) && !empty($_POST['room'])) {
-        $idcard = $_POST['card_id'];
-        $certification = $_POST['certification'];
-        $speciality = $_POST['speciality'];
-        $room = $_POST['room'];
-        $insert = " INSERT INTO doctordetails(licenceID,certificateNumber,speciality,room) VALUES ('$idcard','$certification','$speciality','$room')";
-        mysqli_query($conn, $insert);
-        header('location:/ESAProject/ESAProject/index.php');
+                $idcard = $_POST['card_id'];
+                $certification = $_POST['certification'];
+                $speciality = $_POST['speciality'];
+                $room = $_POST['room'];
+                $doctor_id=mysqli_insert_id($conn);
+                $insert = " INSERT INTO doctordetails(doctorID,licenceID,certificateNumber,speciality,room) VALUES ('$doctor_id','$idcard','$certification','$speciality','$room') " ;
+                mysqli_query($conn, $insert);
+        header('location:/ESAProject/index.php');
     }
 }
 ?>

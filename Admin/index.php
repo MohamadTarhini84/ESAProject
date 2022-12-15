@@ -5,6 +5,8 @@
 $errors = array(
   "usernameError" => "",
   "passError" => "",
+  "passnotmatchError" => "",
+  'wronguser'=> ""
 );
 
 if (isset($_POST['submit'])) {
@@ -16,11 +18,11 @@ if (isset($_POST['submit'])) {
     $errors['passError'] = 'password field is empty';
   }
    else {
-	$username=$_POST['username'];
+		$username=$_POST['username'];
 		$password=$_POST['password'];		
 
 		//sql to check if the username and password exist or not
-		$sql="SELECT * FROM admins WHERE fullName='$username' AND pass='$password'";
+		$sql="SELECT * FROM admins WHERE fullName='$username' ";
 		//execute the query
 		$res=mysqli_query($conn,$sql);
 		
@@ -28,26 +30,32 @@ if (isset($_POST['submit'])) {
 		 $count = mysqli_num_rows($res);
 				
 		if($count==1){
+
 			$row = mysqli_fetch_assoc($res);
-		//user available
-			$usertype=$row['adminType'];
-			$aid=$row['id'];
 
-			$_SESSION['login']="<div >Login Successful.</div>";
-			$_SESSION['user']=$username;//check if the user is logged in or not and logout will unset it			
-			$_SESSION['userType']=$usertype;			
-			$_SESSION['aid']=$aid;
+			if( $password!=$row['pass']){
+				$errors['passnotmatchError']="Wrong password";
+			}
+			//user available
+			else{
+				$usertype=$row['adminType'];
 
-			//redirect to home page
-			header('location:'.SITEURL.'Admin/dashboard.php');
-			//header('location:http://localhost:80/suls/admin/dashboard.php');
+				$aid=$row['id'];
+
+				$_SESSION['login']="<div >Login Successful.</div>";
+				$_SESSION['user']=$username;//check if the user is logged in or not and logout will unset it			
+				$_SESSION['userType']=$usertype;			
+				$_SESSION['aid']=$aid;
+
+				//redirect to home page
+				header('location:'.SITEURL.'Admin/dashboard.php');
+				//header('location:http://localhost:80/suls/admin/dashboard.php');
+			}   
 		}
 		else{
-		//user not available and login fail
-			$_SESSION['login']="<div> Username OR Password did not match </div>";
-			header('location:http://localhost:80/ESAProject/Admin');
-		}    
-  }
+			$errors['wronguser']="user does not exist";
+		}
+	}
 }
 
 ?>
@@ -71,6 +79,7 @@ if (isset($_POST['submit'])) {
 					unset($_SESSION['no-login-message']);
 					echo "<br><br>";
 				}
+				
 				if(isset($_SESSION['user'])){
 					header('location:'.SITEURL.'admin/dashboard.php');
 				}
@@ -84,9 +93,14 @@ if (isset($_POST['submit'])) {
 		
 		<div class="login-content">
 			<form action="" method="post">
-
+				
 				<img src="img/avatar.svg">
-				<h2 class="title">Welcome</h2>
+				<h2 class="title">Welcome
+				
+				</h2>
+				<h3 style="color:red"><?php
+					echo $errors['passnotmatchError'];$errors['wronguser']
+				?></h3>
            		<div class="input-div one">
            		   <div class="i">
            		   		<i class="fas fa-user"></i>

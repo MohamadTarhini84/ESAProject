@@ -24,10 +24,10 @@ if (isset($_POST['submit'])) {
         $password = $_POST['password'];
         $gender = $_POST['gender'];
         $birthday = $_POST['birthday'];
-        $userType = 101;
+        $userType=100;
         $insert = " INSERT INTO users(fullName,email,pass,birthday,gender,userType) VALUES ('$name','$email','$password','$birthday','$gender','$userType')";
         mysqli_query($conn, $insert);
-        header('location:/ESAProject/ESAProject/index.php');
+        header('location:/ESAProject/index.php');
     }
 }
 ?>
@@ -125,7 +125,7 @@ if (isset($_POST['submit'])) {
                         <button id="signup_button" name="submit" type="submit">SIGN UP</button>
                     </div>
                     <div class="create">
-                        <p>Already have an account? <a href="../Login/newSignIN.php" class="login_acc">Sign in</a></p>
+                        <p>Already have an account? <a href="../Loginn/newSignIN.php" class="login_acc">Sign in</a></p>
                     </div>
                 </form>
             </div>

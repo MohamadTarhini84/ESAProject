@@ -162,7 +162,7 @@
             </thead>
             <tbody>
                 <?php
-               
+                $sn=1;
                   //select from data base
                   $select=" SELECT * FROM services";
                   $result= mysqli_query($conn, $select);
@@ -170,7 +170,7 @@
                     //read data of each row
                     while($row = mysqli_fetch_assoc($result)){
                         echo"<tr>
-                        <td>$row[id]</td>
+                        <td>$sn</td>
                         <td>$row[serviceName]</td>
                         <td>$row[serviceDesc]</td>
                         <td>$row[dayCreated]</td>
@@ -180,6 +180,7 @@
              
                         </td>
                     </tr>";
+                    $sn++;
                     }
                   }
                 ?>

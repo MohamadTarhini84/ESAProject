@@ -3,8 +3,6 @@
 
     ?>
 
-
-
  <!DOCTYPE html>
  <html lang="en">
 
@@ -37,6 +35,7 @@
 
                              <div class="parag">Nabatieh, Sabbeh street</div>
                          </div>
+
 
 
                          <div class="social">
