@@ -13,9 +13,9 @@ window.addEventListener("load", async function() {
     let c=JSON.parse(b);
     // console.log(b);
     
-    // if(c['id']!=patientProfileId && c['type']!='4'){
-    //     window.location="/ESAProject/index.php"
-    // }
+    if(c['type']=='101' && c['id']==patientProfileId){
+        window.location="/ESAProject/Profiles/doctorProfileEditable.html?id="+patientProfileId;
+    }
 
     if(c['type']=='101'){
         navbar.innerHTML=`<img src="./Resources/Images/doctor.jpg"></a>
