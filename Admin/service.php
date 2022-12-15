@@ -1,30 +1,13 @@
 <?php  require('../config/constants.php');?>
 <?php  require('./partials/login-check.php');?>
-<?php
-    if(isset($_GET['app_id'])){
-    $aid = $_GET['app_id'];
-    $patname=$_GET['patname'];
-    $docname=$_GET['drname'];
-    $sql = "SELECT * FROM appointments WHERE id='$aid'";
-                
-    $res=mysqli_query($conn,$sql);
-                
-    $row=mysqli_fetch_assoc($res);
-                        
-    $date=$row['appDate'];
-    $time=$row['appTime'];              
-    }
-    else{
-        header('location:http://localhost:80/ESAProject/admin/appointments.php');
-    }
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width,initial-scale=0.75">
-    <title>MedCenter-Appointmnent Details</title>
+    <title>MedCenter- Doctors</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -38,48 +21,24 @@
     <!-- font awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    
     <!-- Custom CSS -->
+    
+    <link rel="stylesheet" href="css/pharmacy-style.css">
     <link rel="stylesheet" href="css/styles.css">
-
-<style>
-    .popup2{
-        width:500px;
-        height: 500px;
-        background-color:  #367952;
-        border-radius: 6px;
-        margin: auto;
-        
-        /*transform: translate(-50%,-50%) scale(0.1);*/
-        text-align: center;
-        padding: 10px 30px 30px;
-        color: #333;
-        opacity: 1;
-        visibility: visible;
-        transition: 0.4s,top 0.4s;
+    <style>
+        a{
+          text-decoration:none!important;
         }
-        .popup2 button{
-        background-color: white !important;
-        color:   #367952 !important;
-        
+        a:hover{
+          color: white !important;
         }
-        .popup2 button:hover{
-        background:  #367952 !important;
-        color: #fff !important; 
-        transition: 0.5rem;
-    }
-  
-  a{
-    text-decoration:none!important;
-    color:black;
-  }
-  a:hover{
-    color: white !important;
-  }
 
-</style>
-
-
+        button:hover{
+            background:  #367952 !important;
+            color: #fff !important; 
+            transition: 0.5rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -139,12 +98,6 @@
             <a href="appointments.php"style="color:white!important; text-align:left"><span class="material-symbols-outlined" id="appo">book_online</span> Appointments</a>
             </li>
   
-            <!--<li class="sidebar-list-item">
-              <span class="material-symbols-outlined " id="phar">medication</span> Pharmacy
-            </li>
-            <li class="sidebar-list-item">
-              <span class="material-icons-outlined" id="orders">shopping_cart</span> Sales Orders
-            </li>-->
             <?php
             if(isset($_SESSION['userType'])){
               if($_SESSION['userType']!='100'){
@@ -166,41 +119,73 @@
           </ul>
         </aside>
         <!-- End Sidebar -->
-
       <!-- Main -->
-      
-
       <main class="main-container">
         <div class="main-title">
-          <h2 class="font-weight-bold">Appointments
+          <h2 class="font-weight-bold"><br>
             <p style="color:#367952;">MedCenter
-              <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">Appointment Details</small></p>             
+              <span style="content: \2192;color: #666666;" >&#8594;</span> <small style="color: #666666;">List of Services</small></p>
+              <?php
+              if(isset($_SESSION['deleteSer'])){
+                echo $_SESSION['deleteSer'];
+                UNSET($_SESSION['deleteSer']);
+              }
+              
+              ?> 
+              <?php
+              if(isset($_SESSION['updateSer'])){
+                echo $_SESSION['updateSer'];                
+                UNSET($_SESSION['updateSer']);
+              }
+              
+              ?>
         </h2>
-        </div>
-        
-        <div class="popup2">
-          <form action="<?php $_SERVER['PHP_SELF']?>"  method="POST">
-            <br> <h2>Appointmet for </h2>
-            <h2><?php echo $patname?> with</h2>
-            <h2>Dr. <?php echo ' '.$docname?></h2>
-            <hr>
-            <h3>Appointment Details</h3>
-            
-            <h4><?php echo $date ?><br><?php echo $time ?></h4>
-            <h5 style="text-align:left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore voluptas quasi voluptate iure quo deserunt dicta, minus modi odit labore. 
-            Nesciunt voluptatibus, recusandae est dolorem quibusdam mollitia iure minima reiciendis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni blanditiis obcaecati illum earum dolorum! Unde, exercitationem aliquid! Voluptatum vel pariatur autem consequatur similique. 
-            Placeat vel rem eligendi animi ut illo!</h5>
-            <br>
-            
-            <button ><a href="<?php echo SITEURL;?>admin/deleteApp.php?app_id=<?php echo $aid?>&patname=<?php echo $patname?>" onclick="return confirm('Are you sure you want to delete this?')"> Delete</button>
-          </form>
-        </div>
+      </div>
+      <br>
 
+      <div class="charts-card">
+              
+             <!--Appointments List-->
+      <div class="list" style="height: 700px;">   
         
-
-        
-    <script src="javascript/scripts.js"></script>
-    <script src="javascript/scripts1.js"></script>
-    </body>
+        <button><a style='color:black;' href="/ESAProject/Admin/addServices.php" >Add New Service</a></button>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>name Of Service</th>
+                    <th>Description</th>
+                    <th>Created at</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+               
+                  //select from data base
+                  $select=" SELECT * FROM services";
+                  $result= mysqli_query($conn, $select);
+                  if (mysqli_num_rows($result) > 0) {
+                    //read data of each row
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo"<tr>
+                        <td>$row[id]</td>
+                        <td>$row[serviceName]</td>
+                        <td>$row[serviceDesc]</td>
+                        <td>$row[dayCreated]</td>
+                        <td>
+                            <button><a style='color:black;' href='/ESAProject/Admin/edit.php?id=$row[id]'>Edit</a></button>
+                            <button><a style='color:black;' href='/ESAProject/Admin/deleteServices.php?id=$row[id]'>Delete</a></button>
+             
+                        </td>
+                    </tr>";
+                    }
+                  }
+                ?>
+                
+            </tbody>
+        </table>
+    </div>
+</body>
 </html>
