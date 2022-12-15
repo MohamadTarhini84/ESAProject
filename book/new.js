@@ -34,7 +34,7 @@ const searchs = () => {
                 als.innerHTML +=
                     ` <div class="info-doc"> 
                     <div class="info-img">
-                    <img src="./images/img1.jpg" class="images" />
+                    <img src="../images/img1.jpg" class="images" />
                     </div> 
                     <div class="info-del"><div class="first-info"><span class="span-doc">` + user.name + `</span> <br> EMAIL:`
                     + user.email + `<div> AGE:` + user.birthday + `</div> </div>

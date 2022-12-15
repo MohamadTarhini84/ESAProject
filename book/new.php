@@ -22,10 +22,10 @@ $timestamp = strtotime($decoded['donedate']);
 $day = date('l', $timestamp);
 $data['donedate'] = $day;
 // print_r($data['user']);
-$sql = "SELECT fullName, email ,birthday ,phoneNumber ,pic, speciality
+$sql = "SELECT fullName, email ,birthday ,phoneNumber , speciality
 FROM users 
 INNER JOIN doctordetails ON users.id=doctordetails.doctorID
-INNER JOIN timess ON users.id=doctortimes.doctorID
+INNER JOIN doctortimes ON users.id=doctortimes.doctorID
 WHERE doctordetails.speciality='" . $data['fetchval'] . "'
 and doctortimes.dayOfWeek = '" . $data['donedate'] . "'
 and doctortimes.startTime <='" . $data['starttime'] . "'
