@@ -144,7 +144,7 @@ if(isset($_POST['submit'])){
 
             <img id="logo" src="../images/medicine-animate.svg">
             <div class="content">
-                <h2 class="title">Add  New Services</h2>
+                <h2 class="title">Edit Services</h2>
                 <?php
                  if(!empty($errorMessage)){
                    echo '<span class="error">'.$errorMessage.'</span>';
@@ -161,7 +161,7 @@ if(isset($_POST['submit'])){
             </div>
             <input type="hidden" name="id" value="<?php echo $id;?>">
             <div class="DIV">
-            <button type="submit" class="btn" name="submit">ADD</button>
+            <button type="submit" class="btn" name="submit">Save</button>
             <a type="cancel" class="btnc" href="/ESAProject/Admin/services/service.php">Cancel</a>
             </div>
         </div>  
