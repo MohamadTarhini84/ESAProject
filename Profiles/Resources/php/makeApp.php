@@ -3,7 +3,7 @@
 
     session_start();
 
-    $drID=1;
+    $drID=$_POST['id'];
     $patID=$_SESSION['id'];
     $code="200";
     $errorMSG="An error occured!";

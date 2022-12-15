@@ -1,7 +1,9 @@
 <?php
     include("db.php");
 
-    $id=$_SESSION['id']
+    session_start();
+
+    $id=$_GET['id'];
 
     $sql = "SELECT * FROM users WHERE users.id=".$id;
     $result = mysqli_query($conn, $sql);

@@ -3,7 +3,7 @@
 
     $errorMSG="";
 
-    $id=$_SESSION['id'];
+    $id=$_POST['id'];
 
     $sql="UPDATE users SET ";
 
@@ -31,7 +31,7 @@
         $errorMSG.=" missing password";
     }
 
-    $sql.=" WHERE id=2";
+    $sql.=" WHERE id=".$id;
     
     if(mysqli_query($conn,$sql)){
         $errorMSG.=" Table users Query Completed Successfully ";

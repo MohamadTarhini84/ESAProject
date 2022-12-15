@@ -1,7 +1,9 @@
 <?php
     include("db.php");
 
-    $drID=$_POST['id'];
+    session_start();
+
+    $drID=$_SESSION['id'];
     $errorMSG="Schedule Edited Successfully";
 
     if(isset($_POST['day'])){

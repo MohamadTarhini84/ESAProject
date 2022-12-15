@@ -1,7 +1,11 @@
 let edit=document.getElementById('profile-edit-button');
 
 edit.addEventListener('click', async function() { 
-    let a = await fetch("./Resources/php/patInfo.php");
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    let patientProfileId=urlParams.get('id');
+
+    let a = await fetch("./Resources/php/patInfo.php?id="+patientProfileId);
     let b=await a.text();
     let c=JSON.parse(b);
     // console.log(b);
