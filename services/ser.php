@@ -45,23 +45,30 @@
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </a>
-        <div class="menu">
-            <ul>
-                <li><a href="../index.php">Home</a>  </li>
-                <li><a href="./ser.html">Services</a>  </li>
-                <li><a href="../book/book.php">Book</a>  </li>
-                <li><a href="../blog/blog.html">Blog</a></li>
-                <li><a href="../doctors/Doctors23.html">Doctors</a>  </li>
-                <li><a href="../about/About.html">About</a>  </li>
-                <li><a href="../newcontact/contact.php">Contact</a>  </li>
-               
-            </ul>
-        </div>
-        <div class="navbutton">
-            <button onclick="loginbtt()" class="login-butt">login</button>
-        </div>
-        
+                <div class="menu">
+                    <ul>
+                        <li><a class="link-home" href="/ESAProject/index.php">Home</a> </li>
+                        <li><a class="link-home" href="/ESAProject/services/ser.php">Services</a> </li>
+                        <li><a class="link-home" href="/ESAProject/book/book.php">Book</a> </li>
+                        <li><a class="link-home" href="/ESAProject/blog/blog.php">Blog</a> </li>
+                        <li><a class="link-home" href="/ESAProject/doctors/Doctors23.php">Doctors</a> </li>
+                        <li><a class="link-home" href="/ESAProject/about/About.php">About</a> </li>
+                        <li><a class="link-home" href="/ESAProject/newcontact/contact.php">Contact</a></li>
+                    </ul>
+                </div>
+                <div id="name-picture"></div>
+                <?php
+                session_start();
+                if (isset($_SESSION['name']) && $_SESSION['userType']= '100') {
+                    echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
+                }elseif (isset($_SESSION['name']) && $_SESSION['userType'] = '101') {
+                    echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
+                }else{
+                    echo "<a href='/ESAProject/Loginn/newSignIN.php' class='login-butt' style='text-decoration:none;'>Login</a>";
+                }?>
             </nav>
+            <link rel="stylesheet" type="text/css" href="/ESAProject/Profiles/nav.css">
+            <script src="/ESAProject/Profiles/Resources/JavaScript/globalNavBar.js"></script>
             
             <div class="navo">
                 <div class="create">

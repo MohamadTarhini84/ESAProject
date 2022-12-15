@@ -6,7 +6,7 @@
     if(isset($_SESSION['id'])){
 
       $id=$_SESSION['id'];
-      $type=$_SESSION['type'];
+      $type=$_SESSION['userType'];
 
       $sql = "SELECT fullName, id FROM users WHERE id=".$id;
       $result = mysqli_query($conn, $sql);

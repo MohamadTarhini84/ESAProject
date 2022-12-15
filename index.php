@@ -57,30 +57,29 @@ session_start();
                         <span class="bar"></span>
                         <span class="bar"></span>
                     </a>
-                    <div class="menu">
-                        <ul>
-                            <li><a class="link-home" href="./index.php">Home</a> </li>
-                            <li><a class="link-home" href="./services/ser.html">Services</a> </li>
-                            <li><a class="link-home" href="./book/book.php">Book</a> </li>
-                            <li><a class="link-home" href="./blog/blog.html">Blog</a> </li>
-                            <li><a class="link-home" href="./doctors/Doctors23.html">Doctors</a> </li>
-                            <li><a class="link-home" href="./about/About.html">About</a> </li>
-                            <li><a class="link-home" href="./newcontact/contact.php">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div id="name-picture"></div>
-                    <?php
-                    $userType=100;
-                    if (isset($_SESSION['name']) && $_SESSION['userType']= '100') {
-                        echo "<p class='users'style='color:#16a085'> "  . $_SESSION['name'] . "</p>";
-                        echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
-                    }elseif (isset($_SESSION['name']) && $_SESSION['userType'] = '101') {
-                        echo "<p class='users' style='color:#16a085'>DR" . $_SESSION['name'] . "</p>";
-                        echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
-                    }else{
-                        echo "<a href='/ESAProject/Loginn/newSignIN.php' class='login-butt' style='text-decoration:none;'>Login</a>";
-                    }?>
-                </nav>
+                <div class="menu">
+                    <ul>
+                        <li><a class="link-home" href="/ESAProject/index.php">Home</a> </li>
+                        <li><a class="link-home" href="/ESAProject/services/ser.php">Services</a> </li>
+                        <li><a class="link-home" href="/ESAProject/book/book.php">Book</a> </li>
+                        <li><a class="link-home" href="/ESAProject/blog/blog.php">Blog</a> </li>
+                        <li><a class="link-home" href="/ESAProject/doctors/Doctors23.php">Doctors</a> </li>
+                        <li><a class="link-home" href="/ESAProject/about/About.php">About</a> </li>
+                        <li><a class="link-home" href="/ESAProject/newcontact/contact.php">Contact</a></li>
+                    </ul>
+                </div>
+                <div id="name-picture"></div>
+                <?php
+                if (isset($_SESSION['name']) && $_SESSION['userType']= '100') {
+                    echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
+                }elseif (isset($_SESSION['name']) && $_SESSION['userType'] = '101') {
+                    echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
+                }else{
+                    echo "<a href='/ESAProject/Loginn/newSignIN.php' class='login-butt' style='text-decoration:none;'>Login</a>";
+                }?>
+            </nav>
+            <link rel="stylesheet" type="text/css" href="/ESAProject/Profiles/nav.css">
+            <script src="/ESAProject/Profiles/Resources/JavaScript/globalNavBar.js"></script>
 
                 <div class="navo">
                     <div class="create">
@@ -905,13 +904,6 @@ session_start();
     <span class="up">up</span>
 
     </div>
-
-
-    
-    <link rel="stylesheet" type="text/css" href="/ESAProject/Profiles/nav.css">
-    <script src="/ESAProject/Profiles/Resources/JavaScript/globalNavBar.js"></script>
-
-
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
