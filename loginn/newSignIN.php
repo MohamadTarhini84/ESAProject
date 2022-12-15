@@ -29,15 +29,15 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
                 $_SESSION['logged_in'] = true;
                 $_SESSION['name'] = $row['fullName'];
                 $_SESSION['id'] = $row['id'];
-                $_SESSION['type']=$row['userType'];
+                $_SESSION['userType']=$row['userType'];
                 header("Location:/ESAProject/index.php");
                 exit();
             } else {
-                header("Location:newSignIN.php?error=Incorect User or Password");
+                header("Location:/ESAProjct/loginn/newSignIN.php?error=Incorect User or Password");
                 exit();
             }
         } else {
-            header("Location:newSignIN.php?error=Incorect User or Password ");
+            header("Location:/ESAProjct/loginn/newSignIN.php?error=Incorect User or Password ");
             exit();
         }
     }
@@ -96,7 +96,7 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
                     </div>
                     <div class="create margin">
                         <p>Don't have an account?</p>
-                        <a href="../Login/newPrompt.html" class="create_acc">Create Account</a>
+                        <a href="../Loginn/newPrompt.html" class="create_acc">Create Account</a>
                     </div>
                 </form>
             </div>
