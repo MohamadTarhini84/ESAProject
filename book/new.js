@@ -42,7 +42,7 @@ const searchs = () => {
                 <div class="second-info">NABATIEH CITY<br>
         
                     Medical Center</div>
-                    <div class="book-butt"> <button>Book Online</button></div>
+                    <div class="book-butt"><button>Book Online</button></div>
             </div>
             </div>
             </div>` ;
