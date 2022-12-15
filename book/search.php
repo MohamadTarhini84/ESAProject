@@ -4,7 +4,7 @@ class User
     public $id;
     public $name;
     public $email;
-    public $age;
+    public $birthday;
     public $phone;
     public $spec;
 }
@@ -41,7 +41,7 @@ if (mysqli_num_rows($result) > 0) {
         $a->id = $row['id'];
         $a->name = $row['name'];
         $a->email = $row['email'];
-        $a->age = $row['age'];
+        $a->birthday = $row['birthday'];
         $a->phone = $row['phone'];
         $a->spec = $row['speciality'];
         array_push($dataforsend, $a);
