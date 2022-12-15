@@ -1,17 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION['logged_in'])) {
-    if ($_SESSION['logged_in'] == false) {
-        header('Location:/ESAProject/loginn/newSignIN.php');
-    } else {
-        header('Location:../Profiles/doctorProfile.html?id=users.id');
-    }
-}
-?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
