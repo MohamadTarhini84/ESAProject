@@ -38,7 +38,7 @@ const search = () => {
             for (users of data) {
                 als.innerHTML +=
                     ` <div class="info-doc"> <div class="info-img">
-                    <img src="./images/img1.jpg" class="images" />
+                    <img src="../images/img1.jpg" class="images" />
                     </div> 
                     <div class="info-del"><div class="first-info"><span class="span-doc">` + users.name + `</span> <br> EMAIL:`
                     + users.email + `<div> AGE:` + users.age + `</div> </div>
@@ -46,7 +46,7 @@ const search = () => {
                 <div class="second-info">NABATIEH CITY<br>
         
                     Medical Center</div>
-                    <div class="book-butt" onclick="todoctor()"> <a href="../Profiles/doctorProfile.html?id=users.id"><button>Book Online</button></a></div>
+                    <div class="book-butt" onclick="todoctor()"><button>Book Online</button>0</div>
         
             </div>
             </div>

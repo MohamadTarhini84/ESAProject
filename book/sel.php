@@ -10,7 +10,7 @@ $dataforsend = [];
 $decoded = json_decode($content, true);
 $data['fetchval'] = $decoded['fetchval'];
 
-$sql = "SELECT DISTINCT speciality FROM doctordetail";
+$sql = "SELECT DISTINCT speciality FROM doctordetails";
 
 $result = mysqli_query($conn, $sql);
 

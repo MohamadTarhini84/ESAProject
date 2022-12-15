@@ -17,7 +17,7 @@ timeForms.forEach((form)=>{
             allFormInputs.forEach((a)=>{
                 a.setAttribute('style','border:1px solid var(--light);');
             })
-    
+            console.log(timeInput1.value)
             $.ajax({
                 type: "POST",
                 url: "./Resources/php/processTimes.php",

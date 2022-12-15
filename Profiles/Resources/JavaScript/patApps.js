@@ -6,7 +6,11 @@ let editAppDesc=document.getElementById('edit-app-popup');
 let editAppDsc=document.getElementById('edit-app-desc');
 
 window.addEventListener("load", async function() { 
-    let a = await fetch("./Resources/php/fetchApps.php?type=pat");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    let patientProfileId=urlParams.get('id');
+
+    let a = await fetch("./Resources/php/fetchApps.php?type=pat&id="+patientProfileId);
     let b=await a.text();
     let c=JSON.parse(b);
     // console.log(b);
