@@ -121,12 +121,23 @@
       <!-- Main -->
       <main class="main-container">
         <div class="main-title">
-          <h2 class="font-weight-bold">DASHBOARD <br>
+          <h2 class="font-weight-bold">DASHBOARD - <?php
+            if(isset($_SESSION['userType'])){
+              if($_SESSION['userType']=='101'){
+                echo 'Welcome Super Admin';
+              }
+              else{
+                echo 'Welcome Admin';
+              } 
+
+            }
+                ?><br>
           <?php
               if(isset($_SESSION['login'])){
                 echo $_SESSION['login'];
                 UNSET($_SESSION['login']);
               }
+              
               if(isset( $_SESSION['not super admin'])){
                 echo  $_SESSION['not super admin'];
                 UNSET( $_SESSION['not super admin']);

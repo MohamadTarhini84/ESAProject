@@ -59,6 +59,7 @@
 #name-picture>img{
     width:30px;
     margin:10px;
+    height:auto !important;
     border-radius: 50px;
     border: 1px solid var(--green);
 }

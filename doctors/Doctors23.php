@@ -48,6 +48,7 @@
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </a>
+<<<<<<< HEAD:doctors/Doctors23.html
         <div class="menu">
             <ul>
                 <li><a href="../index.php">Home</a>  </li>
@@ -65,7 +66,32 @@
             <button onclick="loginbtt()" class="login-butt">login</button>
         </div>
         
+=======
+                <div class="menu">
+                    <ul>
+                        <li><a class="link-home" href="/ESAProject/index.php">Home</a> </li>
+                        <li><a class="link-home" href="/ESAProject/services/ser.php">Services</a> </li>
+                        <li><a class="link-home" href="/ESAProject/book/book.php">Book</a> </li>
+                        <li><a class="link-home" href="/ESAProject/blog/blog.php">Blog</a> </li>
+                        <li><a class="link-home" href="/ESAProject/doctors/Doctors23.php">Doctors</a> </li>
+                        <li><a class="link-home" href="/ESAProject/about/About.php">About</a> </li>
+                        <li><a class="link-home" href="/ESAProject/newcontact/contact.php">Contact</a></li>
+                    </ul>
+                </div>
+                <div id="name-picture"></div>
+                <?php
+                session_start();
+                if (isset($_SESSION['name']) && $_SESSION['userType']= '100') {
+                    echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
+                }elseif (isset($_SESSION['name']) && $_SESSION['userType'] = '101') {
+                    echo "<a href='/ESAProject/loginn/logout.php' class='logout'>Logout</a>";
+                }else{
+                    echo "<a href='/ESAProject/Loginn/newSignIN.php' class='login-butt' style='text-decoration:none;'>Login</a>";
+                }?>
+>>>>>>> 21b1d78baf9e3f21937d3c559db48d6cf4aff5d1:doctors/Doctors23.php
             </nav>
+            <link rel="stylesheet" type="text/css" href="/ESAProject/Profiles/nav.css">
+            <script src="/ESAProject/Profiles/Resources/JavaScript/globalNavBar.js"></script>
             
             <div class="navo">
                 <div class="create">

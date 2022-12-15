@@ -4,7 +4,7 @@ window.addEventListener("load", async function() {
     let a = await fetch("/ESAProject/Profiles/Resources/php/navbar.php");
     let b=await a.text();
     let c=JSON.parse(b);
-    console.log(b);
+    // console.log(b);
 
     if(c.bob==-1){
         gNB.innerHTML="";
